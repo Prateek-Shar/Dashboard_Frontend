@@ -5,7 +5,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
-    fetch("https://your-backend.onrender.com/api/check-auth", {
+    fetch("https://your-backend.onrender.com/check-auth", {
       credentials: "include",
     })
       .then((res) => setIsAuthenticated(res.status === 200))
