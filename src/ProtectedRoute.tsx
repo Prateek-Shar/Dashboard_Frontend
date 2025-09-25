@@ -4,12 +4,24 @@ import { Navigate } from "react-router-dom";
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
-  useEffect(() => {
-    fetch("https://your-backend.onrender.com/check-auth", {
-      credentials: "include",
-    })
-      .then((res) => setIsAuthenticated(res.status === 200))
-      .catch(() => setIsAuthenticated(false));
+    useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch("https://your-backend.onrender.com/check-auth", {
+          credentials: "include",
+        });
+
+        if (res.ok) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      } catch (error) {
+        setIsAuthenticated(false);
+      }
+    };
+
+    checkAuth();
   }, []);
 
   if (isAuthenticated === null) return <div>Loading...</div>;
