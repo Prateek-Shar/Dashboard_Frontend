@@ -180,7 +180,7 @@ const LineChart = () => {
           </div>
         ) : (
           <div className='w-full'>
-            <p className='text-center text-gray-500'>No data available for Daily Income</p>
+            <p className='text-center text-gray-500 font-Poppins'>No data available for Daily Income</p>
           </div>
         )}
         </div>
@@ -203,7 +203,7 @@ const LineChart = () => {
 
         ) : (
           <div className='w-full'>
-            <p className='text-center text-gray-500'>No data available for Monthly Income</p>
+            <p className='text-center text-gray-500 font-Poppins'>No data available for Monthly Income</p>
           </div>
         )}
       </div>
@@ -224,7 +224,7 @@ const LineChart = () => {
           </div>
         ) : (
           <div className='w-full'>
-            <p className='text-center text-gray-500'>No data available for Yearly Income</p>
+            <p className='text-center text-gray-500 font-Poppins'>No data available for Yearly Income</p>
           </div>
         )} 
       </div>
