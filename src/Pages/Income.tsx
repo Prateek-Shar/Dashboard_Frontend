@@ -35,7 +35,7 @@ const Income = () => {
     const VisualizeDiv = useRef<HTMLDivElement>(null)
 
     const fetchIncomeData = async() => {
-        const res = await fetch(`http://localhost:8080/get_income_length` , {
+        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_income_length` , {
             method : "GET",
             credentials : "include"
         })
@@ -51,7 +51,7 @@ const Income = () => {
 
 
     const handleData = async() => {
-        const response1 = await fetch(`http://localhost:8080/get_data_by_month` , {
+        const response1 = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_data_by_month` , {
             method : "GET",
             credentials : "include"
         })
@@ -65,7 +65,7 @@ const Income = () => {
 
 
 
-        const response2 = await fetch(`http://localhost:8080/get_data_by_year` , {
+        const response2 = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_data_by_year` , {
             method : "GET",
             credentials : "include"
         })
@@ -79,7 +79,7 @@ const Income = () => {
 
 
 
-        const response3 = await fetch(`http://localhost:8080/get_data_daily` , {
+        const response3 = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_data_daily` , {
             method : "GET",
             credentials : "include"
         })
