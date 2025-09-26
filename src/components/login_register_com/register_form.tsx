@@ -1,5 +1,5 @@
 import eye_open from "../../images/eye_open.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import cross from "../../images/cross.png"
 import uncheck_checkbox from "../../images/checkbox_uncheck.png";
 import checked_checkbox from "../../images/checkbox_checked.png";
@@ -13,6 +13,7 @@ interface ToggleToSwitch {
 const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
     const default_form = {
+        UID : 0,
         Username: "",
         Email: "",
         Password: "",
@@ -23,6 +24,8 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     const [errorDiv , setErrorDiv] = useState(false)
     const [isChecked , setIsChecked] = useState(false)
     const [typeText , setTypeText] = useState(false)
+
+    const [userLength , setUserLength] = useState<number>(0)
 
 
     const handleCheckbox = () => {
@@ -41,6 +44,8 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const formData = { ...form, UID: userLength + 1 };
         
         if (!isChecked) {
             alert("You must agree to Terms and Condition before SignUp")
@@ -51,7 +56,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
             headers : {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(form)
+            body: JSON.stringify(formData)
         });
 
         const data = await res.json();
@@ -67,7 +72,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
         
             if (data.existing_error) {
                 setErrorDiv(true);
-                setForm({ ...default_form });
+                setForm({ ...default_form , UID : userLength});
             }
 
         console.error("Failed to register user");
@@ -76,12 +81,31 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
         }   
     };
 
+    const getUserLength = async() => {
+        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/getUserLength` , {
+            method : "GET"
+        })
+
+        if(!res.ok) {
+            console.log("Something Broke at Frontend")
+            return;
+        }
+
+        const data = await res.json();
+        setUserLength(data.UserCount)
+        return;
+    }
+
 
     
     const togglePassword = () => {
         setTypeText(prev => !prev);
     }
 
+
+    useEffect(() => {
+        getUserLength()
+    } , [])
     return (
         <div className="w-[80%] mt-20">
             <form onSubmit={handleSubmit} className="flex flex-col">
