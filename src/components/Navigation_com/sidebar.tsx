@@ -43,7 +43,7 @@ const Sidebar = () => {
 
     const handleClickToSignOut = async () => {
         try {
-            const res = await fetch("http://localhost:8080/logout", {
+            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/logout", {
                 method: "GET",
                 credentials: "include"
             });
