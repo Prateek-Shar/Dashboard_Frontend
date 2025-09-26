@@ -36,7 +36,7 @@ const NewIncomeForm = () => {
         console.log(formToSend)
 
         try {
-            const res = await fetch("http://localhost:8080/send_income", {
+            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/send_income", {
                 method: "POST",
                 credentials: "include",
                 headers: {

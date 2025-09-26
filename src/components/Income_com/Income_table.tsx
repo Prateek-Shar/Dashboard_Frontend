@@ -23,7 +23,7 @@ const Income_table = () => {
 
     
     const fetchIncomePageData = async(page : number) => {
-        const res = await fetch(`http://localhost:8080/get_income_detail?page=${page}` , {
+        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_income_detail?page=${page}` , {
             method : "GET",
             credentials : "include"
         })
@@ -38,7 +38,7 @@ const Income_table = () => {
 
 
     const fetchIncomeLength = async() => {
-        const res = await fetch(`http://localhost:8080/getIncomeStats` , {
+        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/getIncomeStats` , {
             method : "GET",
             credentials : "include"
         })

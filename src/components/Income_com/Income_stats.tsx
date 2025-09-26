@@ -13,7 +13,7 @@ const Income_stats = () => {
     const [top_category , setTopCategory] = useState()
 
     const handleAPI = async() => {
-        const res = await fetch(`http://localhost:8080/getIncomeStats` , {
+        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/getIncomeStats` , {
             method: "GET"
         })
 

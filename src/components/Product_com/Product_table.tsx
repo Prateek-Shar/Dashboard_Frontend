@@ -48,7 +48,7 @@ const Product_table = () => {
     const { setLoaderForApi2  } = useAPI()
 
     const fetchProductPageData = async (page : number) => {
-        const res = await fetch(`http://localhost:8080/get_product_statistics?page=${page}` , {
+        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_product_statistics?page=${page}` , {
             method : "GET",
             credentials : "include"
         })
@@ -65,7 +65,7 @@ const Product_table = () => {
     const getStats = async() => {
 
         try {
-            const res = await fetch(`http://localhost:8080/product_stats` , {
+            const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/product_stats` , {
                 method : "GET",
                 credentials : "include"
             })
@@ -86,7 +86,7 @@ const Product_table = () => {
     
 
     const handleDelete = async(P_id: number) => {
-        fetch(`http://localhost:8080/delete_product?P_id=${P_id}`, {
+        fetch(`https://dashboard-backend-1-0w4b.onrender.com/delete_product?P_id=${P_id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())

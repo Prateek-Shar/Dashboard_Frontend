@@ -46,7 +46,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
             alert("You must agree to Terms and Condition before SignUp")
         }
 
-        const res = await fetch("http://localhost:8080/newUser" , {
+        const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/newUser" , {
             method: "POST",
             headers : {
                 "Content-Type": "application/json"

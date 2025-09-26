@@ -54,7 +54,7 @@ const NewProductForm = () => {
         const formToSend = { ...form };
 
         try {
-            const res = await fetch("http://localhost:8080/send_products", {
+            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/send_products", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials : "include",
@@ -110,7 +110,7 @@ const NewProductForm = () => {
     const getProductID = async() => {
 
         try {
-            const resp = await fetch("http://localhost:8080/get_pid", {
+            const resp = await fetch("https://dashboard-backend-1-0w4b.onrender.com/get_pid", {
                 method: "GET",
                 credentials: "include"
             });
