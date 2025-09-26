@@ -13,7 +13,6 @@ interface ToggleToSwitch {
 const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
     const default_form = {
-        UID : 0,
         Username: "",
         Email: "",
         Password: "",
