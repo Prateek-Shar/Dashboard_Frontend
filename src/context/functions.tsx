@@ -28,7 +28,7 @@ export const StatsProvider = ({ children }: { children: ReactNode }) => {
 
   const getApi1 = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/get_customer_stats`, {
+      const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_customer_stats`, {
         method: "GET",
         credentials: "include",
       });
@@ -50,7 +50,7 @@ export const StatsProvider = ({ children }: { children: ReactNode }) => {
 
   const getApi2 = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/product_stats`, {
+      const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/product_stats`, {
         method: "GET",
         credentials: "include",
       });
