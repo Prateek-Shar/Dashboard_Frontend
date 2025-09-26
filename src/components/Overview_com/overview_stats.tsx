@@ -14,7 +14,7 @@ const Overview_Stats = () => {
 
     const getOverviewStats = async() => {
         try {
-            const res = await fetch(`http://localhost:8080/get_overview_stats` , {
+            const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_overview_stats` , {
                 method : "GET",
                 credentials : "include"
             })

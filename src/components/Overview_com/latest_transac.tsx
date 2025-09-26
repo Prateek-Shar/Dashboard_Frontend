@@ -16,7 +16,7 @@ const Latest_Transaction = () => {
     const getLatestTransaction = async() => {
 
         try {
-            const response = await fetch(`http://localhost:8080/getLatestTransaction` , {
+            const response = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/getLatestTransaction` , {
                 method : "GET",
                 credentials : "include"
             })

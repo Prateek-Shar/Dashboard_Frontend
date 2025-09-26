@@ -11,7 +11,7 @@ const Line_Chart = () => {
 
   const getLineInfo = async () => {
     try {
-      const res = await fetch('http://localhost:8080/get_line_chart_info', {
+      const res = await fetch('https://dashboard-backend-1-0w4b.onrender.com/get_line_chart_info', {
         method: "GET",
         credentials: "include"
       });

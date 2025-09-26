@@ -28,7 +28,7 @@ const Alerts_Box = () => {
 
     const GetProductStatstics = async() => {
         try {
-            const res = await fetch(`http://localhost:8080/product_stats` , {
+            const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/product_stats` , {
                 method : "GET",
                 credentials : "include"
             })

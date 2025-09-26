@@ -30,7 +30,7 @@ const Pie_Chart = () => {
 
   const getDataForPie = async () => {
     try {
-      const res = await fetch("http://localhost:8080/getDataForPie", {
+      const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/getDataForPie", {
         method: "GET",
         credentials: "include",
       });
