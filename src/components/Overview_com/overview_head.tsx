@@ -28,7 +28,7 @@ const Overview_Head = () => {
     useEffect(() => {
         const fetchUser = async () => {
         try {
-            const res = await fetch("http://localhost:8080/getUserInfo", {
+            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/getUserInfo", {
             credentials: "include",
             method : "GET"
             });
