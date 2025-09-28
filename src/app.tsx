@@ -9,6 +9,7 @@ import Add_Income from "./Pages/Add_Income";
 import Login_Register from "./Pages/Login_Register";
 import ProtectedRoute from "./ProtectedRoute"
 import Overview from "./Pages/Overview";
+import No_Page from "./Pages/Page_404";
 
 const App = () => {
     
@@ -19,6 +20,7 @@ const App = () => {
             <Routes>
 
                 <Route path="/" element={<Login_Register />} />
+                <Route path="*" element={<No_Page />} />
 
                 <Route
                     path="/customer"

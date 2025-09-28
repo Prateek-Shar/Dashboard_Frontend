@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const path = location.pathname;
 
   // Routes where Sidebar should be shown
-  const sidebarRoutes = ["/", "/products", "/addProduct", "/Income", "/addIncome", "/customer" , "/addCustomer" , "/overview"];
+  const sidebarRoutes = ["/products", "/addProduct", "/Income", "/addIncome", "/customer" , "/addCustomer" , "/overview"];
   const noSidebarRoutes = ["/"];
 
   const showSidebar = sidebarRoutes.includes(path) && !noSidebarRoutes.includes(path);
