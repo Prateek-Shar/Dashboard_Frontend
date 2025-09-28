@@ -13,8 +13,10 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
         if (res.ok) {
           setIsAuthenticated(true);
+          console.log("Cookie Avaialble")
         } else {
           setIsAuthenticated(false);
+          console.log("Cookie Not Avaialble")
         }
       } catch (error) {
         setIsAuthenticated(false);
