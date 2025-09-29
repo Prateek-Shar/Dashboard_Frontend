@@ -59,7 +59,7 @@ const Login_form = () => {
         }
 
         console.log("Login successful:", data);
-        await LoadUserApi()
+        LoadUserApi()
             navigate("/overview");
         } catch (error) {
             console.error("Error during login:", error);
