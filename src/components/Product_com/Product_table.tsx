@@ -9,7 +9,7 @@ import Food from "../../images/Food.png";
 import default_image from "../../images/default.png";
 import Video_Games from "../../images/Video_Games.png"
 import electric_app from "../../images/electric_appliances.png";
-import { useAPI } from "../../context/customers_stats_context";
+import { useAPI } from "../../context/product_stats_context";
 
 interface Product_details {
     P_id: number;
