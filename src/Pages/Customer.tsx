@@ -5,6 +5,7 @@ import Add_customer from "../components/Customer_com/Add_customer_bt"
 import check from "../images/check.png"
 import cross from "../images/cross.png"
 import { useAlert } from "../context/result";
+import { StatsProvider } from "../context/functions";
 
 
 const Customer_page = () => {
@@ -19,9 +20,11 @@ const Customer_page = () => {
             </div>  
 
            <div className="w-full flex justify-evenly items-center mt-10">
-                <div className="w-[65%] flex items-center justify-center">
-                    <Stats />
-                </div>
+                <StatsProvider>
+                    <div className="w-[65%] flex items-center justify-center">
+                        <Stats />
+                    </div>
+                </StatsProvider>
 
                 <div className="w-[20%] flex items-center justify-center">
                     <div className="w-full rounded-4xl m-4" >
@@ -30,9 +33,11 @@ const Customer_page = () => {
                 </div>
             </div>
 
-            <div className="w-full flex items-center justify-center">
-                <Table_content />
-            </div>  
+            <StatsProvider>
+                <div className="w-full flex items-center justify-center">
+                    <Table_content />
+                </div>  
+            </StatsProvider>
 
 
             {successVisible && (

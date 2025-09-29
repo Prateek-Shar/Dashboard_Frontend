@@ -3,6 +3,8 @@ import NewIncomeForm from "../components/Income_com/newIncomeForm"
 import check from "../images/check.png"
 import cross from "../images/cross.png"
 import { useAlert } from "../context/result"
+import { AlertProvider } from "../context/result";
+
 
 
 const Add_Income = () => {
@@ -22,9 +24,11 @@ const Add_Income = () => {
                         <p className="font-Poppins text-[24px] p-4">Add Income</p>
                     </div>
                     
-                    <div className="w-full mt-4">
-                        <NewIncomeForm />
-                    </div>
+                    <AlertProvider>
+                        <div className="w-full mt-4">
+                            <NewIncomeForm />
+                        </div>
+                    </AlertProvider>
                 </div>
             </div>
 

@@ -3,6 +3,7 @@ import NewProductForm from "../components/Product_com/newProductForm";
 import check from "../images/check.png"
 import cross from "../images/cross.png"
 import { useAlert } from "../context/result";
+import { AlertProvider } from "../context/result";
 
 
 const Add_Product = () => {
@@ -23,9 +24,11 @@ const Add_Product = () => {
                         <p className="font-Poppins text-[24px] p-4">Add Product</p>
                     </div>
                     
-                    <div className="w-full">
-                        <NewProductForm />
-                    </div>
+                    <AlertProvider>
+                        <div className="w-full">
+                            <NewProductForm />
+                        </div>
+                    </AlertProvider>
                 </div>
             </div>
 

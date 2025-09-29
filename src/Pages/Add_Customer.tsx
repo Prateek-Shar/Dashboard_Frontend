@@ -3,6 +3,7 @@ import NewCustomerForm from "../components/Customer_com/newCustomerForm"
 import { useAlert } from "../context/result";
 import check from "../images/check.png"
 import cross from "../images/cross.png"
+import { AlertProvider } from "../context/result";
 
 const Add_Customer = () => {
 
@@ -21,9 +22,11 @@ const Add_Customer = () => {
                         <p className="font-Poppins text-[24px] p-4">Add Customer</p>
                     </div>
                     
-                    <div className="w-full mt-4">
-                        <NewCustomerForm />
-                    </div>
+                    <AlertProvider>
+                        <div className="w-full mt-4">
+                            <NewCustomerForm />
+                        </div>
+                    </AlertProvider>
                 </div>
             </div>
 
