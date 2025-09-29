@@ -5,7 +5,7 @@ import Add_customer from "../components/Customer_com/Add_customer_bt"
 import check from "../images/check.png"
 import cross from "../images/cross.png"
 import { useAlert } from "../context/result";
-import { StatsProvider } from "../context/functions";
+import { StatsProvider } from "../context/customers_stats_context";
 
 
 const Customer_page = () => {

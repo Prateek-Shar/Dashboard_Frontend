@@ -1,7 +1,7 @@
 import { Select } from 'antd';
 import { useRef, useState } from 'react';
 import { useAlert } from '../../context/result';
-import { useAPI } from '../../context/functions';
+import { useAPI } from '../../context/customers_stats_context';
 
 const NewCustomerForm = () => {
 
@@ -52,7 +52,7 @@ const NewCustomerForm = () => {
 
 
     const FinalDiv = useRef<HTMLDivElement>(null);
-    const { setLoaderForApi1 } = useAPI()
+    const { setLoaderForApi } = useAPI()
 
 
     const sendCustomer = async (e: React.FormEvent) => {
@@ -98,7 +98,7 @@ const NewCustomerForm = () => {
             const responseData = await res.json();
             console.log("Response from server:", responseData);
 
-            setLoaderForApi1()
+            setLoaderForApi()
 
             divsChange();
             showSuccess();

@@ -1,8 +1,7 @@
 import customers from "../../images/customer.png";
 import member from "../../images/members.png";
 import active from "../../images/active.png";
-
-import { useAPI } from "../../context/functions";
+import { useAPI } from "../../context/customers_stats_context";
 
 const Stats = () => {
 

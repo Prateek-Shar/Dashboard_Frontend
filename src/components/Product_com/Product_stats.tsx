@@ -1,12 +1,11 @@
 import total_customers from "../../images/total_products.png"
 import in_stock from "../../images/in_stock.png"
 import out_of_stock from "../../images/out_of_stock.png";
-import { useAPI } from "../../context/functions";
+import { useAPI } from "../../context/product_stats_context";
 
 const Product_stats = () => {
 
     const { inStockCount , outOfStockCount , productLength } = useAPI()
-
    
     return (
         <div className="w-[90%] bg-white rounded-3xl flex justify-evenly items-center mt-4 mb-4 p-4">

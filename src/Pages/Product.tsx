@@ -2,7 +2,7 @@ import Product_stats from "../components/Product_com/Product_stats"
 import Add_product from "../components/Product_com/Add_product_bt"
 import Product_table from "../components/Product_com/Product_table"
 import Product_head from "../components/Product_com/product_head"
-import { StatsProvider } from "../context/functions";
+import { StatsProvider } from "../context/customers_stats_context";
 
 
 const Products = () => {

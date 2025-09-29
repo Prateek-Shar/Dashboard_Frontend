@@ -2,7 +2,7 @@ import { Flex, Tag, Select, Input, Space, Pagination } from "antd";
 import { useEffect, useRef, useState } from "react";
 import React from "react";
 import bin from "../../images/Bin.png";
-import { useAPI } from "../../context/functions";
+import { useAPI } from "../../context/customers_stats_context";
 
 interface Customer {
   _id?: string;
