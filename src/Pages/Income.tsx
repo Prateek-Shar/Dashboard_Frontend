@@ -6,6 +6,7 @@ import Add_Income_bt from "../components/Income_com/Add_income_bt"
 import { DetailContext } from '../context/Chart';
 import { useEffect, useRef, useState } from "react"
 import { UserProvider } from "../context/login_context"
+import { AlertProvider } from "../context/result";
 import Income_table_head from "../components/Income_com/Income_table_head"
 
 
@@ -125,9 +126,11 @@ const Income = () => {
                     <Income_stats />
                 </div>
 
-                <div className="w-[20%] flex justify-center items-center">
-                    <Add_Income_bt />
-                </div>
+                <AlertProvider>
+                    <div className="w-[20%] flex justify-center items-center">
+                        <Add_Income_bt />
+                    </div>
+                </AlertProvider>
             </div>
 
             <div className="w-full flex justify-center">
