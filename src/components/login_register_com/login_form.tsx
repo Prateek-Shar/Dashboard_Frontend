@@ -51,6 +51,8 @@ const Login_form = () => {
 
             const data = await res.json();
 
+            localStorage.setItem(data , JSON.stringify(data)) 
+
             if (!res.ok) {
             console.error("Failed to login user:", data.message || data.error);
             setErrorDiv(true)
