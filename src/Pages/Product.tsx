@@ -13,29 +13,26 @@ const Products = () => {
         <div className="w-full bg-[#edede9]">  
             <Product_head />
             
-            <div className="w-full flex justify-center items-center mt-10">
-
-                <StatsProvider>
+            <StatsProvider>
+                <div className="w-full flex justify-center items-center mt-10">
                     <div className="w-[65%] flex items-center justify-center">
                         <Product_stats />
                     </div>
-                </StatsProvider>
 
-                <div className="w-[20%] flex items-center justify-center">
-                    <div className="w-[80%]" >
-                        <Add_product />
-                    </div>      
+                    <div className="w-[20%] flex items-center justify-center">
+                        <div className="w-[80%]" >
+                            <Add_product />
+                        </div>      
+                    </div>
                 </div>
-            </div>
 
 
-            <div className="w-full flex flex-col justify-center items-center mt-15">
-                <StatsProvider>
+                <div className="w-full flex flex-col justify-center items-center mt-15">
                     <div className="w-full">
                         <Product_table  />
                     </div>
-                </StatsProvider>
-            </div>
+                </div>
+            </StatsProvider>
 
         </div>
     )

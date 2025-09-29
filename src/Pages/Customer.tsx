@@ -19,21 +19,19 @@ const Customer_page = () => {
                 <Customer_head />
             </div>  
 
-           <div className="w-full flex justify-evenly items-center mt-10">
-                <StatsProvider>
+            <StatsProvider>
+                <div className="w-full flex justify-evenly items-center mt-10">
                     <div className="w-[65%] flex items-center justify-center">
                         <Stats />
                     </div>
-                </StatsProvider>
 
-                <div className="w-[20%] flex items-center justify-center">
-                    <div className="w-full rounded-4xl m-4" >
-                        <Add_customer />
-                    </div>      
+                    <div className="w-[20%] flex items-center justify-center">
+                        <div className="w-full rounded-4xl m-4" >
+                            <Add_customer />
+                        </div>      
+                    </div>
                 </div>
-            </div>
 
-            <StatsProvider>
                 <div className="w-full flex items-center justify-center">
                     <Table_content />
                 </div>  
