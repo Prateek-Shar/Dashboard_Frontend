@@ -16,7 +16,7 @@ const Latest_Transaction = () => {
     const getLatestTransaction = async() => {
 
         try {
-            const response = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/getLatestTransaction` , {
+            const response = await fetch(`${import.meta.env.VITE_PRODUCTION_API}/getLatestTransaction` , {
                 method : "GET",
                 credentials : "include"
             })
