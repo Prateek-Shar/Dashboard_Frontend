@@ -11,7 +11,7 @@ interface UserContextType {
   userDetails: UserData | null;
   setUserDetails: React.Dispatch<React.SetStateAction<UserData | null>>;
   Loader:boolean;
-  LoadUserApi: () => void 
+  LoadUserApi: () => Promise<void> 
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
