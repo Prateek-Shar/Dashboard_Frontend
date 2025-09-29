@@ -30,7 +30,6 @@ const Login_Register = () => {
 
     return (
 
-    <UserProvider>
         <div className="w-screen h-screen bg-[#a8b0ff] flex justify-center items-center">
 
             <div className="w-[90%] h-[95%] flex justify-center items-center">
@@ -61,36 +60,38 @@ const Login_Register = () => {
 
                     </div>
 
-                    {handleDefault && (
-                    <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center ">
-                        <Login_Head onSwitch={handleToggleToSignupPage} />
-                        <Login_form />    
-                    </div>
-                    )}
-
-
-
-                    {isRegister && (
-                        <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center">
-                            <Register_Head onSwitch={handleToggleToLoginPage} />
-                            <Register_Form onSwitch={handleToggleToLoginPage}/>
-                        </div>
-                    )}
-
-
-                    {isLogin && (
-                        <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center">
+                    <UserProvider>
+                        {handleDefault && (
+                        <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center ">
                             <Login_Head onSwitch={handleToggleToSignupPage} />
-                            <Login_form />
+                            <Login_form />    
                         </div>
-                    )}
+                        )}
+
+
+
+                        {isRegister && (
+                            <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center">
+                                <Register_Head onSwitch={handleToggleToLoginPage} />
+                                <Register_Form onSwitch={handleToggleToLoginPage}/>
+                            </div>
+                        )}
+
+
+                        {isLogin && (
+                            <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center">
+                                <Login_Head onSwitch={handleToggleToSignupPage} />
+                                <Login_form />
+                            </div>
+                        )}
+                    </UserProvider>
 
                     
                 </div>
 
             </div>
         </div>
-    </UserProvider>
+        
     );
 };
 
