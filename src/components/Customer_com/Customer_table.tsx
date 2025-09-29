@@ -43,7 +43,7 @@ const Table_content: React.FC = () => {
   const start = (currentPage - 1) * documentEachPage + 1;
   const end = start + currentPageLength - 1;
 
-  const { setLoaderForApi1 , totalCustomerCount } = useAPI()
+  const { setLoaderForApi , totalCustomerCount } = useAPI()
 
   const normalTable = useRef<HTMLDivElement>(null)
   const filterTable = useRef<HTMLDivElement>(null);
@@ -184,7 +184,7 @@ const Table_content: React.FC = () => {
     console.log("Product Deleted")
 
     //Call the api to reload stats data
-    setLoaderForApi1()
+    setLoaderForApi()
     
     //To change customers div
     setCustomers(customers.filter(cus => (cus.Email != email)))

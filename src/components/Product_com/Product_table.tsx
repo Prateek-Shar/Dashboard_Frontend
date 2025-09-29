@@ -45,7 +45,7 @@ const Product_table = () => {
     const start = (currentPage - 1) * documentEachPage + 1;
     const end = start + currentPageLength - 1;
 
-    const { setLoaderForApi2  } = useAPI()
+    const { setLoaderForApi } = useAPI()
 
     const fetchProductPageData = async (page : number) => {
         const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_product_statistics?page=${page}` , {
@@ -96,7 +96,7 @@ const Product_table = () => {
             handleChange(currentPage);    // refresh total products count
             getStats();    // refresh productCount if needed
 
-            setLoaderForApi2()
+            setLoaderForApi()
 
             message.success("Product Deleted Successfully");
         })
