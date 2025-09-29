@@ -4,6 +4,7 @@ import check from "../images/check.png"
 import cross from "../images/cross.png"
 import { useAlert } from "../context/result"
 import { AlertProvider } from "../context/result";
+import { UserProvider } from "../context/login_context"
 
 
 
@@ -14,9 +15,12 @@ const Add_Income = () => {
     return (
         <AlertProvider>
             <div className="w-screen h-screen bg-[#f8f9fa]"> 
-                <div className="w-full">
-                    <Income_head />
-                </div>
+
+                <UserProvider>
+                    <div className="w-full">
+                        <Income_head />
+                    </div>
+                </UserProvider>
 
                 <div className="w-full flex justify-center items-center mt-10">
                     <div className="w-[80%] bg-white rounded-4xl mt-2">

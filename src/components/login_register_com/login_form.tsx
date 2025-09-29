@@ -60,7 +60,6 @@ const Login_form = () => {
             console.error("Failed to login user:", data.message || data.error);
             setErrorDiv(true)
             return;
-
         }
 
         console.log("Login successful:", data);

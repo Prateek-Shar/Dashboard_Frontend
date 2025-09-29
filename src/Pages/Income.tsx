@@ -5,6 +5,7 @@ import Income_visualize from "../components/Income_com/income_visualize"
 import Add_Income_bt from "../components/Income_com/Add_income_bt"
 import { DetailContext } from '../context/Chart';
 import { useEffect, useRef, useState } from "react"
+import { UserProvider } from "../context/login_context"
 import Income_table_head from "../components/Income_com/Income_table_head"
 
 
@@ -112,9 +113,12 @@ const Income = () => {
     return (
 
         <div className="w-full bg-[#edede9]">
-            <div className="w-full">
-                <Income_head />
-            </div>
+
+            <UserProvider>
+                <div className="w-full">
+                    <Income_head />
+                </div>
+            </UserProvider>
 
             <div className="w-full flex justify-center mt-10">
                 <div className="w-[70%]">

@@ -8,7 +8,6 @@ const Product_head = () => {
 
     const { userDetails , Loader } = useUser();
 
-
     return (
         <>
             <div className="w-[90%] ml-2">

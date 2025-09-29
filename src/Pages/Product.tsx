@@ -3,6 +3,7 @@ import Add_product from "../components/Product_com/Add_product_bt"
 import Product_table from "../components/Product_com/Product_table"
 import Product_head from "../components/Product_com/product_head"
 import { StatsProvider } from "../context/product_stats_context";
+import { UserProvider } from "../context/login_context";
 
 
 const Products = () => {
@@ -12,9 +13,11 @@ const Products = () => {
         
         <div className="w-full bg-[#edede9] flex flex-col">  
 
-            <div className="w-full">
-                <Product_head />
-            </div>
+            <UserProvider>
+                <div className="w-full">
+                    <Product_head />
+                </div>
+            </UserProvider>
 
             <StatsProvider>
                 <div className="w-full flex justify-center items-center mt-10">
