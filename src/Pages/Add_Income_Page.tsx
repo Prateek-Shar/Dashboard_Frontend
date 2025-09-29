@@ -14,7 +14,7 @@ const Add_Income_Page = () => {
         <div className="w-full bg-[#f8f9fa]"> 
 
             <UserProvider>
-                <div className="w-full">
+                <div className="w-full h-full">
                     <Income_head />
                 </div>
             </UserProvider>
