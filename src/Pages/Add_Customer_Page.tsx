@@ -11,7 +11,7 @@ const Add_Customer_Page = () => {
 
     return (
 
-        <div className="w-full h-full bg-[#f8f9fa]"> 
+        <div className="w-full h-full relative bg-[#f8f9fa]"> 
 
             <UserProvider>
                 <div className="w-full">
@@ -19,7 +19,7 @@ const Add_Customer_Page = () => {
                 </div>
             </UserProvider>
 
-            <div className="w-full flex justify-center items-center mt-20">
+            <div className="w-full flex justify-center items-center mt-20 mb-20">
                 <div className="w-[80%] bg-white rounded-4xl mt-2 mb-10">
 
                     <div className="w-full flex justify-center items-center rounded-t-4xl">

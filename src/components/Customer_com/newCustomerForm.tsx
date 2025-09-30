@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { useAlert } from '../../context/result';
 
 
-const   NewCustomerForm = () => {
+const NewCustomerForm = () => {
 
     const defaultForm = {
         Customer_name : "",
@@ -27,6 +27,8 @@ const   NewCustomerForm = () => {
     // const [placeholderCountry , setPlaceholderCountry] = useState("Enter Country")
     // const [placeholderEmail , setPlaceholderEmail] = useState("Enter Email Address")
 
+
+    const [StatusBox , setStatusBox] = useState(false)
 
     const SubmitDiv = useRef<HTMLDivElement>(null)
 
@@ -67,7 +69,7 @@ const   NewCustomerForm = () => {
             if (!res.ok) {
                 console.log("Something broke in frontend...........");
                 showFailure();
-                setTimeout(() => hideAlerts(), 3000);
+                // setTimeout(() => hideAlerts(), 3000);
                 return;
             }
 
@@ -76,7 +78,7 @@ const   NewCustomerForm = () => {
 
             // divsChange();
             showSuccess();
-            setTimeout(() => hideAlerts(), 3000);
+            // setTimeout(() => hideAlerts(), 3000);
 
             setForm({ ...defaultForm }); // CID will be fetched again next time
 
@@ -96,6 +98,13 @@ const   NewCustomerForm = () => {
     // }
 
 
+    const SendStatus = (status: string) => {
+        setForm(prev => ({
+            ...prev,
+            Status: status
+        }));
+        setStatusBox(false); // Hide suggestions box
+    };
     
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -116,7 +125,9 @@ const   NewCustomerForm = () => {
     // };
 
 
-
+    const showSuggestions = () => {
+        setStatusBox(true);
+    }
 
 
     return (    
@@ -137,7 +148,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "text" autoComplete="text"  name="Customer_name" className='w-full p-3' onChange={handleInputChange} value={form.Customer_name}/>
+                            <input type = "text" autoComplete="text"  name="Customer_name" className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Customer_name}/>
                         </div>
                     </div>
 
@@ -147,7 +158,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] '>
-                            <input type='text' autoComplete='text' name="Country" className='w-full p-3' onChange={handleInputChange} value={form.Country}/>
+                            <input type='text' autoComplete='text' name="Country" className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Country}/>
                         </div>
                     </div>
                 </div>
@@ -159,7 +170,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "email" autoComplete="text" name='Email' className='w-full p-3' onChange={handleInputChange} value={form.Email}/>
+                            <input type = "email" autoComplete="text" name='Email' className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Email}/>
                         </div>
                     </div>
 
@@ -169,7 +180,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type='number' autoComplete='text' name='Contact_no' className='w-full p-3' onChange={handleInputChange} value={form.Contact_no} />
+                            <input type='number' autoComplete='text' name='Contact_no' className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Contact_no} />
                         </div>
                     </div>
                 </div>
@@ -188,7 +199,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "text" autoComplete="text" name='Company_name' className='w-full p-3' onChange={handleInputChange} value={form.Company_name}/>
+                            <input type = "text" autoComplete="text" name='Company_name' className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Company_name}/>
                         </div>
                     </div>
 
@@ -198,31 +209,45 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type='text' autoComplete='text' name="Industry" className='w-full p-3'/>
+                            <input type='text' autoComplete='text' name="Industry" className='w-full p-3 outline-0' />
                         </div>
                     </div>
                 </div>
 
 
-                <div className='w-[98%] flex justify-between mt-10 ml-2 mr-2'>
+                <div className='w-[98%] flex justify-between items-center mt-10 ml-2 mr-2'>
                     <div className='w-[40%] flex'>
-                        <div className='w-[40%] flex items-center'>
+                        <div className='w-[40%] flex items-center '>
                             <p className='font-Poppins'>Social Media (if any) : </p>
                         </div>
 
-                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type ="url" autoComplete="text" name='links' className='w-full p-3' />
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] flex items-center justify-center'>
+                            <input type ="url" autoComplete="text" name='links' className='w-full p-3 outline-0' />
                         </div>
                     </div>
 
-                    <div className='w-[40%] flex'>
-                        <div className='w-[40%] flex items-center'>
-                            <p className='font-Poppins'>Customer Type / Status  : </p>
+                    <div className='w-[40%] flex flex-col'>
+                        <div className='w-full flex'>
+                            <div className='w-[40%] flex items-center'>
+                                <p className='font-Poppins'>Customer Type / Status  : </p>
+                            </div>
+
+                            <div className='w-[60%] rounded-[5px] border-2 border-[#d8dee9]'>
+                                <input type='text' autoComplete='text' name='Status' className='w-full p-3 outline-0' onChange={(e) => { handleInputChange(e); showSuggestions(); }}  value={form.Status}/>
+                            </div>
                         </div>
 
-                        <div className='w-[60%] rounded-[5px] border-2 border-[#d8dee9]'>
-                            <input type='text' autoComplete='text' name='Status' className='w-full p-3' onChange={handleInputChange} value={form.Status}/>
-                        </div>
+                        {StatusBox && (
+                            <div className='w-[60%] ml-52 flex flex-col bg-white shadow-2xs'>
+                                <div className='w-full mt-2'>
+                                    <p className='p-2 font-Poppins' onClick={ () => {SendStatus("Active")} }>Active</p>
+                                </div>
+
+                                <div className='w-full'>
+                                    <p className='p-2 font-Poppins' onClick={ () =>{SendStatus("Inactive")} }>Inactive</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 
