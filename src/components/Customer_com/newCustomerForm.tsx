@@ -16,7 +16,7 @@ const NewCustomerForm = () => {
         Created_at : new Date()
     };
 
-    const { showSuccess, showFailure , hideAlerts } = useAlert();
+    const { showSuccess, showFailure } = useAlert();
 
 
     const [form, setForm] = useState({ ...defaultForm });
