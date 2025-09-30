@@ -1,7 +1,7 @@
 import { Select } from 'antd';
 import { useRef, useState , useEffect} from 'react';
 import { useAlert } from '../../context/result';
-import { useAPI } from '../../context/product_stats_context';
+
 
 const NewProductForm = () => {
 
@@ -14,7 +14,6 @@ const NewProductForm = () => {
         Discount : "",
     };
 
-    const { setLoaderForApi } = useAPI()
 
     const ProductNameHeading = useRef<HTMLDivElement>(null);
     const ProductQuantityHeading = useRef<HTMLDivElement>(null);
@@ -89,7 +88,6 @@ const NewProductForm = () => {
 
 
                 defaultDivs();
-                setLoaderForApi();
 
                 const newProductId = productId + 1;
                 setProductId(newProductId);

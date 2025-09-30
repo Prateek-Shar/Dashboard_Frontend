@@ -1,34 +1,34 @@
-import Income_head from "../components/Income_com/income_head"
-import NewIncomeForm from "../components/Income_com/newIncomeForm"
+import { useAlert } from "../context/result"
+import NewCustomerForm from "../components/Customer_com/newCustomerForm"
+import Customer_head from "../components/Customer_com/customer_head"
+import { UserProvider } from "../context/login_context"
 import check from "../images/check.png"
 import cross from "../images/cross.png"
-import { UserProvider } from "../context/login_context"
-import { useAlert } from "../context/result"
 
-const Add_Income_Page = () => {
-    
-    const {successVisible , failureVisible} = useAlert()
+const Add_Customer_Page = () => {
+
+    const { successVisible , failureVisible } = useAlert()
 
     return (
-      
+
         <div className="w-full h-full bg-[#f8f9fa]"> 
 
             <UserProvider>
                 <div className="w-full">
-                    <Income_head />
+                    <Customer_head />
                 </div>
             </UserProvider>
 
             <div className="w-full flex justify-center items-center mt-20">
-                <div className="w-[80%] bg-white rounded-4xl mt-2">
+                <div className="w-[80%] bg-white rounded-4xl mt-2 mb-10">
 
                     <div className="w-full flex justify-center items-center rounded-t-4xl">
-                        <p className="font-Poppins text-[24px] p-4">Add Income</p>
+                        <p className="font-Poppins text-[24px] p-4">Add Customer</p>
                     </div>
                     
 
-                    <div className="w-full mt-4">
-                        <NewIncomeForm />
+                    <div className="w-full">
+                        <NewCustomerForm />
                     </div>
                 </div>
             </div>
@@ -63,7 +63,9 @@ const Add_Income_Page = () => {
                 </div>
             )}
         </div> 
+
     )
 }
 
-export default Add_Income_Page
+
+export default Add_Customer_Page;

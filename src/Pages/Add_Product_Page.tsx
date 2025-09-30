@@ -1,21 +1,22 @@
-import Income_head from "../components/Income_com/income_head"
-import NewIncomeForm from "../components/Income_com/newIncomeForm"
+import { useAlert } from "../context/result"
+import NewProductForm from "../components/Product_com/newProductForm"
+import { UserProvider } from "../context/login_context"
+import Product_head from "../components/Product_com/product_head"
 import check from "../images/check.png"
 import cross from "../images/cross.png"
-import { UserProvider } from "../context/login_context"
-import { useAlert } from "../context/result"
 
-const Add_Income_Page = () => {
-    
-    const {successVisible , failureVisible} = useAlert()
+
+const Add_Product_Page = () => {
+
+    const { successVisible , failureVisible } = useAlert()
 
     return (
-      
+
         <div className="w-full h-full bg-[#f8f9fa]"> 
 
             <UserProvider>
                 <div className="w-full">
-                    <Income_head />
+                    <Product_head />
                 </div>
             </UserProvider>
 
@@ -28,7 +29,7 @@ const Add_Income_Page = () => {
                     
 
                     <div className="w-full mt-4">
-                        <NewIncomeForm />
+                        <NewProductForm />
                     </div>
                 </div>
             </div>
@@ -63,7 +64,8 @@ const Add_Income_Page = () => {
                 </div>
             )}
         </div> 
+
     )
 }
 
-export default Add_Income_Page
+export default Add_Product_Page

@@ -1,9 +1,9 @@
 import { Select } from 'antd';
 import { useRef, useState } from 'react';
 import { useAlert } from '../../context/result';
-import { useAPI } from '../../context/customers_stats_context';
 
-const NewCustomerForm = () => {
+
+const   NewCustomerForm = () => {
 
     const defaultForm = {
         Customer_name : "",
@@ -27,32 +27,8 @@ const NewCustomerForm = () => {
     const [placeholderCountry , setPlaceholderCountry] = useState("Enter Country")
     const [placeholderEmail , setPlaceholderEmail] = useState("Enter Email Address")
 
-    const CompanyNameInput = useRef<HTMLDivElement>(null);
-    const CustomerNameInput = useRef<HTMLDivElement>(null);
-    const CountryNameInput = useRef<HTMLDivElement>(null);
-    const ContactNumberInput = useRef<HTMLDivElement>(null);
-    const StatusInput = useRef<HTMLDivElement>(null);
-    const EmailInput = useRef<HTMLDivElement>(null);
 
-    const CompanyNameHeading = useRef<HTMLDivElement>(null);
-    const CustomerNameHeading = useRef<HTMLDivElement>(null);
-    const ContactNumberHeading = useRef<HTMLDivElement>(null);
-    const EmailHeading = useRef<HTMLDivElement>(null);
-    const CountryNameHeading = useRef<HTMLDivElement>(null);
-    const StatusHeading = useRef<HTMLDivElement>(null);
-
-    const CustomerMainDiv = useRef<HTMLDivElement>(null)
-    const CustomerNameMainDiv = useRef<HTMLDivElement>(null)
-    const CompanyNameMainDiv = useRef<HTMLDivElement>(null)
-    const ContactNumberMainDiv = useRef<HTMLDivElement>(null)
-    const CountryNameMainDiv = useRef<HTMLDivElement>(null)
-    const EmailMainDiv = useRef<HTMLDivElement>(null)
-    const StatusMainDiv = useRef<HTMLDivElement>(null)
     const SubmitDiv = useRef<HTMLDivElement>(null)
-
-
-    const FinalDiv = useRef<HTMLDivElement>(null);
-    const { setLoaderForApi } = useAPI()
 
 
     const sendCustomer = async (e: React.FormEvent) => {
@@ -98,8 +74,6 @@ const NewCustomerForm = () => {
             const responseData = await res.json();
             console.log("Response from server:", responseData);
 
-            setLoaderForApi()
-
             divsChange();
             showSuccess();
             setTimeout(() => hideAlerts(), 3000);
@@ -114,40 +88,6 @@ const NewCustomerForm = () => {
 
 
     const divsChange = () => {
-        if(CustomerNameHeading.current) {
-            CustomerNameHeading.current.style.display = "none";
-        }
-
-        if(CompanyNameHeading.current) {
-            CompanyNameHeading.current.style.display = "none";
-        }
-
-        if(ContactNumberHeading.current) {
-            ContactNumberHeading.current.style.display = "none";
-        }
-
-        if(CountryNameHeading.current) {
-            CountryNameHeading.current.style.display = "none";  
-        }
-
-        if(EmailHeading.current) {
-            EmailHeading.current.style.display = "none";
-        }
-
-        if(StatusHeading.current) {
-            StatusHeading.current.style.display = "none";
-        }
-
-        setTimeout(()=> {
-            ResetFinalDiv()
-        } , 2000)
-
-        const ResetFinalDiv = () => {
-            if(FinalDiv.current) {
-                FinalDiv.current.style.display = "none"
-            }
-        }   
-
         setPlaceholderCustomerName("Enter Customer Name")
         setPlaceholderCompanyName("Enter Company Name")
         setPlaceholderContact("Enter Contact Number")
@@ -156,96 +96,6 @@ const NewCustomerForm = () => {
     }
 
 
-
-
-    const showHeading = () => {
-
-        if(CustomerNameHeading.current) {
-            CustomerNameHeading.current.style.display = "flex";
-        }
-
-        if(ContactNumberMainDiv.current) {
-            ContactNumberMainDiv.current.style.marginTop = "40px"
-        }
-
-        setPlaceholderCustomerName("")
-    }
-
-    const showHeading2 = () => {
-
-        if(CompanyNameHeading.current) {
-            CompanyNameHeading.current.style.display = "flex";
-        }
-
-        if(CountryNameMainDiv.current) {
-            CountryNameMainDiv.current.style.marginTop = "40px"
-        }
-
-        setPlaceholderCompanyName("")
-    }
-
-    const showHeading3 = () => {
-
-        if(ContactNumberHeading.current) {
-            ContactNumberHeading.current.style.display = "flex";
-        }
-
-        if(EmailMainDiv.current) {
-            EmailMainDiv.current.style.marginTop = "80px"
-        }
-
-        if(CustomerMainDiv.current) {
-            CustomerMainDiv.current.style.padding = "320px"
-        }
-
-        if(SubmitDiv.current) {
-            SubmitDiv.current.style.marginTop = "80px"
-        }
-
-        setPlaceholderContact("")
-    }
-
-    const showHeading4 = () => {
-
-        if(CountryNameHeading.current) {
-            CountryNameHeading.current.style.display = "flex";
-        }
-
-        if(StatusMainDiv.current) {
-            StatusMainDiv.current.style.marginTop = "80px";
-        }
-
-        setPlaceholderCountry("")
-    }
-
-
-    const showHeading5 = () => {
-
-        if(EmailHeading.current) {
-            EmailHeading.current.style.display = "flex";
-        }
-
-        if(SubmitDiv.current) {
-            SubmitDiv.current.style.marginTop = "100px"
-        }
-
-        if(SubmitDiv.current) {
-            SubmitDiv.current.style.marginTop = "20px"
-        }
-
-        setPlaceholderEmail("")
-    }
-
-
-    const showHeading6 = () => {
-        if(StatusHeading.current) {
-            StatusHeading.current.style.display = "flex";
-        }
-
-        if(StatusInput.current) {
-            StatusInput.current.style.marginTop = "12px";
-        }
-    }
     
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -271,108 +121,113 @@ const NewCustomerForm = () => {
 
     return (    
         <>
-        <div className="w-full relative mt-10 p-70" ref={CustomerMainDiv}>
+        <div className="w-full">
             <form onSubmit={sendCustomer} method='post'>
 
+                <div className='w-full bg-amber-700 mt-5'>    
+                    <div className='w-[40%] p-2'>
+                        <p className='font-Poet text-2xl'>Personal Information</p>
+                    </div>
+                </div>
+
+                <div className='w-[98%] flex justify-between mt-5 ml-2 mr-2'>
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Full Name : </p>
+                        </div>
+
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
+                            <input type = "text" autoComplete="text"  name="Customer_name" className='w-full p-3'/>
+                        </div>
+                    </div>
+
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Country : </p>
+                        </div>
+
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] '>
+                            <input type='text' autoComplete='text' name="Country" className='w-full p-3'/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='w-[98%] flex justify-between mt-10 ml-2 mr-2'>
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Email : </p>
+                        </div>
+
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
+                            <input type = "email" autoComplete="text" name='Email' className='w-full p-3'/>
+                        </div>
+                    </div>
+
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Contact No. : </p>
+                        </div>
+
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
+                            <input type='number' autoComplete='text' name='Contact_no' className='w-full p-3' />
+                        </div>
+                    </div>
+                </div>
+
+                <div className='w-full bg-amber-700 mt-10'>    
+                    <div className='w-[40%] p-2'>
+                        <p className='font-Poet text-2xl'>Company Details</p>
+                    </div>
+                </div>
+
                 
-                <div className='w-[26%] flex flex-col absolute top-10 left-50' ref={CustomerNameMainDiv}>
-                    <div className="w-[55%] hidden animate-wiggle rounded-2xl bg-[#e9ecef]" ref={CustomerNameHeading}>
-                        <p className='font-Poppins p-2'>Customer Name</p>
-                    </div>    
+                <div className='w-[98%] flex justify-between mt-10 ml-2 mr-2'>
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Company Name : </p>
+                        </div>
 
-                    <div className="w-full h-[70px] bg-white border-2 border-[#adb5bd] rounded-3xl flex justify-center mt-2" ref={CustomerNameInput}>
-                        <input
-                            type="text"
-                            name="Customer_name"
-                            value={form.Customer_name}
-                            onChange={handleInputChange}
-                            onClick={showHeading}
-                            placeholder={placeholderCustomerName}
-                            className="w-full p-4 font-Poppins focus:outline-0 text-[#495057]"
-                        />
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
+                            <input type = "text" autoComplete="text" name='Company_name' className='w-full p-3'/>
+                        </div>
+                    </div>
+
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Industry  : </p>
+                        </div>
+
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
+                            <input type='text' autoComplete='text' name="Industry" className='w-full p-3'/>
+                        </div>
                     </div>
                 </div>
 
 
+                <div className='w-[98%] flex justify-between mt-10 ml-2 mr-2'>
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Social Media (if any) : </p>
+                        </div>
 
-                <div className='w-[25%] flex flex-col absolute right-50 top-10' ref={CompanyNameMainDiv}>
-                    <div className='w-[55%] hidden bg-[#e9ecef] animate-wiggle p-2 rounded-2xl' ref={CompanyNameHeading}>
-                        <p className='font-Poppins'>Company Name</p>
+                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
+                            <input type ="url" autoComplete="text" name='links' className='w-full p-3' />
+                        </div>
                     </div>
 
-                    <div className="w-full h-[70px] flex justify-center border-2 rounded-3xl border-[#adb5bd] bg-white mt-2" ref={CompanyNameInput}>
-                        <input
-                            type="text"
-                            name="Company_name"
-                            value={form.Company_name}   
-                            onClick={showHeading2}
-                            onChange={handleInputChange}
-                            placeholder={placeholderCompamyName}
-                            className="w-full p-4 font-Poppins focus:outline-0 text-[#495057]"
-                        />
-                    </div>
-                </div>
-                
+                    <div className='w-[40%] flex'>
+                        <div className='w-[40%] flex items-center'>
+                            <p className='font-Poppins'>Customer Type / Status  : </p>
+                        </div>
 
-                <div className='w-[26%] flex flex-col absolute left-50 top-45' ref={ContactNumberMainDiv}>
-                    <div className="w-[60%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl" ref={ContactNumberHeading}>
-                        <p className='font-Poppins p-2'>Contact Number</p>
-                    </div>    
-        
-                    <div className="w-full h-[70px] bg-white border-2 rounded-3xl flex border-[#adb5bd] mt-3" ref={ContactNumberInput}>
-                        <input
-                            type="text"
-                            name="Contact_no"
-                            value={form.Contact_no}
-                            onClick={showHeading3}
-                            onChange={handleInputChange}
-                            placeholder={placeholderContact}
-                            className="w-full p-4 font-Poppins focus:outline-0 text-[#495057]"
-                        />
+                        <div className='w-[60%] rounded-[5px] border-2 border-[#d8dee9]'>
+                            <input type='text' autoComplete='text' name='Status' className='w-full p-3'/>
+                        </div>
                     </div>
                 </div>
 
 
-
-                <div className='w-[25%] flex flex-col absolute right-50 top-45' ref={CountryNameMainDiv}>
-                    <div className='w-[50%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl' ref={CountryNameHeading}>
-                        <p className='font-Poppins p-2'>Country Name</p>
-                    </div>
-
-                    <div className="w-full h-[70px]  bg-white flex border-2 rounded-3xl border-[#adb5bd] mt-3" ref={CountryNameInput}>
-                        <input
-                            type="text"
-                            name="Country"
-                            value={form.Country}
-                            onClick={showHeading4}
-                            onChange={handleInputChange}
-                            placeholder={placeholderCountry}
-                            className="w-full p-4 font-Poppins focus:outline-0 text-[#495057]"
-                        />
-                    </div>
-                </div>
-
-
-                <div className='w-[26%] flex flex-col absolute top-83 left-50' ref={EmailMainDiv}>
-                    <div className="w-[30%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl" ref={EmailHeading}>
-                        <p className='font-Poppins p-2'>Email</p>
-                    </div> 
-                
-                    <div className="w-full h-[70px] bg-white border-2 flex rounded-3xl border-[#adb5bd] mt-3" ref={EmailInput}>
-                        <input
-                            type="email"
-                            name="Email"
-                            value={form.Email}
-                            onClick={showHeading5}
-                            onChange={handleInputChange}
-                            placeholder={placeholderEmail}
-                            className="w-full p-4 font-Poppins focus:outline-0 text-[#495057]"
-                        />
-                    </div>
-                </div>
-
-
-                <div className='w-[26%] flex flex-col absolute right-50 top-83' ref={StatusMainDiv}> 
+                {/* <div className='w-[26%] flex flex-col absolute right-50 top-83' ref={StatusMainDiv}> 
                     <div className="w-[55%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl ml-3" ref={StatusHeading}>
                         <p className='font-Poppins p-2'>Customer Status</p>
                     </div> 
@@ -395,12 +250,12 @@ const NewCustomerForm = () => {
                             ]}
                         />
                     </div>
-                </div>
+                </div> */}
 
                 
 
-                <div className='w-[20%] absolute top-120 right-130' ref={SubmitDiv}>
-                    <div className='w-full bg-linear-to-r from-[#00b4d8] to-[#90e0ef] flex justify-center items-center rounded-3xl'>
+                <div className='w-full flex justify-center items-center mt-20 mb-5' ref={SubmitDiv}>
+                    <div className='w-[15%] bg-linear-to-r from-[#00b4d8] to-[#90e0ef] flex justify-center items-center rounded-3xl'>
                         <button type="submit" className='p-3 w-full hover:cursor-pointer font-Poppins'>Submit</button>
                     </div>
                 </div>  
