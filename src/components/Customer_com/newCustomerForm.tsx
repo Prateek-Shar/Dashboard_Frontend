@@ -13,6 +13,8 @@ const NewCustomerForm = () => {
         Email : "",
         Status : "",
         CID : 0,
+        Industry : "",
+        Social_Media : "",
         Created_at : new Date()
     };
 
@@ -32,6 +34,7 @@ const NewCustomerForm = () => {
 
     const SubmitDiv = useRef<HTMLDivElement>(null)
 
+    const StatusInput = useRef<HTMLDivElement>(null)
 
     const sendCustomer = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -103,6 +106,11 @@ const NewCustomerForm = () => {
             ...prev,
             Status: status
         }));
+
+        if(StatusInput.current) {
+           StatusInput.current.style.border = "2px solid #d8dee9";
+        }
+
         setStatusBox(false); // Hide suggestions box
     };
     
@@ -126,6 +134,11 @@ const NewCustomerForm = () => {
 
 
     const showSuggestions = () => {
+
+        if(StatusInput.current) {
+            StatusInput.current.style.borderBottom = "none"
+        }
+
         setStatusBox(true);
     }
 
@@ -209,7 +222,7 @@ const NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type='text' autoComplete='text' name="Industry" className='w-full p-3 outline-0' />
+                            <input type='text' autoComplete='text' name="Industry" className='w-full p-3 outline-0' value={form.Industry}/>
                         </div>
                     </div>
                 </div>
@@ -222,7 +235,7 @@ const NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] flex items-center justify-center'>
-                            <input type ="url" autoComplete="text" name='links' className='w-full p-3 outline-0' />
+                            <input type ="url" autoComplete="text" name='links' className='w-full p-3 outline-0' value={form.Social_Media}/>
                         </div>
                     </div>
 
@@ -232,17 +245,16 @@ const NewCustomerForm = () => {
                                 <p className='font-Poppins'>Customer Type / Status  : </p>
                             </div>
 
-                            <div className='w-[60%] rounded-[5px] border-2 border-[#d8dee9]'>
+                            <div className='w-[60%] rounded-[5px] border-2 border-[#d8dee9]' ref={StatusInput}>
                                 <input type='text' autoComplete='text' name='Status' className='w-full p-3 outline-0' onChange={(e) => { handleInputChange(e); showSuggestions(); }}  value={form.Status}/>
                             </div>
                         </div>
 
                         {StatusBox && (
-                            <div className='w-[60%] ml-52 flex flex-col bg-white shadow-2xs'>
+                            <div className='w-[60%] ml-[206px] flex flex-col bg-white border-[#d8dee9] border-t-0 border-2 shadow-2xs'>
                                 <div className='w-full mt-2'>
                                     <p className='p-2 font-Poppins' onClick={ () => {SendStatus("Active")} }>Active</p>
                                 </div>
-
                                 <div className='w-full'>
                                     <p className='p-2 font-Poppins' onClick={ () =>{SendStatus("Inactive")} }>Inactive</p>
                                 </div>
