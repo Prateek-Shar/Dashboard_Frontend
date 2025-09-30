@@ -98,14 +98,14 @@ const   NewCustomerForm = () => {
 
     
 
-    // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     const { name, value } = e.target;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
         
-    //     setForm(prev => ({
-    //         ...prev,
-    //         [name]: name === "Contact_no" ? Number(value) : value
-    //     }))
-    // };
+        setForm(prev => ({
+            ...prev,
+            [name]: name === "Contact_no" ? Number(value) : value
+        }))
+    };
 
     // const handleSelectChange = (value: string) => {
     //     setForm(prev => {
@@ -137,7 +137,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "text" autoComplete="text"  name="Customer_name" className='w-full p-3'/>
+                            <input type = "text" autoComplete="text"  name="Customer_name" className='w-full p-3' onChange={handleInputChange} value={form.Customer_name}/>
                         </div>
                     </div>
 
@@ -147,7 +147,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] '>
-                            <input type='text' autoComplete='text' name="Country" className='w-full p-3'/>
+                            <input type='text' autoComplete='text' name="Country" className='w-full p-3' onChange={handleInputChange} value={form.Country}/>
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "email" autoComplete="text" name='Email' className='w-full p-3'/>
+                            <input type = "email" autoComplete="text" name='Email' className='w-full p-3' onChange={handleInputChange} value={form.Email}/>
                         </div>
                     </div>
 
@@ -169,7 +169,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type='number' autoComplete='text' name='Contact_no' className='w-full p-3' />
+                            <input type='number' autoComplete='text' name='Contact_no' className='w-full p-3' onChange={handleInputChange} value={form.Contact_no} />
                         </div>
                     </div>
                 </div>
@@ -188,7 +188,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "text" autoComplete="text" name='Company_name' className='w-full p-3'/>
+                            <input type = "text" autoComplete="text" name='Company_name' className='w-full p-3' onChange={handleInputChange} value={form.Company_name}/>
                         </div>
                     </div>
 
@@ -221,7 +221,7 @@ const   NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] rounded-[5px] border-2 border-[#d8dee9]'>
-                            <input type='text' autoComplete='text' name='Status' className='w-full p-3'/>
+                            <input type='text' autoComplete='text' name='Status' className='w-full p-3' onChange={handleInputChange} value={form.Status}/>
                         </div>
                     </div>
                 </div>
