@@ -21,11 +21,11 @@ const   NewCustomerForm = () => {
 
     const [form, setForm] = useState({ ...defaultForm });
 
-    const [placeholderCustomerName , setPlaceholderCustomerName] = useState("Enter Customer Name")
-    const [placeholderCompamyName , setPlaceholderCompanyName] = useState("Enter Company Name")
-    const [placeholderContact , setPlaceholderContact] = useState("Enter Contact Number")
-    const [placeholderCountry , setPlaceholderCountry] = useState("Enter Country")
-    const [placeholderEmail , setPlaceholderEmail] = useState("Enter Email Address")
+    // const [placeholderCustomerName , setPlaceholderCustomerName] = useState("Enter Customer Name")
+    // const [placeholderCompamyName , setPlaceholderCompanyName] = useState("Enter Company Name")
+    // const [placeholderContact , setPlaceholderContact] = useState("Enter Contact Number")
+    // const [placeholderCountry , setPlaceholderCountry] = useState("Enter Country")
+    // const [placeholderEmail , setPlaceholderEmail] = useState("Enter Email Address")
 
 
     const SubmitDiv = useRef<HTMLDivElement>(null)
@@ -74,7 +74,7 @@ const   NewCustomerForm = () => {
             const responseData = await res.json();
             console.log("Response from server:", responseData);
 
-            divsChange();
+            // divsChange();
             showSuccess();
             setTimeout(() => hideAlerts(), 3000);
 
@@ -87,33 +87,33 @@ const   NewCustomerForm = () => {
     };
 
 
-    const divsChange = () => {
-        setPlaceholderCustomerName("Enter Customer Name")
-        setPlaceholderCompanyName("Enter Company Name")
-        setPlaceholderContact("Enter Contact Number")
-        setPlaceholderCountry("Enter Country")
-        setPlaceholderEmail("Enter Email Address")
-    }
+    // const divsChange = () => {
+    //     setPlaceholderCustomerName("Enter Customer Name")
+    //     setPlaceholderCompanyName("Enter Company Name")
+    //     setPlaceholderContact("Enter Contact Number")
+    //     setPlaceholderCountry("Enter Country")
+    //     setPlaceholderEmail("Enter Email Address")
+    // }
 
 
     
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+    // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { name, value } = e.target;
         
-        setForm(prev => ({
-            ...prev,
-            [name]: name === "Contact_no" ? Number(value) : value
-        }))
-    };
+    //     setForm(prev => ({
+    //         ...prev,
+    //         [name]: name === "Contact_no" ? Number(value) : value
+    //     }))
+    // };
 
-    const handleSelectChange = (value: string) => {
-        setForm(prev => {
-            const updated = { ...prev, Status: value };
-            console.log("Updated form:", updated); // Check if Status is present
-            return updated;
-        });
-    };
+    // const handleSelectChange = (value: string) => {
+    //     setForm(prev => {
+    //         const updated = { ...prev, Status: value };
+    //         console.log("Updated form:", updated); // Check if Status is present
+    //         return updated;
+    //     });
+    // };
 
 
 
