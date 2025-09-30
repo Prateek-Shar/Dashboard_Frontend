@@ -222,7 +222,7 @@ const NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type='text' autoComplete='text' name="Industry" className='w-full p-3 outline-0' value={form.Industry}/>
+                            <input type='text' autoComplete='text' name="Industry" className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Industry}/>
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@ const NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] flex items-center justify-center'>
-                            <input type ="url" autoComplete="text" name='links' className='w-full p-3 outline-0' value={form.Social_Media}/>
+                            <input type ="url" autoComplete="text" name='links' className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Social_Media}/>
                         </div>
                     </div>
 
