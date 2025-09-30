@@ -23,7 +23,7 @@ const Add_Customer_Page = () => {
                 <div className="w-[80%] bg-white rounded-4xl mt-2 mb-10">
 
                     <div className="w-full flex justify-center items-center rounded-t-4xl">
-                        <p className="font-Poppins text-[24px] p-4">Add Customer</p>
+                        <p className="font-Alan text-[24px] p-4">Add Customer</p>
                     </div>
                     
 

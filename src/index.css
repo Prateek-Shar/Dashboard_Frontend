@@ -5,12 +5,18 @@
   src: url("/fonts/Poppins-Medium.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Alan Sans Medium;
+  src: url('/fonts/AlanSans-Medium') format("truetype");
+}
+
 
 @theme {
 
   --font-Poppins : Poppins Medium;
-  --font-Crete : Crete Round;
   --font-Poet : PoetsenOne;
+  --font-Alan : Alan Sans Medium;
+
   --color-custom : #030712;
   --color-background : #f8f9fe;
 

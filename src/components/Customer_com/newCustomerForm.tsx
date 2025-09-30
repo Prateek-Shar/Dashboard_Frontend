@@ -18,7 +18,7 @@ const NewCustomerForm = () => {
         Created_at : new Date()
     };
 
-    const { showSuccess, showFailure } = useAlert();
+    const { showSuccess, showFailure , hideAlerts} = useAlert();
 
 
     const [form, setForm] = useState({ ...defaultForm });
@@ -31,10 +31,13 @@ const NewCustomerForm = () => {
 
 
     const [StatusBox , setStatusBox] = useState(false)
+    const [showSuggestionCountryBox , setShowSuggestionCountryBox] = useState(false)
+
 
     const SubmitDiv = useRef<HTMLDivElement>(null)
-
     const StatusInput = useRef<HTMLDivElement>(null)
+    const CountryInputBox = useRef<HTMLDivElement>(null)
+
 
     const sendCustomer = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -72,7 +75,7 @@ const NewCustomerForm = () => {
             if (!res.ok) {
                 console.log("Something broke in frontend...........");
                 showFailure();
-                // setTimeout(() => hideAlerts(), 3000);
+                setTimeout(() => hideAlerts(), 3000);
                 return;
             }
 
@@ -81,7 +84,7 @@ const NewCustomerForm = () => {
 
             // divsChange();
             showSuccess();
-            // setTimeout(() => hideAlerts(), 3000);
+            setTimeout(() => hideAlerts(), 3000);
 
             setForm({ ...defaultForm }); // CID will be fetched again next time
 
@@ -124,6 +127,20 @@ const NewCustomerForm = () => {
         }))
     };
 
+    const handleSelectSuggestion = (value: string) => {
+        setForm(prev => ({
+            ...prev,
+            Country: value
+        }));
+
+        if(CountryInputBox.current) {
+            CountryInputBox.current.style.border = "2px solid #d8dee9"
+        }
+
+        setShowSuggestionCountryBox(false);
+    };
+
+
     // const handleSelectChange = (value: string) => {
     //     setForm(prev => {
     //         const updated = { ...prev, Status: value };
@@ -132,6 +149,16 @@ const NewCustomerForm = () => {
     //     });
     // };
 
+    const suggestions = ["India" , "asdasd" , "sdasdasd"]
+
+    const ShowCountrySuggestion = () => {
+
+        if(CountryInputBox.current) {
+            CountryInputBox.current.style.borderBottom = "none"
+        }
+
+        setShowSuggestionCountryBox(true)
+    }
 
     const showSuggestions = () => {
 
@@ -148,13 +175,13 @@ const NewCustomerForm = () => {
         <div className="w-full">
             <form onSubmit={sendCustomer} method='post'>
 
-                <div className='w-full bg-amber-700 mt-5'>    
+                <div className='w-full bg-[#edf6f9] mt-5'>    
                     <div className='w-[40%] p-2'>
                         <p className='font-Poet text-2xl'>Personal Information</p>
                     </div>
                 </div>
 
-                <div className='w-[98%] flex justify-between mt-5 ml-2 mr-2'>
+                <div className='w-[98%] flex justify-between items-center mt-5 ml-2 mr-2'>
                     <div className='w-[40%] flex'>
                         <div className='w-[40%] flex items-center'>
                             <p className='font-Poppins'>Full Name : </p>
@@ -165,14 +192,26 @@ const NewCustomerForm = () => {
                         </div>
                     </div>
 
-                    <div className='w-[40%] flex'>
-                        <div className='w-[40%] flex items-center'>
-                            <p className='font-Poppins'>Country : </p>
+                    <div className='w-[40%] flex flex-col'>
+                        <div className='w-full flex'>
+                            <div className='w-[40%] flex items-center'>
+                                <p className='font-Poppins'>Country : </p>
+                            </div>
+
+                            <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px]' ref={CountryInputBox}>
+                                <input type='text' autoComplete='text' name="Country" className='w-full p-3 outline-0' onChange={(e)=>{ handleInputChange(e); ShowCountrySuggestion(); }} value={form.Country}/>
+                            </div>
                         </div>
 
-                        <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] '>
-                            <input type='text' autoComplete='text' name="Country" className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Country}/>
-                        </div>
+                        {showSuggestionCountryBox && (
+                            <div className='w-full flex flex-col'>
+                                {suggestions.map(sug => (
+                                    <div className='w-[60%] ml-[206px] border-2 border-t-0 border-[#d8dee9] nth-[n]:border-b-0 nth-last-[1]:border-b-2 hover:bg-[#edf6f9] hover:cursor-pointer' onClick={ () => handleSelectSuggestion(sug) }>
+                                        <p className='p-2'>{sug}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -198,7 +237,7 @@ const NewCustomerForm = () => {
                     </div>
                 </div>
 
-                <div className='w-full bg-amber-700 mt-10'>    
+                <div className='w-full bg-[#edf6f9] mt-10'>    
                     <div className='w-[40%] p-2'>
                         <p className='font-Poet text-2xl'>Company Details</p>
                     </div>
@@ -235,7 +274,7 @@ const NewCustomerForm = () => {
                         </div>
 
                         <div className='w-[60%] border-2 border-[#d8dee9] rounded-[5px] flex items-center justify-center'>
-                            <input type ="url" autoComplete="text" name='links' className='w-full p-3 outline-0' onChange={handleInputChange} value={form.Social_Media}/>
+                            <input type ="url" autoComplete="text" name='Social_Media' className='w-full p-3 outline-0' onChange={(e) => handleInputChange(e) } value={form.Social_Media}/>
                         </div>
                     </div>
 
@@ -252,10 +291,10 @@ const NewCustomerForm = () => {
 
                         {StatusBox && (
                             <div className='w-[60%] ml-[206px] flex flex-col bg-white border-[#d8dee9] border-t-0 border-2 shadow-2xs'>
-                                <div className='w-full mt-2'>
+                                <div className='w-full mt-2 hover:bg-[#edf6f9] hover:cursor-pointer'>
                                     <p className='p-2 font-Poppins' onClick={ () => {SendStatus("Active")} }>Active</p>
                                 </div>
-                                <div className='w-full'>
+                                <div className='w-full hover:bg-[#edf6f9] hover:cursor-pointer'>
                                     <p className='p-2 font-Poppins' onClick={ () =>{SendStatus("Inactive")} }>Inactive</p>
                                 </div>
                             </div>
