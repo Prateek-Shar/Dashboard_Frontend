@@ -36,7 +36,8 @@ const Latest_Transaction = () => {
 
     useEffect(() => {
         getLatestTransaction()
-    }, [])
+    }, [stats])
+
 
     return (
         <>
