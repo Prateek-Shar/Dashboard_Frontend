@@ -28,13 +28,13 @@ const Latest_Transaction = () => {
 
             const data = await response.json()
             console.log("Details are : " , data)
-            
+
             getStats(data.detail)
             return;
         }
 
         catch(error) {
-            console.error("Something Broke Up")
+            console.error("Something Broke Up in latest transaction")
         }
     }
 
