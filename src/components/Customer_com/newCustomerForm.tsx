@@ -43,7 +43,7 @@ const NewCustomerForm = () => {
         e.preventDefault();
 
         try {
-            const stats = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_customer_stats`, {
+            const stats = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_customer_stats`, {
                 method: "GET",
                 credentials: "include"
             });
@@ -63,7 +63,7 @@ const NewCustomerForm = () => {
                 Created_at: new Date()
             };
 
-            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/send_customer", {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/send_customer`, {
                 method: "POST",
                 credentials: "include",
                 headers: {

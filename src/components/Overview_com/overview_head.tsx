@@ -28,7 +28,7 @@ const Overview_Head = () => {
     useEffect(() => {
         const fetchUser = async () => {
         try {
-            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/getUserInfo", {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
             credentials: "include",
             method : "GET"
             });
@@ -110,7 +110,7 @@ const Overview_Head = () => {
             {Loader? (
                 <div className="w-[30%] flex ml-2">
                     <div className="w-[80%] flex items-center">
-                        <p className="font-Poppins text-[16px]  pl-1">Welcome Back , {userDetails?.Username}</p>
+                        <p className="font-Poppins text-[16px] pl-1">Welcome Back , {userDetails?.Username}</p>
                     </div>
 
                     <div className="w-[10%] flex justify-center items-center">

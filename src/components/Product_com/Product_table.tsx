@@ -48,7 +48,7 @@ const Product_table = () => {
     const { setLoaderForApi } = useAPI()
 
     const fetchProductPageData = async (page : number) => {
-        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_product_statistics?page=${page}` , {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_product_statistics?page=${page}` , {
             method : "GET",
             credentials : "include"
         })
@@ -65,7 +65,7 @@ const Product_table = () => {
     const getStats = async() => {
 
         try {
-            const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/product_stats` , {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/product_stats` , {
                 method : "GET",
                 credentials : "include"
             })
@@ -86,7 +86,7 @@ const Product_table = () => {
     
 
     const handleDelete = async(P_id: number) => {
-        fetch(`https://dashboard-backend-1-0w4b.onrender.com/delete_product?P_id=${P_id}`, {
+        fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/delete_product?P_id=${P_id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())

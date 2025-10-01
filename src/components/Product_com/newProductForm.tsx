@@ -15,16 +15,19 @@ const NewProductForm = () => {
     };
 
 
-    const ProductNameHeading = useRef<HTMLDivElement>(null);
-    const ProductQuantityHeading = useRef<HTMLDivElement>(null);
-    const ProductNameInput = useRef<HTMLDivElement>(null);
-    const ProductQuantityInput = useRef<HTMLDivElement>(null);
-    const ProductPriceHeading = useRef<HTMLDivElement>(null);
-    const ProductPriceInput = useRef<HTMLDivElement>(null);
-    const ProductCatagoryHeading = useRef<HTMLDivElement>(null);
+    const [ProductNameHeading , setProductNameHeading] = useState(false)
+    const [ProductQuantityHeading , setProductQuantityHeading] = useState(false)
+    const [ProductDiscountHeading , setProductDiscountHeading] = useState(false)
+    const [ProductPriceHeading , setProductPriceHeading] = useState(false);
+    const [ProductCatagoryHeading , setProductCatagoryHeading] = useState(false);
+
+
     const ProductCatagoryInput = useRef<HTMLDivElement>(null);
-    const DiscountHeading = useRef<HTMLDivElement>(null);
+    const ProductQuantityInput = useRef<HTMLDivElement>(null);
+    const ProductPriceInput = useRef<HTMLDivElement>(null);
+    const ProductNameInput = useRef<HTMLDivElement>(null);
     const DiscountInput = useRef<HTMLDivElement>(null);
+
 
     const QuantityMainHeading = useRef<HTMLDivElement>(null)
     const PriceMainHeading = useRef<HTMLDivElement>(null);
@@ -53,7 +56,7 @@ const NewProductForm = () => {
         const formToSend = { ...form };
 
         try {
-            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/send_products", {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}send_products`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials : "include",
@@ -108,7 +111,7 @@ const NewProductForm = () => {
     const getProductID = async() => {
 
         try {
-            const resp = await fetch("https://dashboard-backend-1-0w4b.onrender.com/get_pid", {
+            const resp = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_pid`, {
                 method: "GET",
                 credentials: "include"
             });
@@ -129,179 +132,54 @@ const NewProductForm = () => {
 
 
     const defaultDivs = () => {
-        if(ProductNameHeading.current) {
-            ProductNameHeading.current.style.display = "none"
-            setPlaceholderName("Enter Product Name")
-        }
-
-        if(ProductCatagoryHeading.current) {
-            ProductCatagoryHeading.current.style.display = "none"
-        }
-
-        if(ProductPriceHeading.current) {
-            ProductPriceHeading.current.style.display = "none"
-            setPlaceholderPrice("Enter Product Price")
-        }
-
-        if(ProductQuantityHeading.current) {
-            ProductQuantityHeading.current.style.display = "none"
-            setPlaceholderQuantity("Enter Product Quantity")
-        }
-
-        setPlaceholderCatagory("Search / Select Catagory")
-        setPlaceholderDiscount("Specify Discount (in %)")
-
-
-        if(ProductNameInput.current) {
-            ProductNameInput.current.style.marginTop = "0px";
-        }
-
-        if(ProductQuantityInput.current) {
-            ProductQuantityInput.current.style.marginTop = "0px"
-        }
-
-        if(ProductPriceInput.current) {
-            ProductPriceInput.current.style.marginTop = "0px"
-        }
-
-        if(ProductCatagoryInput.current) {
-            ProductCatagoryInput.current.style.marginTop = "0px"
-        }
-
-        if(DiscountHeading.current) {
-            DiscountHeading.current.style.display = "none"
-        }
-
-        if(PriceMainHeading.current) {
-            PriceMainHeading.current.style.marginTop = "1.5rem"
-        }
-
-        if(CatagoryMainHeading.current) {
-            CatagoryMainHeading.current.style.marginTop = "1rem"
-        }
-
-        if(DiscountMainHeading.current) {
-            DiscountMainHeading.current.style.marginTop = "0rem"
-        }
-
-        if(mainDiv.current) {
-            mainDiv.current.style.padding = "17rem"
-        }
-
-        if(parentBt.current) {
-            parentBt.current.style.bottom = "4px"
-            parentBt.current.style.left = "33rem"
-        }
+        
+        setProductNameHeading(false)
+        setProductDiscountHeading(false)
+        setProductCatagoryHeading(false)
+        setProductQuantityHeading(false)
+        setProductPriceHeading(false)
 
     }
 
 
 
     const showHeading = () => {
+
         setPlaceholderName("")
 
-        if(ProductNameHeading.current) {
-            ProductNameHeading.current.style.display = "flex";
-            ProductNameHeading.current.style.marginTop = "5px";
-        }
-
-        if(ProductNameInput.current) {
-            ProductNameInput.current.style.marginTop = "10px";
-        }
-
-        if(PriceMainHeading.current) {
-            PriceMainHeading.current.style.marginTop = "5rem";
-        }
-
-        if(DiscountMainHeading.current) {
-            DiscountMainHeading.current.style.marginTop = "7rem"
-        }
-
-        if(mainDiv.current) {
-            mainDiv.current.style.padding = "20rem"
-        }
-
-        if(SubmitBt.current) {
-            SubmitBt.current.style.marginTop = "3rem"
-        }
+        setProductNameHeading(true)
 
     }
 
     const showHeading2 = () => {
+
         setPlaceholderQuantity("")
 
-        if(ProductQuantityHeading.current) {
-            ProductQuantityHeading.current.style.display = "flex";
-            ProductQuantityHeading.current.style.marginTop = "5px";
-        }
-
-        if(ProductQuantityInput.current) {
-            ProductQuantityInput.current.style.marginTop = "10px"
-        }
-
-        if(CatagoryMainHeading.current) {
-            CatagoryMainHeading.current.style.marginTop = "50px"
-        }
-
-
+        setProductQuantityHeading(true)
 
     }
 
     const showHeading3 = () => {
+
         setPlaceholderPrice("")
 
-        if(ProductPriceHeading.current) {
-            ProductPriceHeading.current.style.display = "flex";
-            ProductPriceHeading.current.style.marginTop = "10px";
-        }
-
-
-        if(DiscountMainHeading.current) {
-            DiscountMainHeading.current.style.marginTop = "112px"
-        }
-
-
-        if(SubmitBt.current) {
-            SubmitBt.current.style.marginTop = "5rem"
-        }
+        setProductPriceHeading(true)
+        
     }
 
     const showHeading4 = () => {
-        if(ProductCatagoryHeading.current) {
-            ProductCatagoryHeading.current.style.display = "flex";
-            ProductCatagoryHeading.current.style.marginTop = "15px"
-        }
+        
+        setProductCatagoryHeading(true)
 
-        if(ProductCatagoryInput.current) {
-            ProductCatagoryInput.current.style.marginTop = "10px"
-        }
-
-        // if(mainDiv.current) {
-        //     mainDiv.current.style.marginTop = "400px"
-        // }
     }
 
 
     const showHeading5 = () => {
+
         setPlaceholderDiscount("")
 
-        if(DiscountHeading.current) {
-            DiscountHeading.current.style.display = "flex"
-            DiscountHeading.current.style.marginTop = "15px"
-        }
+        setProductDiscountHeading(true)
 
-        if(DiscountInput.current) {
-            DiscountInput.current.style.marginTop = "10px"
-        }
-
-        
-        if(mainDiv.current) {
-            mainDiv.current.style.top = "500"
-        }
-
-        if(SubmitBt.current) {
-            SubmitBt.current.style.marginTop = "8rem"
-        }
     }
 
 
@@ -322,122 +200,134 @@ const NewProductForm = () => {
 
     return (    
         <>
-        <div className="w-full relative p-[17rem]" ref={mainDiv}>
+        <div className="w-full flex flex-col" ref={mainDiv}>
             <form onSubmit={sendProducts} method='post'>
                 
-
-                <div className='w-[25%] flex flex-col absolute top-0 left-50 mt-10' >
-                    <div className="w-[45%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl" ref={ProductNameHeading}>
-                        <p className='font-Poppins p-2'>Product Name</p>
-                    </div>    
-                    
-                    <div className="w-full bg-white border-2 border-[#adb5bd] rounded-3xl" ref={ProductNameInput}>
-                        <input
-                            type="text"
-                            name="Product_name"
-                            value={form.Product_name}
-                            onChange={handleInputChange}
-                            onClick={showHeading}
-                            placeholder={placeholderName}
-                            className="w-full p-4 font-Poppins focus:outline-0"
-                        />
-                    </div>
-                </div>
-
-
-
-                <div className='w-[25%] flex flex-col absolute top-0 right-50 mt-8' ref={QuantityMainHeading}>
-                    <div className='w-[50%] hidden bg-[#e9ecef] animate-wiggle p-2 rounded-2xl' ref={ProductQuantityHeading}>
-                        <p className='font-Poppins'>Product Quantity</p>
+                <div className='w-full flex justify-evenly items-center'>
+                    <div className='w-[25%] flex flex-col mt-10'>
+                        {ProductNameHeading && (
+                            <div className="w-[45%] flex bg-[#e9ecef] animate-wiggle rounded-2xl">
+                                <p className='font-Poppins p-2'>Product Name</p>
+                            </div>    
+                        )}
+                        
+                        <div className="w-full bg-white border-2 border-[#adb5bd] rounded-3xl mt-3" ref={ProductNameInput}>
+                            <input
+                                type="text"
+                                name="Product_name"
+                                value={form.Product_name}
+                                onChange={handleInputChange}
+                                onClick={showHeading}
+                                placeholder={placeholderName}
+                                className="w-full p-4 font-Poppins focus:outline-0"
+                            />
+                        </div>
                     </div>
 
-                    <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white" ref={ProductQuantityInput}>
-                        <input
-                            type="number"
-                            name="Product_quantity"
-                            value={form.Product_quantity}
-                            onClick={showHeading2}
-                            onChange={handleInputChange}
-                            placeholder={placeholderQuantity}
-                            className="w-full p-4 font-Poppins focus:outline-0"
-                        />
+
+                    <div className='w-[25%] flex flex-col mt-8'>
+                        {ProductQuantityHeading && (
+                            <div className='w-[50%] flex bg-[#e9ecef] animate-wiggle p-2 rounded-2xl'>
+                                <p className='font-Poppins'>Product Quantity</p>
+                            </div>
+                        )}
+
+                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3" ref={ProductQuantityInput}>
+                            <input
+                                type="number"
+                                name="Product_quantity"
+                                value={form.Product_quantity}
+                                onClick={showHeading2}
+                                onChange={handleInputChange}
+                                placeholder={placeholderQuantity}
+                                className="w-full p-4 font-Poppins focus:outline-0"
+                            />
+                        </div>
                     </div>
                 </div>
                 
 
+                <div className='w-full flex justify-evenly items-center mt-10'>
+                    <div className='w-[25%] mt-5'>
+                        {ProductPriceHeading && (
+                            <div className='w-[40%] flex bg-[#e9ecef] animate-wiggle rounded-2xl p-2' >
+                                <p className='font-Poppins'>Product Price</p>
+                            </div> 
+                        )}
 
-                <div className='w-[25%] top-33 left-50 absolute mt-5' ref={PriceMainHeading}>
-                    <div className='w-[40%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl p-2' ref={ProductPriceHeading}>
-                        <p className='font-Poppins'>Product Price</p>
-                    </div> 
-            
-                    <div className="w-full bg-white border-2 rounded-3xl border-[#adb5bd] mt-2" ref={ProductPriceInput}>
-                        <input
-                            type="number"
-                            name="Product_price"
-                            value={form.Product_price}
-                            onClick={showHeading3}
-                            onChange={handleInputChange}
-                            placeholder={placeholderPrice}
-                            className="w-full p-4 font-Poppins focus:outline-0"
-                        />
+                        <div className="w-full bg-white border-2 rounded-3xl border-[#adb5bd] mt-2" ref={ProductPriceInput}>
+                            <input
+                                type="number"
+                                name="Product_price"
+                                value={form.Product_price}
+                                onClick={showHeading3}
+                                onChange={handleInputChange}
+                                placeholder={placeholderPrice}
+                                className="w-full p-4 font-Poppins focus:outline-0"
+                            />
+                        </div>
+                    </div>
+
+
+
+                    <div className='w-[25%]' ref={CatagoryMainHeading}>
+                        {ProductCatagoryHeading && (
+                            <div className='w-[50%] flex bg-[#e9ecef] animate-wiggle rounded-2xl p-2'>
+                                <p className='font-Poppins'>Product Catagory</p>
+                            </div> 
+                        )}
+
+                        <div className="w-full flex items-center mt-3" ref={ProductCatagoryInput}>
+                            <Select
+                                showSearch
+                                placeholder={placeholderCatagory}
+                                optionFilterProp="label"
+                                value={form.Product_catagory || undefined}
+                                className='w-full'
+                                onChange={handleSelectChange}
+                                onClick={showHeading4}
+                                filterSort={(optionA, optionB) =>
+                                    (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                                }
+                                options={[
+                                    { value: 'Daily Items', label: 'Daily Items' },
+                                    { value: 'Grocery', label: 'Grocery' },
+                                    { value: 'Video Games', label: 'Video Games' },
+                                    { value: "Electric Appliances" , label : "Electric Appliances"},
+                                    { value : "Others" , label : "Others" },
+                                ]}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className='w-[58%] flex justify-center items-center mt-15'>
+                    <div className='w-[43%]' ref={DiscountMainHeading}>
+                        {ProductDiscountHeading && (
+                            <div className='w-[30%] flex bg-[#e9ecef] animate-wiggle rounded-2xl p-2'>
+                                <p className='font-Poppins'>Discount</p>
+                            </div> 
+                        )}
+
+                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3" ref={DiscountInput}>
+                            <input
+                                type="number"
+                                name="Discount"
+                                value={form.Discount}
+                                onClick={showHeading5}
+                                onChange={handleInputChange}
+                                placeholder={placeholderDiscount || undefined}
+                                className="w-full p-4 font-Poppins focus:outline-0"
+                            />
+                        </div>
                     </div>
                 </div>
 
 
 
-                <div className='w-[25%] top-40 right-50 absolute' ref={CatagoryMainHeading}>
-                    <div className='w-[50%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl p-2' ref={ProductCatagoryHeading}>
-                        <p className='font-Poppins'>Product Catagory</p>
-                    </div> 
-
-                    <div className="w-full flex items-center mt-3" ref={ProductCatagoryInput}>
-                        <Select
-                            showSearch
-                            placeholder={placeholderCatagory}
-                            optionFilterProp="label"
-                            value={form.Product_catagory || undefined}
-                            className='w-full'
-                            onChange={handleSelectChange}
-                            onClick={showHeading4}
-                            filterSort={(optionA, optionB) =>
-                                (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-                            }
-                            options={[
-                                { value: 'Daily Items', label: 'Daily Items' },
-                                { value: 'Grocery', label: 'Grocery' },
-                                { value: 'Video Games', label: 'Video Games' },
-                                { value: "Electric Appliances" , label : "Electric Appliances"},
-                                { value : "Others" , label : "Others" },
-                            ]}
-                        />
-                    </div>
-                </div>
-
-
-
-                <div className='w-[25%] top-70 left-50 absolute' ref={DiscountMainHeading}>
-                    <div className='w-[30%] hidden bg-[#e9ecef] animate-wiggle rounded-2xl p-2' ref={DiscountHeading}>
-                        <p className='font-Poppins'>Discount</p>
-                    </div> 
-
-                    <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white" ref={DiscountInput}>
-                        <input
-                            type="number"
-                            name="Discount"
-                            value={form.Discount}
-                            onClick={showHeading5}
-                            onChange={handleInputChange}
-                            placeholder={placeholderDiscount || undefined}
-                            className="w-full p-4 font-Poppins focus:outline-0"
-                        />
-                    </div>
-                </div>
-
-
-
-                <div className='w-full' ref={parentBt}>
-                    <div className='w-[20%] absolute bg-linear-to-r from-[#00b4d8] to-[#90e0ef]  rounded-3xl mb-6 bottom-0 left-130' ref={SubmitBt}>
+                <div className='w-full mt-20 flex justify-center items-center' ref={parentBt}>
+                    <div className='w-[20%] bg-gradient-to-r from-[#00b4d8] to-[#90e0ef] rounded-3xl mb-6' ref={SubmitBt}>
                         <button type="submit" className='p-3 w-full hover:cursor-pointer font-Poppins'>Submit</button>
                     </div>  
                 </div>

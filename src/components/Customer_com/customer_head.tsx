@@ -29,12 +29,12 @@ const Customer_head = () => {
             </div>
         ) : (
 
-            <div className="w-[35%] mt-5 pl-6">
+            <div className="w-[35%] mt-2 ml-3">
                 <Skeleton paragraph={{rows : 0}} active />
             </div>
         )}
         
-        <div className="w-full mt-2">
+        <div className="w-full mt-1">
             <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0 border-[#ced4da]" />
         </div>
         

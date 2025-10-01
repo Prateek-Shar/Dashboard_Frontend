@@ -15,7 +15,7 @@ const Overview = () => {
                 <Overview_Head />
             </div>
 
-            <div className="w-full flex justify-center mb-4 mt-1">
+            <div className="w-full flex justify-center mb-4">
                 <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0 border-[#ced4da]" />
             </div>
 

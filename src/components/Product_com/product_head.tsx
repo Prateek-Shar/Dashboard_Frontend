@@ -26,7 +26,7 @@ const Product_head = () => {
                 </div>
             ) : (
 
-                <div className="w-[35%] mt-5 pl-6">
+                <div className="w-[35%] mt-1 ml-3">
                     <Skeleton paragraph={{rows : 0}} active />
                 </div>
             )}

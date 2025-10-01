@@ -48,7 +48,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
         const formData = { ...form};
 
-        const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/newUser" , {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/newUser` , {
             method: "POST",
             headers : {
                 "Content-Type": "application/json"

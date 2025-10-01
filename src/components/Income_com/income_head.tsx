@@ -29,7 +29,7 @@ const Income_head = () => {
             </div>
         ) : (
 
-            <div className="w-[35%] mt-5 pl-6">
+            <div className="w-[35%] ml-3 mt-1">
                 <Skeleton paragraph={{rows : 0}} active />
             </div>
         )}

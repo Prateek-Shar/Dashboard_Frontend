@@ -67,7 +67,7 @@ const Table_content: React.FC = () => {
     }
 
     try {
-      const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/getDataAccToFilter?value=${value}` , {
+      const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getDataAccToFilter?value=${value}` , {
         method : "GET",
         credentials : "include"
       }) 
@@ -93,7 +93,7 @@ const Table_content: React.FC = () => {
   // Fetch paginated customer data
   const fetchPageData = async(page: number) => {
 
-    const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_customers?page=${page}` , {
+    const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_customers?page=${page}` , {
       method: "GET",
       credentials : "include"
     })
@@ -118,7 +118,7 @@ const Table_content: React.FC = () => {
 
     try {
       console.log("Searching for:", value);
-      const response = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/search_customer?name=${value}` , {
+      const response = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/search_customer?name=${value}` , {
         method: "GET",
         credentials: "include",
       })
@@ -172,7 +172,7 @@ const Table_content: React.FC = () => {
   const deleteProduct = async(email: string) => {
     console.log("Deleting customer with email:", email);
     
-    const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/deleteCustomer?email=${email}` , {
+    const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/deleteCustomer?email=${email}` , {
       method : "delete",
       credentials: "include"
     })
