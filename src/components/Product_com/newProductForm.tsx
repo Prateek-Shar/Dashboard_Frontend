@@ -1,5 +1,5 @@
 import { Select } from 'antd';
-import { useRef, useState , useEffect} from 'react';
+import { useState , useEffect} from 'react';
 import { useAlert } from '../../context/result';
 
 
@@ -22,20 +22,6 @@ const NewProductForm = () => {
     const [ProductCatagoryHeading , setProductCatagoryHeading] = useState(false);
 
 
-    const ProductCatagoryInput = useRef<HTMLDivElement>(null);
-    const ProductQuantityInput = useRef<HTMLDivElement>(null);
-    const ProductPriceInput = useRef<HTMLDivElement>(null);
-    const ProductNameInput = useRef<HTMLDivElement>(null);
-    const DiscountInput = useRef<HTMLDivElement>(null);
-
-
-    const QuantityMainHeading = useRef<HTMLDivElement>(null)
-    const PriceMainHeading = useRef<HTMLDivElement>(null);
-    const CatagoryMainHeading = useRef<HTMLDivElement>(null)
-    const DiscountMainHeading = useRef<HTMLDivElement>(null)
-    const mainDiv = useRef<HTMLDivElement>(null);
-    const SubmitBt =  useRef<HTMLDivElement>(null)
-    const parentBt = useRef<HTMLDivElement>(null)
 
     const [productId, setProductId] = useState(1);
     const [form, setForm] = useState({ ...defaultForm, P_id: 1 }); 
@@ -169,6 +155,8 @@ const NewProductForm = () => {
 
     const showHeading4 = () => {
         
+        setPlaceholderCatagory("")
+
         setProductCatagoryHeading(true)
 
     }
@@ -200,7 +188,7 @@ const NewProductForm = () => {
 
     return (    
         <>
-        <div className="w-full flex flex-col" ref={mainDiv}>
+        <div className="w-full flex flex-col">
             <form onSubmit={sendProducts} method='post'>
                 
                 <div className='w-full flex justify-evenly items-center'>
@@ -211,7 +199,7 @@ const NewProductForm = () => {
                             </div>    
                         )}
                         
-                        <div className="w-full bg-white border-2 border-[#adb5bd] rounded-3xl mt-3" ref={ProductNameInput}>
+                        <div className="w-full bg-white border-2 border-[#adb5bd] rounded-3xl mt-3">
                             <input
                                 type="text"
                                 name="Product_name"
@@ -232,7 +220,7 @@ const NewProductForm = () => {
                             </div>
                         )}
 
-                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3" ref={ProductQuantityInput}>
+                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3">
                             <input
                                 type="number"
                                 name="Product_quantity"
@@ -255,7 +243,7 @@ const NewProductForm = () => {
                             </div> 
                         )}
 
-                        <div className="w-full bg-white border-2 rounded-3xl border-[#adb5bd] mt-2" ref={ProductPriceInput}>
+                        <div className="w-full bg-white border-2 rounded-3xl border-[#adb5bd] mt-2">
                             <input
                                 type="number"
                                 name="Product_price"
@@ -270,14 +258,14 @@ const NewProductForm = () => {
 
 
 
-                    <div className='w-[25%]' ref={CatagoryMainHeading}>
+                    <div className='w-[25%]'>
                         {ProductCatagoryHeading && (
                             <div className='w-[50%] flex bg-[#e9ecef] animate-wiggle rounded-2xl p-2'>
                                 <p className='font-Poppins'>Product Catagory</p>
                             </div> 
                         )}
 
-                        <div className="w-full flex items-center mt-3" ref={ProductCatagoryInput}>
+                        <div className="w-full flex items-center mt-3">
                             <Select
                                 showSearch
                                 placeholder={placeholderCatagory}
@@ -303,14 +291,14 @@ const NewProductForm = () => {
 
 
                 <div className='w-[58%] flex justify-center items-center mt-15'>
-                    <div className='w-[43%]' ref={DiscountMainHeading}>
+                    <div className='w-[43%]'>
                         {ProductDiscountHeading && (
                             <div className='w-[30%] flex bg-[#e9ecef] animate-wiggle rounded-2xl p-2'>
                                 <p className='font-Poppins'>Discount</p>
                             </div> 
                         )}
 
-                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3" ref={DiscountInput}>
+                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3">
                             <input
                                 type="number"
                                 name="Discount"
@@ -326,8 +314,8 @@ const NewProductForm = () => {
 
 
 
-                <div className='w-full mt-20 flex justify-center items-center' ref={parentBt}>
-                    <div className='w-[20%] bg-gradient-to-r from-[#00b4d8] to-[#90e0ef] rounded-3xl mb-6' ref={SubmitBt}>
+                <div className='w-full mt-20 flex justify-center items-center'>
+                    <div className='w-[20%] bg-gradient-to-r from-[#00b4d8] to-[#90e0ef] rounded-3xl mb-6'>
                         <button type="submit" className='p-3 w-full hover:cursor-pointer font-Poppins'>Submit</button>
                     </div>  
                 </div>
