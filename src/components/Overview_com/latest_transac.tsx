@@ -16,6 +16,8 @@ const Latest_Transaction = () => {
     const getLatestTransaction = async() => {
 
         try {
+            console.log("Calling API:", `${import.meta.env.VITE_PRODUCTION_API}/getLatestTransaction`);
+            
             const response = await fetch(`${import.meta.env.VITE_PRODUCTION_API}/getLatestTransaction` , {
                 method : "GET",
                 credentials : "include"
