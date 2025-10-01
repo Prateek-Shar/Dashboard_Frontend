@@ -23,10 +23,12 @@ const Latest_Transaction = () => {
 
             if(!response.ok) {
                 console.error("Something Broke up in fetching api")
+                return;
             }
 
             const data = await response.json()
             getStats(data.detail)
+            return;
         }
 
         catch(error) {
