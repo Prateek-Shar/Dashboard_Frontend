@@ -27,6 +27,8 @@ const Latest_Transaction = () => {
             }
 
             const data = await response.json()
+            console.log("Details are : " , data)
+            
             getStats(data.detail)
             return;
         }
