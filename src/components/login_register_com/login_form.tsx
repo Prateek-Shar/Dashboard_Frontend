@@ -68,7 +68,15 @@ const Login_form = () => {
 
             if (!res.ok) {
                 console.error("Failed to login user:", data.message || data.error);
+
                 setErrorDiv(true)
+
+                setTimeout(() => {
+                    setErrorDiv(false)
+                } , 3000)
+
+                setForm({...form})
+
                 return;
             }
 
