@@ -75,7 +75,7 @@ const Login_form = () => {
                     setErrorDiv(false)
                 } , 3000)
 
-                setForm({...form})
+                setForm({...formDefault})
 
                 return;
             }
