@@ -5,7 +5,7 @@ import twitter from "../../images/twitter.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/login_context";
-import { useDebounceCallback } from "usehooks-ts";
+// import { useDebounceCallback } from "usehooks-ts";
 
 
 const formDefault = {
@@ -28,7 +28,17 @@ const Login_form = () => {
     const navigate = useNavigate();
 
 
-    const DebounceForUsername = useDebounceCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    // const DebounceForUsername = useDebounceCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { name, value } = e.target;
+    //     console.log('Input change:', name, value);
+    //     setForm((prev) => {
+    //         const newForm = { ...prev, [name]: value };
+    //         console.log('New form state:', newForm);
+    //         return newForm;
+    //     });
+    // } , 2000);
+
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         console.log('Input change:', name, value);
         setForm((prev) => {
@@ -36,18 +46,18 @@ const Login_form = () => {
             console.log('New form state:', newForm);
             return newForm;
         });
-    } , 2000);
+    }
 
 
-    const DebounceForPassword = useDebounceCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        console.log('Input change:', name, value);
-        setForm((prev) => {
-            const newForm = { ...prev, [name]: value };
-            console.log('New form state:', newForm);
-            return newForm;
-        });
-    } , 2000);
+    // const DebounceForPassword = useDebounceCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { name, value } = e.target;
+    //     console.log('Input change:', name, value);
+    //     setForm((prev) => {
+    //         const newForm = { ...prev, [name]: value };
+    //         console.log('New form state:', newForm);
+    //         return newForm;
+    //     });
+    // } , 2000);
 
 
 
@@ -112,12 +122,12 @@ const Login_form = () => {
                 )}
 
                 <div className="w-[70%] mt-5 ">
-                    <input type="text" placeholder="Enter Username" name="Username" onChange={DebounceForUsername} value={form.Username} autoComplete="text" className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
+                    <input type="text" placeholder="Enter Username" name="Username" onChange={handleChange} value={form.Username} autoComplete="text" className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
                 </div>
 
                 <div className="w-[70%] flex mt-8 mb-2  justify-center">
                     <div className="w-[90%] bg-[#e0e6f9] rounded-l-2xl">
-                        <input type={typeText ? "text" : "password"} placeholder="Enter Password" name="Password" value={form.Password} onChange={DebounceForPassword} autoComplete="text" className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                        <input type={typeText ? "text" : "password"} placeholder="Enter Password" name="Password" value={form.Password} onChange={handleChange} autoComplete="text" className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                     </div>
 
                     <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
