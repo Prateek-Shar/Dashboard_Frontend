@@ -99,11 +99,12 @@ const Login_form = () => {
                 Profession : data.login_det.Profession
             }) ) 
 
-            setLoader(false)
-
-            console.log("Login successful:", data);
+            setLoader(true)
             await LoadUserApi()
-            navigate("/overview");
+
+            setTimeout(() => {
+                navigate("/overview");
+            } , 3000)
 
         } catch (error) {
             console.error("Error during login:", error);

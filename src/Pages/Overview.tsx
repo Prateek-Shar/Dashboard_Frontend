@@ -5,6 +5,7 @@ import Overview_Stats from "../components/Overview_com/overview_stats"
 import Latest_Transaction from "../components/Overview_com/latest_transac";
 import Alerts_Box from "../components/Overview_com/alerts_box";
 
+
 const Overview = () => {
 
     return (
@@ -40,6 +41,7 @@ const Overview = () => {
                         <Line_Chart/>
                     </div>
                 </div>
+
 
                 <div className="w-[20%] flex flex-col bg-white rounded-4xl shadow-lg mt-10 mb-10">
                     <div className="w-full flex justify-center mb-2 mt-3">
