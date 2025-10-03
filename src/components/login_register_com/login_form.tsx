@@ -22,6 +22,8 @@ const Login_form = () => {
     const [typeText , setTypeText] = useState(false)
     const [loader , setLoader] = useState(false)
 
+    const [err_msg , setErrMsg] = useState<string>("")
+
 
     const { LoadUserApi } = useUser()
 
@@ -91,6 +93,8 @@ const Login_form = () => {
 
                 setLoader(false)
 
+                setErrMsg(data.message)
+
                 return;
             }
 
@@ -115,6 +119,7 @@ const Login_form = () => {
         setTypeText(prev => !prev);
     }
 
+
     return (
         
        <div className="w-[80%] mt-20 flex flex-col">
@@ -123,7 +128,7 @@ const Login_form = () => {
                 {errorDiv && (
                     <div className="w-full flex justify-center">
                         <div className="w-[60%] m-1 p-1 flex justify-center">
-                            <p className="font-Poppins text-red-800">Invalid Username Or Password</p>
+                            <p className="font-Poppins text-red-800">{err_msg}</p>
                         </div>
                     </div>
                 )}
