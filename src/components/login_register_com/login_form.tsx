@@ -66,20 +66,21 @@ const Login_form = () => {
 
             const data = await res.json();
 
-            localStorage.setItem(data , JSON.stringify({
+            if (!res.ok) {
+                console.error("Failed to login user:", data.message || data.error);
+                setErrorDiv(true)
+                return;
+            }
+
+            localStorage.setItem("User Data" , JSON.stringify({
                 Username : data.login_det.Username,
                 Profession : data.login_det.Profession
             }) ) 
 
-            if (!res.ok) {
-            console.error("Failed to login user:", data.message || data.error);
-            setErrorDiv(true)
-            return;
-        }
-
-        console.log("Login successful:", data);
-        await LoadUserApi()
+            console.log("Login successful:", data);
+            await LoadUserApi()
             navigate("/overview");
+
         } catch (error) {
             console.error("Error during login:", error);
         }
