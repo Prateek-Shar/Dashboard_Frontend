@@ -45,6 +45,11 @@
       border-color: #d90429;
     }
   }
+
+  @keyframes loader-anim {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
   
 
   @keyframes show {
@@ -82,7 +87,14 @@
   animation: expandDiv 1s ease-in-out forwards;
 }
 
+.loader-gradient {
+  /* background: linear-gradient(to right , #e9ecef , #dee2e6 , #ced4da); */
+  background-color: brown;
+}
 
+.animate-loader {
+  animation: loader-anim 5s ease infinite;
+}
 
 
 /* Disables the spinner arrows in Chrome, Safari, Edge, and Opera */

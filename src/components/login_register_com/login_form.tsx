@@ -20,6 +20,7 @@ const Login_form = () => {
     const [form, setForm] = useState(formDefault);
     const [errorDiv , setErrorDiv] = useState(false)
     const [typeText , setTypeText] = useState(false)
+    const [loader , setLoader] = useState(false)
 
 
     const { LoadUserApi } = useUser()
@@ -74,6 +75,7 @@ const Login_form = () => {
             body: JSON.stringify(form),
             });
 
+            setLoader(true)
             const data = await res.json();
 
             if (!res.ok) {
@@ -87,6 +89,8 @@ const Login_form = () => {
 
                 setForm({...formDefault})
 
+                setLoader(false)
+
                 return;
             }
 
@@ -94,6 +98,8 @@ const Login_form = () => {
                 Username : data.login_det.Username,
                 Profession : data.login_det.Profession
             }) ) 
+
+            setLoader(false)
 
             console.log("Login successful:", data);
             await LoadUserApi()
@@ -135,11 +141,21 @@ const Login_form = () => {
                     </div>
                 </div>
 
-                <div className="w-full p-2 flex mt-15 justify-center">
-                    <div className="w-[40%] bg-[#3062f0] flex rounded-3xl shadow-2xl shadow-blue-400">
-                        <button type="submit" className="w-full p-3 text-white font-Poppins hover:cursor-pointer">Sign In</button>
+                <div className="w-full flex mt-15 justify-center">
+                    <div className="w-[40%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400">
+
+                    {loader && (
+                        <div className="w-[20%] flex justify-center items-center">
+                            <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin" />
+                        </div>
+                    )}
+
+                        <div className="w-[50%] flex">
+                            <button type="submit" className="w-full p-3 text-white font-Poppins hover:cursor-pointer">Sign In</button>
+                        </div>
                     </div>
                 </div>
+
             </form>
 
             <div className="w-full mt-20 flex justify-evenly">
