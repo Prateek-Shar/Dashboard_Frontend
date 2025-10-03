@@ -83,7 +83,7 @@ const Login_form = () => {
 
                 setTimeout(() => {
                     setErrorDiv(false)
-                } , 3000)
+                } , 5000)
 
                 setForm({...formDefault})
 
