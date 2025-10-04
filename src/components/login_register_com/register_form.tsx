@@ -9,8 +9,6 @@ interface ToggleToSwitch {
     onSwitch : () => void
 }
 
-const [err_msg , setErrMsg] = useState<string>("")
-
 
 const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
@@ -25,6 +23,8 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     const [errorDiv , setErrorDiv] = useState(false)
     const [isChecked , setIsChecked] = useState(false)
     const [typeText , setTypeText] = useState(false)
+
+    const [err_msg , setErrMsg] = useState<string>("")
 
 
     const handleCheckbox = () => {
