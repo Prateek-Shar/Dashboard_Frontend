@@ -72,7 +72,7 @@ const Login_form = () => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-            },
+            },  
             credentials: "include", // important to send cookies
             body: JSON.stringify(form),
             });
@@ -81,8 +81,9 @@ const Login_form = () => {
             const data = await res.json();
 
             if (!res.ok) {
-                console.error("Failed to login user:", data.message || data.error);
+                console.log("Failed to login user:", data.msg || data.error);
 
+                setErrMsg(data.msg || data.error)
                 setErrorDiv(true)
 
                 setTimeout(() => {
@@ -92,9 +93,6 @@ const Login_form = () => {
                 setForm({...formDefault})
 
                 setLoader(false)
-
-                setErrMsg(data.message)
-
                 return;
             }
 
