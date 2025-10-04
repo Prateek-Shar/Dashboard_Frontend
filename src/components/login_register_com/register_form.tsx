@@ -9,6 +9,8 @@ interface ToggleToSwitch {
     onSwitch : () => void
 }
 
+const [err_msg , setErrMsg] = useState<string>("")
+
 
 const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
@@ -59,21 +61,20 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
         const data = await res.json();
 
         if (res.ok) {
-
             console.log("User registered successfully:", data);
             onSwitch()
         }
 
         if (!res.ok) {
-        
-            if (data.existing_error) {
-                setErrorDiv(true);
-                setForm({ ...default_form });
-            }
+            setErrMsg(data.err_msg)
+            setErrorDiv(true)
 
-        console.error("Failed to register user");
-        return;
+            setTimeout(() => {
+                setErrorDiv(false)
+            } , 3000)
 
+            setForm({ ...default_form });
+            return;
         }   
     };
 
@@ -87,11 +88,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     return (
         <div className="w-[80%] mt-20">
             <form onSubmit={handleSubmit} className="flex flex-col">
-                
-                <div className="w-full ] flex justify-center mt-5">
-                    <input type="text" placeholder="Enter User Name" onChange={handleChange} value={form.Username} name="Username" autoComplete="text" className="font-Poppins w-[70%] bg-[#e0e6f9] rounded-2xl p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
-                </div>
-                 
+
                 {errorDiv && (
                     <div className="w-full flex justify-center">
                         <div className="w-[70%] flex">
@@ -100,11 +97,16 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                             </div>
 
                             <div className="w-[90%]">
-                                <p className="font-Poppins p-1 text-red-600">Username Already Found</p>
+                                <p className="font-Poppins p-1 text-red-600">{err_msg}</p>
                             </div>
                         </div>
                     </div>
                 )}  
+                
+                <div className="w-full ] flex justify-center mt-5">
+                    <input type="text" placeholder="Enter User Name" onChange={handleChange} value={form.Username} name="Username" autoComplete="text" className="font-Poppins w-[70%] bg-[#e0e6f9] rounded-2xl p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                </div>
+                 
 
                 <div className="w-full mt-8 flex justify-center">
                     <input type="text" placeholder="Enter Email" value={form.Email} onChange={handleChange} name="Email" autoComplete="text" className="font-Poppins p-5 w-[70%] bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
