@@ -1,4 +1,4 @@
-import { Flex, Tag, Select, Input, Space, Pagination } from "antd";
+import { Flex, Tag, Select, Input, Space, Pagination, Skeleton } from "antd";
 import { useEffect, useRef, useState } from "react";
 import React from "react";
 import bin from "../../images/Bin.png";
@@ -34,6 +34,7 @@ const Table_content: React.FC = () => {
   const [customersDet , setCustomerDet] = useState<Customer_Details[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [showTable , setShowTable] = useState<boolean>(false);
+  const [showSkeleton , setShowSkeleton] = useState(true)
 
   const { Search } = Input;
 
@@ -160,13 +161,19 @@ const Table_content: React.FC = () => {
 
 
 
-  useEffect(() => {
-    if (customers.length > 0) {
-      setShowTable(true);
-    } else {
-      setShowTable(false);
-    }
-  }, [customers]);
+  // useEffect(() => {
+  //   if (customers.length > 0) {
+  //     setShowTable(true);
+  //   } else {
+  //     setShowTable(false);
+  //   }
+  // }, [customers]);
+
+  setTimeout(() => {
+    setShowTable(true)
+
+    setShowSkeleton(false)
+  } , 3000)
 
 
   const deleteProduct = async(email: string) => {
@@ -194,8 +201,16 @@ const Table_content: React.FC = () => {
 
   return (
     <>
+
+    {showSkeleton && (
+      <div className="w-full flex justify-center items-center mt-20">
+          <div className="w-[80%]">
+              <Skeleton paragraph={{rows:10}} active/>
+          </div>
+      </div>
+    )}  
     
-    {showTable ? (
+    {showTable && (
       <div className="w-[90%] flex flex-col justify-center items-center mb-10">
       <div className="w-[90%] flex flex-col items-center mt-15">
         <div className="w-full rounded-t-3xl p-2 flex justify-between bg-white">
@@ -358,15 +373,9 @@ const Table_content: React.FC = () => {
       </div>
     </div>
 
-    ) : ( 
-
-    <div className="w-full p-30 flex justify-center items-center">
-      <div className="w-[80%] flex justify-center items-center bg-white rounded-3xl">
-          <p className="font-Poppins p-10 text-2xl">No Customers Found</p>
-      </div>
-    </div>
-
     )} 
+
+    
 
     </>
   );

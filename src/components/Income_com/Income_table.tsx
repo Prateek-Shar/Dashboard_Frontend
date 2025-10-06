@@ -1,5 +1,6 @@
 import { useEffect , useState } from "react";
-import { Pagination } from "antd";
+import { Pagination, Skeleton } from "antd";
+
 
 interface Income_det {
     Created_at : string,
@@ -13,6 +14,7 @@ const Income_table = () => {
     const [currentPage , setCurrentPage] = useState<number>(1)
     const [totalIncome , setTotalIncome] = useState<number>(0)
     const [showTable , setShowTable] = useState(false)
+    const [showSkeleton , setShowSkeleton] = useState(true)
 
     const documentEachPage = 5;
 
@@ -59,25 +61,31 @@ const Income_table = () => {
 
     useEffect(() => {
         fetchIncomePageData(currentPage)
-        fetchIncomeLength()
     } , [])
 
 
-    useEffect(() => {
-        if(totalIncome > 0) {
-            setShowTable(true)
-        }
+    setTimeout(() => {
+        fetchIncomeLength()
 
-        else {
-            setShowTable(false)
-        }
-    })
+        setShowSkeleton(false)
+
+        setShowTable(true)
+    } , 3000)
 
  
     return (
 
         <>
-            {showTable ? (
+            {showSkeleton && (
+                <div className="w-full flex justify-center items-center mt-10">
+                    <div className="w-[80%]">
+                        <Skeleton paragraph={{rows:10}} active/>
+                    </div>
+                </div>
+            )}  
+            
+
+            {showTable && (
                 <div className="w-[80%] flex flex-col mt-10 rounded-4xl bg-white"> 
                     <div className="w-full pt-6 pl-5 pb-2 rounded-t-4xl mt-2" >
                         <p className="font-Poppins text-2xl">Income Records</p>
@@ -107,34 +115,29 @@ const Income_table = () => {
 
                     <div className="w-full">
                         <div className="w-full flex flex-col "> {/* Changed to flex-col */}
-                            {incomeStats.length > 0 ? (
-                            incomeStats.map((stat, index) => {
-                                const isoDate = new Date(stat.Created_at).toDateString();
-                                return (
-                                    <div key={index} className="flex w-full justify-evenly mb-2">
-                                        <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                            <p className="font-Poppins p-3 text-[#495057]">{isoDate}</p>
-                                        </div>
+                            {incomeStats.length > 0 && (
+                                incomeStats.map((stat, index) => {
+                                    const isoDate = new Date(stat.Created_at).toDateString();
+                                    return (
+                                        <div key={index} className="flex w-full justify-evenly mb-2">
+                                            <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
+                                                <p className="font-Poppins p-3 text-[#495057]">{isoDate}</p>
+                                            </div>
 
-                                        <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                            <p className="font-Poppins text-[#495057]">{stat.Source}</p>
-                                        </div>
+                                            <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
+                                                <p className="font-Poppins text-[#495057]">{stat.Source}</p>
+                                            </div>
 
-                                        <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                            <p className="font-Poppins text-[#495057]">{stat.Amount}</p>
-                                        </div>
+                                            <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
+                                                <p className="font-Poppins text-[#495057]">{stat.Amount}</p>
+                                            </div>
 
-                                        <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                            <p className="font-Poppins text-[#495057]">{stat.Catagory}</p>
+                                            <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
+                                                <p className="font-Poppins text-[#495057]">{stat.Catagory}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            })
-
-                            ) : (
-                            <div className="w-full p-4 flex justify-center mt-4 mb-4">
-                                <p className="font-Poppins">No Results Found</p>
-                            </div>
+                                    );
+                                })
                             )}
                         </div>
                     </div>
@@ -156,14 +159,6 @@ const Income_table = () => {
                     </div>
 
                 </div>  
-
-            ) : (
-
-            <div className="w-full p-30 flex justify-center items-center" >
-                <div className="w-[80%] bg-white flex justify-center rounded-2xl">
-                    <p className="p-10 font-Poppins text-2xl">No Records Found</p>
-                </div>
-            </div>
 
             )}
             

@@ -69,9 +69,9 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
             setErrMsg(data.err_msg)
             setErrorDiv(true)
 
-            setTimeout(() => {
-                setErrorDiv(false)
-            } , 3000)
+            // setTimeout(() => {
+            //     setErrorDiv(false)
+            // } , 3000)
 
             setForm({ ...default_form });
             return;
@@ -91,19 +91,19 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
                 {errorDiv && (
                     <div className="w-full flex justify-center">
-                        <div className="w-[70%] flex">
+                        <div className="w-[10%] flex bg-amber-600">
                             <div className="w-[10%] flex justify-center items-center">
                                 <img src={cross} className="object-contain w-[80%] p-2" />
                             </div>
 
-                            <div className="w-[90%]">
+                            <div className="flex">
                                 <p className="font-Poppins p-1 text-red-600">{err_msg}</p>
                             </div>
                         </div>
                     </div>
                 )}  
                 
-                <div className="w-full ] flex justify-center mt-5">
+                <div className="w-full flex justify-center mt-5">
                     <input type="text" placeholder="Enter User Name" onChange={handleChange} value={form.Username} name="Username" autoComplete="text" className="font-Poppins w-[70%] bg-[#e0e6f9] rounded-2xl p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                 </div>
                  
