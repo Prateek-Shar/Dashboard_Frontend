@@ -42,7 +42,7 @@ const NewProductForm = () => {
         const formToSend = { ...form };
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}send_products`, {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/send_products`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials : "include",
@@ -118,13 +118,16 @@ const NewProductForm = () => {
 
 
     const defaultDivs = () => {
-        
         setProductNameHeading(false)
         setProductDiscountHeading(false)
         setProductCatagoryHeading(false)
         setProductQuantityHeading(false)
         setProductPriceHeading(false)
-
+        setPlaceholderName("Enter Product Name")
+        setPlaceholderCatagory("Search / Select Catagory")
+        setPlaceholderDiscount("Specify Discount (in %)")
+        setPlaceholderPrice("Enter Product Price")
+        setPlaceholderQuantity("Enter Product Quantity")
     }
 
 
