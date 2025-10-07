@@ -72,7 +72,7 @@ const Alerts_Box = () => {
         }
     }
 
-    const handleClickToNoStockDiv = () => {
+    const handleClickToZeroStockDiv = () => {
 
         setZeroStockDiv(true)
         setLowStockDiv(false)
@@ -86,11 +86,14 @@ const Alerts_Box = () => {
         }
     }
 
-    setTimeout(() => {
-        setLowStockDiv(false)
-        setShowSkeleton(false)
-        setZeroStockDiv(true)
-    } , 3000)
+    useEffect(() => {
+        setTimeout(() => {
+            setLowStockDiv(false)
+            setShowSkeleton(false)
+            setZeroStockDiv(true)
+        }, 3000)
+    }, [])
+
 
 
     return (
@@ -98,9 +101,25 @@ const Alerts_Box = () => {
 
         <div className="w-full flex justify-between mt-2 mb-1">
 
+            <div className="w-[20%] flex mr-2 hover:cursor-pointer mt-2 mb-2" onClick={handleClickToZeroStockDiv}>
+                <div className="w-[15%] flex justify-center items-center">
+                    <div className="w-[60%] h-3 rounded-4xl bg-green-500" ref={NoStockIndicator}/>
+                </div>
+
+                <div className="w-[85%] flex justify-center items-center">
+                    <p className="font-Poppins">Out-of-Stock</p>
+                </div>
+            </div>
+
+
+            <div className="w-[20%] flex justify-center items-center p-2 mt-1">
+                <p className="font-Poppins text-[#9197b3]">Stocks Details</p>
+            </div>
+
+
             <div className="w-[20%] flex ml-2 hover:cursor-pointer mt-2 mb-2" onClick={handleClickToLowStockDiv}>
                 <div className="w-[11%] flex justify-center items-center">
-                    <div className="w-[80%] h-3 rounded-4xl bg-green-500" ref={LowStockIndicator} />
+                    <div className="w-[80%] h-3 rounded-4xl bg-gray-400 " ref={LowStockIndicator} />
                 </div>
 
                 <div className="w-[89%] flex justify-center items-center">
@@ -108,20 +127,6 @@ const Alerts_Box = () => {
                 </div>
             </div>
 
-            <div className="w-[20%] flex justify-center items-center p-2 mt-1">
-                <p className="font-Poppins text-[#9197b3]">Stocks Details</p>
-            </div>
-
-            <div className="w-[20%] flex mr-2 hover:cursor-pointer mt-2 mb-2" onClick={handleClickToNoStockDiv}>
-                <div className="w-[15%] flex justify-center items-center">
-                    <div className="w-[60%] h-3 rounded-4xl bg-gray-400" ref={NoStockIndicator}/>
-                </div>
-
-                <div className="w-[85%] flex justify-center items-center">
-                    <p className="font-Poppins">Out-of-Stock</p>
-                </div>
-            </div>
-            
         </div>
 
         <div className="w-full flex justify-center">
