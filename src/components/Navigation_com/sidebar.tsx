@@ -243,8 +243,8 @@ const Sidebar = () => {
                             </div>
                         ) : (
                             
-                            <div className="w-full mt-[60px] mb-9">
-                                <Skeleton paragraph={{rows : 2}} active />
+                            <div className="w-full mt-[60px] mb-13">
+                                <Skeleton paragraph={{rows : 1}} active />
                             </div>
                             
                         )

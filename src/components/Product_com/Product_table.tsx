@@ -10,6 +10,7 @@ import default_image from "../../images/default.png";
 import Video_Games from "../../images/Video_Games.png"
 import electric_app from "../../images/electric_appliances.png";
 import { useAPI } from "../../context/product_stats_context";
+import { Skeleton } from "antd";
 
 interface Product_details {
     P_id: number;
@@ -35,6 +36,8 @@ const Product_table = () => {
     const [productDet, setProductDet] = useState<Product_details[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [productCount, setProductCount] = useState(0);
+    const [showSkeleton , setShowSkeleton] = useState(true)
+    const [showTableDet , setShowTableDet] = useState(false)
 
     const [showTable , setShowTable] = useState(false);
 
@@ -114,153 +117,172 @@ const Product_table = () => {
         fetchProductPageData(page)
     };
 
-    
+
+    // useEffect(() => {
+    //     if(productCount > 0) {
+    //         setShowTable(true)
+    //     }
+
+    //     else {
+    //         setShowTable(false)
+    //     }
+    // })
+
+    setTimeout(() => {
+        setShowSkeleton(false)
+        setShowTableDet(true)
+        setShowTable(true)
+    } , 3000)
+
+
     useEffect(() => {
         getStats()
         fetchProductPageData(currentPage); 
     } , [])
 
-    useEffect(() => {
-        if(productCount > 0) {
-            setShowTable(true)
-        }
-
-        else {
-            setShowTable(false)
-        }
-    })
-
-
 
     return (
     <>
-
-        {showTable ? (
-            <div className="w-full flex flex-col justify-center items-center">
-                <div className="w-[85%] bg-white flex flex-col rounded-t-4xl items-center">
-                    <div className="w-[95%] flex justify-between mt-4">
-                        <div className="w-[15%] flex justify-center">
-                            <p className="font-Poppins p-2 text-[#bcc3cc]">Image</p>
-                        </div>
-
-                        <div className="w-[15%] flex justify-center">
-                            <p className="font-Poppins p-2 text-[#bcc3cc]">Product Name</p>
-                        </div>
-
-                        <div className="w-[15%] flex justify-center ">
-                            <p className="font-Poppins p-2 text-[#bcc3cc]">Catagory</p>
-                        </div>
-
-                        <div className="w-[15%] flex justify-center ">
-                            <p className="font-Poppins p-2 text-[#bcc3cc]">Price</p>
-                        </div>
-
-                        <div className="w-[15%] flex justify-center">
-                            <p className="font-Poppins p-2 text-[#bcc3cc]">Status</p>
-                        </div>
-
-                        <div className="w-[15%] flex justify-center">
-                            <p className="font-Poppins p-2 text-[#bcc3cc]">Action</p>
-                        </div>
-                    </div>
-                
-                
-                    <div className="w-[98%] mt-2 mb-2">
-                        <hr className="border-[#f2f2f2]" />
-                    </div>
-
+        {showSkeleton && (
+            <div className="w-full flex justify-center items-center mt-10 mb-10">
+                <div className="w-[75%] flex justify-center items-center">
+                        <Skeleton paragraph={{rows:8}} active/>
                 </div>
+            </div>
+        )}
 
-                <div className="w-full flex justify-center items-center flex-col">
-                    <div className="w-[85%] flex flex-col">
-                        <div className="w-full bg-white ">
-                            {productDet.length > 0 ? (
-                                productDet.map((product) => {
-                                    const items: MenuProps['items'] = [
-                                        {
-                                            label: 'Delete',
-                                            key: product.P_id.toString(),
-                                        }
-                                    ];
+        {showTableDet && (
+            <>
+            {showTable ? (
+                <div className="w-full flex flex-col justify-center items-center">
+                    <div className="w-[85%] bg-white flex flex-col rounded-t-4xl items-center">
+                        <div className="w-[95%] flex justify-between mt-4">
+                            <div className="w-[15%] flex justify-center">
+                                <p className="font-Poppins p-2 text-[#bcc3cc]">Image</p>
+                            </div>
 
-                                    const onClick: MenuProps['onClick'] = (info) => {
-                                        handleDelete(Number(info.key));
-                                    };
+                            <div className="w-[15%] flex justify-center">
+                                <p className="font-Poppins p-2 text-[#bcc3cc]">Product Name</p>
+                            </div>
 
-                                    return (
-                                        <div key={product.P_id} className="w-full flex py-2">
-                                            <div className="w-[15%] flex justify-center items-center ml-7">
-                                                <img
-                                                    src={categoryImages[product.Product_catagory] || default_image}
-                                                    alt={product.Product_catagory}
-                                                    className="object-contain w-[25%] p-2"
-                                                />
-                                            </div>
-                                            <div className="w-[14%] ml-5 p-5 flex justify-center items-center">
-                                                <p className="font-Poppins text-[#495057]">{product.Product_name}</p>
-                                            </div>
-                                            <div className="w-[15%] ml-7 flex justify-center items-center">
-                                                <p className="font-Poppins text-[#495057]">{product.Product_catagory}</p>
-                                            </div>
-                                            <div className="w-[14%] ml-5 flex justify-center items-center">
-                                                <p className="font-Poppins text-[#495057]">₹{product.Product_price}</p>
-                                            </div>
-                                            <div className="w-[15%] ml-7 flex justify-center items-center">
-                                                <p className="font-Poppins text-[#495057]">
-                                                    {Number(product.Product_quantity) <= 0 ? "Out of Stock" : "In Stock"}
-                                                </p>
-                                            </div>
-                                            <div className="w-[15%] ml-7 flex justify-center items-center">
-                                                <Dropdown menu={{ items, onClick }}>
-                                                    <a onClick={(e) => e.preventDefault()}>
-                                                        <Space className="text-[#6ab1fd]">
-                                                            Action
-                                                            <DownOutlined />
-                                                        </Space>
-                                                    </a>
-                                                </Dropdown>
-                                            </div>
-                                        </div>
-                                    );
-                                })
-                            ) : (
-                                <div className="w-full text-white p-4 text-center">
-                                    <p>No Records Found</p>
-                                </div>
-                            )}
+                            <div className="w-[15%] flex justify-center ">
+                                <p className="font-Poppins p-2 text-[#bcc3cc]">Catagory</p>
+                            </div>
+
+                            <div className="w-[15%] flex justify-center ">
+                                <p className="font-Poppins p-2 text-[#bcc3cc]">Price</p>
+                            </div>
+
+                            <div className="w-[15%] flex justify-center">
+                                <p className="font-Poppins p-2 text-[#bcc3cc]">Status</p>
+                            </div>
+
+                            <div className="w-[15%] flex justify-center">
+                                <p className="font-Poppins p-2 text-[#bcc3cc]">Action</p>
+                            </div>
                         </div>
-
-                        <div className="w-[98%]">
+                    
+                    
+                        <div className="w-[98%] mt-2 mb-2">
                             <hr className="border-[#f2f2f2]" />
                         </div>
 
-                        <div className="w-full bg-white flex justify-between rounded-b-4xl">
-                            <div className="w-[40%] mt-4 mb-4 flex items-center">
-                                <p className='font-Poppins pl-4 text-[#d9d2d7] text-[13px]'>
-                                    Showing {start} to {end} out of {productCount}
-                                </p>
-                            
+                    </div>
+
+                    <div className="w-full flex justify-center items-center flex-col">
+                        <div className="w-[85%] flex flex-col">
+                            <div className="w-full bg-white ">
+                                {productDet.length > 0 ? (
+                                    productDet.map((product) => {
+                                        const items: MenuProps['items'] = [
+                                            {
+                                                label: 'Delete',
+                                                key: product.P_id.toString(),
+                                            }
+                                        ];
+
+                                        const onClick: MenuProps['onClick'] = (info) => {
+                                            handleDelete(Number(info.key));
+                                        };
+
+                                        return (
+                                            <div key={product.P_id} className="w-full flex py-2">
+                                                <div className="w-[15%] flex justify-center items-center ml-7">
+                                                    <img
+                                                        src={categoryImages[product.Product_catagory] || default_image}
+                                                        alt={product.Product_catagory}
+                                                        className="object-contain w-[25%] p-2"
+                                                    />
+                                                </div>
+                                                <div className="w-[14%] ml-5 p-5 flex justify-center items-center">
+                                                    <p className="font-Poppins text-[#495057]">{product.Product_name}</p>
+                                                </div>
+                                                <div className="w-[15%] ml-7 flex justify-center items-center">
+                                                    <p className="font-Poppins text-[#495057]">{product.Product_catagory}</p>
+                                                </div>
+                                                <div className="w-[14%] ml-5 flex justify-center items-center">
+                                                    <p className="font-Poppins text-[#495057]">₹{product.Product_price}</p>
+                                                </div>
+                                                <div className="w-[15%] ml-7 flex justify-center items-center">
+                                                    <p className="font-Poppins text-[#495057]">
+                                                        {Number(product.Product_quantity) <= 0 ? "Out of Stock" : "In Stock"}
+                                                    </p>
+                                                </div>
+                                                <div className="w-[15%] ml-7 flex justify-center items-center">
+                                                    <Dropdown menu={{ items, onClick }}>
+                                                        <a onClick={(e) => e.preventDefault()}>
+                                                            <Space className="text-[#6ab1fd]">
+                                                                Action
+                                                                <DownOutlined />
+                                                            </Space>
+                                                        </a>
+                                                    </Dropdown>
+                                                </div>
+                                            </div>
+                                        );
+                                    })
+                                ) : (
+                                    <div className="w-full text-white p-4 text-center">
+                                        <p>No Records Found</p>
+                                    </div>
+                                )}
                             </div>
-                            <div className="w-[20%] mt-4 mb-4 ">
-                                <Pagination
-                                    current={currentPage}
-                                    onChange={handleChange}
-                                    total={productCount}
-                                    pageSize={documentEachPage} // assuming you are showing 5 per page
-                                />
+
+                            <div className="w-[98%]">
+                                <hr className="border-[#f2f2f2]" />
+                            </div>
+
+                            <div className="w-full bg-white flex justify-between rounded-b-4xl">
+                                <div className="w-[40%] mt-4 mb-4 flex items-center">
+                                    <p className='font-Poppins pl-4 text-[#d9d2d7] text-[13px]'>
+                                        Showing {start} to {end} out of {productCount}
+                                    </p>
+                                
+                                </div>
+                                <div className="w-[20%] mt-4 mb-4 ">
+                                    <Pagination
+                                        current={currentPage}
+                                        onChange={handleChange}
+                                        total={productCount}
+                                        pageSize={documentEachPage} // assuming you are showing 5 per page
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            ) : (
+
+            <div className="w-full p-30 flex justify-center items-center">
+                <div className="w-[80%] flex justify-center items-center bg-white rounded-3xl">
+                    <p className="font-Poppins p-10 text-2xl">No Products Found</p>
+                </div>
             </div>
 
-        ) : (
+            )}
 
-        <div className="w-full p-30 flex justify-center items-center">
-            <div className="w-[80%] flex justify-center items-center bg-white rounded-3xl">
-                <p className="font-Poppins p-10 text-2xl">No Products Found</p>
-            </div>
-        </div>
+        </>
 
         )}
         

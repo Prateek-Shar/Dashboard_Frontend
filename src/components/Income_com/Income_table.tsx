@@ -79,7 +79,7 @@ const Income_table = () => {
             {showSkeleton && (
                 <div className="w-full flex justify-center items-center mt-10">
                     <div className="w-[80%]">
-                        <Skeleton paragraph={{rows:10}} active/>
+                        <Skeleton paragraph={{rows:6}} active/>
                     </div>
                 </div>
             )}  

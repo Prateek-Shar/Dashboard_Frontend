@@ -8,21 +8,22 @@ import { useEffect, useRef, useState } from "react"
 import { UserProvider } from "../context/login_context"
 import { AlertProvider } from "../context/result";
 import Income_table_head from "../components/Income_com/Income_table_head"
+import { Skeleton } from "antd"
 
 
 interface MonthlyDetails {
-    Catagory : string,
-    Amount : number
+    _id : string,
+    amt : number
 }
 
 interface YearlyDetails {
-    Catagory : string;
-    Amount : number
+    _id : string;
+    amt : number
 }
 
 interface DailyDetails {
-    Amount : number;
-    Catagory : string;
+    amt : number;
+    _id : string;
 }
 
 
@@ -33,6 +34,10 @@ const Income = () => {
     const [dataDaily, setDataByDay] = useState<DailyDetails[]>([])
 
     const [incomeStats , setIncomeStats] = useState<number>()
+
+    const [showSkeleton , setShowSkeleton] = useState(true)
+    const [showChart , setShowChart] = useState(false)
+
 
     const VisualizeDiv = useRef<HTMLDivElement>(null)
 
@@ -59,7 +64,7 @@ const Income = () => {
         })
 
         if (!response1.ok) {    
-            console.log("Something Broke Up")
+            console.log("Something Broke Up in response 1")
         }
 
         const data = await response1.json()
@@ -73,7 +78,7 @@ const Income = () => {
         })
 
         if (!response2.ok) {
-            console.log("Something Broke Up")
+            console.log("Something Broke Up in response 2")
         }
 
         const data2 = await response2.json()
@@ -87,7 +92,7 @@ const Income = () => {
         })
 
         if (!response3.ok) {
-            console.log("Something Broke Up in response3")
+            console.log("Something Broke Up in response 3")
         }
 
         const data3 = await response3.json()
@@ -110,6 +115,12 @@ const Income = () => {
     }
 
     const [selectedValue , setSelectedValue] = useState<string | undefined>()
+
+
+    setTimeout(() => {
+        setShowSkeleton(false)
+        setShowChart(true)
+    } , 3000)
 
     return (
 
@@ -137,23 +148,33 @@ const Income = () => {
                 <Income_table />
             </div>
 
-            <div className="w-full flex justify-center" ref={VisualizeDiv}> 
-                <div className="w-[80%] bg-white flex justify-center items-center flex-col rounded-4xl mt-20 mb-20">
-
-                   
-                    <div className="w-full">
-                        <Income_table_head  onSelect={setSelectedValue} />
+            <div className="w-full flex justify-center"> 
+                {showSkeleton && (
+                    <div className="w-full flex justify-center items-center mt-20 mb-10">
+                        <div className="w-[80%] flex justify-center items-center">
+                            <Skeleton paragraph={{rows:6}} active/>
+                        </div>
                     </div>
-                   
-                    <DetailContext.Provider value={{
-                        detailByMonth : dataByMonth , setDetailByMonth : setDataByMonth ,  
-                        detailDaily : dataDaily , setDetailDaily :  setDataByDay ,
-                        detailByYear : dataByYear , setDetailByYear : setDataByYear,
-                        DataBy : selectedValue
-                    }}>
-                        <Income_visualize />
-                    </DetailContext.Provider>
-                </div>
+                )}
+
+                {showChart && (
+                    <div className="w-[80%] bg-white flex justify-center items-center flex-col rounded-4xl mt-20 mb-20">
+
+                        <div className="w-full">
+                            <Income_table_head  onSelect={setSelectedValue} />
+                        </div>
+                    
+                        <DetailContext.Provider value={{
+                            detailByMonth : dataByMonth , setDetailByMonth : setDataByMonth ,  
+                            detailDaily : dataDaily , setDetailDaily :  setDataByDay ,
+                            detailByYear : dataByYear , setDetailByYear : setDataByYear,
+                            DataBy : selectedValue
+                        }}>
+                            <Income_visualize />
+                        </DetailContext.Provider>
+
+                    </div>
+                )}
             </div>
 
         </div>

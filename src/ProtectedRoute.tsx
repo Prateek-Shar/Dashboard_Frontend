@@ -23,11 +23,16 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       }
     };
 
-    checkAuth();
+    // setTimeout(() => {
+    //   checkAuth()
+    // } , 3000)
+
+    checkAuth()
+
   }, []);
 
   if (isAuthenticated === null) {
-    return <div>Loading...</div>; // while checking
+    return null;
   }
 
   return isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;

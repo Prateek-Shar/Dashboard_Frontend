@@ -5,6 +5,8 @@ import twitter from "../../images/twitter.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/login_context";
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 // import { useDebounceCallback } from "usehooks-ts";
 
 
@@ -150,7 +152,9 @@ const Login_form = () => {
 
                     {loader && (
                         <div className="w-[20%] flex justify-center items-center">
-                            <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin" />
+                            <div className="w-full p-2">
+                                <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
+                            </div>
                         </div>
                     )}
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import { Skeleton } from "antd";
 
 interface LineInfo {
   _id: string;    // category name, e.g. "Grocery"
@@ -42,9 +43,29 @@ const Line_Chart = () => {
     ]
   };
 
+  const [showSkeleton , setShowSkeleton] = useState(true)
+  const [showChart , setShowChart] = useState(false)
+
+
+  setTimeout(() => {
+    setShowChart(true)
+    setShowSkeleton(false)
+  } , 3000)
+
+  
+
  return (
   <>
+    {showSkeleton && (
+      <div className="w-full flex justify-center items-center mt-10 mb-10">
+          <div className="w-[80%]">
+              <Skeleton paragraph={{rows:10}} active/>
+          </div>
+      </div>
+    )}  
 
+
+    {showChart && (
     <div className='w-full justify-center items-center flex flex-col'>
       {LineData.length > 0 ? (
         <div className="w-full flex justify-center items-center mt-3 p-10">
@@ -56,6 +77,7 @@ const Line_Chart = () => {
         </div>
       )}
     </div>
+    )}
 
   </>
   );

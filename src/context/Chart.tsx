@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 export interface Prop {
-  Catagory : string;
-  Amount : number;
+  _id : string;
+  amt : number;
   DataBy? : string;
 }
 

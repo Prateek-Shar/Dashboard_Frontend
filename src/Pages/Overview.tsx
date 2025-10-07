@@ -4,9 +4,19 @@ import Overview_Head from "../components/Overview_com/overview_head"
 import Overview_Stats from "../components/Overview_com/overview_stats"
 import Latest_Transaction from "../components/Overview_com/latest_transac";
 import Alerts_Box from "../components/Overview_com/alerts_box";
+import { useState } from "react";
+import { Skeleton } from "antd";
 
 
 const Overview = () => {
+
+    const [showSkeleton , setShowSkeleton] = useState(true)
+    const [showLineChart , setShowLineChart] = useState(false)
+
+    setTimeout(() => {
+        setShowLineChart(true)
+        setShowSkeleton(false)
+    } , 3000)
 
     return (
         
@@ -27,7 +37,7 @@ const Overview = () => {
             </div>
 
             <div className="w-full flex justify-evenly items-center mt-15">
-
+               
                 <div className="w-[40%] flex flex-col bg-white rounded-4xl shadow-lg mt-10 mb-10">
                     <div className="w-full flex justify-center mb-2 mt-3">
                         <p className="font-Poppins text-[#9197b3]">Total Income as Per Catagory</p>
@@ -41,7 +51,6 @@ const Overview = () => {
                         <Line_Chart/>
                     </div>
                 </div>
-
 
                 <div className="w-[20%] flex flex-col bg-white rounded-4xl shadow-lg mt-10 mb-10">
                     <div className="w-full flex justify-center mb-2 mt-3">

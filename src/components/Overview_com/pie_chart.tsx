@@ -7,6 +7,8 @@ import {
   Legend,
 } from "chart.js";
 
+import { Skeleton } from "antd";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface Pie_info {
@@ -63,19 +65,38 @@ const Pie_Chart = () => {
     ],
   };
 
+  const [showSkeleton , setShowSkeleton] = useState(true)
+  const [showPieChart , setShowPieChart] = useState(false)
+
+  setTimeout(() => {
+    setShowPieChart(true)
+    setShowSkeleton(false)
+  } , 3000)
+
   return (
     <>
-    <div className='w-full justify-center items-center flex flex-col'>
-      {data.length > 0 ? (
-        <div className="w-full p-2 mt-4">
-          <Pie data={chartData} />
-         </div>
-        ):(
-        <div className="w-full p-2 mb-4 mt-4 flex justify-center">
-          <p className="font-Poppins">No Record Found</p>
-        </div>
+
+    {showSkeleton && (
+      <div className="w-full flex justify-center items-center mt-10 mb-10">
+          <div className="w-[80%]">
+              <Skeleton paragraph={{rows:8}} active/>
+          </div>
+      </div>
+    )}  
+
+    {showPieChart && (
+      <div className='w-full justify-center items-center flex flex-col'>
+        {data.length > 0 ? (
+          <div className="w-full p-2 mt-4">
+            <Pie data={chartData} />
+          </div>
+          ):(
+          <div className="w-full p-2 mb-4 mt-4 flex justify-center">
+            <p className="font-Poppins">No Record Found</p>
+          </div>
+      )}
+      </div>
     )}
-    </div>
       
     </>
   );

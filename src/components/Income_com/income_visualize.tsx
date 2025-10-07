@@ -1,9 +1,9 @@
 import LineChart from "../charts/LineChart"
 
-
 const Income_visualize = () => {
 
     return (
+
         <div className="w-full bg-white rounded-b-4xl">
 
             <div className="w-full">
@@ -13,6 +13,7 @@ const Income_visualize = () => {
             </div>
 
         </div>
+
     )
 }
 

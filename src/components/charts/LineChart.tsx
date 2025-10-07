@@ -37,14 +37,14 @@ const LineChart = () => {
 
   console.log("Monthly or Yearly : " , DataBy);
 
-  const labels = detailDaily.map(item => item.Catagory);
-  const dataPoints = detailDaily.map(item => item.Amount);
+  const labels = detailDaily.map(item => item._id);
+  const dataPoints = detailDaily.map(item => item.amt);
 
-  const label2 = detailByMonth.map(item => item.Catagory);
-  const dataPoints2 = detailByMonth.map(item => item.Amount);
+  const label2 = detailByMonth.map(item => item._id);
+  const dataPoints2 = detailByMonth.map(item => item.amt);
 
-  const label3 = detailByYear.map(item => item.Catagory);
-  const dataPoints3 = detailByYear.map(item => item.Amount);
+  const label3 = detailByYear.map(item => item._id);
+  const dataPoints3 = detailByYear.map(item => item.amt);
   
 
   const data = {

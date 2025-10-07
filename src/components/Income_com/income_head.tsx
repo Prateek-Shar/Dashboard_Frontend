@@ -17,7 +17,7 @@ const Income_head = () => {
             <p className="font-Poppins text-2xl p-1">Income Overview</p>
         </div>
 
-        {Loader? (
+        {Loader ? (
             <div className="w-[15%] flex ml-2">
                 <div className="w-[80%] flex items-center">
                     <p className="font-Poppins text-[16px]  pl-1">Welcome Back , {userDetails?.Username}</p>
