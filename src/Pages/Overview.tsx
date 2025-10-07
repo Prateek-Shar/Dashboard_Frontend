@@ -4,19 +4,9 @@ import Overview_Head from "../components/Overview_com/overview_head"
 import Overview_Stats from "../components/Overview_com/overview_stats"
 import Latest_Transaction from "../components/Overview_com/latest_transac";
 import Alerts_Box from "../components/Overview_com/alerts_box";
-import { useState } from "react";
-import { Skeleton } from "antd";
 
 
 const Overview = () => {
-
-    const [showSkeleton , setShowSkeleton] = useState(true)
-    const [showLineChart , setShowLineChart] = useState(false)
-
-    setTimeout(() => {
-        setShowLineChart(true)
-        setShowSkeleton(false)
-    } , 3000)
 
     return (
         
