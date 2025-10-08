@@ -8,6 +8,8 @@ const Add_product = () => {
     const handleClickToNewCustomer = () => {
         navigate("/addCustomer")
     }
+
+    
     return (
         <div className="w-full flex bg-white rounded-3xl">
             <div className="w-[80%] flex items-center p-4">

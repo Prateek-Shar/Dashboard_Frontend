@@ -4,7 +4,7 @@ import Income_table from "../components/Income_com/Income_table"
 import Income_visualize from "../components/Income_com/income_visualize"
 import Add_Income_bt from "../components/Income_com/Add_income_bt"
 import { DetailContext } from '../context/Chart';
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { UserProvider } from "../context/login_context"
 import { AlertProvider } from "../context/result";
 import Income_table_head from "../components/Income_com/Income_table_head"
@@ -32,14 +32,13 @@ const Income = () => {
     const [dataByMonth , setDataByMonth] = useState<MonthlyDetails[]>([])
     const [dataByYear , setDataByYear] = useState<YearlyDetails[]>([])
     const [dataDaily, setDataByDay] = useState<DailyDetails[]>([])
+    const [selectedValue , setSelectedValue] = useState<string | undefined>()
 
-    const [incomeStats , setIncomeStats] = useState<number>()
+    const [incomeStats , setIncomeStats] = useState<number>(0)
 
     const [showSkeleton , setShowSkeleton] = useState(true)
     const [showChart , setShowChart] = useState(false)
 
-
-    const VisualizeDiv = useRef<HTMLDivElement>(null)
 
     const fetchIncomeData = async() => {
         const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_income_length` , {
@@ -107,20 +106,13 @@ const Income = () => {
     }, [])
 
 
-
-    if(incomeStats == 0) {
-        if(VisualizeDiv.current) {
-            VisualizeDiv.current.style.display = "none"
-        }
-    }
-
-    const [selectedValue , setSelectedValue] = useState<string | undefined>()
-
-
     setTimeout(() => {
         setShowSkeleton(false)
         setShowChart(true)
     } , 3000)
+
+
+
 
     return (
 
@@ -157,23 +149,26 @@ const Income = () => {
                     </div>
                 )}
 
-                {showChart && (
-                    <div className="w-[80%] bg-white flex justify-center items-center flex-col rounded-4xl mt-20 mb-20">
+                {showChart && ( 
+                    incomeStats > 0 && (
 
-                        <div className="w-full">
-                            <Income_table_head  onSelect={setSelectedValue} />
+                        <div className="w-[80%] bg-white flex justify-center items-center flex-col rounded-4xl mt-20 mb-20">
+
+                            <div className="w-full">
+                                <Income_table_head  onSelect={setSelectedValue} />
+                            </div>
+                        
+                            <DetailContext.Provider value={{
+                                detailByMonth : dataByMonth , setDetailByMonth : setDataByMonth ,  
+                                detailDaily : dataDaily , setDetailDaily :  setDataByDay ,
+                                detailByYear : dataByYear , setDetailByYear : setDataByYear,
+                                DataBy : selectedValue
+                            }}>
+                                <Income_visualize />
+                            </DetailContext.Provider>
+
                         </div>
-                    
-                        <DetailContext.Provider value={{
-                            detailByMonth : dataByMonth , setDetailByMonth : setDataByMonth ,  
-                            detailDaily : dataDaily , setDetailDaily :  setDataByDay ,
-                            detailByYear : dataByYear , setDetailByYear : setDataByYear,
-                            DataBy : selectedValue
-                        }}>
-                            <Income_visualize />
-                        </DetailContext.Provider>
-
-                    </div>
+                    )
                 )}
             </div>
 

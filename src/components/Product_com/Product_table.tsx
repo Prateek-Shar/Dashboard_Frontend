@@ -118,15 +118,16 @@ const Product_table = () => {
     };
 
 
-    // useEffect(() => {
-    //     if(productCount > 0) {
-    //         setShowTable(true)
-    //     }
+    useEffect(() => {
+        if(productDet.length > 0) {
+            setShowTable(true)
+        }
 
-    //     else {
-    //         setShowTable(false)
-    //     }
-    // })
+        else {
+            setShowTable(false)
+        }
+    })
+
 
     setTimeout(() => {
         setShowSkeleton(false)
@@ -153,7 +154,7 @@ const Product_table = () => {
 
         {showTableDet && (
             <>
-            {showTable ? (
+            {productCount > 0 ? (
                 <div className="w-full flex flex-col justify-center items-center">
                     <div className="w-[85%] bg-white flex flex-col rounded-t-4xl items-center">
                         <div className="w-[95%] flex justify-between mt-4">

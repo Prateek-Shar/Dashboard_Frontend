@@ -57,7 +57,7 @@ const Pie_Chart = () => {
     labels,
     datasets: [
       {
-        label: "Total by Country",
+        label: "Count",
         data: datapoints,
         borderColor: "#191919",
         backgroundColor: backgroundColors.slice(0, datapoints.length),

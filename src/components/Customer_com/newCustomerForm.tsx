@@ -23,13 +23,6 @@ const NewCustomerForm = () => {
 
     const [form, setForm] = useState({ ...defaultForm });
 
-    // const [placeholderCustomerName , setPlaceholderCustomerName] = useState("Enter Customer Name")
-    // const [placeholderCompamyName , setPlaceholderCompanyName] = useState("Enter Company Name")
-    // const [placeholderContact , setPlaceholderContact] = useState("Enter Contact Number")
-    // const [placeholderCountry , setPlaceholderCountry] = useState("Enter Country")
-    // const [placeholderEmail , setPlaceholderEmail] = useState("Enter Email Address")
-
-
     const [StatusBox , setStatusBox] = useState(false)
     const [showSuggestionCountryBox , setShowSuggestionCountryBox] = useState(false)
 
@@ -76,6 +69,7 @@ const NewCustomerForm = () => {
                 console.log("Something broke in frontend...........");
                 showFailure();
                 setTimeout(() => hideAlerts(), 3000);
+                setForm({...defaultForm})
                 return;
             }
 
@@ -94,14 +88,6 @@ const NewCustomerForm = () => {
         }
     };
 
-
-    // const divsChange = () => {
-    //     setPlaceholderCustomerName("Enter Customer Name")
-    //     setPlaceholderCompanyName("Enter Company Name")
-    //     setPlaceholderContact("Enter Contact Number")
-    //     setPlaceholderCountry("Enter Country")
-    //     setPlaceholderEmail("Enter Email Address")
-    // }
 
 
     const SendStatus = (status: string) => {

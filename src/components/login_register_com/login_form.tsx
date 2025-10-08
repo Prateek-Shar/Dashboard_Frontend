@@ -70,6 +70,8 @@ const Login_form = () => {
         e.preventDefault();
 
         try {
+            setLoader(true)
+
             const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/UserCheck`, {
             method: "POST",
             headers: {
@@ -79,7 +81,6 @@ const Login_form = () => {
             body: JSON.stringify(form),
             });
 
-            setLoader(true)
             const data = await res.json();
 
             if (!res.ok) {
@@ -103,7 +104,7 @@ const Login_form = () => {
                 Profession : data.login_det.Profession
             }) ) 
 
-            setLoader(true)
+            setLoader(false)
             await LoadUserApi()
 
             setTimeout(() => {

@@ -19,7 +19,7 @@ const Add_Customer_Page = () => {
                 </div>
             </UserProvider>
 
-            <div className="w-full flex justify-center items-center mt-20 mb-20">
+            <div className="w-full flex justify-center items-center mt-20">
                 <div className="w-[80%] bg-white rounded-4xl mt-2 mb-10">
 
                     <div className="w-full flex justify-center items-center rounded-t-4xl">
@@ -35,7 +35,7 @@ const Add_Customer_Page = () => {
 
 
             {successVisible && (
-                <div className="w-[20%] flex absolute bottom-0 right-0 bg-[#e3fcf7] border-2  border-green-500 rounded-2xl mb-2 mr-2">
+                <div className="w-[20%] flex absolute top-3 right-0 bg-[#e3fcf7] border-2  border-green-500 rounded-2xl mb-2 mr-2">
                     <div className="w-[5%] bg-green-600 rounded-tl-[14px]  rounded-bl-[14px]" />
 
                     <div className="w-[20%] flex justify-center items-center">
@@ -50,7 +50,7 @@ const Add_Customer_Page = () => {
 
 
             {failureVisible && (
-                <div className="w-[20%] flex absolute bottom-0 right-0 bg-red-100 border-2 shadow-2xs  shadow-red-500  border-red-500 rounded-2xl mb-2 mr-2">
+                <div className="w-[20%] flex absolute top-4 right-0 bg-red-100 border-2 shadow-2xs  shadow-red-500  border-red-500 rounded-2xl mb-2 mr-2">
                     <div className="w-[5%] bg-red-600 rounded-tl-[14px]  rounded-bl-[13px]" />
 
                     <div className="w-[20%] flex justify-center items-center">

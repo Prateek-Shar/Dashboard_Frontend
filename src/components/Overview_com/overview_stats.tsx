@@ -7,7 +7,7 @@ import { Skeleton } from "antd";
 
 
 
-const Overview_Stats = () => {
+const   Overview_Stats = () => {
 
     const [totalSales , setTotalSales] = useState<number>(0)
     const [inStockCount , setInStockCount] = useState<number>(0);
@@ -67,7 +67,7 @@ const Overview_Stats = () => {
                 <div className="w-[20%] flex">
 
                     <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={total_sales} className="object-contain w-[60%]"/>       
+                        <img src={total_sales} className="object-contain w-[50%]"/>       
                     </div>
 
                     <div className="w-[70%] flex flex-col">
