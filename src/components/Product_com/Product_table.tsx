@@ -37,7 +37,7 @@ const Product_table = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [productCount, setProductCount] = useState(0);
     const [showSkeleton , setShowSkeleton] = useState(true)
-    const [showTableDet , setShowTableDet] = useState(false)
+    // const [showTableDet , setShowTableDet] = useState(false)
 
     const [showTable , setShowTable] = useState(false);
 
@@ -111,27 +111,15 @@ const Product_table = () => {
 
 
 
-
     const handleChange = async (page: number) => {
         setCurrentPage(page);
         fetchProductPageData(page)
     };
 
 
-    useEffect(() => {
-        if(productDet.length > 0) {
-            setShowTable(true)
-        }
-
-        else {
-            setShowTable(false)
-        }
-    })
-
-
     setTimeout(() => {
         setShowSkeleton(false)
-        setShowTableDet(true)
+        // setShowTableDet(true)
         setShowTable(true)
     } , 3000)
 
@@ -152,7 +140,7 @@ const Product_table = () => {
             </div>
         )}
 
-        {showTableDet && (
+        {showTable && (
             <>
             {productCount > 0 ? (
                 <div className="w-full flex flex-col justify-center items-center">

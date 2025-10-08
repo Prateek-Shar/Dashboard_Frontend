@@ -1,5 +1,5 @@
-import { Flex, Tag, Select, Input, Space, Pagination, Skeleton } from "antd";
-import { useEffect, useRef, useState } from "react";
+import { Tag, Select, Input, Space, Pagination, Skeleton } from "antd";
+import { useEffect, useState } from "react";
 import React from "react";
 import bin from "../../images/Bin.png";
 import { useAPI } from "../../context/customers_stats_context";
@@ -48,17 +48,6 @@ const Table_content: React.FC = () => {
 
   const [normalTable , setNormalTable] = useState(true)
   const [filterTable , setFilterTable] = useState(false)
-
-
-  // const ToggleTable = () => {
-  //   if(normalTable.current) {
-  //     normalTable.current.style.display = "none"
-  //   }
-
-  //   if(filterTable.current) {
-  //     filterTable.current.style.display = "block"
-  //   }
-  // }
 
 
   const handleFilter = async(value : string) => {
@@ -113,6 +102,8 @@ const Table_content: React.FC = () => {
     if (!value) {
       fetchPageData(currentPage); // Reset to paginated data
       console.log("Search value is empty, resetting to paginated data.");
+      setFilterTable(false)
+      setNormalTable(true)
       setSearchValue(""); // Clear search input
       return; 
     }
@@ -127,16 +118,18 @@ const Table_content: React.FC = () => {
       if (!response.ok) {
         console.error("Search request failed with status:", response.status);
       }
-
+      
+      setFilterTable(true)
+      setNormalTable(false)
       const data = await response.json();
       if (Array.isArray(data)) {
-        setCustomers(data);
+        setCustomerDet(data);
       } else {
-        setCustomers([]);
+        setCustomerDet([]);
       }
     } catch (error) {
       console.error("Search Error:", error);
-      setCustomers([]);
+      setCustomerDet([]);
     }
   };
 
@@ -159,15 +152,6 @@ const Table_content: React.FC = () => {
     fetchPageData(currentPage);
   }, []); 
 
-
-
-  // useEffect(() => {
-  //   if (customers.length > 0) {
-  //     setShowTable(true);
-  //   } else {
-  //     setShowTable(false);
-  //   }
-  // }, [customers]);
 
   setTimeout(() => {
     setShowTable(true)
@@ -300,12 +284,10 @@ const Table_content: React.FC = () => {
                         <p className="font-Poppins text-[#495057]">{cust.Country}</p>
                       </div>
 
-                      <div className="w-[8%] pl-2 flex justify-center items-center my-2">
-                        <Flex gap="4px 0" wrap>
+                      <div className="w-[8%] flex justify-center items-center my-2 pl-2">
                           <Tag color={cust.Status.toLowerCase() === "active" ? "success" : "error"}>
                             {cust.Status}
                           </Tag>
-                        </Flex>
                       </div>
                       
                       <div className="w-[2%] ml-5 flex justify-center items-center rounded-4xl p-0.5 hover:cursor-pointer" onClick={ () => deleteProduct(cust.Email)}>
@@ -318,41 +300,45 @@ const Table_content: React.FC = () => {
 
                 {filterTable && (
                   <>
-                  {customers.map((cust) => (
-                    <>
-                      <div className="w-[15%] ml-2">
-                        <p className="font-Poppins pb-4 pl-13 pt-4 text-[#495057]">{cust.Customer_name}</p>
-                      </div>
+                  {customersDet.length > 0 ? (
+                    customersDet.map((cust) => (
+                      <div className="w-full flex justify-evenly nth-[1]:mt-2 nth-last-[1]:mb-2">
+                        <div className="w-[13%] flex justify-center items-center">
+                          <p className="font-Poppins py-2 text-[#495057]">{cust.Customer_name}</p>
+                        </div>
 
-                      <div className="w-[16%] p-2 ml-8 flex justify-center items-center">
-                        <p className="font-Poppins text-[#495057]">{cust.Company_name}</p>
-                      </div>
+                        <div className="w-[16%] py-2 flex justify-center items-center">
+                          <p className="font-Poppins text-[#495057]">{cust.Company_name}</p>
+                        </div>
 
-                      <div className="w-[16%]  flex items-center justify-center ml-15">
-                        <p className="font-Poppins text-[#495057]">{cust.Contact_no}</p>
-                      </div>
+                        <div className="w-[16%] flex items-center justify-center">
+                          <p className="font-Poppins text-[#495057]">{cust.Contact_no}</p>
+                        </div>
 
-                      <div className="w-[16%] ml-11 flex  items-center">
-                        <p className="font-Poppins pl-6 text-[#495057]">{cust.Email}</p>
-                      </div>
+                        <div className="w-[16%] flex justify-center items-center">
+                          <p className="font-Poppins pl-6 text-[#495057]">{cust.Email}</p>
+                        </div>
 
-                      <div className="w-[14%] flex justify-center items-center ml-2 pl-5">
-                        <p className="font-Poppins text-[#495057]">{cust.Country}</p>
-                      </div>
+                        <div className="w-[14%] flex justify-center items-center">
+                          <p className="font-Poppins text-[#495057]">{cust.Country}</p>
+                        </div>
 
-                      <div className="w-[8%] ml-12 pl-2 flex justify-center items-center">
-                        <Flex gap="4px 0" wrap>
-                          <Tag color={cust.Status.toLowerCase() === "active" ? "success" : "error"}>
-                            {cust.Status}
-                          </Tag>
-                        </Flex>
+                        <div className="w-[8%] flex justify-center items-center pl-2">
+                            <Tag color={cust.Status.toLowerCase() === "active" ? "success" : "error"}>
+                              {cust.Status}
+                            </Tag>
+                        </div>
+                        
+                        <div className="w-[2%] ml-5 flex justify-center items-center rounded-4xl p-0.5 hover:cursor-pointer" onClick={ () => deleteProduct(cust.Email)}>
+                          <img src={bin} />
+                        </div>
                       </div>
-                      
-                      <div className="w-[2%] ml-5 flex justify-center items-center rounded-4xl p-0.5 hover:cursor-pointer" onClick={ () => deleteProduct(cust.Email)}>
-                        <img src={bin} />
-                      </div>
-                    </>
-                  ))}
+                    ))
+                  ) : (
+                    <div className="w-full py-2 flex justify-center items-center my-4">
+                      <p className="font-Poppins">No Results Found</p>
+                    </div>
+                  )}
                   </>
                 )}
               </div>
@@ -393,13 +379,8 @@ const Table_content: React.FC = () => {
         )
     
       )}
-      
-      
           
     </>
-
-          
-
 
   );
 
