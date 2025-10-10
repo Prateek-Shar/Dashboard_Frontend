@@ -20,8 +20,10 @@ const Overview_Head = () => {
 
     const Navigate = useNavigate()
 
-    const MoreLinks = useRef<HTMLDivElement>(null);
-    const QuickLinksBt = useRef<HTMLDivElement>(null);
+    const [moreLinks , setMoreLinks] = useState(false)
+    const [quickLinksBt , setQuickLinksBt] = useState(true)
+    // const MoreLinks = useRef<HTMLDivElement>(null);
+    // const QuickLinksBt = useRef<HTMLDivElement>(null);
     const resetBt = useRef<HTMLDivElement>(null);
 
 
@@ -55,33 +57,13 @@ const Overview_Head = () => {
     
 
     const handleQuickLinks = () => {
-
-        if(MoreLinks.current) {
-            MoreLinks.current.style.display = "flex"
-        }
-
-        if(resetBt.current) {
-            resetBt.current.style.display = "flex"
-        }
-        
-        if(QuickLinksBt.current) {
-            QuickLinksBt.current.style.display = "none"
-        }
+        setMoreLinks(true)
+        setQuickLinksBt(false)
     }
 
     const ResetToQuickLinksDiv = () => {
-
-        if(resetBt.current) {
-            resetBt.current.style.display = "none"
-        }
-
-        if(MoreLinks.current) {
-            MoreLinks.current.style.display = "none"
-        }
-
-        if(QuickLinksBt.current) {
-            QuickLinksBt.current.style.display = "flex"
-        }
+        setMoreLinks(false)
+        setQuickLinksBt(true)
     }
 
 
@@ -126,60 +108,63 @@ const Overview_Head = () => {
             
         </div>
 
-        <div className="w-[50%] flex flex-row-reverse ">
+        <div className="w-[50%] flex items-center flex-row-reverse">
 
-            <div className="w-[20%] h-13 flex bg-white m-2 p-2 justify-center shadow-2xs rounded-[50px] hover:cursor-pointer" onClick={handleQuickLinks} ref={QuickLinksBt}>
-                <div className="w-[70%] flex justify-center items-center">
-                    <p className="font-Poppins">Quick Links</p>
-                </div>
-
-                <div className="w-[20%] p-2 flex justify-center items-center">
-                    <img src={links} />
-                </div>
-            </div>
-
-
-            <div className="expand-div m-2 justify-evenly items-center hidden" ref={MoreLinks} >
-
-                <div className="w-[5%] h-6.5 flex justify-center items-center p-1 bg-white rounded-[100px] mt-3 mb-2 border-2 border-[#ced4da] shadow-2xl hover:cursor-pointer"  ref={resetBt} onClick={ResetToQuickLinksDiv}>
-                    <div className="w-full">
-                        <img src={right} />
-                    </div>  
-                </div>
-
-                <div className="w-[25%] flex bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToProducts}>
-                    <div className="w-[70%] flex justify-center items-center">
-                        <p className="font-Poppins text-[14px]">Add Product</p>
-                    </div>
-
-                    <div className="w-[20%] p-1.5 flex justify-center items-center">
-                        <img src={add} />
-                    </div>
-                </div>
-
-                <div className="w-[25%] flex bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToIncome}>
-                    <div className="w-[70%] flex justify-center items-center">
-                        <p className="font-Poppins text-[14px]">Add Income</p>
-                    </div>
-
-                    <div className="w-[20%] p-1.5 flex justify-center items-center">
-                        <img src={add} />
-                    </div>
-                </div>
-
-                <div className="w-[30%] flex white bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer" onClick={handleClickToCustomer}>
-                    <div className="w-[80%] flex justify-center items-center">
-                        <p className="font-Poppins text-[14px]">Add Customer</p>
+            {quickLinksBt && (
+                <div className="w-[20%] flex bg-white justify-center shadow-2xs rounded-[50px] hover:cursor-pointer mr-2" onClick={handleQuickLinks}>
+                    <div className="w-[70%] flex justify-center items-center my-2.5">
+                        <p className="font-Poppins">Quick Links</p>
                     </div>
 
                     <div className="w-[20%] p-2 flex justify-center items-center">
-                        <img src={add} />
+                        <img src={links} />
                     </div>
                 </div>
-            </div>
+            )}
+
+            {moreLinks && (
+                <div className="expand-div flex justify-evenly items-center">
+
+                    <div className="w-[4%] flex justify-center items-center bg-white rounded-[100px] mt-3 mb-2 border-2 border-[#ced4da] shadow-2xl hover:cursor-pointer"  ref={resetBt} onClick={ResetToQuickLinksDiv}>
+                        <div className="w-full">
+                            <img src={right} />
+                        </div>  
+                    </div>
+
+                    <div className="w-[25%] flex bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToProducts}>
+                        <div className="w-[70%] flex justify-center items-center">
+                            <p className="font-Poppins text-[14px]">Add Product</p>
+                        </div>
+
+                        <div className="w-[20%] p-1.5 flex justify-center items-center">   
+                            <img src={add} />
+                        </div>
+                    </div>
+
+                    <div className="w-[25%] flex bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToIncome}>
+                        <div className="w-[70%] flex justify-center items-center">
+                            <p className="font-Poppins text-[14px]">Add Income</p>
+                        </div>
+
+                        <div className="w-[20%] p-1.5 flex justify-center items-center">
+                            <img src={add} />
+                        </div>
+                    </div>
+
+                    <div className="w-[30%] flex white bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer" onClick={handleClickToCustomer}>
+                        <div className="w-[80%] flex justify-center items-center">
+                            <p className="font-Poppins text-[14px]">Add Customer</p>
+                        </div>
+
+                        <div className="w-[20%] p-2 flex justify-center items-center">
+                            <img src={add} />
+                        </div>
+                    </div>
+                </div>
+
+            )}
 
         </div>
-
 
         </>
     )
