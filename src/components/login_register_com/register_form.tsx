@@ -3,6 +3,8 @@ import { useState } from "react";
 import cross from "../../images/cross.png"
 import uncheck_checkbox from "../../images/checkbox_uncheck.png";
 import checked_checkbox from "../../images/checkbox_checked.png";
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 
 
 interface ToggleToSwitch {
@@ -23,6 +25,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     const [errorDiv , setErrorDiv] = useState(false)
     const [isChecked , setIsChecked] = useState(false)
     const [typeText , setTypeText] = useState(false)
+    const [loader , setLoader] = useState(false)
 
     const [err_msg , setErrMsg] = useState<string>("")
 
@@ -42,6 +45,8 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
+        setLoader(true)
+
         e.preventDefault();
         
         if (!isChecked) {
@@ -61,17 +66,21 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
         const data = await res.json();
 
         if (res.ok) {
+            setLoader(false)
             console.log("User registered successfully:", data);
             onSwitch()
         }
 
         if (!res.ok) {
+            setLoader(false)
             setErrMsg(data.err_msg)
             setErrorDiv(true)
 
-            // setTimeout(() => {
-            //     setErrorDiv(false)
-            // } , 3000)
+            setIsChecked(false)
+            
+            setTimeout(() => {
+                setErrorDiv(false)
+            } , 3000)
 
             setForm({ ...default_form });
             return;
@@ -90,9 +99,9 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
             <form onSubmit={handleSubmit} className="flex flex-col">
 
                 {errorDiv && (
-                    <div className="w-full flex justify-center">
-                        <div className="w-[10%] flex bg-amber-600">
-                            <div className="w-[10%] flex justify-center items-center">
+                    <div className="w-full flex justify-center items-center">
+                        <div className="w-[50%] flex justify-center items-center">
+                            <div className="w-[15%] flex justify-center items-center">
                                 <img src={cross} className="object-contain w-[80%] p-2" />
                             </div>
 
@@ -138,9 +147,21 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                 </div>
 
                 <div className="w-full p-2 flex mt-10  mb-5 justify-center">
-                    <div className="w-[40%] bg-[#3062f0] flex rounded-3xl shadow-2xl shadow-blue-400">
-                        <button type="submit" className="w-full text-white font-Poppins hover:cursor-pointer p-3">Sign Up</button>
+                    <div className="w-[40%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400">
+
+                    {loader && (
+                        <div className="w-[20%] flex justify-center items-center">
+                            <div className="w-full p-2">
+                                <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
+                            </div>
+                        </div>
+                    )}
+
+                        <div className="w-[50%] flex">
+                            <button type="submit" className="w-full p-3 text-white font-Poppins hover:cursor-pointer">Sign In</button>
+                        </div>
                     </div>
+
                 </div>
             </form>
             

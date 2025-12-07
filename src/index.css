@@ -10,6 +10,10 @@
   src: url('/fonts/AlanSans-Medium') format("truetype");
 }
 
+body {
+  overflow: hidden;
+}
+
 
 @theme {
 
@@ -23,6 +27,8 @@
   --animate-wiggle: wiggle 1s ease-in-out infinite;
 
   --animate-show : show 2s ease-in-out forwards;
+
+  --breakpoint-ml : 425px;
 
   @keyframes wiggle {
     0%,
