@@ -30,7 +30,7 @@ const Login_Register = () => {
 
     return (
 
-        <div className="xl:w-screen xl:h-screen bg-[#a8b0ff] flex justify-center items-center ml:w-full ml:h-screen ml:justify-normal mm:w-full mm:h-full mm:justify-normal mm:py-5">
+        <div className="xl:w-screen xl:h-screen bg-[#a8b0ff] flex justify-center items-center ml:w-full ml:h-screen ml:justify-normal mm:w-full mm:h-full mm:justify-normal mm:py-13">
 
             <div className="w-[90%] flex justify-center items-center">
             
