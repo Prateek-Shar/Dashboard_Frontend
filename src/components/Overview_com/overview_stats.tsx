@@ -63,21 +63,20 @@ const   Overview_Stats = () => {
         )}
 
         {showStats && (
-            <div className="w-full bg-white rounded-3xl flex justify-evenly items-center mt-4 mb-4 p-4">
+            <div className="w-full bg-white rounded-3xl flex justify-evenly items-center mt-4 mb-4 p-4 ml:py-2 mm:py-2">
                 <div className="w-[20%] flex">
 
-                    <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                    <div className="w-[30%]  bg-[#e9ecef] rounded-4xl flex justify-center items-center">
                         <img src={total_sales} className="object-contain w-[50%]"/>       
                     </div>
 
-                    <div className="w-[70%] flex flex-col">
-
+                    <div className="w-[70%] ml:w-[90%] flex flex-col mm:w-[90%]">
                         <div className="w-full">
-                            <p className="font-Poppins p-2">Total Income</p>
+                            <p className="font-Poppins p-2 ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[4px]">Total Income</p>
                         </div>
 
-                        <div className="w-full">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057]">₹ {totalSales}</p>
+                        <div className="w-full ml:mt-1">
+                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">₹ {totalSales}</p>
                         </div>
                     </div>
 
@@ -90,19 +89,18 @@ const   Overview_Stats = () => {
                     </div>
 
                     <div className="w-[70%] flex flex-col">
-
                         <div className="w-full">
-                            <p className="font-Poppins p-2">New Customers</p>
+                            <p className="font-Poppins p-2 ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">New Customers</p>
                         </div>
 
-                        <div className="w-full">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057]">{newCustomerCount}</p>
+                        <div className="w-full ml:mt-1">
+                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{newCustomerCount}</p>
                         </div>
                     </div>
 
                 </div>
 
-                <div className="w-[20%]  flex ">
+                <div className="w-[20%] flex">
 
                     <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
                         <img src={in_stock} className="object-contain w-[50%]"/>
@@ -111,17 +109,17 @@ const   Overview_Stats = () => {
                     <div className="w-[70%] flex flex-col">
 
                         <div className="w-full ">
-                            <p className="font-Poppins p-2">Products In Stock</p>
+                            <p className="font-Poppins p-2 ml:text-[3px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">Products In Stock</p>
                         </div>
 
-                        <div className="w-full ">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057]">{inStockCount}</p>
+                        <div className="w-full ml:mt-1">
+                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{inStockCount}</p>
                         </div>
                     </div>
 
                 </div>
 
-                <div className="w-[20%] flex ">
+                <div className="w-[20%] flex">
 
                     <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
                         <img src={revenue} className="object-contain w-[50%]"/>
@@ -129,12 +127,12 @@ const   Overview_Stats = () => {
 
                     <div className="w-[70%] flex flex-col">
 
-                        <div className="w-full ">
-                            <p className="font-Poppins p-2">Revenue(CM)</p>
+                        <div className="w-full flex">
+                            <p className="font-Poppins p-2 ml:text-[6px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[4px]">Revenue(CM)</p>
                         </div>
 
-                        <div className="w-full ">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057]">NA</p>
+                        <div className="w-full ml:mt-1">
+                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">NA</p>
                         </div>
                     </div>
 

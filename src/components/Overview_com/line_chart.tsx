@@ -12,7 +12,7 @@ const Line_Chart = () => {
 
   const getLineInfo = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_line_chart_info`, {
+      const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/get_line_chart_info`, {
         method: "GET",
         credentials: "include"
       });
@@ -72,8 +72,8 @@ const Line_Chart = () => {
           <Line data={chartData} />
         </div>
       ) : (
-        <div className="w-full flex justify-center items-center p-2 mt-4 mb-4">
-          <p className="font-Poppins">No Data Found</p>
+        <div className="w-full flex justify-center items-center p-2 mt-4 mb-4 ml:p-0 mm:p-0">
+          <p className="font-Poppins ml:text-[10px] mm:text-[10px]">No Data Found</p>
         </div>
       )}
     </div>

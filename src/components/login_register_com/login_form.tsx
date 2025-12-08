@@ -22,6 +22,7 @@ const Login_form = () => {
     const [errorDiv , setErrorDiv] = useState(false)
     const [typeText , setTypeText] = useState(false)
     const [loader , setLoader] = useState(false)
+    const [submitBt , setSubmitBt] = useState(true);
 
     const [err_msg , setErrMsg] = useState<string>("")
 
@@ -45,12 +46,12 @@ const Login_form = () => {
 
 
 
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         try {
             setLoader(true)
+            setSubmitBt(false);
 
             const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/UserCheck`, {
             method: "POST",
@@ -139,10 +140,12 @@ const Login_form = () => {
                         </div>
                     )}
 
+                    {submitBt && (
                         <div className="w-[50%] flex">
                             <button type="submit" className="w-full p-3 text-white font-Poppins hover:cursor-pointer">Sign In</button>
                         </div>
-                    </div>
+                    )}
+                    </div>                    
                 </div>
 
             </form>

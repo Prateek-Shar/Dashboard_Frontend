@@ -24,7 +24,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const LoadUserApi = async () => {
 
   try {
-      const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/getUserInfo", {
+      const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
         credentials: "include",
         method : "GET"
       });

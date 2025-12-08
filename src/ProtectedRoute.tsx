@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/check-auth", {
+        const res = await fetch("http://localhost:8000/check-auth", {
           credentials: "include",
         });
 

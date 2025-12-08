@@ -83,16 +83,16 @@ const Overview_Head = () => {
     return (
         <>
 
-        <div className="w-[50%] flex flex-col">
+        <div className="w-[50%] flex flex-col ml:w-full mm:w-full">
 
             <div className="w-full ml-2">
-                <p className="font-Poppins text-2xl p-1">Overview</p>
+                <p className="font-Poppins text-2xl p-1 ml:text-[20px] mm:text-[20px]">Overview</p>
             </div>
 
             {Loader? (
-                <div className="w-[30%] flex ml-2">
+                <div className="w-[30%] flex ml-2 ml:w-[80%] mm:w-[80%]">
                     <div className="w-[80%] flex items-center">
-                        <p className="font-Poppins text-[16px] pl-1">Welcome Back , {userDetails?.Username}</p>
+                        <p className="font-Poppins text-[16px] pl-1 ml:text-[12px] mm:text-[11px]">Welcome Back , {userDetails?.Username}</p>
                     </div>
 
                     <div className="w-[10%] flex justify-center items-center">
@@ -111,12 +111,12 @@ const Overview_Head = () => {
         <div className="w-[50%] flex items-center flex-row-reverse">
 
             {quickLinksBt && (
-                <div className="w-[20%] flex bg-white justify-center shadow-2xs rounded-[50px] hover:cursor-pointer mr-2" onClick={handleQuickLinks}>
+                <div className="w-[20%] flex bg-white justify-center shadow-2xs rounded-[50px] hover:cursor-pointer mr-2 ml:w-[80%] mm:w-[80%]" onClick={handleQuickLinks}>
                     <div className="w-[70%] flex justify-center items-center my-2.5">
-                        <p className="font-Poppins">Quick Links</p>
+                        <p className="font-Poppins ml:text-[12px] mm:text-[9    px]">Quick Links</p>
                     </div>
 
-                    <div className="w-[20%] p-2 flex justify-center items-center">
+                    <div className="w-[20%] p-2 flex justify-center items-center mm:p-1">
                         <img src={links} />
                     </div>
                 </div>
