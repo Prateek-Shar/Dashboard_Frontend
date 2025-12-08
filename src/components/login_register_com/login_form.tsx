@@ -87,6 +87,8 @@ const Login_form = () => {
             }) ) 
 
             setLoader(false)
+            setSubmitBt(true)
+
             await LoadUserApi()
 
             setTimeout(() => {

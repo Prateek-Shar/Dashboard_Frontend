@@ -4,9 +4,30 @@ import income from "../../images/income.png";
 import man from "../../images/man.png";
 import box from "../../images/box-open.png";
 import over from "../../images/overview.png"
+import logout from "../../images/logout.png";
+import { useNavigate } from "react-router-dom";
+
 
 const Min_sidebar = () => {
+
+    const navigate = useNavigate();
     
+    const handleClickToSignOut = async () => {
+        try {
+            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/logout", {
+                method: "GET",
+                credentials: "include"
+            });
+
+            if (res.ok) {
+                navigate("/"); // redirect to login page
+            } else {
+                console.error("Failed to logout");
+            }
+        } catch (error) {
+            console.error("Error during logout:", error);
+        }
+    };
 
     return (
         <div className="w-[10%] flex flex-col items-center">
@@ -35,8 +56,11 @@ const Min_sidebar = () => {
                 </div>
             </div>
 
+            <div className="w-full mt-25">
+                <img src={logout} className="p-[10px]" alt="Sign Out" onClick={handleClickToSignOut} />
+            </div>
     
-            <div className="w-[70%] mt-25 mb-6">
+            <div className="w-[70%] mt-3 mb-6">
                 <img src={man} className="object-contain w-[90%]"/>
             </div>  
 

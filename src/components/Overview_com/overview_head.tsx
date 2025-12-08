@@ -113,7 +113,7 @@ const Overview_Head = () => {
             {quickLinksBt && (
                 <div className="w-[20%] flex bg-white justify-center shadow-2xs rounded-[50px] hover:cursor-pointer mr-2 ml:w-[80%] mm:w-[80%]" onClick={handleQuickLinks}>
                     <div className="w-[70%] flex justify-center items-center my-2.5">
-                        <p className="font-Poppins ml:text-[12px] mm:text-[9    px]">Quick Links</p>
+                        <p className="font-Poppins ml:text-[12px] mm:text-[9px]">Quick Links</p>
                     </div>
 
                     <div className="w-[20%] p-2 flex justify-center items-center mm:p-1">
