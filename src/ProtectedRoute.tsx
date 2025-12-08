@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://localhost:8000/check-auth", {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/check-auth`, {
           credentials: "include",
         });
 
