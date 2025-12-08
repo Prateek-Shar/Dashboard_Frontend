@@ -86,6 +86,8 @@ const Login_form = () => {
                 Profession : data.login_det.Profession
             }) ) 
 
+            console.log("Login Successfull" , data.message)
+
             setLoader(false)
             setSubmitBt(true)
 
