@@ -135,7 +135,7 @@ const Login_form = () => {
 
                     {loader && (
                         <div className="w-[40%] flex justify-center items-center">
-                            <div className="w-full p-2 bg-amber-500">
+                            <div className="w-full p-2 ml:w-[75%] mm:w-full">
                                 <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
                             </div>
                         </div>
