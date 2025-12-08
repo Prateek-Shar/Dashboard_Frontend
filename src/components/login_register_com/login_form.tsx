@@ -77,6 +77,7 @@ const Login_form = () => {
                 setForm({...formDefault})
 
                 setLoader(false)
+                setSubmitBt(true);
                 return;
             }
 
@@ -133,8 +134,8 @@ const Login_form = () => {
                     <div className="w-[40%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%]">
 
                     {loader && (
-                        <div className="w-[20%] flex justify-center items-center">
-                            <div className="w-full p-2">
+                        <div className="w-[40%] flex justify-center items-center">
+                            <div className="w-full p-2 bg-amber-500">
                                 <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
                             </div>
                         </div>
