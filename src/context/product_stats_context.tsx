@@ -17,10 +17,9 @@ export const StatsProvider = ({ children }: { children: ReactNode }) => {
   
   const [productLength, setProductLength] = useState(0);
 
-
   const getApi = async () => {
     try {
-      const res = await fetch(`${import.meta.env.PRODUCTION_ADDRESS}/product_stats`, {
+      const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/product_stats`, {
         method: "GET",
         credentials: "include",
       });

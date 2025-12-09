@@ -43,7 +43,7 @@ const Sidebar = () => {
 
     const handleClickToSignOut = async () => {
         try {
-            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/logout", {
+            const res = await fetch(`${import.meta.env.PRODUCTION_ADDRESS}/logout`, {
                 method: "GET",
                 credentials: "include"
             });
@@ -62,7 +62,7 @@ const Sidebar = () => {
     useEffect(() => {
       const fetchUser = async () => {
         try {
-          const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/getUserInfo", {
+          const res = await fetch(`${import.meta.env.PRODUCTION_ADDRESS}/getUserInfo`, {
             credentials: "include",
             method : "GET"
           });

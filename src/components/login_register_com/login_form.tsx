@@ -121,12 +121,12 @@ const Login_form = () => {
                 )}
 
                 <div className="w-[70%] mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
-                    <input type="text" placeholder="Enter Username" name="Username" onChange={handleChange} value={form.Username} autoComplete="text" className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
+                    <input type="text" placeholder="Enter Username" name="Username" onChange={handleChange} value={form.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
                 </div>
 
                 <div className="w-[70%] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%]">
                     <div className="w-[90%] bg-[#e0e6f9] rounded-l-2xl">
-                        <input type={typeText ? "text" : "password"} placeholder="Enter Password" name="Password" value={form.Password} onChange={handleChange} autoComplete="text" className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                        <input type={typeText ? "text" : "password"} placeholder="Enter Password" name="Password" value={form.Password} onChange={handleChange} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                     </div>
 
                     <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">

@@ -20,7 +20,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [userDetails, setUserDetails] = useState<UserData | null>(null);
   const [Loader, setLoader] = useState(false);
   
-
+  
   const LoadUserApi = async () => {
 
   try {
