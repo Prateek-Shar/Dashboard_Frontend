@@ -86,16 +86,13 @@ const Login_form = () => {
                 Profession : data.login_det.Profession
             }) ) 
 
-            console.log("Msg : " , data.message)
+            console.log("Msg : " , data.message);
 
             setLoader(false)
             setSubmitBt(true)
 
             LoadUserApi()
 
-            // setTimeout(() => {
-            //     navigate("/overview");
-            // } , 3000)
             navigate("/overview");
             return;
 
