@@ -1,5 +1,5 @@
 // UserContext.tsx
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface UserData {
   Username : string;
