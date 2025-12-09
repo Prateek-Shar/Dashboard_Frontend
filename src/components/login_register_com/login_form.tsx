@@ -93,10 +93,10 @@ const Login_form = () => {
 
             LoadUserApi()
 
-            setTimeout(() => {
-                navigate("/overview");
-            } , 3000)
-
+            // setTimeout(() => {
+            //     navigate("/overview");
+            // } , 3000)
+            navigate("/overview");
             return;
 
         } catch (error) {
