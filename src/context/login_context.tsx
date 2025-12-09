@@ -32,7 +32,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const data = await res.json();
 
       if (res.ok) {
-        setUserDetails(data.login_det); // set { Username, Profession, UID }
+        setUserDetails(data.login_det); 
       } else {
         console.warn("Not authenticated:", data.error);
       }

@@ -86,16 +86,18 @@ const Login_form = () => {
                 Profession : data.login_det.Profession
             }) ) 
 
-            console.log("Login Successfull" , data.message)
+            console.log("Msg : " , data.message)
 
             setLoader(false)
             setSubmitBt(true)
 
-            await LoadUserApi()
+            LoadUserApi()
 
             setTimeout(() => {
                 navigate("/overview");
             } , 3000)
+
+            return;
 
         } catch (error) {
             console.error("Error during login:", error);
