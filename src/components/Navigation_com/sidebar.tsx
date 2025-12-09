@@ -76,6 +76,7 @@ const Sidebar = () => {
         setUserDetails(data.login_det); 
 
         setLoader(true);
+        return;
     
         } catch (error) {
           console.error("Failed to load user", error);
