@@ -62,18 +62,18 @@ const Sidebar = () => {
     useEffect(() => {
       const fetchUser = async () => {
         try {
-          const res = await fetch(`${import.meta.env.PRODUCTION_ADDRESS}/getUserInfo`, {
+            const res = await fetch(`${import.meta.env.PRODUCTION_ADDRESS}/getUserInfo`, {
             credentials: "include",
             method : "GET"
-          });
-          const data = await res.json();
-    
-          if (res.ok) {
-            setUserDetails(data.login_det); // set { Username, Profession, UID }
-          } else {
-            console.warn("Not authenticated:", data.error);
-          }
-        
+        });
+
+        if(!res.ok) {
+            console.error("Not Authenticated")
+        }
+
+        const data = await res.json();
+        setUserDetails(data.login_det); 
+
         setLoader(true);
     
         } catch (error) {
