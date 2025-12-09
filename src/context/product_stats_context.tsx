@@ -20,7 +20,7 @@ export const StatsProvider = ({ children }: { children: ReactNode }) => {
 
   const getApi = async () => {
     try {
-      const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/product_stats`, {
+      const res = await fetch(`${import.meta.env.PRODUCTION_ADDRESS}/product_stats`, {
         method: "GET",
         credentials: "include",
       });

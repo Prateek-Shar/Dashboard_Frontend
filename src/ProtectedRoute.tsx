@@ -23,10 +23,6 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       }
     };
 
-    // setTimeout(() => {
-    //   checkAuth()
-    // } , 3000)
-
     checkAuth()
 
   }, []);
