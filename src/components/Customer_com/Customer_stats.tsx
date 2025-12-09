@@ -1,6 +1,6 @@
-import customers from "../../images/customer.png";
-import member from "../../images/members.png";
-import active from "../../images/active.png";
+import customers from "/images/customer.png";
+import member from "/images/members.png";
+import active from "/images/active.png";
 import { useAPI } from "../../context/customers_stats_context";
 import { useState } from "react";
 import { Skeleton } from "antd";

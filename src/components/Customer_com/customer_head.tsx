@@ -1,4 +1,4 @@
-import Hello from "../../images/Hello.png";
+import Hello from "/images/Hello.png";
 import { useUser } from "../../context/login_context";
 import { Skeleton } from 'antd';
 

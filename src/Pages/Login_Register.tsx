@@ -1,5 +1,5 @@
-import human from "../images/human.png";
-import rocket from "../images/boost.png"
+import human from "/images/human.png";
+import rocket from "/images/boost.png"
 import Login_form from "../components/login_register_com/login_form";
 import Register_Head from "../components/login_register_com/register_head";
 import Login_Head from "../components/login_register_com/login_head";

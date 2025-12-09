@@ -1,4 +1,4 @@
-import Not_Found_Image from "../images/Not_Found_Image.png"
+import Not_Found_Image from "/images/Not_Found_Image.png"
 import { useNavigate } from "react-router-dom";
 
 

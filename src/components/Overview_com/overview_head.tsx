@@ -1,7 +1,7 @@
-import Hello from "../../images/Hello.png"
-import links from "../../images/link.png"
-import add from "../../images/add.png"
-import right from "../../images/right_arr.png";
+import Hello from "/images/Hello.png"
+import links from "/images/link.png"
+import add from "/images/add.png"
+import right from "/images/right_arr.png";
 import { Skeleton } from 'antd';
 import { useRef , useEffect , useState } from "react";
 import { useNavigate } from "react-router-dom";

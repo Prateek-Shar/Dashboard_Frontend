@@ -1,10 +1,10 @@
-import activity from "../../images/activity.png"
-import customer from "../../images/customers2.png"
-import income from "../../images/income.png";
-import man from "../../images/man.png";
-import box from "../../images/box-open.png";
-import over from "../../images/overview.png"
-import logout from "../../images/logout.png";
+import activity from "/images/activity.png"
+import customer from "/images/customers2.png"
+import income from "/images/income.png";
+import man from "/images/man.png";
+import box from "/images/box-open.png";
+import over from "/images/overview.png"
+import logout from "/images/logout.png";
 import { useNavigate } from "react-router-dom";
 
 
@@ -14,7 +14,7 @@ const Min_sidebar = () => {
     
     const handleClickToSignOut = async () => {
         try {
-            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/logout", {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/logout`, {
                 method: "GET",
                 credentials: "include"
             });

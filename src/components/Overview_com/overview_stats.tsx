@@ -1,7 +1,7 @@
-import total_sales from "../../images/total_sales.png";
-import new_customer from "../../images/new_customers.png";
-import in_stock from "../../images/in_stock.png";
-import revenue from "../../images/revenue.png";
+import total_sales from "/images/total_sales.png";
+import new_customer from "/images/new_customers.png";
+import in_stock from "/images/in_stock.png";
+import revenue from "/images/revenue.png";
 import { useEffect, useState } from "react";
 import { Skeleton } from "antd";
 

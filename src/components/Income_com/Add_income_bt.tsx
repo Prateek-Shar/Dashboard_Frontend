@@ -1,4 +1,4 @@
-import add from "../../images/add.png"
+import add from "/images/add.png"
 import { useNavigate } from "react-router-dom"
 
 const Add_Income_bt = () => {

@@ -2,8 +2,8 @@ import { useAlert } from "../context/result"
 import NewProductForm from "../components/Product_com/newProductForm"
 import { UserProvider } from "../context/login_context"
 import Product_head from "../components/Product_com/product_head"
-import check from "../images/check.png"
-import cross from "../images/cross.png"
+import check from "/images/check.png"
+import cross from "/images/cross.png"
 
 
 const Add_Product_Page = () => {

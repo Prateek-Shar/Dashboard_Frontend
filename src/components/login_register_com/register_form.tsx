@@ -1,8 +1,8 @@
-import eye_open from "../../images/eye_open.png";
+import eye_open from "/images/eye_open.png";
 import { useState } from "react";
-import cross from "../../images/cross.png"
-import uncheck_checkbox from "../../images/checkbox_uncheck.png";
-import checked_checkbox from "../../images/checkbox_checked.png";
+import cross from "/images/cross.png"
+import uncheck_checkbox from "/images/checkbox_uncheck.png";
+import checked_checkbox from "/images/checkbox_checked.png";
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 

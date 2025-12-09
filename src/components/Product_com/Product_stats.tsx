@@ -1,6 +1,6 @@
-import total_customers from "../../images/total_products.png"
-import in_stock from "../../images/in_stock.png"
-import out_of_stock from "../../images/out_of_stock.png";
+import total_customers from "/images/total_products.png"
+import in_stock from "/images/in_stock.png"
+import out_of_stock from "/images/out_of_stock.png";
 import { useAPI } from "../../context/product_stats_context";
 import { useState } from "react";
 import { Skeleton } from "antd";

@@ -1,12 +1,12 @@
-import activity from "../../images/activity.png"
-import customer from "../../images/customers2.png"
-import man from "../../images/man.png";
-import down_arr from "../../images/down_arr.png";
-import up_arr from "../../images/up_arr.png";
-import income from "../../images/income.png"
-import settings from "../../images/settings.png";
-import box from "../../images/box-open.png";
-import overview from "../../images/overview.png";
+import activity from "/images/activity.png"
+import customer from "/images/customers2.png"
+import man from "/images/man.png";
+import down_arr from "/images/down_arr.png";
+import up_arr from "/images/up_arr.png";
+import income from "/images/income.png"
+import settings from "/images/settings.png";
+import box from "/images/box-open.png";
+import overview from "/images/overview.png";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from 'antd';
 import { useRef , useState , useEffect} from "react";

@@ -1,7 +1,7 @@
 import Income_head from "../components/Income_com/income_head"
 import NewIncomeForm from "../components/Income_com/newIncomeForm"
-import check from "../images/check.png"
-import cross from "../images/cross.png"
+import check from "/images/check.png"
+import cross from "/images/cross.png"
 import { UserProvider } from "../context/login_context"
 import { useAlert } from "../context/result"
 

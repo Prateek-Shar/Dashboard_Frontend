@@ -1,7 +1,7 @@
-import rupee from "../../images/rupee.png"
-import customer_growth from "../../images/customer_growth.png"
-import catagories from "../../images/categories.png"
-import transaction from "../../images/transaction.png"
+import rupee from "/images/rupee.png"
+import customer_growth from "/images/customer_growth.png"
+import catagories from "/images/categories.png"
+import transaction from "/images/transaction.png"
 import { useEffect, useState } from "react"
 import { Skeleton } from "antd"
 

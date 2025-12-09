@@ -2,13 +2,13 @@ import { useEffect , useState } from "react";
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown, message, Space, Pagination } from 'antd';
-import daily_items from "../../images/daily_items.png";
-import Grocery from "../../images/grocery.png";
-import Others from "../../images/Others.png";
-import Food from "../../images/Food.png";
-import default_image from "../../images/default.png";
-import Video_Games from "../../images/Video_Games.png"
-import electric_app from "../../images/electric_appliances.png";
+import daily_items from "/images/daily_items.png";
+import Grocery from "/images/grocery.png";
+import Others from "/images/Others.png";
+import Food from "/images/Food.png";
+import default_image from "/images/default.png";
+import Video_Games from "/images/Video_Games.png"
+import electric_app from "/images/electric_appliances.png";
 import { useAPI } from "../../context/product_stats_context";
 import { Skeleton } from "antd";
 

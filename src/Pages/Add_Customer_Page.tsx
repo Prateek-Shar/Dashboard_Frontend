@@ -2,8 +2,8 @@ import { useAlert } from "../context/result"
 import NewCustomerForm from "../components/Customer_com/newCustomerForm"
 import Customer_head from "../components/Customer_com/customer_head"
 import { UserProvider } from "../context/login_context"
-import check from "../images/check.png"
-import cross from "../images/cross.png"
+import check from "/images/check.png"
+import cross from "/images/cross.png"
 
 const Add_Customer_Page = () => {
 

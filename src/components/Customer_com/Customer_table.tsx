@@ -1,7 +1,7 @@
 import { Tag, Select, Input, Space, Pagination, Skeleton } from "antd";
 import { useEffect, useState } from "react";
 import React from "react";
-import bin from "../../images/Bin.png";
+import bin from "/images/Bin.png";
 import { useAPI } from "../../context/customers_stats_context";
 
 interface Customer {
