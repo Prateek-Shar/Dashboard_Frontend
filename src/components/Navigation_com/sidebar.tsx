@@ -69,6 +69,7 @@ const Sidebar = () => {
 
         if(!res.ok) {
             console.error("Not Authenticated")
+            return;
         }
 
         const data = await res.json();
@@ -81,9 +82,7 @@ const Sidebar = () => {
         }
       };
     
-      setTimeout(() => {
-        fetchUser();
-      } , 1000)
+      setTimeout(fetchUser , 1000)
       
     }, []);
 
