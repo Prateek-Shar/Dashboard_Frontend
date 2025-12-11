@@ -91,7 +91,7 @@ const Login_form = () => {
             setLoader(false)
             setSubmitBt(true)
 
-            LoadUserApi()
+            await LoadUserApi()
 
             navigate("/overview");
             return;

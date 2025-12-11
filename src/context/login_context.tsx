@@ -29,26 +29,22 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
         method : "GET"
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        setUserDetails(data.login_det); 
-      } else {
-        console.warn("Not authenticated:", data.error);
+      if (!res.ok) {
+        console.error("Not authenticated:");
+        return;
       }
 
-    setLoader(true)
-    
+      const data = await res.json();
+      
+      setUserDetails(data.login_det); 
+      setLoader(true)
+      return;
+
     } catch (error) {
       console.error("Failed to load user", error);
     }
     
   }
-
-  // useEffect(() => {
-  //   LoadUserApi();
-  // } , [])
- 
 
 
   return (
