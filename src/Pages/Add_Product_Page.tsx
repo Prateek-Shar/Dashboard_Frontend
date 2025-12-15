@@ -12,7 +12,7 @@ const Add_Product_Page = () => {
 
     return (
 
-        <div className="w-full h-full bg-[#f8f9fa]"> 
+        <div className="w-full h-screen bg-[#f8f9fa]"> 
 
             <UserProvider>
                 <div className="w-full">

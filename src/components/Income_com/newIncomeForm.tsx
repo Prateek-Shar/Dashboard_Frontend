@@ -29,6 +29,8 @@ const NewIncomeForm = () => {
 
     const { showSuccess , showFailure , hideAlerts } = useAlert()
 
+
+
     const sendIncome = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -36,7 +38,7 @@ const NewIncomeForm = () => {
         console.log(formToSend)
 
         try {
-            const res = await fetch("https://dashboard-backend-1-0w4b.onrender.com/send_income", {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/send_income`, {
                 method: "POST",
                 credentials: "include",
                 headers: {

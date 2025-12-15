@@ -11,7 +11,7 @@ const Add_Customer_Page = () => {
 
     return (
 
-        <div className="w-full h-full relative bg-[#f8f9fa]"> 
+        <div className="w-full h-screen relative bg-[#f8f9fa]"> 
 
             <UserProvider>
                 <div className="w-full">
