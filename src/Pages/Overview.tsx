@@ -10,7 +10,7 @@ const Overview = () => {
 
     return (
         
-        <div className="xl:w-full bg-[#edede9] ml:w-[90%] mm:w-[90%] h-screen">
+        <div className="xl:w-full bg-[#edede9] ml:w-[90%] mm:w-[90%] h-fit">
             
             <div className="w-full flex justify-between">
                 <Overview_Head />
