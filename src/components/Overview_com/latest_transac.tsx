@@ -54,7 +54,7 @@ const Latest_Transaction = () => {
         <>
 
             <div className="w-full p-2 flex justify-center items-center mt-2">
-                <p className="font-Poppins text-[#9197b3] ml:text-[11px] mm:text-[11px]">Last 3 Transactions</p>
+                <p className="font-Poppins text-[#9197b3] ml:text-[11px] mm:text-[11px] xl:text-[15px]">Last 3 Transactions</p>
             </div>
 
             <div className="w-full flex justify-center">
@@ -74,8 +74,8 @@ const Latest_Transaction = () => {
             {showTable && (
                 <>
                     {stats.length === 0 ? (
-                        <div className="p-2 mt-4 mb-4 flex justify-center mm:p-0">
-                            <p className="font-Poppins ml:text-[10px] mm:text-[10px]">No Records Found</p>
+                        <div className="p-2 flex justify-center mm:p-0 ml:py-4">
+                            <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[12px]">No Records Found</p>
                         </div>
                         ) : (
                         <div className="w-full">

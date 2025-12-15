@@ -97,33 +97,33 @@ const Alerts_Box = () => {
 
 
     return (
-        <>
+        <div className="w-full flex-col">
 
         <div className="w-full flex justify-between mt-2 mb-1">
 
-            <div className="w-[20%] ml:w-[25%] mm:w-[25%] flex mr-2 hover:cursor-pointer mt-2 mb-2 ml:ml-2 mm:ml-2" onClick={handleClickToZeroStockDiv}>
-                <div className="w-[15%] ml:w-[10%] mm:w-[10%] flex justify-center items-center ml:p-[1px] mm:p-[1px]">
-                    <div className="w-[60%] ml:w-full mm:w-full ml:h-[5px] mm:h-[5px] h-3 rounded-4xl bg-green-500" ref={NoStockIndicator}/>
+            <div className="xl:w-[20%] ml:w-[25%] mm:w-[25%] flex mr-2 hover:cursor-pointer mt-2 mb-2 ml:ml-2 mm:ml-2" onClick={handleClickToZeroStockDiv}>
+                <div className="xl:w-[15%] ml:w-[10%] mm:w-[10%] flex justify-center items-center ml:p-[1px] mm:p-[1px]">
+                    <div className="xl:w-[60%] xl:h-[7px] ml:w-full mm:w-full ml:h-[5px] mm:h-[5px] h-3 rounded-4xl bg-green-500" ref={NoStockIndicator}/>
                 </div>
 
-                <div className="w-[85%] ml:w-[90%] mm:w-[90%] flex justify-center items-center">
-                    <p className="font-Poppins ml:text-[8px] mm:text-[8px]">Out-of-Stock</p>
+                <div className="xl:w-[85%] ml:w-[90%] mm:w-[90%] flex justify-center items-center">
+                    <p className="font-Poppins ml:text-[8px] mm:text-[8px] xl:text-[12px]">Out-of-Stock</p>
                 </div>
             </div>
 
 
-            <div className="w-[20%] flex justify-center items-center p-2 mt-1 ml:w-[30%] mm:w-[32%] ml:mt-0 ml:mr-2 mm:mt-0">
-                <p className="font-Poppins text-[#9197b3] ml:text-[10px] mm:text-[10px]">Stocks Details</p>
+            <div className="xl:w-[30%] flex justify-center items-center p-2 mt-1 ml:w-[30%] mm:w-[32%] ml:mt-0 ml:mr-2 mm:mt-0">
+                <p className="font-Poppins text-[#9197b3] ml:text-[10px] mm:text-[10px] xl:text-[16px]">Stocks Details</p>
             </div>
 
 
-            <div className="w-[20%] flex ml-2 hover:cursor-pointer mt-2 mb-2 ml:w-[25%] mm:w-[25%]" onClick={handleClickToLowStockDiv}>
-                <div className="w-[11%] flex justify-center items-center mm:w-[9%] ml:w-[11%]">
-                    <div className="w-[80%] h-3 ml:h-[8px] mm:h-[5px] rounded-4xl bg-gray-400" ref={LowStockIndicator} />
+            <div className="xl:w-[20%] flex ml-2 hover:cursor-pointer mt-2 mb-2 ml:w-[25%] mm:w-[25%]" onClick={handleClickToLowStockDiv}>
+                <div className="xl:w-[9%] flex justify-center items-center mm:w-[9%] ml:w-[11%]">
+                    <div className="xl:w-[80%] xl:h-[7px] ml:h-[8px] mm:h-[5px] rounded-4xl bg-gray-400" ref={LowStockIndicator} />
                 </div>
 
                 <div className="w-[89%] flex justify-center items-center">
-                    <p className="font-Poppins ml:text-[9px] mm:text-[8px]">Low-In-Stock</p>
+                    <p className="font-Poppins ml:text-[9px] mm:text-[8px] xl:text-[12px]">Low-In-Stock</p>
                 </div>
             </div>
 
@@ -152,7 +152,7 @@ const Alerts_Box = () => {
                     ))
                     ) : (
                     <div className="w-full p-2 flex justify-center items-center mb-4 mt-4 ml:p-0 mm:p-0">
-                        <p className="font-Poppins ml:text-[10px] mm:text-[10px]">No Out of Stock Records Found</p>
+                        <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[12px]">No Out of Stock Records Found</p>
                     </div>
                     )}
                 </div>
@@ -172,7 +172,7 @@ const Alerts_Box = () => {
                 ))
             ) : (
                 <div className="w-full p-2 mt-4 mb-4 flex justify-center items-center">
-                    <p className="font-Poppins">No Low Stock Records Found</p>
+                    <p className="font-Poppins xl:text-[12px]">No Low Stock Records Found</p>
                 </div>
             )}
             </> 
@@ -181,7 +181,7 @@ const Alerts_Box = () => {
 
 
 
-        </>
+        </div>
     )
 }
 

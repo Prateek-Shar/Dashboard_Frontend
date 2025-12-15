@@ -7,7 +7,7 @@ import { Skeleton } from "antd";
 
 
 
-const   Overview_Stats = () => {
+const Overview_Stats = () => {
 
     const [totalSales , setTotalSales] = useState<number>(0)
     const [inStockCount , setInStockCount] = useState<number>(0);
@@ -63,7 +63,7 @@ const   Overview_Stats = () => {
         )}
 
         {showStats && (
-            <div className="w-full bg-white rounded-3xl flex justify-evenly items-center mt-4 mb-4 p-4 ml:py-2 mm:py-2">
+            <div className="w-full bg-white rounded-3xl flex justify-evenly items-center my-4 xl:py-4 ml:py-2 mm:py-2">
                 <div className="w-[20%] flex">
 
                     <div className="w-[30%]  bg-[#e9ecef] rounded-4xl flex justify-center items-center">
@@ -72,11 +72,11 @@ const   Overview_Stats = () => {
 
                     <div className="w-[70%] ml:w-[90%] flex flex-col mm:w-[90%]">
                         <div className="w-full">
-                            <p className="font-Poppins p-2 ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[4px]">Total Income</p>
+                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[4px]">Total Income</p>
                         </div>
 
                         <div className="w-full ml:mt-1">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">₹ {totalSales}</p>
+                            <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] xl: text-2xl ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">₹ {totalSales}</p>
                         </div>
                     </div>
 
@@ -90,11 +90,11 @@ const   Overview_Stats = () => {
 
                     <div className="w-[70%] flex flex-col">
                         <div className="w-full">
-                            <p className="font-Poppins p-2 ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">New Customers</p>
+                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">New Customers</p>
                         </div>
 
                         <div className="w-full ml:mt-1">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{newCustomerCount}</p>
+                            <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{newCustomerCount}</p>
                         </div>
                     </div>
 
@@ -109,11 +109,11 @@ const   Overview_Stats = () => {
                     <div className="w-[70%] flex flex-col">
 
                         <div className="w-full ">
-                            <p className="font-Poppins p-2 ml:text-[3px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">Products In Stock</p>
+                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[3px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">Products In Stock</p>
                         </div>
 
                         <div className="w-full ml:mt-1">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{inStockCount}</p>
+                            <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{inStockCount}</p>
                         </div>
                     </div>
 
@@ -128,11 +128,11 @@ const   Overview_Stats = () => {
                     <div className="w-[70%] flex flex-col">
 
                         <div className="w-full flex">
-                            <p className="font-Poppins p-2 ml:text-[6px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[4px]">Revenue(CM)</p>
+                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[6px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[4px]">Revenue(CM)</p>
                         </div>
 
                         <div className="w-full ml:mt-1">
-                            <p className="font-Poppins text-[13px] p-2 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">NA</p>
+                            <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">NA</p>
                         </div>
                     </div>
 
