@@ -3,6 +3,7 @@ import Register_Head from "../components/login_register_com/register_head";
 import Login_Head from "../components/login_register_com/login_head";
 import Register_Form from "../components/login_register_com/register_form";
 import { UserProvider } from '../context/login_context';
+import bg_login from "../../public/images/bg_login.jpg";
 import { useState } from "react";
 
 
@@ -31,7 +32,7 @@ const Login_Register = () => {
 
     return (
 
-        <div className="xl:w-screen xl:h-screen gradient-background flex justify-center items-center ml:w-full ml:h-screen ml:justify-normal mm:w-full mm:h-full mm:justify-normal mm:py-13">
+        <div className="xl:w-screen xl:h-screen bg-[url(/public/images/bg_login.jpg)] bg-cover bg-no-repeat flex justify-center items-center ml:w-full ml:h-screen ml:justify-normal mm:w-full mm:h-full mm:justify-normal mm:py-13">
 
             <div className="w-[90%] flex justify-center items-center">
                 {loginBg && (
