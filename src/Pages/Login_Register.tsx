@@ -1,5 +1,3 @@
-import human from "/images/human.png";
-import rocket from "/images/boost.png"
 import Login_form from "../components/login_register_com/login_form";
 import Register_Head from "../components/login_register_com/register_head";
 import Login_Head from "../components/login_register_com/login_head";
@@ -51,16 +49,6 @@ const Login_Register = () => {
                         <div className="w-[70%] mt-2">
                             <p className="text-gray-600 p-2 font-Poppins">A whole new productive journey starts right here</p>
                         </div>
-
-                        {/* <div className="w-[50%] flex mt-10">
-                            <div className="w-[50%]">
-                                <img src={human} />
-                            </div>
-
-                            <div className="w-[50%] flex justify-center items-center">
-                                <img src={rocket}/> 
-                            </div>
-                        </div> */}
                     </div>
 
                     <UserProvider>
