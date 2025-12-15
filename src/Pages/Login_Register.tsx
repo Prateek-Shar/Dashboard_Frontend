@@ -9,21 +9,24 @@ import { useState } from "react";
 
 const Login_Register = () => {
 
-
     const [isRegister, setIsRegister] = useState(false);
-    const [isLogin , setIsLogin] = useState(false)
-    const [handleDefault , setHandleDefault] = useState(true)
+    const [isLogin , setIsLogin] = useState(true)
+    const [loginBg , setIsLoginBg] = useState(true)
+    const [registerBg , setIsRegisterBg] = useState(false)
+
 
     const handleToggleToSignupPage = () => {
         setIsRegister(true)
+        setIsRegisterBg(true)
+        setIsLoginBg(false)
         setIsLogin(false)
-        setHandleDefault(false)
     }
 
     const handleToggleToLoginPage = () => {
         setIsLogin(true)
+        setIsLoginBg(true)
         setIsRegister(false)
-        setHandleDefault(false)
+        setIsRegisterBg(false)
     }
 
     return (
@@ -31,9 +34,19 @@ const Login_Register = () => {
         <div className="xl:w-screen xl:h-screen gradient-background flex justify-center items-center ml:w-full ml:h-screen ml:justify-normal mm:w-full mm:h-full mm:justify-normal mm:py-13">
 
             <div className="w-[90%] flex justify-center items-center">
-            
-                <div className="absolute xl:top-33 xl:left-78 xl:w-[65%] xl:h-[72%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-23 ml:left-3 ml:w-[88%] ml:h-[80%] mm:top-23 mm:left-3 mm:w-[88%] mm:h-[80%]" />
-                <div className="absolute xl:top-30 xl:left-87 xl:w-[61%] xl:h-[74%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:top-22 ml:left-5 ml:w-[87%] ml:h-[81%] mm:top-22 mm:left-5 mm:w-[87%] mm:h-[81%]" />
+                {loginBg && (
+                <>
+                    <div className="absolute xl:top-33 xl:left-78 xl:w-[65%] xl:h-[72%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-23 ml:left-3 ml:w-[88%] ml:h-[80%] mm:top-23 mm:left-3 mm:w-[88%] mm:h-[80%]" />
+                    <div className="absolute xl:top-30 xl:left-87 xl:w-[61%] xl:h-[74%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:top-22 ml:left-5 ml:w-[87%] ml:h-[81%] mm:top-22 mm:left-5 mm:w-[87%] mm:h-[81%]" />
+                </>
+                )}
+
+                {registerBg && (
+                <>
+                    <div className="absolute xl:top-26 xl:left-78 xl:w-[65%] xl:h-[78%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-23 ml:left-3 ml:w-[88%] ml:h-[80%] mm:top-23 mm:left-3 mm:w-[88%] mm:h-[80%]" />
+                    <div className="absolute xl:top-23 xl:left-87 xl:w-[61%] xl:h-[81%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:top-22 ml:left-5 ml:w-[87%] ml:h-[81%] mm:top-22 mm:left-5 mm:w-[87%] mm:h-[81%]" />
+                </>
+                )}
 
             
                 <div className="relative z-20 xl:ml-35 xl:w-[70%] xl:h-[90%] rounded-2xl shadow-2xl flex bg-[#F1F5F9] ml:w-[95%] ml:ml-5 mm:ml-5 mm:w-[95%]">
@@ -52,12 +65,12 @@ const Login_Register = () => {
                     </div>
 
                     <UserProvider>
-                        {handleDefault && (
+                        {/* {handleDefault && (
                         <div className="xl:w-[60%] bg-[#f8f9ff] rounded-r-2xl flex flex-col items-center ml:w-full mm:w-full">
                             <Login_Head onSwitch={handleToggleToSignupPage} />
                             <Login_form />    
                         </div>
-                        )}
+                        )} */}
 
 
 
@@ -70,9 +83,9 @@ const Login_Register = () => {
 
 
                         {isLogin && (
-                            <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center ml:w-full">
+                            <div className="xl:w-[60%] bg-[#f8f9ff] rounded-r-2xl flex flex-col items-center ml:w-full mm:w-full">
                                 <Login_Head onSwitch={handleToggleToSignupPage} />
-                                <Login_form />
+                                <Login_form />    
                             </div>
                         )}
                     </UserProvider>

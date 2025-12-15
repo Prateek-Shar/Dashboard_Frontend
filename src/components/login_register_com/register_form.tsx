@@ -95,7 +95,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
 
     return (
-        <div className="w-[80%] mt-20">
+        <div className="w-[80%] mt-10 mb-5">
             <form onSubmit={handleSubmit} className="flex flex-col">
 
                 {errorDiv && (
@@ -113,7 +113,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                 )}  
                 
                 <div className="w-full flex justify-center mt-5">
-                    <input type="text" placeholder="Enter User Name" onChange={handleChange} value={form.Username} name="Username" autoComplete="text" className="font-Poppins w-[70%] bg-[#e0e6f9] rounded-2xl p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                    <input type="text" placeholder="Enter User Name" onChange={handleChange} value={form.Username} name="Username" autoComplete="off" className="font-Poppins w-[70%] bg-[#e0e6f9] rounded-2xl p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                 </div>
                  
 
@@ -136,7 +136,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                 </div>
 
 
-                <div className="w-full p-2 mt-4 flex justify-center">
+                <div className="w-full p-2 mt-8 flex justify-center">
                     <div className="w-[10%] flex justify-center">
                         <img src={!isChecked ? uncheck_checkbox : checked_checkbox} onClick={handleCheckbox} className="w-[50%] object-contain"/>
                     </div>

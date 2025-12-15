@@ -151,8 +151,8 @@ const Overview_Head = () => {
                         </div>
                     </div>
 
-                    <div className="w-[30%] flex white bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer" onClick={handleClickToCustomer}>
-                        <div className="w-[80%] flex justify-center items-center">
+                    <div className="w-[28%] flex white bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer" onClick={handleClickToCustomer}>
+                        <div className="w-[75%] flex justify-center items-center">
                             <p className="font-Poppins text-[14px]">Add Customer</p>
                         </div>
 
