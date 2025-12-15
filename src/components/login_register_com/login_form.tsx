@@ -108,7 +108,7 @@ const Login_form = () => {
 
     return (
         
-       <div className="w-[80%] mt-20 flex flex-col ml:w-full mm:mt-10">
+       <div className="xl:w-[80%] mt-20 flex flex-col ml:w-full mm:mt-10">
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
 
                 {errorDiv && (
@@ -119,13 +119,13 @@ const Login_form = () => {
                     </div>
                 )}
 
-                <div className="w-[70%] mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
-                    <input type="text" placeholder="Enter Username" name="Username" onChange={handleChange} value={form.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
+                <div className="xl:w-[70%] xl:mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
+                    <input type="text" placeholder="Enter Username" name="Username" autoComplete="off" onChange={handleChange} value={form.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
                 </div>
 
-                <div className="w-[70%] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%]">
+                <div className="xl:w-[70%] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%]">
                     <div className="w-[90%] bg-[#e0e6f9] rounded-l-2xl">
-                        <input type={typeText ? "text" : "password"} placeholder="Enter Password" name="Password" value={form.Password} onChange={handleChange} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                        <input type={typeText ? "text" : "password"} placeholder="Enter Password"  name="Password" value={form.Password} onChange={handleChange} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                     </div>
 
                     <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
@@ -155,30 +155,30 @@ const Login_form = () => {
             </form>
 
             <div className="w-full mt-20 flex justify-evenly">
-                <div className="w-[30%] ml:w-[20%] mm:w-[15%] flex justify-center items-center">
+                <div className="xl:w-[30%] ml:w-[20%] mm:w-[15%] flex justify-center items-center">
                     <hr className="border-[#acafbc] border-2 w-full" />
                 </div>
 
-                <div className="w-[30%] ml:w-[50%] mm:w-[45%] flex justify-center items-center">
+                <div className="xl:w-[30%] ml:w-[50%] mm:w-[45%] flex justify-center items-center">
                     <p className="font-Poppins mm:text-[12px] ml:text-[16px]">Or Continue With</p>
                 </div>
 
-                <div className="w-[30%] ml:w-[20%] mm:w-[15%] flex justify-center items-center">
+                <div className="xl:w-[30%] ml:w-[20%] mm:w-[15%] flex justify-center items-center">
                     <hr className="border-[#acafbc] border-2 w-full" />
                 </div>
             </div>
 
-            <div className="w-full flex justify-evenly mt-10 mb-5">
+            <div className="w-full flex justify-evenly mt-10 mb-5 xl:mb-10">
                 <div className="w-[20%] bg-[#dce2f0] p-4 flex justify-center items-center rounded-2xl">
-                    <img src={google} className="object-contain w-[40%] ml:w-[50%]"/>
+                    <img src={google} className="object-contain xl:w-[30%] ml:w-[50%]"/>
                 </div>  
 
                 <div className="w-[20%] bg-[#dce2f0] p-2 flex justify-center items-center rounded-2xl">
-                    <img src={facebook} className="object-contain w-[40%]"/>
+                    <img src={facebook} className="object-contain xl:w-[30%] w-[40%]"/>
                 </div>  
 
                 <div className="w-[20%] bg-[#dce2f0] p-2 flex justify-center items-center rounded-2xl">
-                    <img src={twitter} className="object-contain w-[30%]"/>
+                    <img src={twitter} className="object-contain xl:w-[25%] w-[30%]"/>
                 </div>  
             </div>
 
