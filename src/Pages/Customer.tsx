@@ -11,7 +11,7 @@ const Customer_page = () => {
 
 
     return (
-        <div className="bg-[#edede9] w-full relative">
+        <div className="bg-[#f8f9fa] w-full relative">
 
             <UserProvider>
                 <div className="w-full flex items-center justify-center">

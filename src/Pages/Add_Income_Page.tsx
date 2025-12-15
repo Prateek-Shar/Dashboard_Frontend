@@ -11,7 +11,7 @@ const Add_Income_Page = () => {
 
     return (
       
-        <div className="w-full bg-[#f8f9fa] h-screen"> 
+        <div className="w-full bg-[#f8f9fa]"> 
 
             <UserProvider>
                 <div className="w-full">

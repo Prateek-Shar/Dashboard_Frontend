@@ -10,14 +10,14 @@ const Overview = () => {
 
     return (
         
-        <div className="xl:w-full bg-[#edede9] ml:w-[90%] mm:w-[90%]">
+        <div className="xl:w-full bg-[#f8f9fa] ml:w-[90%] mm:w-[90%]">
             
             <div className="w-full flex justify-between">
                 <Overview_Head />
             </div>
 
             <div className="w-full flex justify-center mb-4">
-                <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0 border-[#ced4da]" />
+                <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0  border-[#ebedf0]" />
             </div>
 
             <div className="w-full flex items-center justify-center mt-10">

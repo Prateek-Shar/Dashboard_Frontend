@@ -11,7 +11,7 @@ const Products = () => {
 
     return (
         
-        <div className="w-full bg-[#edede9] flex flex-col">  
+        <div className="w-full bg-[#f8f9fa] flex flex-col">  
 
             <UserProvider>
                 <div className="w-full">

@@ -120,11 +120,11 @@ const Sidebar = () => {
 
 
     return (
-        <div className="w-[16%] bg-[#D6D9DB] border-2 border-l-0  border-t-0 border-[#ebedf0]">
+        <div className="w-[16%] bg-[#EEF4FF] border-2 border-l-0  border-t-0 border-[#ebedf0]">
 
             <div className="w-full flex flex-col justify-center items-center">
                 
-                <div className='w-full flex justify-center mt-2'>
+                <div className='w-full flex justify-center mt-[19px]'>
                     <div className='w-[12%] flex items-center'>
                         <img src={activity} />
                     </div>
@@ -134,13 +134,13 @@ const Sidebar = () => {
                     </div>
                 </div>
 
-                <div className="w-[95%] mt-2">
-                    <hr className="border-2 border-t-0 border-[#ced4da]" ></hr>
+                <div className="w-full mt-2">
+                    <hr className="border-2 border-t-0 border-[#ebedf0]" ></hr>
                 </div>
 
 
                 <div className="w-full flex flex-col">
-                    <div className="w-[90%] flex mt-10 ml-3 hover:cursor-pointer hover:bg-[#f4f4f5] rounded-[5px]" onClick={handleClickToOverview}>
+                    <div className="w-[90%] flex mt-10 ml-3 hover:cursor-pointer hover:bg-white rounded-[5px]" onClick={handleClickToOverview}>
                         <div className="w-[20%]">
                             <img src={overview} className="object-contain w-[60%] m-2" />
                         </div>
@@ -150,7 +150,7 @@ const Sidebar = () => {
                         </div>
                     </div>
 
-                    <div className="w-[90%] flex mt-2 ml-3 hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer" onClick={handleClickToProducts}>
+                    <div className="w-[90%] flex mt-2 ml-3 hover:bg-white rounded-[5px] hover:cursor-pointer" onClick={handleClickToProducts}>
                         <div className="w-[20%]">
                             <img src={box} className="object-contain w-[60%] m-2" />
                         </div>
@@ -160,7 +160,7 @@ const Sidebar = () => {
                         </div>
                     </div>
 
-                    <div className="w-[90%] mt-2 ml-3 flex hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer" onClick={handleClickToCustomers}>
+                    <div className="w-[90%] mt-2 ml-3 flex hover:bg-white rounded-[5px] hover:cursor-pointer" onClick={handleClickToCustomers}>
                         <div className="w-[20%]">
                             <img src={customer} className="object-contain w-[60%] m-2" />
                         </div>
@@ -170,7 +170,7 @@ const Sidebar = () => {
                         </div>
                     </div>   
 
-                    <div className="w-[90%] mt-2 ml-3 flex hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer" onClick={handleClicktoIncome}>
+                    <div className="w-[90%] mt-2 ml-3 flex hover:bg-white rounded-[5px] hover:cursor-pointer" onClick={handleClicktoIncome}>
                         <div className="w-[17%]">
                             <img src={income} className="object-contain w-[60%] m-2" />
                         </div>
@@ -204,10 +204,11 @@ const Sidebar = () => {
 
                     </div> 
                     
+                    
                     {settingsOptions && (
                         <div className="w-[68%] flex-col ml-15 mt-3">
-                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-red-600 hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer" onClick={handleClickToSignOut}>Logout</p>
-                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-[#9197b3] hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer">Preferences</p>
+                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-red-600 hover:bg-white rounded-[5px] hover:cursor-pointer" onClick={handleClickToSignOut}>Logout</p>
+                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-[#9197b3] hover:bg-white rounded-[5px] hover:cursor-pointer">Preferences</p>
                         </div>
                     )}
                 </div>

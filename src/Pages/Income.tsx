@@ -114,7 +114,7 @@ const Income = () => {
 
     return (
 
-        <div className="w-full bg-[#edede9]">
+        <div className="w-full bg-[#f8f9fa]">
 
 
             <div className="w-full">

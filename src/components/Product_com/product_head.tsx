@@ -16,13 +16,13 @@ const Product_head = () => {
     return (
         <>
             <div className="w-[90%] ml-2">
-                <p className="font-Poppins text-2xl p-1">Products Overview</p>
+                <p className="font-Poppins text-[20px] p-1">Products Overview</p>
             </div>
 
             {Loader ? (
                 <div className="w-[15%] flex ml-2">
                     <div className="w-[80%] flex items-center">
-                        <p className="font-Poppins text-[16px] pl-1">Welcome Back , {userDetails?.Username}</p>
+                        <p className="font-Poppins text-[14px] pl-1">Welcome Back , {userDetails?.Username}</p>
                     </div>
 
                     <div className="w-[10%] flex justify-center items-center">
@@ -36,8 +36,8 @@ const Product_head = () => {
                 </div>
             )}
             
-            <div className="w-full mt-2">
-                <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0 border-[#ced4da]" />
+            <div className="w-full">
+                <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
             </div>
         </>
 
