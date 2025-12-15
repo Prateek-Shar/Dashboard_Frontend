@@ -134,7 +134,7 @@ const Login_form = () => {
                 </div>
 
                 <div className="w-full flex mt-15 justify-center">
-                    <div className="w-[40%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%]">
+                    <div className="xl:w-[30%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%]">
 
                     {loader && (
                         <div className="w-[40%] flex justify-center items-center">
