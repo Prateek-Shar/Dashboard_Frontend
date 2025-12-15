@@ -3,7 +3,6 @@ import Register_Head from "../components/login_register_com/register_head";
 import Login_Head from "../components/login_register_com/login_head";
 import Register_Form from "../components/login_register_com/register_form";
 import { UserProvider } from '../context/login_context';
-import bg_login from "../../public/images/bg_login.jpg";
 import { useState } from "react";
 
 
