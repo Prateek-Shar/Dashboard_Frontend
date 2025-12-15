@@ -65,15 +65,6 @@ const Login_Register = () => {
                     </div>
 
                     <UserProvider>
-                        {/* {handleDefault && (
-                        <div className="xl:w-[60%] bg-[#f8f9ff] rounded-r-2xl flex flex-col items-center ml:w-full mm:w-full">
-                            <Login_Head onSwitch={handleToggleToSignupPage} />
-                            <Login_form />    
-                        </div>
-                        )} */}
-
-
-
                         {isRegister && (
                             <div className="w-[60%] bg-[#f8f9ff] rounded-2xl flex flex-col items-center">
                                 <Register_Head onSwitch={handleToggleToLoginPage} />
