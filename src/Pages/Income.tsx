@@ -5,7 +5,6 @@ import Income_visualize from "../components/Income_com/income_visualize"
 import Add_Income_bt from "../components/Income_com/Add_income_bt"
 import { DetailContext } from '../context/Chart';
 import { useEffect, useState } from "react"
-import { UserProvider } from "../context/login_context"
 import { AlertProvider } from "../context/result";
 import Income_table_head from "../components/Income_com/Income_table_head"
 import { Skeleton } from "antd"
@@ -39,9 +38,8 @@ const Income = () => {
     const [showSkeleton , setShowSkeleton] = useState(true)
     const [showChart , setShowChart] = useState(false)
 
-
     const fetchIncomeData = async() => {
-        const res = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_income_length` , {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_income_length` , {
             method : "GET",
             credentials : "include"
         })
@@ -57,7 +55,7 @@ const Income = () => {
 
 
     const handleData = async() => {
-        const response1 = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_data_by_month` , {
+        const response1 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_by_month` , {
             method : "GET",
             credentials : "include"
         })
@@ -71,7 +69,7 @@ const Income = () => {
 
 
 
-        const response2 = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_data_by_year` , {
+        const response2 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_by_year` , {
             method : "GET",
             credentials : "include"
         })
@@ -85,7 +83,7 @@ const Income = () => {
 
 
 
-        const response3 = await fetch(`https://dashboard-backend-1-0w4b.onrender.com/get_data_daily` , {
+        const response3 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_daily` , {
             method : "GET",
             credentials : "include"
         })
@@ -118,11 +116,10 @@ const Income = () => {
 
         <div className="w-full bg-[#edede9]">
 
-            <UserProvider>
-                <div className="w-full">
-                    <Income_head />
-                </div>
-            </UserProvider>
+
+            <div className="w-full">
+                <Income_head />
+            </div>
 
             <div className="w-full flex justify-center mt-10">
                 <div className="w-[70%]">

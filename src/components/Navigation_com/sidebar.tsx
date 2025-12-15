@@ -23,6 +23,12 @@ const Sidebar = () => {
     const [Loader, setLoader] = useState(false);
     const [userDetails, setUserDetails] = useState<UserData | null>(null);
 
+    const [openDrawerBt , setOpenDrawerBt] = useState(true)
+    const [closeDrawerBt , setCloseDrawerBt] = useState(false)
+    const [settingsOptions , setSettingsOptions] = useState(false)
+
+    const BasicInfo = useRef<HTMLDivElement>(null);
+
     const navigate = useNavigate()
 
     const handleClickToCustomers = () => {
@@ -88,44 +94,26 @@ const Sidebar = () => {
     }, []);
 
 
-    const settingOptions = useRef<HTMLDivElement>(null)
-    const closeDrawerBt = useRef<HTMLDivElement>(null);
-    const openDrawerBt = useRef<HTMLDivElement>(null);
-    const BasicInfo = useRef<HTMLDivElement>(null);
-
     const handleClickToSettingsOptions = () => {
-        if(settingOptions.current) {
-            settingOptions.current.style.display = "flex";
-        }
 
-        if(openDrawerBt.current) {
-            openDrawerBt.current.style.display = "none";
-        }
-
-        if(closeDrawerBt.current) {
-            closeDrawerBt.current.style.display = "flex";
-        }
+        setSettingsOptions(true)
+        setCloseDrawerBt(true)
+        setOpenDrawerBt(false)
 
         if(BasicInfo.current) {
-            BasicInfo.current.style.marginTop = "320px";
+            BasicInfo.current.style.marginTop = "345px";
         }
     }
 
     const closeDefaultOptions = () => {
-        if(settingOptions.current) {
-            settingOptions.current.style.display = "none";
-        }
+       
+        setSettingsOptions(false);
+        setCloseDrawerBt(false)
+        setOpenDrawerBt(true)
 
-        if(closeDrawerBt.current) {
-            closeDrawerBt.current.style.display = "none";
-        }
-
-        if(openDrawerBt.current) {
-            openDrawerBt.current.style.display = "flex";
-        }
 
         if(BasicInfo.current) {
-            BasicInfo.current.style.marginTop = "409px"
+            BasicInfo.current.style.marginTop = "434px"
         }
     }
 
@@ -202,25 +190,31 @@ const Sidebar = () => {
                             <p className="font-Poppins text-[16px] text-[#9197b3] pl-[4px]">Settings</p>
                         </div>
 
-                        <div className="w-[10%] flex items-center justify-center" ref={openDrawerBt}>
-                            <img src={down_arr}  onClick={() => { handleClickToSettingsOptions() }} className="object-contain w-[60%] m-2 hover:cursor-pointer active:cursor-pointer" />
-                        </div> 
+                        {openDrawerBt && (
+                            <div className="w-[10%] flex items-center justify-center">
+                                <img src={down_arr}  onClick={() => { handleClickToSettingsOptions() }} className="object-contain w-[60%] m-2 hover:cursor-pointer active:cursor-pointer" />
+                            </div> 
+                        )}
 
-                        <div className="w-[10%] hidden items-center justify-center" ref={closeDrawerBt}>
-                            <img src={up_arr}  onClick={closeDefaultOptions}  className="object-contain w-[60%] m-2 hover:cursor-pointer active:cursor-pointer" />
-                        </div>  
+                        {closeDrawerBt && (
+                            <div className="w-[10%] flex items-center justify-center">
+                                <img src={up_arr}  onClick={closeDefaultOptions}  className="object-contain w-[60%] m-2 hover:cursor-pointer active:cursor-pointer" />
+                            </div>  
+                        )}
 
                     </div> 
-
-                    <div className="w-[68%] hidden flex-col ml-15 mt-3" ref={settingOptions}>
-                        <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-red-600 hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer" onClick={handleClickToSignOut}>Logout</p>
-                        <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-[#9197b3] hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer">Preferences</p>
-                    </div>
+                    
+                    {settingsOptions && (
+                        <div className="w-[68%] flex-col ml-15 mt-3">
+                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-red-600 hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer" onClick={handleClickToSignOut}>Logout</p>
+                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-[#9197b3] hover:bg-[#f4f4f5] rounded-[5px] hover:cursor-pointer">Preferences</p>
+                        </div>
+                    )}
                 </div>
             
 
 
-                <div className="w-[80%] flex justify-center items-center mt-[409px]" ref={BasicInfo}>
+                <div className="w-[80%] flex justify-center items-center mt-[434px]" ref={BasicInfo}>
                     {Loader ? (
                             <div className="w-full flex mt-21 mb-8">
 

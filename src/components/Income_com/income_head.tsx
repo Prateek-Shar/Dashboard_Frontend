@@ -1,12 +1,45 @@
 import Hello from "/images/Hello.png"
-import { useUser } from "../../context/login_context";
+import { useEffect , useState } from "react";
 import { Skeleton } from 'antd';
 
+
+interface UserData {
+  Username : string;
+  Profession: string;
+  UID: number;
+}
 
 
 const Income_head = () => {
 
-    const { Loader , userDetails } = useUser()
+    const [Loader, setLoader] = useState(false);
+    const [userDetails, setUserDetails] = useState<UserData>();
+
+    const fetchUser = async () => {
+        try {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
+            credentials: "include",
+            method : "GET"
+            });
+            const data = await res.json();
+    
+            if (res.ok) {
+                setUserDetails(data.login_det); 
+            } else {
+                console.warn("Not authenticated:", data.error);
+            }
+        
+            setLoader(true);
+    
+        } catch (error) {
+            console.error("Failed to load user", error);
+        }
+    };
+
+
+    useEffect(() => {
+        fetchUser();
+    }, []);
 
     return (   
             

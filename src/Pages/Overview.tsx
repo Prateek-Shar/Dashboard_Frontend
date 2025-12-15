@@ -10,7 +10,7 @@ const Overview = () => {
 
     return (
         
-        <div className="xl:w-full bg-[#edede9] ml:w-[90%] mm:w-[90%] h-full">
+        <div className="xl:w-full bg-[#edede9] ml:w-[90%] mm:w-[90%]">
             
             <div className="w-full flex justify-between">
                 <Overview_Head />
@@ -75,7 +75,7 @@ const Overview = () => {
             </div>
 
 
-            <div className="w-full xl:flex xl:justify-evenly xl:items-center mt-10 ml:flex ml:justify-center ml:mt-0 mm:mt-0">
+            <div className="w-full xl:flex xl:justify-evenly xl:items-center xl:mt-10 ml:flex ml:justify-center ml:mt-0 mm:mt-0">
                 <div className="xl:w-[40%] bg-white mt-10 mb-10 rounded-3xl shadow-lg ml:w-[80%] mm:w-[80%]">
                     <Latest_Transaction />
                 </div>

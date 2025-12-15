@@ -1,12 +1,17 @@
 import Hello from "/images/Hello.png"
 import { useUser } from "../../context/login_context";
 import { Skeleton } from 'antd';
+import { useEffect } from "react";
 
 
 
 const Product_head = () => {
 
-    const { userDetails , Loader } = useUser();
+    const { userDetails , Loader , LoadUserApi  } = useUser();
+
+    useEffect(() => {
+        LoadUserApi()
+    } , [])
 
     return (
         <>
