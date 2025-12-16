@@ -51,7 +51,7 @@ const Login_Register = () => {
             
                 <div className="relative z-20 xl:ml-35 xl:w-[70%] xl:h-[90%] rounded-2xl shadow-2xl flex bg-[#F1F5F9] ml:w-[95%] ml:ml-5 mm:ml-5 mm:w-[95%]">
                     
-                    <div className="xl:w-[40%] p-10 xl:flex flex-col justify-evenly ml:hidden mm:hidden bg-[#EEF4FF] rounded-l-2xl border-r-2 border-[#E5E7EB]"> 
+                    <div className="xl:w-[40%] p-10 xl:flex flex-col justify-evenly ml:hidden mm:hidden bg-[#EEF4FF] xl:rounded-l-2xl ml:rounded-2xl mm:rounded-2xl border-r-2 border-[#E5E7EB]"> 
                         <div className="w-[80%]">
                             <h1 className="font-Poppins text-[#4a79ff] p-2 text-3xl">Welcome Back 👋</h1>
                             <div className="mt-2 px-2">
