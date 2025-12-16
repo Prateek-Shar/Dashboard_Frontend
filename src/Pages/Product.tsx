@@ -19,6 +19,10 @@ const Products = () => {
                 </div>
             </UserProvider>
 
+            <div className="w-full">
+                <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
+            </div>
+
             <StatsProvider>
                 <div className="w-full flex justify-center items-center mt-10">
                     <div className="w-[65%] flex items-center justify-center">

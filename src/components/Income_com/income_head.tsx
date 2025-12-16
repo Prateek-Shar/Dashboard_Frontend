@@ -44,15 +44,16 @@ const Income_head = () => {
     return (   
             
 
-    <div className="w-full flex flex-col">
+    <div className="w-full flex justify-between ">
 
-        <div className="w-[90%] ml-2">
-            <p className="font-Poppins text-[20px] p-1">Income Overview</p>
+        <div className="w-[30%] ml-2 my-[6px]">
+            <p className="font-Poppins text-[20px] py-2">Income Overview</p>
         </div>
 
+        <div className="w-[40%] flex-row-reverse flex items-center">
         {Loader ? (
-            <div className="w-[15%] flex ml-2">
-                <div className="w-[80%] flex items-center">
+            <div className="w-[35%] flex ml-2">
+                <div className="w-[80%] flex justify-center items-center">
                     <p className="font-Poppins xl:text-[14px] pl-1">Welcome Back , {userDetails?.Username}</p>
                 </div>
 
@@ -62,13 +63,10 @@ const Income_head = () => {
             </div>
         ) : (
 
-            <div className="w-[35%] ml-3 mt-1">
-                <Skeleton paragraph={{rows : 0}} active />
+            <div className="w-[40%] ml-3 mt-1 flex flex-row-reverse items-center">
+                <Skeleton paragraph={{rows : 0}} active  />
             </div>
         )}
-        
-        <div className="w-full">
-            <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
         </div>
         
     </div>

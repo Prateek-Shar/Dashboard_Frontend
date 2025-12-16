@@ -19,6 +19,10 @@ const Customer_page = () => {
                 </div>  
             </UserProvider>
 
+            <div className="w-full">
+                <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
+            </div>
+            
             <StatsProvider>
                 <div className="w-full flex justify-evenly items-center mt-10">
 

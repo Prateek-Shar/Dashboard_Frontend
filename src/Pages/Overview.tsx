@@ -21,7 +21,7 @@ const Overview = () => {
             </div>
 
             <div className="w-full flex items-center justify-center mt-10">
-                <div className="ml:w-[90%] mm:w-[90%] xl:w-[70%]">
+                <div className="ml:w-[90%] mm:w-[90%] xl:w-[80%]">
                     <Overview_Stats />
                 </div>
             </div>

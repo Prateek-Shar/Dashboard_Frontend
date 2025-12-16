@@ -1,11 +1,11 @@
 import activity from "/images/activity.png"
-import customer from "/images/customers2.png"
+import customer from "/images/new_customers.png"
 import man from "/images/man.png";
 import down_arr from "/images/down_arr.png";
 import up_arr from "/images/up_arr.png";
 import income from "/images/income.png"
 import settings from "/images/settings.png";
-import box from "/images/box-open.png";
+import box from "/images/product.png";
 import overview from "/images/overview.png";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from 'antd';
@@ -156,7 +156,7 @@ const Sidebar = () => {
                         </div>
 
                         <div className="w-[60%] flex items-center ml-2">
-                            <p className="font-Poppins text-[16px] text-[#9197b3]">Product</p>
+                            <p className="font-Poppins text-[16px] text-[#9197b3]">Products</p>
                         </div>
                     </div>
 

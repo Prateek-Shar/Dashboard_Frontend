@@ -16,16 +16,17 @@ const Customer_head = () => {
     return (
 
     
-    <div className="w-full flex flex-col">
+    <div className="w-full flex justify-between">
 
-        <div className="w-[90%] ml-2">
-            <p className="font-Poppins text-[20px] p-1">Customer Overview</p>
+        <div className="w-[40%] ml-2 my-[6px]">
+            <p className="font-Poppins text-[20px] py-2">Customer Overview</p>
         </div>
 
-        {Loader? (
-            <div className="w-[15%] flex ml-2">
-                <div className="w-[80%] flex items-center">
-                    <p className="font-Poppins text-[14px] pl-1">Welcome Back , {userDetails?.Username}</p>
+        <div className="w-[40%] flex flex-row-reverse items-center">
+        {Loader ? (
+            <div className="w-[35%] flex ml-2">
+                <div className="w-[80%] flex justify-center items-center">
+                    <p className="font-Poppins xl:text-[14px] pl-1">Welcome Back , {userDetails?.Username}</p>
                 </div>
 
                 <div className="w-[10%] flex justify-center items-center">
@@ -34,13 +35,12 @@ const Customer_head = () => {
             </div>
         ) : (
 
-            <div className="w-[35%] mt-2 ml-3">
-                <Skeleton paragraph={{rows : 0}} active />
+            <div className="w-[90%] flex flex-row-reverse items-center">
+                <div className="w-[40%]">
+                    <Skeleton paragraph={{rows : 0}}  active  />
+                </div>
             </div>
         )}
-        
-        <div className="w-full">
-            <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
         </div>
         
     </div>

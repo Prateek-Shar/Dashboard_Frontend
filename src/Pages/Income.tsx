@@ -121,6 +121,10 @@ const Income = () => {
                 <Income_head />
             </div>
 
+            <div className="w-full">
+                <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
+            </div>
+
             <div className="w-full flex justify-center mt-10">
                 <div className="w-[70%]">
                     <Income_stats />
