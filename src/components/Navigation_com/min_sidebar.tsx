@@ -1,8 +1,8 @@
 import activity from "/images/activity.png"
-import customer from "/images/customers2.png"
+import customer from "/images/new_customers.png"
 import income from "/images/income.png";
 import man from "/images/man.png";
-import box from "/images/box-open.png";
+import box from "/images/product.png";
 import over from "/images/overview.png"
 import logout from "/images/logout.png";
 import { useNavigate } from "react-router-dom";
