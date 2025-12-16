@@ -90,7 +90,7 @@ const Overview_Head = () => {
             </div>
 
             {Loader? (
-                <div className="xl:w-[32%] flex ml-2 ml:w-[80%] mm:w-[80%] bg-amber-500">
+                <div className="xl:w-[32%] flex ml-2 ml:w-[80%] mm:w-[80%]">
                     <div className="w-[80%] flex items-center">
                         <p className="font-Poppins xl:text-[16px] pl-1 ml:text-[12px] mm:text-[11px]">Welcome Back , {userDetails?.Username}</p>
                     </div>
