@@ -31,7 +31,7 @@ const Login_Register = () => {
 
     return (
 
-        <div className="xl:w-screen xl:h-screen bg-[url(/public/images/bg_login.jpg)] bg-cover bg-no-repeat flex xl:justify-normal items-center ml:w-full ml:h-screen ml:justify-center mm:w-full mm:h-full mm:justify-normal mm:py-13">
+        <div className="xl:w-screen xl:h-screen bg-[url(/images/bg_login.jpg)] bg-cover bg-no-repeat flex xl:justify-normal items-center ml:w-full ml:h-screen ml:justify-center mm:w-full mm:h-full mm:justify-normal mm:py-13">
 
             <div className="w-[90%] flex justify-center items-center">
                 {loginBg && (
