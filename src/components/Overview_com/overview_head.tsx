@@ -112,11 +112,11 @@ const Overview_Head = () => {
 
             {quickLinksBt && (
                 <div className="xl:w-[20%] flex bg-white justify-center shadow-2xs rounded-[50px] hover:cursor-pointer mr-2 ml:w-[30%] mm:w-[80%]" onClick={handleQuickLinks}>
-                    <div className="xl:w-[70%] flex justify-center items-center my-2.5 ml:hidden">
+                    <div className="xl:w-[70%] xl:flex justify-center items-center my-2.5 ml:hidden mm:hidden ">
                         <p className="font-Poppins ml:text-[12px] mm:text-[9px] xl:text-[16px]">Quick Links</p>
                     </div>
 
-                    <div className="xl:w-[20%] p-2 flex justify-center items-center mm:p-1 ml:w-full ml:p-2">
+                    <div className="xl:w-[20%] xl:p-1 flex justify-center items-center mm:p-1 ml:w-full ml:p-2">
                         <img src={links} className="object-contain w-[60%]"/>
                     </div>
                 </div>
