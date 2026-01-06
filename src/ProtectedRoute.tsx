@@ -30,7 +30,12 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   if (isAuthenticated === null) {
-    return null;
+
+    return (
+      <div className="w-screen h-screen">
+        <video src="" />
+      </div>
+    )
   }
 
   return isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;

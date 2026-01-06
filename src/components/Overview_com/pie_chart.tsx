@@ -32,7 +32,7 @@ const Pie_Chart = () => {
 
   const getDataForPie = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getDataForPie` , {
+      const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/getDataForPie` , {
         method: "GET",
         credentials: "include",
       });

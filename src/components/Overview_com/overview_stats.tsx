@@ -20,7 +20,7 @@ const Overview_Stats = () => {
 
     const getOverviewStats = async() => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_overview_stats` , {
+            const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/get_overview_stats` , {
                 method : "GET",
                 credentials : "include"
             })
