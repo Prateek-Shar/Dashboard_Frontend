@@ -10,6 +10,7 @@ import Login_Register from "./Pages/Login_Register";
 import ProtectedRoute from "./ProtectedRoute"
 import Overview from "./Pages/Overview";
 import No_Page from "./Pages/Page_404";
+import Protected from "./Pages/Protected";
 
 const App = () => {
     
@@ -21,65 +22,45 @@ const App = () => {
 
                 <Route path="/" element={<Login_Register />} />
                 <Route path="*" element={<No_Page />} />
+                <Route path="/protect" element={<Protected />} />
 
-                <Route
-                    path="/customer"
-                    element={
-                    <ProtectedRoute>
-                        <Customer_page />
-                    </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/products"
-                    element={
-                    <ProtectedRoute>
-                        <Products />
-                    </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/addProduct"
-                    element={
-                    <ProtectedRoute>
-                        <Add_Product />
-                    </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/income"
-                    element={
-                    <ProtectedRoute>
-                        <Income />
-                    </ProtectedRoute>
-                    }
-                />
-                <Route
-                    path="/addIncome"
-                    element={
-                    <ProtectedRoute>
-                        <Add_Income />
-                    </ProtectedRoute>
-                    }
-                />
+                <Route element={<ProtectedRoute />} >
+                    <Route 
+                        path="/customer"
+                        element={ <Customer_page /> } 
+                    />
 
-                <Route
-                    path="/addCustomer"
-                    element={
-                    <ProtectedRoute>
-                        <Add_Customer/>
-                    </ProtectedRoute>
-                    }
-                />
+                    <Route
+                        path="/products"
+                        element={ <Products /> } 
+                    />
 
-                <Route 
-                    path="/overview"
-                    element={
-                        <ProtectedRoute>
-                            <Overview />
-                        </ProtectedRoute>
-                    }
-                />
+                    <Route
+                        path="/addProduct"
+                        element={ <Add_Product /> } 
+                    />
+
+                    <Route
+                        path="/income"
+                        element={ <Income /> } 
+                    />
+
+                    <Route
+                        path="/addIncome"
+                        element={
+                            <Add_Income /> } 
+                    />
+
+                    <Route
+                        path="/addCustomer"
+                        element={ <Add_Customer/> }
+                    />
+
+                    <Route 
+                        path="/overview"
+                        element={ <Overview /> }
+                    />
+                </Route>
                 
             </Routes>
         </Layout>       

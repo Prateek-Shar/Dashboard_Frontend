@@ -17,7 +17,7 @@ const Latest_Transaction = () => {
     const getLatestTransaction = async() => {
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/getLatestTransaction` , {
+            const response = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getLatestTransaction` , {
                 method : "GET",
                 credentials : "include"
             })

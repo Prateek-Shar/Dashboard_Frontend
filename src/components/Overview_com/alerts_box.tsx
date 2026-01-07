@@ -29,7 +29,7 @@ const Alerts_Box = () => {
 
     const GetProductStatstics = async() => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/product_stats` , {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/product_stats` , {
                 method : "GET",
                 credentials : "include"
             })

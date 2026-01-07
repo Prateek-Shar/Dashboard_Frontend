@@ -12,7 +12,7 @@ const Line_Chart = () => {
 
   const getLineInfo = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/get_line_chart_info`, {
+      const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_line_chart_info`, {
         method: "GET",
         credentials: "include"
       });

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import secure from "/images/security.mp4"
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+const ProtectedRoute = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/getUserInfo`, {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
           method : "get",
           credentials: "include",
         });
@@ -17,8 +18,10 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
           console.log("Cookie Not Avaialble")
         } 
 
-        setIsAuthenticated(true);
-        console.log("Cookie Avaialble")
+        else {
+          setIsAuthenticated(true);
+          console.log("Cookie Avaialble")
+        }
  
       } catch (error) {
         setIsAuthenticated(false);
@@ -32,13 +35,22 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   if (isAuthenticated === null) {
 
     return (
-      <div className="w-screen h-screen">
-        <video src="" />
-      </div>
+
+        <div className="w-screen h-screen bg-[#eef4ff] flex justify-center items-center flex-col">
+            
+            <div className="w-[20%] h-[25%] flex justify-center">
+                <video src={secure} autoPlay muted loop className="object-contain w-[60%]" />
+            </div>
+
+            <div className="w-[30%] flex justify-center">
+                <p className="font-Alan p-2 text-2xl">Cookie authentication in progress ...</p>
+            </div>
+
+        </div>
     )
   }
 
-  return isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;
+  return isAuthenticated ? <Outlet />: <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;
