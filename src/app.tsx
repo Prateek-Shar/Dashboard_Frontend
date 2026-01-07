@@ -23,6 +23,7 @@ const App = () => {
                 <Route element = {<No_sidebar />}>
                     <Route path="/" element={<Login_Register />} />
                     <Route path="*" element={<No_Page />} />
+                    <Route element={ <ProtectedRoute /> } />
                 </Route>
 
                 <Route element = {<With_Sidebar />} >
