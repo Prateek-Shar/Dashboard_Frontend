@@ -9,8 +9,8 @@ import Login_Register from "./Pages/Login_Register";
 import ProtectedRoute from "./ProtectedRoute"
 import Overview from "./Pages/Overview";
 import No_Page from "./Pages/Page_404";
-import With_Sidebar from "../src/withSidebar";
-import No_sidebar from "../src/NoSidebar";
+import With_Sidebar from "./components/WithSidebar";
+import No_sidebar from "./components/NoSidebar";
 
 
 const App = () => {
