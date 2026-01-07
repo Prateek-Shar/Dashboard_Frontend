@@ -16,7 +16,7 @@ const ProtectedRoute = () => {
 
         if (!res.ok) {
           setIsAuthenticated(false);
-          console.log("Cookie Not Avaialble")
+          return;
         } 
 
         else {

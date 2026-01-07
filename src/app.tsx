@@ -19,15 +19,16 @@ const App = () => {
     
         <BrowserRouter>
             <Routes>
-                    
+                
                 <Route element = {<No_sidebar />}>
                     <Route path="/" element={<Login_Register />} />
                     <Route path="*" element={<No_Page />} />
                     <Route element={ <ProtectedRoute /> } />
                 </Route>
 
-                <Route element = {<With_Sidebar />} >
-                    <Route element={<ProtectedRoute />} >
+
+                <Route element={<ProtectedRoute />} >
+                    <Route element = {<With_Sidebar />} >
                         <Route 
                             path="customer"
                             element={ <Customer_page /> } 
