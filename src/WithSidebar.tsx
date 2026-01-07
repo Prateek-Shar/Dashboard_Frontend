@@ -14,7 +14,7 @@ const With_Sidebar = () => {
                 <Outlet />
             </div>
 
-            <div className="xl:hidden mm:flex">
+            <div className="xl:hidden m:flex">
                 <Min_sidebar />
 
                 <Outlet />
