@@ -136,7 +136,7 @@ const Login_form = () => {
                     </div>
                 </div>
 
-                <div className="w-full flex mt-15 justify-center">
+                <div className="w-full flex mt-15 justify-center mb-10">
                     <div className="xl:w-[30%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%]">
 
                     {loader && (
@@ -157,7 +157,7 @@ const Login_form = () => {
 
             </form>
 
-            <div className="w-full mt-20 flex justify-evenly">
+            {/* <div className="w-full mt-20 flex justify-evenly">
                 <div className="xl:w-[30%] ml:w-[20%] mm:w-[15%] flex justify-center items-center">
                     <hr className="border-[#acafbc] border-2 w-full" />
                 </div>
@@ -183,7 +183,7 @@ const Login_form = () => {
                 <div className="w-[20%] bg-[#dce2f0] p-2 mm:p-2 flex justify-center items-center rounded-2xl">
                     <img src={twitter} className="object-contain xl:w-[25%] w-[30%]"/>
                 </div>  
-            </div>
+            </div> */}
 
         </div>
 

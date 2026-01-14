@@ -20,17 +20,17 @@ const Min_sidebar = () => {
             });
 
             if (res.ok) {
-                navigate("/"); // redirect to login page
-            } else {
+                navigate("/"); 
                 console.error("Failed to logout");
             }
+            
         } catch (error) {
             console.error("Error during logout:", error);
         }
     };
     
     const handleClickToOverview = () => {
-        navigate("/overviewyi")
+        navigate("/overview")
     }
 
     const handleClickToCustomer = () => {
