@@ -1,7 +1,7 @@
 import eye_open from "/images/eye_open.png";
-import google from "/images/google.png";
-import facebook from "/images/facebook.png";
-import twitter from "/images/twitter.png";
+// import google from "/images/google.png";
+// import facebook from "/images/facebook.png";
+// import twitter from "/images/twitter.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/login_context";
