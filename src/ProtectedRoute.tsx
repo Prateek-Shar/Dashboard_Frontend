@@ -33,7 +33,7 @@ const ProtectedRoute = () => {
 
   }, []);
 
-  if (isAuthenticated === null) {
+  if (isAuthenticated === null || isAuthenticated === false) {
 
     return (
 
