@@ -75,8 +75,8 @@ const Latest_Transaction = () => {
                 <>
                     {stats.length === 0 ? (
 
-                        <div className="p-2 flex justify-center mm:py-3 ml:py-4">
-                            <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[12px]">No Records Found</p>
+                        <div className="xl:p-6 flex justify-center mm:py-3 ml:py-4">
+                            <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[16px]">No Records Found</p>
                         </div>
 
                         ) : (

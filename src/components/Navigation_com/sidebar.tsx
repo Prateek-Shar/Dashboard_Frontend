@@ -101,7 +101,7 @@ const Sidebar = () => {
         setOpenDrawerBt(false)
 
         if(BasicInfo.current) {
-            BasicInfo.current.style.marginTop = "345px";
+            BasicInfo.current.style.marginTop = "331px";
         }
     }
 
@@ -113,7 +113,7 @@ const Sidebar = () => {
 
 
         if(BasicInfo.current) {
-            BasicInfo.current.style.marginTop = "434px"
+            BasicInfo.current.style.marginTop = "420px"
         }
     }
 
@@ -215,7 +215,7 @@ const Sidebar = () => {
             
 
 
-                <div className="w-[80%] flex justify-center items-center mt-[434px]" ref={BasicInfo}>
+                <div className="w-[80%] flex justify-center items-center mt-[420px]" ref={BasicInfo}>
                     {Loader ? (
                             <div className="w-full flex mt-21 mb-8">
 

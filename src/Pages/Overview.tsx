@@ -26,7 +26,7 @@ const Overview = () => {
                 </div>
             </div>
 
-            <div className="w-full flex justify-evenly items-center mt-15 ml:mt-5 mm:mt-5">
+            <div className="w-full flex justify-evenly items-center xl:mt-15 ml:mt-5 mm:mt-5">
                
                 <div className="xl:w-[40%] flex flex-col bg-white rounded-4xl shadow-lg mt-10 mb-10 ml:w-[80%] mm:w-[75%] mm:rounded-3xl">
                     <div className="w-full flex justify-center mb-2 mt-3">
@@ -42,7 +42,7 @@ const Overview = () => {
                     </div>
                 </div>
 
-                <div className="xl:flex w-[20%] flex flex-col bg-white rounded-4xl shadow-lg mt-10 mb-10 ml:hidden mm:hidden">
+                <div className="xl:flex w-[20%] flex flex-col bg-white rounded-3xl shadow-lg mt-10 mb-10 ml:hidden mm:hidden">
                     <div className="w-full flex justify-center mb-2 mt-3">
                         <p className="font-Poppins text-[#9197b3] text-[14px]">Total Customers as per Country</p>
                     </div>
@@ -75,7 +75,7 @@ const Overview = () => {
             </div>
 
 
-            <div className="w-full xl:flex xl:justify-evenly xl:items-center xl:mt-10 ml:flex ml:justify-center ml:items-center mm:flex mm:justify-center ml:mt-0 mm:mt-0">
+            <div className="w-full xl:flex xl:justify-evenly xl:items-center xl:mt-15 ml:flex ml:justify-center ml:items-center mm:flex mm:justify-center ml:mt-0 mm:mt-0">
                 <div className="xl:w-[40%] bg-white mt-10 mb-10 rounded-3xl shadow-lg ml:w-[80%] mm:w-[80%]">
                     <Latest_Transaction />
                 </div>

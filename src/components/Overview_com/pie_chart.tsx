@@ -91,8 +91,8 @@ const Pie_Chart = () => {
             <Pie data={chartData} />
           </div>
           ):(
-          <div className="w-full p-2 mb-4 mt-4 flex justify-center ml:p-0 mm:p-0">
-            <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[12px]">No Record Found</p>
+          <div className="w-full xl:p-1 mb-4 mt-4 flex justify-center ml:p-0 mm:p-0">
+            <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[14px]">No Record Found</p>
           </div>
       )}
       </div>

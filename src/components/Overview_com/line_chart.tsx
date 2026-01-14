@@ -72,8 +72,8 @@ const Line_Chart = () => {
           <Line data={chartData} />
         </div>
       ) : (
-        <div className="w-full flex justify-center items-center p-2 mt-4 mb-4 ml:p-0 mm:p-0">
-          <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[12px]">No Data Found</p>
+        <div className="w-full flex justify-center items-center xl:p-2 mt-4 mb-4 ml:p-0 mm:p-0">
+          <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[15px]">No Data Found</p>
         </div>
       )}
     </div>

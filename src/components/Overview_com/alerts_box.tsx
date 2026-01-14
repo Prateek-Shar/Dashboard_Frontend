@@ -151,8 +151,8 @@ const Alerts_Box = () => {
                         </div>
                     ))
                     ) : (
-                    <div className="w-full p-2 flex justify-center items-center mb-4 mt-4 ml:p-0 mm:p-0">
-                        <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[12px]">No Out of Stock Records Found</p>
+                    <div className="w-full xl:p-2 flex justify-center items-center mb-4 mt-4 ml:p-0 mm:p-0">
+                        <p className="font-Poppins ml:text-[10px] mm:text-[10px] xl:text-[14px]">No Out of Stock Records Found</p>
                     </div>
                     )}
                 </div>
@@ -171,8 +171,8 @@ const Alerts_Box = () => {
                 </div>
                 ))
             ) : (
-                <div className="w-full p-2 mt-4 mb-4 flex justify-center items-center">
-                    <p className="font-Poppins xl:text-[12px]">No Low Stock Records Found</p>
+                <div className="w-full xl:p-2 mt-4 mb-4 flex justify-center items-center">
+                    <p className="font-Poppins xl:text-[14px]">No Low Stock Records Found</p>
                 </div>
             )}
             </> 

@@ -25,7 +25,7 @@ const Income_table = () => {
 
     
     const fetchIncomePageData = async(page : number) => {
-        const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/get_income_detail?page=${page}` , {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_income_detail?page=${page}` , {
             method : "GET",
             credentials : "include"
         })
@@ -36,11 +36,11 @@ const Income_table = () => {
 
         const data = await res.json()
         setIncomeStats(data.Income_stats)
-    }
+    }       
 
 
     const fetchIncomeLength = async() => {
-        const res = await fetch(`${import.meta.env.VITE_LOCAL_ADDRESS}/getIncomeStats` , {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getIncomeStats` , {
             method : "GET",
             credentials : "include"
         })
