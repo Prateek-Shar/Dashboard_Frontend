@@ -30,7 +30,7 @@ const Min_sidebar = () => {
     };
     
     const handleClickToOverview = () => {
-        navigate("/")
+        navigate("/overviewyi")
     }
 
     const handleClickToCustomer = () => {

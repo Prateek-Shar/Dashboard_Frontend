@@ -55,7 +55,7 @@ const Sidebar = () => {
             });
 
             if (res.ok) {
-                navigate("/"); // redirect to login page
+                navigate("/"); 
             } else {
                 console.error("Failed to logout");
             }

@@ -36,8 +36,8 @@ const Login_Register = () => {
             <div className="w-[90%] flex justify-center items-center">
                 {loginBg && (
                 <>
-                    <div className="absolute xl:top-33 xl:left-78 xl:w-[65%] xl:h-[72%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-23 ml:left-10 ml:w-[88%] ml:h-[80%] mm:top-23 mm:left-7 mm:w-[88%] mm:h-[80%]" />
-                    <div className="absolute xl:top-30 xl:left-87 xl:w-[61%] xl:h-[74%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:top-22 ml:left-7 ml:w-[87%] ml:h-[81%] mm:top-22 mm:left-9 mm:w-[87%] mm:h-[81%]" />
+                    <div className="absolute xl:top-33 xl:left-78 xl:w-[65%] xl:h-[72%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-13 ml:left-8 ml:w-[90%] ml:h-[85%] mm:top-15 mm:left-7 mm:w-[90%] mm:h-[82%]" />
+                    <div className="xl:flex absolute xl:top-30 xl:left-87 xl:w-[61%] xl:h-[74%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:hidden" />
                 </>
                 )}
 

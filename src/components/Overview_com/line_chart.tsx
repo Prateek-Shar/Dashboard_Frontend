@@ -68,7 +68,7 @@ const Line_Chart = () => {
     {showChart && (
     <div className='w-full justify-center items-center flex flex-col'>
       {LineData.length > 0 ? (
-        <div className="w-full flex justify-center items-center mt-3 p-10">
+        <div className="w-full flex justify-center items-center mt-3 xl:p-10 ml:p-1">
           <Line data={chartData} />
         </div>
       ) : (

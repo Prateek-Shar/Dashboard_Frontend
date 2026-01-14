@@ -33,7 +33,6 @@ const ProtectedRoute = () => {
 
   }, []);
 
-  console.log(isAuthenticated);
 
   if (isAuthenticated === null) {
 
