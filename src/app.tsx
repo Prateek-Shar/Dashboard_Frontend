@@ -28,82 +28,43 @@ const App = () => {
 
 
                 <Route element={<ProtectedRoute />} >
-                    <Route 
-                        path="customer"
-                        element={ <Customer_page /> } 
-                    />
+                    <Route element = {<With_Sidebar />} >
+                        <Route 
+                            path="customer"
+                            element={ <Customer_page /> } 
+                        />
 
-                    <Route
-                        path="products"
-                        element={ <Products /> } 
-                    />
+                        <Route
+                            path="products"
+                            element={ <Products /> } 
+                        />
 
-                    <Route
-                        path="addProduct"
-                        element={ <Add_Product /> } 
-                    />
+                        <Route
+                            path="addProduct"
+                            element={ <Add_Product /> } 
+                        />
 
-                    <Route
-                        path="income"
-                        element={ <Income /> } 
-                    />
+                        <Route
+                            path="income"
+                            element={ <Income /> } 
+                        />
 
-                    <Route
-                        path="addIncome"
-                        element={
-                            <Add_Income /> } 
-                    />
+                        <Route
+                            path="addIncome"
+                            element={
+                                <Add_Income /> } 
+                        />
 
-                    <Route
-                        path="addCustomer"
-                        element={ <Add_Customer/> }
-                    />
+                        <Route
+                            path="addCustomer"
+                            element={ <Add_Customer/> }
+                        />
 
-                    <Route 
-                        path="overview"
-                        element={ <Overview /> }
-                    />
-                </Route>
-
-
-
-
-                <Route element = {<With_Sidebar />} >
-                    <Route 
-                        path="customer"
-                        element={ <Customer_page /> } 
-                    />
-
-                    <Route
-                        path="products"
-                        element={ <Products /> } 
-                    />
-
-                    <Route
-                        path="addProduct"
-                        element={ <Add_Product /> } 
-                    />
-
-                    <Route
-                        path="income"
-                        element={ <Income /> } 
-                    />
-
-                    <Route
-                        path="addIncome"
-                        element={
-                            <Add_Income /> } 
-                    />
-
-                    <Route
-                        path="addCustomer"
-                        element={ <Add_Customer/> }
-                    />
-
-                    <Route 
-                        path="overview"
-                        element={ <Overview /> }
-                    />
+                        <Route 
+                            path="overview"
+                            element={ <Overview /> }
+                        />
+                    </Route>
                 </Route>
 
             </Routes>
