@@ -1,7 +1,5 @@
 import eye_open from "/images/eye_open.png";
-// import google from "/images/google.png";
-// import facebook from "/images/facebook.png";
-// import twitter from "/images/twitter.png";
+import cross from "/images/cross.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/login_context";
@@ -117,9 +115,10 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
 
                 {errorDiv && (
-                    <div className="w-full">
+                    <div className="w-full flex justify-center items-center mb-2">
                         <div className="w-[50%] flex justify-center items-center">
-                            <p className="font-Poppins">{err_msg}</p>
+                            <img src={cross} className="object-contain w-[6%]"/>
+                            <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
                         </div>
                     </div>
                 )}
