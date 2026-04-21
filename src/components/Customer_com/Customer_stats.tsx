@@ -21,6 +21,7 @@ const Stats = () => {
 
     return (
         <>
+
         {showSkeleton && (
             <div className="w-full flex justify-center items-center mt-10 mb-10">
                 <div className="w-[85%] flex justify-center items-center">
@@ -76,7 +77,6 @@ const Stats = () => {
                     </div>
 
                     <div className="w-[70%] flex flex-col">
-
                         <div className="w-full ">
                             <p className="font-Poppins xl:p-2 xl:text-[16px] mm:text-[8px] mm:p-0 mm:pl-2">Active Now</p>
                         </div>

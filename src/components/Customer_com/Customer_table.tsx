@@ -299,10 +299,10 @@ const Table_content: React.FC = () => {
                 )}
 
                 {filterTable && (
-                  <>
+                  <div className="w-full flex flex-col">
                   {customersDet.length > 0 ? (
                     customersDet.map((cust) => (
-                      <div className="w-full flex justify-evenly nth-[1]:mt-2 nth-last-[1]:mb-2">
+                      <div className="w-full flex justify-evenly nth-[1]:mt-2 nth-last-[1]:mb-2 my-2">
                         <div className="w-[13%] flex justify-center items-center">
                           <p className="font-Poppins py-2 text-[#495057]">{cust.Customer_name}</p>
                         </div>
@@ -339,7 +339,7 @@ const Table_content: React.FC = () => {
                       <p className="font-Poppins">No Results Found</p>
                     </div>
                   )}
-                  </>
+                  </div>
                 )}
               </div>
             </div>

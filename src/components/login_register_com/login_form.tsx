@@ -14,8 +14,11 @@ const formDefault = {
     Password: "",
 };
 
+interface OnErrMsg {
+    err : (value : String) => void
+}
 
-const Login_form = () => {
+const Login_form:React.FC<OnErrMsg> = ({err}) => {
 
 
     const [form, setForm] = useState(formDefault);
@@ -36,17 +39,15 @@ const Login_form = () => {
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        console.log('Input change:', name, value);
+        // console.log('Input change:', name, value);
         setForm((prev) => {
             const newForm = { ...prev, [name]: value };
-            console.log('New form state:', newForm);
+            // console.log('New form state:', newForm);
             return newForm;
         });
     }
 
     const api = import.meta.env.VITE_PRODUCTION_ADDRESS;
-
-    // console.info(`api : ${api}`) 
 
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -71,6 +72,8 @@ const Login_form = () => {
                 console.log("Failed to login user:", data.msg || data.error);
 
                 setErrMsg(data.msg || data.error)
+                err(err_msg)
+                
                 setErrorDiv(true)
 
                 setTimeout(() => {
@@ -108,19 +111,15 @@ const Login_form = () => {
         setTypeText(prev => !prev);
     }
 
+    const debounce = () => {
+
+    }
 
     return (
         
        <div className="xl:w-[80%] mt-20 flex flex-col ml:w-full mm:mt-10">
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
 
-                {errorDiv && (
-                    <div className="w-full flex justify-center">
-                        <div className="w-[60%] m-1 p-1 flex justify-center">
-                            <p className="font-Poppins text-red-800">{err_msg}</p>
-                        </div>
-                    </div>
-                )}
 
                 <div className="xl:w-[70%] xl:mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
                     <input type="text" placeholder="Enter Username" name="Username" autoComplete="off" onChange={handleChange} value={form.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
@@ -137,7 +136,7 @@ const Login_form = () => {
                 </div>
 
                 <div className="w-full flex mt-15 justify-center mb-10">
-                    <div className="xl:w-[30%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%]">
+                    <div className="xl:w-[30%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%] outline-0">
 
                     {loader && (
                         <div className="w-[40%] flex justify-center items-center">
@@ -156,34 +155,6 @@ const Login_form = () => {
                 </div>
 
             </form>
-
-            {/* <div className="w-full mt-20 flex justify-evenly">
-                <div className="xl:w-[30%] ml:w-[20%] mm:w-[15%] flex justify-center items-center">
-                    <hr className="border-[#acafbc] border-2 w-full" />
-                </div>
-
-                <div className="xl:w-[30%] ml:w-[50%] mm:w-[45%] flex justify-center items-center">
-                    <p className="font-Poppins mm:text-[12px] ml:text-[16px]">Or Continue With</p>
-                </div>
-
-                <div className="xl:w-[30%] ml:w-[20%] mm:w-[15%] flex justify-center items-center">
-                    <hr className="border-[#acafbc] border-2 w-full" />
-                </div>
-            </div>
-
-            <div className="w-full flex justify-evenly mt-10 mb-5 xl:mb-10">
-                <div className="w-[20%] bg-[#dce2f0] p-4 mm:p-3 flex justify-center items-center rounded-2xl">
-                    <img src={google} className="object-contain xl:w-[30%] ml:w-[40%] mm:w-[50%]"/>
-                </div>  
-
-                <div className="w-[20%] bg-[#dce2f0] p-2 mm:p-2 flex justify-center items-center rounded-2xl">
-                    <img src={facebook} className="object-contain xl:w-[30%] w-[40%]"/>
-                </div>  
-
-                <div className="w-[20%] bg-[#dce2f0] p-2 mm:p-2 flex justify-center items-center rounded-2xl">
-                    <img src={twitter} className="object-contain xl:w-[25%] w-[30%]"/>
-                </div>  
-            </div> */}
 
         </div>
 

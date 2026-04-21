@@ -4,14 +4,18 @@ import in_stock from "/images/in_stock.png";
 import revenue from "/images/revenue.png";
 import { useEffect, useState } from "react";
 import { Skeleton } from "antd";
+import axios from "axios";
 
 
 
 const Overview_Stats = () => {
 
     const [totalSales , setTotalSales] = useState<number>(0)
-    const [inStockCount , setInStockCount] = useState<number>(0);
-    const [newCustomerCount , setNewCustomerCount] = useState<number>(0);
+    const [StockCount , setStockCount] = useState<number>(0);
+    const [TotalCustomerCount , setTotalCustomerCount] = useState<number>(0);
+    const [newCustomerCount , setNewCustomerCount] = useState<number>(0)    
+
+    const [showSkeletonNewCustomer , setShowSkeletonNewCustomer] = useState<boolean>(true);
 
     const [showStats , setShowStats] = useState(false)
     const [showSkeleton , setShowSkeleton] = useState(true)
@@ -20,20 +24,16 @@ const Overview_Stats = () => {
 
     const getOverviewStats = async() => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_overview_stats` , {
+            const res = await axios.get(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_overview_stats` , {
                 method : "GET",
-                credentials : "include"
+                withCredentials : true,
             })
 
-            if(!res.ok) {
-                console.log("Error fetching data..........")
-                return;
-            }
 
-            const data = await res.json()
-            setNewCustomerCount(data.cusStats)
-            setTotalSales(data.Total_Income)
-            setInStockCount(data.product_stats1)
+            setTotalSales(res.data.Total_Income || 0)
+            setStockCount(res.data.StockCount || 0)
+            setTotalCustomerCount(res.data.Total_Customer || 0)
+            setNewCustomerCount(res.data.NewCustomerCount || 0)
         }
 
         catch(error) {
@@ -45,6 +45,15 @@ const Overview_Stats = () => {
     useEffect(() => {
         getOverviewStats();
     } , [])
+
+
+    useEffect(() => {
+        console.info(newCustomerCount);
+
+        if(newCustomerCount >= 0) {
+            setShowSkeletonNewCustomer(false);
+        }
+    } , [newCustomerCount])
 
 
     setTimeout(() => {
@@ -90,12 +99,38 @@ const Overview_Stats = () => {
 
                     <div className="w-[70%] flex flex-col">
                         <div className="w-full">
-                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">New Customers</p>
+                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[4px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">Total Customers</p>
                         </div>
+                        
+                        {showSkeletonNewCustomer && (
+                            <div className="w-full ml-2 flex justify-center">
+                                <Skeleton paragraph={{rows : 0}} active />
+                            </div>
+                        )}
 
-                        <div className="w-full ml:mt-1">
-                            <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{newCustomerCount}</p>
-                        </div>
+                        {newCustomerCount == 0 && (
+                            <div className="w-full flex">
+                                <div className="w-[28%] ml:mt-1">
+                                    <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{TotalCustomerCount}</p>
+                                </div>
+                                
+                                <div className="w-[50%]">
+                                    <p className="text-[12px] text-red-500 font-Poppins mt-2">+{newCustomerCount} in Last 24 hr</p>
+                                </div>
+                            </div>
+                        )}
+
+                        {newCustomerCount > 0 && (
+                            <div className="w-full flex">
+                                <div className="w-[28%] ml:mt-1">
+                                    <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{TotalCustomerCount}</p>
+                                </div>
+                                
+                                <div className="w-[50%]">
+                                    <p className="text-[12px] text-green-500 font-Poppins mt-2">+{newCustomerCount} in Last 24 hr</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                 </div>
@@ -109,11 +144,11 @@ const Overview_Stats = () => {
                     <div className="w-[70%] flex flex-col">
 
                         <div className="w-full ">
-                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[3px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">Products In Stock</p>
+                            <p className="font-Poppins xl:py-1 xl:text-[16px] ml:text-[3px] ml:p-0 ml:pl-2 mm:pl-2 mm:p-0 mm:text-[3px]">Total Products</p>
                         </div>
 
                         <div className="w-full ml:mt-1">
-                            <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{inStockCount}</p>
+                            <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{StockCount}</p>
                         </div>
                     </div>
 

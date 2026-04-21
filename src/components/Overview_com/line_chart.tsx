@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Skeleton } from "antd";
+import axios from 'axios';
 
 interface LineInfo {
   _id: string;    // category name, e.g. "Grocery"
@@ -12,15 +13,18 @@ const Line_Chart = () => {
 
   const getLineInfo = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_line_chart_info`, {
-        method: "GET",
-        credentials: "include"
+      const res = await axios.get(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_line_chart_info`, {
+        withCredentials : true
       });
-      const data = await res.json();
-      setLineData(data.Details); // Use "Details" key as in your API data
-    } catch (error) {
-      console.error("Something Broke On Frontend");
+
+      const det = res.data;
+      setLineData(det.Details);
+    } 
+    
+    catch (error) {
+      console.error(`Something Broke On Frontend : ${error}`);
     }
+
   };
 
   useEffect(() => {

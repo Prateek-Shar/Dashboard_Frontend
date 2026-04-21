@@ -38,76 +38,86 @@ const Income = () => {
     const [showSkeleton , setShowSkeleton] = useState(true)
     const [showChart , setShowChart] = useState(false)
 
-    const fetchIncomeData = async() => {
-        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_income_length` , {
-            method : "GET",
-            credentials : "include"
-        })
+    const fetchIncomeData = async () => {
+        try {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_income_length`, {
+                method: "GET",
+                credentials: "include",
+            });
 
-        if (!res.ok) {
-            console.log("Something Broke Up")
+            if (!res.ok) {
+                console.log("Something Broke Up");
+                setIncomeStats(0);
+                return;
+            }
+
+            const data = await res.json();
+            setIncomeStats(typeof data.Income_stats === "number" ? data.Income_stats : 0);
+        } catch {
+            setIncomeStats(0);
         }
-
-        const data = await res.json()
-        setIncomeStats(data.Income_stats)
-    }
+    };
 
 
 
-    const handleData = async() => {
-        const response1 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_by_month` , {
-            method : "GET",
-            credentials : "include"
-        })
+    const handleData = async () => {
+        try {
+            const response1 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_by_month`, {
+                method: "GET",
+                credentials: "include",
+            });
 
-        if (!response1.ok) {    
-            console.log("Something Broke Up in response 1")
+            if (!response1.ok) {
+                console.log("Something Broke Up in response 1");
+                setDataByMonth([]);
+            } else {
+                const data = await response1.json();
+                setDataByMonth(Array.isArray(data.detail) ? data.detail : []);
+            }
+
+            const response2 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_by_year`, {
+                method: "GET",
+                credentials: "include",
+            });
+
+            if (!response2.ok) {
+                console.log("Something Broke Up in response 2");
+                setDataByYear([]);
+            } else {
+                const data2 = await response2.json();
+                setDataByYear(Array.isArray(data2.detail) ? data2.detail : []);
+            }
+
+            const response3 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_daily`, {
+                method: "GET",
+                credentials: "include",
+            });
+
+            if (!response3.ok) {
+                console.log("Something Broke Up in response 3");
+                setDataByDay([]);
+            } else {
+                const data3 = await response3.json();
+                setDataByDay(Array.isArray(data3.detail) ? data3.detail : []);
+            }
+        } catch {
+            setDataByMonth([]);
+            setDataByYear([]);
+            setDataByDay([]);
         }
-
-        const data = await response1.json()
-        setDataByMonth(data.detail)
-
-
-
-        const response2 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_by_year` , {
-            method : "GET",
-            credentials : "include"
-        })
-
-        if (!response2.ok) {
-            console.log("Something Broke Up in response 2")
-        }
-
-        const data2 = await response2.json()
-        setDataByYear(data2.detail)
-
-
-
-        const response3 = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_data_daily` , {
-            method : "GET",
-            credentials : "include"
-        })
-
-        if (!response3.ok) {
-            console.log("Something Broke Up in response 3")
-        }
-
-        const data3 = await response3.json()
-        setDataByDay(data3.detail)
-
-    }
+    };
 
     useEffect(() => {
-        handleData()
-        fetchIncomeData()
-        console.log("income length : " , incomeStats)
-    }, [])
+        void handleData();
+        void fetchIncomeData();
 
+        const chartReveal = window.setTimeout(() => {
+            setShowSkeleton(false);
+            setShowChart(true);
+        }, 3000);
 
-    setTimeout(() => {
-        setShowSkeleton(false)
-        setShowChart(true)
-    } , 3000)
+        return () => window.clearTimeout(chartReveal);
+    }, []);
 
 
 

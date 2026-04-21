@@ -13,6 +13,7 @@ const Login_Register = () => {
     const [isLogin , setIsLogin] = useState(true)
     const [loginBg , setIsLoginBg] = useState(true)
     const [registerBg , setIsRegisterBg] = useState(false)
+    const [msg , setMsg] = useState<String>("")
 
 
     const handleToggleToSignupPage = () => {
@@ -28,6 +29,8 @@ const Login_Register = () => {
         setIsRegister(false)
         setIsRegisterBg(false)
     }
+
+
 
     return (
 
@@ -76,15 +79,16 @@ const Login_Register = () => {
                         {isLogin && (
                             <div className="xl:w-[60%] bg-[#f8f9ff] xl:rounded-r-2xl ml:rounded-2xl mm:rounded-2xl flex flex-col items-center ml:w-full mm:w-full">
                                 <Login_Head onSwitch={handleToggleToSignupPage} />
-                                <Login_form />    
+                                <Login_form err={setMsg} />    
                             </div>
                         )}
                     </UserProvider>
 
-                    
                 </div>
 
             </div>
+
+            {msg}
         </div>
         
     );

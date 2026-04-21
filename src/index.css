@@ -7,12 +7,12 @@
 
 @font-face {
   font-family: Alan Sans Medium;
-  src: url('/fonts/AlanSans-Medium') format("truetype");
+  src: url('/fonts/AlanSans-Medium.ttf') format("truetype");
 }
 
 @font-face {
   font-family: PoetsenOne;
-  src: url("/fonts/PoetsenOne-Regular") format("truetype");
+  src: url("/fonts/PoetsenOne-Regular.ttf") format("truetype");
 }
 
 

@@ -81,7 +81,7 @@ const Product_table = () => {
         }
 
         catch(error) {
-            console.log("Got Error")
+            console.log("Got Error" , error)
         }
 
     }

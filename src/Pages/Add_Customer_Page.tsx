@@ -20,16 +20,16 @@ const Add_Customer_Page = () => {
             </UserProvider>
 
             <div className="w-full flex justify-center mb-4">
-                <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0  border-[#ebedf0]" />
+                <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0 border-[#ebedf0]" />
             </div>
 
 
             <div className="w-full flex justify-center items-center xl:mt-20 mm:mt-15">
                 <div className="w-[80%] bg-white rounded-4xl mt-2 mb-10">
 
-                    <div className="w-full flex justify-center items-center rounded-t-4xl">
-                        <p className="font-Alan text-[24px] p-4">Add Customer</p>
-                    </div>
+                    {/* <div className="w-full flex justify-center items-center rounded-t-4xl">
+                        <p className="font-Poet text-[24px] p-4">Add Customer</p>
+                    </div> */}
                     
 
                     <div className="w-full">

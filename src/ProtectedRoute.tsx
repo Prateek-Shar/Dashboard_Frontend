@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate , Outlet } from "react-router-dom";
 import secure from "/images/security.webm"
 
 
@@ -9,7 +9,7 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/aliveRoute`, {
           method : "get",
           credentials: "include",
         });
@@ -18,11 +18,8 @@ const ProtectedRoute = () => {
           setIsAuthenticated(false);
           return;
         } 
-
-        else {
-          setIsAuthenticated(true);
-          console.log("Cookie Avaialble")
-        }
+        
+        setIsAuthenticated(true);
  
       } catch (error) {
         setIsAuthenticated(false);
@@ -32,7 +29,6 @@ const ProtectedRoute = () => {
     checkAuth()
 
   }, []);
-
 
   if (isAuthenticated === null) {
 
@@ -52,7 +48,7 @@ const ProtectedRoute = () => {
     )
   }
 
-  return isAuthenticated ? <Outlet />: <Navigate to="/" replace />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 
 };
 
