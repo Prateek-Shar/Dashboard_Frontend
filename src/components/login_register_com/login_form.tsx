@@ -111,14 +111,18 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
         setTypeText(prev => !prev);
     }
 
-    const debounce = () => {
-
-    }
-
     return (
         
        <div className="xl:w-[80%] mt-20 flex flex-col ml:w-full mm:mt-10">
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
+
+                {errorDiv && (
+                    <div className="w-full">
+                        <div className="w-[50%] flex justify-center items-center">
+                            <p className="font-Poppins">{err_msg}</p>
+                        </div>
+                    </div>
+                )}
 
 
                 <div className="xl:w-[70%] xl:mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
