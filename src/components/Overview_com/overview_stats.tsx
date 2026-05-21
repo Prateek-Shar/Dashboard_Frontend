@@ -25,10 +25,13 @@ const Overview_Stats = () => {
     const getOverviewStats = async() => {
         try {
             const res = await axios.get(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/get_overview_stats` , {
-                method : "GET",
                 withCredentials : true,
             })
 
+            if(res.status !== 200) {
+                console.log("Error fetching data : " , res.data.error)
+                return;
+            }
 
             setTotalSales(res.data.Total_Income || 0)
             setStockCount(res.data.StockCount || 0)
@@ -48,8 +51,6 @@ const Overview_Stats = () => {
 
 
     useEffect(() => {
-        console.info(newCustomerCount);
-
         if(newCustomerCount >= 0) {
             setShowSkeletonNewCustomer(false);
         }
@@ -60,6 +61,8 @@ const Overview_Stats = () => {
         setShowStats(true)
         setShowSkeleton(false)
     } , 3000)
+
+
 
     return (
         <>

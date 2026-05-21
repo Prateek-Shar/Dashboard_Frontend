@@ -20,8 +20,8 @@ const Min_sidebar = () => {
             });
 
             if (res.ok) {
-                navigate("/"); 
-                console.error("Failed to logout");
+                navigate("/");
+                return;
             }
             
         } catch (error) {

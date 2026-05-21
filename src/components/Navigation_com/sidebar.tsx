@@ -49,16 +49,16 @@ const Sidebar = () => {
 
     const handleClickToSignOut = async () => {
         try {
-            const res = await fetch(`${import.meta.env.PRODUCTION_ADDRESS}/logout`, {
+            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/logout`, {
                 method: "GET",
                 credentials: "include"
             });
 
             if (res.ok) {
-                navigate("/"); 
-            } else {
-                console.error("Failed to logout");
+                navigate("/");
+                return;
             }
+            
         } catch (error) {
             console.error("Error during logout:", error);
         }

@@ -47,7 +47,6 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
 
     const api = import.meta.env.VITE_PRODUCTION_ADDRESS;
 
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -85,17 +84,17 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
                 return;
             }
 
-            localStorage.setItem("User Data" , JSON.stringify({
-                Username : data.login_det.Username,
-                Profession : data.login_det.Profession
-            }) ) 
+            // localStorage.setItem("User Data" , JSON.stringify({
+            //     Username : data.login_det.Username,
+            //     Profession : data.login_det.Profession
+            // }) ) 
 
             console.log("Msg : " , data.message);
 
             setLoader(false)
             setSubmitBt(true)
 
-            await LoadUserApi()
+            LoadUserApi()
 
             navigate("/overview");
             return;

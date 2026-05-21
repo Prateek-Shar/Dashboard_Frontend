@@ -56,11 +56,11 @@ const App = () => {
 
                         <Route
                             path="addCustomer"
-                            element={ <Add_Customer/> }
+                            element={ <Add_Customer /> }
                         />
 
                         <Route 
-                            path="overview"
+                            path="/overview"
                             element={ <Overview /> }
                         />
                     </Route>
