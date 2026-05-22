@@ -101,6 +101,16 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
 
         } catch (error) {
             console.error("Error during login:", error);
+            setErrorDiv(true)
+            setErrMsg(String(error));
+
+            setTimeout(() => {
+                setErrorDiv(false)
+            } , 5000)
+
+            setLoader(false)
+            setSubmitBt(true)
+            setForm({...formDefault})
         }
     };
 

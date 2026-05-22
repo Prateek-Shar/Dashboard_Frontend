@@ -34,13 +34,15 @@ const Login_Register = () => {
         setIsRegisterBg(false)
     }
 
+    // console.log(`${import.meta.env.VITE_PRODUCTION_ADDRESS}`)
+
     const handleAutoLogin = async() => {
         
         const res = await axios.get(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getInfo` , {
             withCredentials : true,
         });
 
-        if(res.status !== 200) {
+        if(!res) {
             navigate("/")
             return;
         }
