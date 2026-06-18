@@ -3,6 +3,7 @@ import { useState } from "react";
 import cross from "/images/cross.png"
 import uncheck_checkbox from "/images/checkbox_uncheck.png";
 import checked_checkbox from "/images/checkbox_checked.png";
+import eye_close from "/images/eye_close.png";
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 
@@ -27,6 +28,9 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     const [typeText , setTypeText] = useState(false)
     const [loader , setLoader] = useState(false)
 
+    const [eyeclose , setEyeclose] = useState(true)
+    const [eyeopen , setEyeopen] = useState(false)
+
     const [err_msg , setErrMsg] = useState<string>("")
 
 
@@ -50,7 +54,15 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
         e.preventDefault();
         
         if (!isChecked) {
-            alert("You must agree to Terms and Condition before SignUp")
+            setForm({ ...default_form });
+            setIsChecked(false)
+            setErrorDiv(true)
+            setErrMsg("You must agree to Terms and Condition before SignUp")
+            setTimeout(() => {
+                setErrorDiv(false)
+            } , 3000)
+            setLoader(false)    
+            return;
         }
 
         const formData = { ...form};
@@ -90,6 +102,8 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     
     const togglePassword = () => {
         setTypeText(prev => !prev);
+        setEyeclose(prev => !prev);
+        setEyeopen(prev => !prev);
     }
 
 
@@ -100,12 +114,12 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
                 {errorDiv && (
                     <div className="w-full flex justify-center items-center">
-                        <div className="w-[50%] flex justify-center items-center">
-                            <div className="w-[15%] flex justify-center items-center">
-                                <img src={cross} className="object-contain w-[80%] p-2" />
+                        <div className="flex justify-center items-center">
+                            <div className="w-[3%] flex justify-center items-center">
+                                <img src={cross} className="" />
                             </div>
 
-                            <div className="flex">
+                            <div className="flex ml-2">
                                 <p className="font-Poppins p-1 text-red-600">{err_msg}</p>
                             </div>
                         </div>
@@ -126,9 +140,17 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                         <input type={typeText ? "text" : "password"} placeholder="Enter Password" value={form.Password} onChange={handleChange} autoComplete="password" name="Password" className="font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                     </div>
 
-                    <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
-                        <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
-                    </div>
+                    {eyeclose && (
+                        <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
+                            <img src={eye_close} className="object-contain w-[40%] hover:cursor-pointer" onClick={togglePassword}/>
+                        </div>
+                    )}
+
+                    {eyeopen && (
+                        <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
+                            <img src={eye_open} className="object-contain w-[40%] hover:cursor-pointer" onClick={togglePassword}/>
+                        </div>
+                    )}
                 </div>
 
                 <div className="w-full flex justify-center mt-8">

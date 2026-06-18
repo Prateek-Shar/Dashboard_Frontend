@@ -1,10 +1,11 @@
-import eye_open from "/images/eye_open.png";
 import cross from "/images/cross.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/login_context";
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
+import eye_close from "/images/eye_close.png";
+import eye_open from "/images/eye_open.png";
 
 
 const formDefault = {
@@ -25,6 +26,9 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
     const [loader , setLoader] = useState(false)
     const [submitBt , setSubmitBt] = useState(true);
 
+    const [eyeclose , setEyeclose] = useState(true)
+    const [eyeopen , setEyeopen] = useState(false)
+
     const [err_msg , setErrMsg] = useState<string>("")
 
 
@@ -37,10 +41,8 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        // console.log('Input change:', name, value);
         setForm((prev) => {
             const newForm = { ...prev, [name]: value };
-            // console.log('New form state:', newForm);
             return newForm;
         });
     }
@@ -116,6 +118,8 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
 
     const togglePassword = () => {
         setTypeText(prev => !prev);
+        setEyeclose(prev => !prev);
+        setEyeopen(prev => !prev);
     }
 
     return (
@@ -142,9 +146,17 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
                         <input type={typeText ? "text" : "password"} placeholder="Enter Password"  name="Password" value={form.Password} onChange={handleChange} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                     </div>
 
-                    <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
-                        <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword} />
-                    </div>
+                    {eyeclose && (
+                        <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
+                            <img src={eye_close} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                        </div>
+                    )}
+
+                    {eyeopen && (
+                        <div className="w-[10%] flex justify-center items-center bg-[#e0e6f9] rounded-r-2xl">
+                            <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                        </div>
+                    )}
                 </div>
 
                 <div className="w-full flex mt-15 justify-center mb-10">
