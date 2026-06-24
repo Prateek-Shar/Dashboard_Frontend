@@ -180,7 +180,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                     )}
 
                         <div className="w-[50%] flex">
-                            <button type="submit" className="w-full p-3 text-white font-Poppins hover:cursor-pointer">Sign In</button>
+                            <button type="submit" className="w-full p-3 text-white font-Poppins hover:cursor-pointer">Sign Up</button>
                         </div>
                     </div>
 
