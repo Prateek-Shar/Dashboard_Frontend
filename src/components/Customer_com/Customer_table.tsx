@@ -170,15 +170,17 @@ const Table_content: React.FC = () => {
 
     if(!res.ok) {
       console.error("Something broke on frontend")
+      return;
     }
 
-    console.log("Product Deleted")
+    // console.log("Customer Deleted")
 
     //Call the api to reload stats data
     setLoaderForApi()
-    
+    fetchPageData(currentPage)
+
     //To change customers div
-    setCustomers(customers.filter(cus => (cus.Email != email)))
+    // setCustomers(customers.filter(cus => (cus.Email != email)))
   };
 
 
@@ -262,8 +264,13 @@ const Table_content: React.FC = () => {
                 
                 {normalTable && (
                 <div className="w-full flex flex-col">
-                  {customers.map((cust) => (
+                  {customers.map((cust , key) => (
                     <div className="w-full flex justify-evenly xl:flex-row mm:flex-col">
+
+                      <div className="xl:w-[13%] mm:w-full mm:justify-center mm:pl-3 flex xl:justify-center xl:my-2 mm:my-0">
+                        <p className="font-Poppins my-2 text-[14px] text-[#495057]">Customer {key + 1}</p>
+                      </div>
+
                       <div className="xl:w-[13%] mm:w-full mm:justify-normal mm:pl-3 flex xl:justify-center xl:my-2 mm:my-0">
                         <p className="font-Poppins xl:py-4 mm:py-1 text-[#495057]">{cust.Customer_name}</p>
                       </div>
@@ -293,6 +300,11 @@ const Table_content: React.FC = () => {
                       <div className="w-[2%] ml-5 flex justify-center items-center rounded-4xl p-0.5 hover:cursor-pointer" onClick={ () => deleteProduct(cust.Email)}>
                         <img src={bin} />
                       </div>
+
+                      <div className="xl:w-[14%] flex xl:justify-center items-center xl:my-2 xl:pr-2 mm:w-full mm:justify-normal mm:pl-3 mm:py-2 nth-last-[1]:hidden">
+                        <p className="font-Poppins text-[#495057]">--------- ******* ----------</p>
+                      </div>
+
                     </div>
                   ))}
                 </div>

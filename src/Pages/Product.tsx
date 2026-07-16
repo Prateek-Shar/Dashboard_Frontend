@@ -11,7 +11,7 @@ const Products = () => {
 
     return (
         
-        <div className="xl:w-full mm:w-[90%] bg-[#f8f9fa] flex flex-col">  
+        <div className="xl:w-full mm:h-screen mm:w-[90%] bg-[#f8f9fa] flex flex-col">  
 
             <UserProvider>
                 <div className="w-full">

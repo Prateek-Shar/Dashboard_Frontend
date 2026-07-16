@@ -9,8 +9,10 @@ import Food from "/images/Food.png";
 import default_image from "/images/default.png";
 import Video_Games from "/images/Video_Games.png"
 import electric_app from "/images/electric_appliances.png";
+import bin from "/images/Bin.png";
 import { useAPI } from "../../context/product_stats_context";
 import { Skeleton } from "antd";
+import Search from "antd/es/input/Search";
 
 interface Product_details {
     P_id: number;
@@ -143,7 +145,27 @@ const Product_table = () => {
             <>
             {productCount > 0 ? (
                 <div className="w-full flex flex-col justify-center items-center">
-                    <div className="w-[85%] bg-white flex flex-col rounded-t-4xl items-center">
+
+                    <div className="w-[85%] flex justify-between items-center bg-white rounded-t-2xl">
+
+                        <div className="xl:w-[20%] mm:w-[40%] ml:w-[50%] xl:p-4 mm:py-3 ml:ml-2 mm:ml-2">
+                            <p className="font-Poppins xl:text-2xl mm:text-[16px]">All Products</p>
+                        </div>
+
+                        <div className="xl:w-[20%] xl:mr-5 ml:mr-0 ml:w-[40%] mm:w-[40%] flex items-center">
+                            <Space direction="vertical" className="w-full">
+                                <Search
+                                placeholder="Search"
+                                // onSearch={onSearch}
+                                // onChange={handleInputChange}
+                                // value={searchValue}
+                                enterButton
+                                />
+                            </Space>
+                        </div>
+                    </div>
+                    
+                    <div className="xl:w-[85%] ml:hidden mm:hidden bg-white xl:flex flex-col items-center">
                         <div className="w-[95%] flex justify-between mt-4">
                             <div className="w-[15%] flex justify-center">
                                 <p className="font-Poppins p-2 text-[#bcc3cc]">Image</p>
@@ -181,7 +203,7 @@ const Product_table = () => {
                         <div className="w-[85%] flex flex-col">
                             <div className="w-full bg-white ">
                                 {productDet.length > 0 ? (
-                                    productDet.map((product) => {
+                                    productDet.map((product , key) => {
                                         const items: MenuProps['items'] = [
                                             {
                                                 label: 'Delete',
@@ -194,29 +216,33 @@ const Product_table = () => {
                                         };
 
                                         return (
-                                            <div key={product.P_id} className="w-full flex py-2">
-                                                <div className="w-[15%] flex justify-center items-center ml-7">
+                                            <div key={product.P_id} className="w-full flex xl:flex-row ml:flex-col mm:flex-col py-2">
+                                                
+                                                <div className="xl:hidden ml:w-full mm:w-full ml:justify-center mm:justify-center ml-pl-3 flex xl:justify-center xl:my-2 mm:my-0">
+                                                    <p className="font-Poppins my-2 text-[13px] text-[#9197b3]">Product {key + 1}</p>
+                                                </div>
+                                                <div className="w-[15%] xl:flex ml:hidden justify-center items-center ml-7">
                                                     <img
                                                         src={categoryImages[product.Product_catagory] || default_image}
                                                         alt={product.Product_catagory}
                                                         className="object-contain w-[25%] p-2"
                                                     />
                                                 </div>
-                                                <div className="w-[14%] ml-5 p-5 flex justify-center items-center">
+                                                <div className="xl:w-[14%] ml:w-full mm-w-full ml-5 xl:p-5 ml:py-1 mm:my-1 flex xl:justify-center ml:justify-normal items-center">
                                                     <p className="font-Poppins text-[#495057]">{product.Product_name}</p>
                                                 </div>
-                                                <div className="w-[15%] ml-7 flex justify-center items-center">
+                                                <div className="xl:w-[15%] ml:w-full mm-w-full xl:ml-7 ml:ml-5 mm:ml-5 ml:py-1 mm:my-1 flex xl:justify-center ml:justify-normal items-center">
                                                     <p className="font-Poppins text-[#495057]">{product.Product_catagory}</p>
                                                 </div>
-                                                <div className="w-[14%] ml-5 flex justify-center items-center">
+                                                <div className="xl:w-[14%] ml:w-full mm:w-full ml-5 ml:py-1 mm:py-1 flex xl:justify-center ml:justify-normal items-center">
                                                     <p className="font-Poppins text-[#495057]">₹{product.Product_price}</p>
                                                 </div>
-                                                <div className="w-[15%] ml-7 flex justify-center items-center">
+                                                <div className="xl:w-[15%] ml:w-full mm:w-full xl:ml-7 ml:ml-5 mm:ml-5 xl:py-1 ml:py-1 mm:py-1 flex xl:justify-center ml:justify-normal items-center">
                                                     <p className="font-Poppins text-[#495057]">
                                                         {Number(product.Product_quantity) <= 0 ? "Out of Stock" : "In Stock"}
                                                     </p>
                                                 </div>
-                                                <div className="w-[15%] ml-7 flex justify-center items-center">
+                                                <div className="w-[15%] ml-7 xl:flex ml:hidden mm:hidden justify-center items-center">
                                                     <Dropdown menu={{ items, onClick }}>
                                                         <a onClick={(e) => e.preventDefault()}>
                                                             <Space className="text-[#6ab1fd]">
@@ -225,6 +251,10 @@ const Product_table = () => {
                                                             </Space>
                                                         </a>
                                                     </Dropdown>
+                                                </div>
+
+                                                <div className="w-[6%] ml-4 ml:flex xl:hidden justify-center items-center rounded-4xl p-0.5 hover:cursor-pointer">
+                                                    <img src={bin} />
                                                 </div>
                                             </div>
                                         );
@@ -240,14 +270,14 @@ const Product_table = () => {
                                 <hr className="border-[#f2f2f2]" />
                             </div>
 
-                            <div className="w-full bg-white flex justify-between rounded-b-4xl">
-                                <div className="w-[40%] mt-4 mb-4 flex items-center">
-                                    <p className='font-Poppins pl-4 text-[#d9d2d7] text-[13px]'>
+                            <div className="xl:w-full ml:w-full bg-white flex justify-between rounded-b-4xl">
+                                <div className="xl:w-[40%] ml:w-[45%] mt-4 mb-4 flex items-center">
+                                    <p className='font-Poppins pl-4 text-[#d9d2d7] xl:text-[13px] ml:text-[11px] mm:text-[11px]'>
                                         Showing {start} to {end} out of {productCount}
                                     </p>
                                 
                                 </div>
-                                <div className="w-[20%] mt-4 mb-4 ">
+                                <div className="xl:w-[20%] ml:w-[40%] mm:w-[40%] mt-4 mb-4">
                                     <Pagination
                                         current={currentPage}
                                         onChange={handleChange}
