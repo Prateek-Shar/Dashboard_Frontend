@@ -124,7 +124,7 @@ const Income = () => {
 
     return (
 
-        <div className="xl:w-full mm:h-screen flex flex-col mm:w-[90%] bg-[#f8f9fa]">
+        <div className="w-full min-h-screen flex flex-col mm:w-[90%] bg-[#f8f9fa]">
 
             <div className="w-full">
                 <Income_head />
@@ -162,7 +162,7 @@ const Income = () => {
                 {showChart && ( 
                     incomeStats > 0 && (
 
-                        <div className="w-[80%] bg-white flex justify-center items-center flex-col rounded-4xl mt-20 mb-20">
+                        <div className="w-[80%] bg-white flex justify-center items-center flex-col rounded-4xl my-20">
 
                             <div className="w-full">
                                 <Income_table_head  onSelect={setSelectedValue} />

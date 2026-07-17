@@ -11,7 +11,7 @@ const Products = () => {
 
     return (
         
-        <div className="xl:w-full mm:h-screen mm:w-[90%] bg-[#f8f9fa] flex flex-col">  
+        <div className="xl:w-full min-h-screen mm:w-[90%] bg-[#f8f9fa] flex flex-col">  
 
             <UserProvider>
                 <div className="w-full">
@@ -37,7 +37,7 @@ const Products = () => {
                 </div>
 
 
-                <div className="w-full flex flex-col justify-center items-center mt-15">
+                <div className="w-full flex flex-col justify-center items-center my-10">
                     <div className="w-full">
                         <Product_table  />
                     </div>
