@@ -127,17 +127,17 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                 )}  
                 
                 <div className="w-full flex justify-center mt-5">
-                    <input type="text" placeholder="Enter User Name" onChange={handleChange} value={form.Username} name="Username" autoComplete="off" className="font-Poppins xl:w-[70%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                    <input type="text" placeholder="Enter User Name" onChange={handleChange} value={form.Username} name="Username" autoComplete="off" className="xl:text-[16px] mm:text-[12px] font-Poppins xl:w-[70%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl xl:p-5 mm:p-3 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                 </div>
                  
 
                 <div className="w-full mt-8 flex justify-center">
-                    <input type="text" placeholder="Enter Email" value={form.Email} onChange={handleChange} name="Email" autoComplete="text" className="font-Poppins p-5 xl:w-[70%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
+                    <input type="text" placeholder="Enter Email" value={form.Email} onChange={handleChange} name="Email" autoComplete="text" className="xl:text-[16px] mm:text-[12px] ont-Poppins xl:p-5 mm:p-3 xl:w-[70%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
                 </div>
 
                 <div className="w-full flex mt-8 mb-2 justify-center">
                     <div className="xl:w-[60%] mm:w-[75%] bg-[#e0e6f9] rounded-l-2xl">
-                        <input type={typeText ? "text" : "password"} placeholder="Enter Password" value={form.Password} onChange={handleChange} autoComplete="password" name="Password" className="font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                        <input type={typeText ? "text" : "password"} placeholder="Enter Password" value={form.Password} onChange={handleChange} autoComplete="password" name="Password" className="xl:text-[16px] mm:text-[12px] font-Poppins w-full xl:p-5 mm:p-3 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                     </div>
 
                     {eyeclose && (
@@ -153,8 +153,8 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                     )}
                 </div>
 
-                <div className="w-full flex justify-center mt-8">
-                    <input type="text" placeholder="Enter Profession" onChange={handleChange} value={form.Profession} name="Profession" autoComplete="text" className="font-Poppins xl:w-[70%] mm:w-[90%] rounded-2xl p-5 bg-[#e0e6f9] placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                <div className="w-full flex justify-center xl:mt-8 mm:mt-6">
+                    <input type="text" placeholder="Enter Profession" onChange={handleChange} value={form.Profession} name="Profession" autoComplete="text" className="xl:text-[16px] mm:text-[12px] font-Poppins xl:w-[70%] mm:w-[90%] rounded-2xl xl:p-5 mm:p-3 bg-[#e0e6f9] placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                 </div>
 
 
@@ -169,7 +169,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                 </div>
 
                 <div className="w-full p-2 flex mt-10  mb-5 justify-center">
-                    <div className="xl:w-[35%] ml:w-[70%] mm:w-[80%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400">
+                    <div className="xl:w-[35%] ml:w-[70%] mm:w-[72%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400">
 
                     {loader && (
                         <div className="w-[20%] flex justify-center items-center">
