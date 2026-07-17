@@ -120,7 +120,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className="w-[16%] bg-[#EEF4FF] border-2 border-l-0  border-t-0 border-[#ebedf0]">
+        <div className="w-[16%] bg-[#EEF4FF] border-2 border-l-0 border-t-0 border-[#ebedf0] flex flex-col justify-between">
 
             <div className="w-full flex flex-col justify-center items-center">
                 
@@ -212,40 +212,39 @@ const Sidebar = () => {
                         </div>
                     )}
                 </div>
-            
+        
 
+            </div>
 
-                <div className="w-[80%] flex justify-center items-center mt-[420px]" ref={BasicInfo}>
-                    {Loader ? (
-                            <div className="w-full flex mt-21 mb-8">
+            <div className="w-[95%] ml-5 flex justify-center items-center7" ref={BasicInfo}>
+                {Loader ? (
+                        <div className="w-full flex">
 
-                                <div className="w-[25%] flex justify-center items-center">
-                                    <div className="w-full flex justify-center items-center">
-                                        <img src={man} className="w-[80%]"/>
-                                    </div>
+                            <div className="w-[20%] flex justify-center items-center">
+                                <div className="w-full flex justify-center items-center">
+                                    <img src={man} className="w-[80%]"/>
+                                </div>
+                            </div>
+
+                            <div className="w-[65%] flex flex-col">
+                                <div className="w-full pt-1 pb-1 pl-5">
+                                    <h1 className="font-Poppins">{userDetails?.Username}</h1>
                                 </div>
 
-                                <div className="w-[65%] flex flex-col">
-                                    <div className="w-full pt-1 pb-1 pl-5">
-                                        <h1 className="font-Poppins">{userDetails?.Username}</h1>
-                                    </div>
-
-                                    <div className="w-full pt-1 pb-1 pl-5">
-                                        <p className="font-Poppins text-[#989898] text-[13px]">{userDetails?.Profession}</p>
-                                    </div>
+                                <div className="w-full pt-1 pb-1 pl-5">
+                                    <p className="font-Poppins text-[#989898] text-[13px]">{userDetails?.Profession}</p>
                                 </div>
-
                             </div>
-                        ) : (
-                            
-                            <div className="w-full mt-[60px] mb-13">
-                                <Skeleton paragraph={{rows : 1}} active />
-                            </div>
-                            
-                        )
-                    }
-                </div>
 
+                        </div>
+                    ) : (
+                        
+                        <div className="w-full mt-[60px] mb-13">
+                            <Skeleton paragraph={{rows : 1}} active />
+                        </div>
+                        
+                    )
+                }
             </div>
 
         </div>
