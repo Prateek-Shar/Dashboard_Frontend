@@ -64,16 +64,16 @@ const Login_Register = () => {
             <div className="w-[90%] flex justify-center items-center">
                 {loginBg && (
                 <>
-                    <div className="absolute xl:top-60 xl:left-80 xl:w-[64%] xl:h-[47%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-30 ml:left-8 ml:w-[90%] ml:h-[64%] mm:top-33 mm:left-7 mm:w-[90%] mm:h-[61%]" />
+                    <div className="absolute xl:top-60 xl:left-80 xl:w-[64%] xl:h-[47%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-44 ml:left-13 ml:w-[80%] ml:h-[57%] mm:top-46 mm:left-12 mm:w-[80%] mm:h-[55%]" />
                     <div className="xl:flex absolute xl:top-56 xl:left-87 xl:w-[61%] xl:h-[51%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:hidden" />
                 </>
                 )}
 
                 {registerBg && (
                 <>
-                    <div className="absolute xl:top-28 xl:left-79 xl:w-[64.5%] xl:h-[76%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-23 ml:left-3 ml:w-[88%] ml:h-[80%] mm:top-23 mm:left-3 mm:w-[88%] mm:h-[80%]" />
-                    <div className="absolute xl:top-23 xl:left-87 xl:w-[61%] xl:h-[80%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:top-22 ml:left-5 ml:w-[87%] ml:h-[81%] mm:top-22 mm:left-5 mm:w-[87%] mm:h-[81%]" />
-                </>
+                    <div className="mm:hidden xl:flex absolute xl:top-28 xl:left-79 xl:w-[64.5%] xl:h-[76%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-23 ml:left-3 ml:w-[88%] ml:h-[80%] mm:top-23 mm:left-3 mm:w-[88%] mm:h-[80%]" />
+                    <div className="m:hidden xl:flex absolute xl:top-23 xl:left-87 xl:w-[61%] xl:h-[80%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:top-22 ml:left-5 ml:w-[87%] ml:h-[81%] mm:top-22 mm:left-5 mm:w-[87%] mm:h-[81%]" />
+                </> 
                 )}
 
             
