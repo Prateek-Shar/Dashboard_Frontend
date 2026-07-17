@@ -1,7 +1,6 @@
 import activity from "/images/activity.png"
 import customer from "/images/new_customers.png"
 import income from "/images/income.png";
-import man from "/images/man.png";
 import box from "/images/product.png";
 import over from "/images/overview.png"
 import logout from "/images/logout.png";
