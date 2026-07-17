@@ -11,7 +11,7 @@ const Customer_page = () => {
 
 
     return (
-        <div className="bg-[#f8f9fa] xl:w-full mm:w-[90%] relative xl:overflow-x-scroll mm:overflow-x-hidden">
+        <div className="bg-[#f8f9fa] xl:w-full h-screen mm:w-[90%] relative">
 
             <UserProvider>
                 <div className="w-full flex items-center justify-center">

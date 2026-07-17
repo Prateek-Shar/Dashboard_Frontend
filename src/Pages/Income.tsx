@@ -124,8 +124,7 @@ const Income = () => {
 
     return (
 
-        <div className="xl:w-full h-screen mm:w-[90%] bg-[#f8f9fa]">
-
+        <div className="xl:w-full mm:w-[90%] bg-[#f8f9fa]">
 
             <div className="w-full">
                 <Income_head />
@@ -155,7 +154,7 @@ const Income = () => {
                 {showSkeleton && (
                     <div className="w-full flex justify-center items-center mt-20 mb-10">
                         <div className="w-[80%] flex justify-center items-center">
-                            <Skeleton paragraph={{rows:6}} active/>
+                            <Skeleton paragraph={{rows:7}} active/>
                         </div>
                     </div>
                 )}
