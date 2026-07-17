@@ -130,7 +130,7 @@ const NewIncomeForm = () => {
 
     return (    
         <>
-        <div className="w-full flex flex-col">
+        <div className="w-full xl:h-full flex flex-col">
             <form onSubmit={sendIncome} method='post' >
                     
                 <div className='w-full flex xl:flex-row mm:flex-col xl:justify-evenly xl:items-normal mm:justify-center mm:items-center mt-10'>

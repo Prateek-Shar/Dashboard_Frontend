@@ -6,7 +6,7 @@ const Add_Income = () => {
     return (
 
         <AlertProvider>
-            <div className="w-full overflow-x-hidden overflow-y-hidden">
+            <div className="w-full">
                 <Add_Income_Page />
             </div> 
         </AlertProvider>

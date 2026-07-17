@@ -87,91 +87,113 @@ const Income_table = () => {
 
             {showTable && (
                 incomeStats.length > 0  ? (
-                    <div className="w-[80%] flex flex-col mt-10 rounded-4xl bg-white"> 
-                        <div className="w-full pt-6 pl-5 pb-2 rounded-t-4xl mt-2" >
-                            <p className="font-Poppins text-2xl">Income Records</p>
+                    <div className="w-full flex flex-col justify-center items-center">
+                        <div className="w-[80%] flex flex-col mt-10 rounded-4xl bg-white"> 
+                            <div className="w-full pt-6 pl-5 pb-2 rounded-t-4xl mt-2" >
+                                <p className="font-Poppins xl:text-2xl mm:text-[16px]">Income Records</p>
+                            </div>  
+
+                            <div className="w-full xl:flex mm:hidden justify-evenly mt-8 mb-1">
+                                <div className="w-[20%] p-2 flex justify-center items-center">
+                                    <p className="font-Poppins text-[#bcc3cc]">Date</p>
+                                </div>
+
+                                <div className="w-[20%] p-2 flex justify-center items-center">
+                                    <p className="font-Poppins text-[#bcc3cc] text-[16px]">Source</p>
+                                </div>
+
+                                <div className="w-[20%] p-2 flex justify-center items-center">
+                                    <p className="font-Poppins text-[#bcc3cc]">Amount</p>
+                                </div>
+
+                                <div className="w-[20%] p-2 flex justify-center items-center">
+                                    <p className="font-Poppins text-[#bcc3cc]">Catagory</p>
+                                </div>
+                            </div>
+
+                            <div className="w-full flex justify-center ">
+                                <hr className="w-[95%] border-[#f2f2f2]" />
+                            </div>
+
+                            <div className="w-full">
+                                <div className="w-full flex flex-col "> {/* Changed to flex-col */}
+                                    {incomeStats.length > 0 && (
+                                        incomeStats.map((stat, index) => {
+                                            const isoDate = new Date(stat.Created_at).toDateString();
+                                            return (
+                                                <div key={index} className="flex xl:flex-row mm:flex-col w-full justify-evenly my-3">
+                                                    <div className="xl:hidden ml:w-full flex justify-center items-center my-2">
+                                                        <p className="font-Poppins xl:text-[16px] mm:text-[13px] py-1 text-[#495057]">Transaction {index+1}</p>
+                                                    </div>
+                                                    <div className="xl:w-[20%] mm:w-[60%] my-2 flex xl:justify-center mm:justify-normal mm:ml-7 xl:ml-0 items-center">
+                                                        <p className="font-Poppins xl:p-3 mm:p-0 text-[#495057]">{isoDate}</p>
+                                                    </div>
+
+                                                    <div className="xl:w-[20%] mm:w-[53%] my-2 flex xl:justify-center mm:justify-normal xl:ml-0 mm:ml-7 items-center">
+                                                        <p className="font-Poppins text-[#495057]">{stat.Source}</p>
+                                                    </div>
+
+                                                    <div className="xl:w-[20%] mm:w-[30%] my-2 flex xl:justify-center mm:justify-normal mm:ml-7 xl:ml-0 items-center">
+                                                        <p className="font-Poppins text-[#495057]">{stat.Amount}</p>
+                                                    </div>
+
+                                                    <div className="xl:w-[20%] mm:w-[53%] my-2 flex xl:justify-center mm:justify-normal mm:ml-7 xl:ml-0 items-center">
+                                                        <p className="font-Poppins text-[#495057]">{stat.Catagory}</p>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="w-full flex justify-between rounded-b-4xl">
+                                <div className="xl:w-[40%] mm:w-[55%] my-4 flex items-center ml-2">
+                                    <p className="font-Poppins pl-4 text-[#d9d2d7] xl:text-[13px] mm:text-[11px]">
+                                        Showing {start} to {end} out of {totalIncome}
+                                    </p>
+                                </div>
+                                <div className="xl:w-[20%] mm:w-[30%] my-4 mr-6 xl:flex xl:justify-end mm:justify-normal">
+                                <Pagination
+                                    onChange={handleChange}
+                                    current={currentPage}
+                                    total={totalIncome}
+                                    pageSize={5}
+                                />
+                                </div>
+                            </div>
+
                         </div>  
 
-                        <div className="w-full flex justify-evenly mt-8 mb-1">
-                            <div className="w-[20%] p-2 flex justify-center items-center">
-                                <p className="font-Poppins text-[#bcc3cc]">Date</p>
-                            </div>
+                        <div className="w-full xl:hidden mm:flex justify-center items-center my-10">
+                            <div className="w-[75%] flex justify-center">
+                                <div className="mm:w-[2.5%] ml:w-[2.1%] flex justify-center items-center animate-pulse">
+                                    <div className="w-full h-[6px] bg-red-600 rounded-full" />
+                                </div>
 
-                            <div className="w-[20%] p-2 flex justify-center items-center">
-                                <p className="font-Poppins text-[#bcc3cc] text-[16px]">Source</p>
-                            </div>
-
-                            <div className="w-[20%] p-2 flex justify-center items-center">
-                                <p className="font-Poppins text-[#bcc3cc]">Amount</p>
-                            </div>
-
-                            <div className="w-[20%] p-2 flex justify-center items-center">
-                                <p className="font-Poppins text-[#bcc3cc]">Catagory</p>
+                                <div className="flex items-center pl-2">
+                                    <p className="text-[10px] font-Poet">Open on a desktop for more insights.</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="w-full flex justify-center ">
-                            <hr className="w-[95%] border-[#f2f2f2]" />
-                        </div>
 
-                        <div className="w-full">
-                            <div className="w-full flex flex-col "> {/* Changed to flex-col */}
-                                {incomeStats.length > 0 && (
-                                    incomeStats.map((stat, index) => {
-                                        const isoDate = new Date(stat.Created_at).toDateString();
-                                        return (
-                                            <div key={index} className="flex w-full justify-evenly mb-2">
-                                                <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                                    <p className="font-Poppins p-3 text-[#495057]">{isoDate}</p>
-                                                </div>
-
-                                                <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                                    <p className="font-Poppins text-[#495057]">{stat.Source}</p>
-                                                </div>
-
-                                                <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                                    <p className="font-Poppins text-[#495057]">{stat.Amount}</p>
-                                                </div>
-
-                                                <div className="w-[20%] mt-2 flex justify-center items-center mb-2">
-                                                    <p className="font-Poppins text-[#495057]">{stat.Catagory}</p>
-                                                </div>
-                                            </div>
-                                        );
-                                    })
-                                )}
-                            </div>
-                        </div>
-
-                        <div className="w-full flex justify-between rounded-b-4xl">
-                            <div className="w-[40%] mt-4 mb-4 flex items-center ml-2">
-                                <p className="font-Poppins pl-4 text-[#d9d2d7] text-[13px]">
-                                    Showing {start} to {end} out of {totalIncome}
-                                </p>
-                            </div>
-                            <div className="w-[20%] mt-4 mb-4 mr-6">
-                            <Pagination
-                                onChange={handleChange}
-                                current={currentPage}
-                                total={totalIncome}
-                                pageSize={5}
-                            />
-                            </div>
-                        </div>
-
-                    </div>  
+                    </div>
                 
                 ) : (
 
                     <div className="w-full flex justify-center items-center xl:my-40 mm:py-40">
-                        <div className="xl:w-[70%] mm:w-[80%] bg-white py-10 flex justify-center xl:rounded-2xl mm:rounded-3xl">
+                        <div className="mm:w-[80%] bg-white py-10 flex justify-center xl:rounded-2xl mm:rounded-3xl">
                             <p className="font-Poppins xl:text-2xl mm:text-[20px]">No Income Found.</p>
                         </div>
                     </div>
 
                 )
 
+
             )}
+
+
             
 
         </>
