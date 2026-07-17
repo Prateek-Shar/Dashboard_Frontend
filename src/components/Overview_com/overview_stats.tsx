@@ -112,24 +112,24 @@ const Overview_Stats = () => {
                         )}
 
                         {newCustomerCount == 0 && (
-                            <div className="w-full xl:flex mm:hidden flex">
+                            <div className="w-full flex">
                                 <div className="w-[28%] ml:mt-1">
                                     <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{TotalCustomerCount}</p>
                                 </div>
                                 
-                                <div className="w-[50%]">
+                                <div className="w-[50%] xl:flex mm:hidden">
                                     <p className="text-[12px] text-red-500 font-Poppins mt-2">+{newCustomerCount} in Last 24 hr</p>
                                 </div>
                             </div>
                         )}
 
                         {newCustomerCount > 0 && (
-                            <div className="w-full xl:flex mm:hidden">
+                            <div className="w-full flex">
                                 <div className="w-[28%] ml:mt-1">
                                     <p className="font-Poppins xl:text-[13px] xl:py-1 text-[#495057] ml:p-0 ml:pl-2 ml:text-[5px] mm:py-1 mm:pl-2 mm:text-[5px]">{TotalCustomerCount}</p>
                                 </div>
                                 
-                                <div className="w-[50%]">
+                                <div className="w-[50%] xl:flex mm:hidden">
                                     <p className="text-[12px] text-green-500 font-Poppins mt-2">+{newCustomerCount} in Last 24 hr</p>
                                 </div>
                             </div>
