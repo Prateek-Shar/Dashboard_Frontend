@@ -124,7 +124,7 @@ const Income = () => {
 
     return (
 
-        <div className="xl:w-full mm:w-[90%] bg-[#f8f9fa]">
+        <div className="xl:w-full mm:h-screen flex flex-col mm:w-[90%] bg-[#f8f9fa]">
 
             <div className="w-full">
                 <Income_head />

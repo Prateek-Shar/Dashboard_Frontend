@@ -267,7 +267,7 @@ const Table_content: React.FC = () => {
                   {customers.map((cust , key) => (
                     <div className="w-full flex justify-evenly xl:flex-row mm:flex-col">
 
-                      <div className="xl:w-[13%] mm:w-full mm:justify-center mm:pl-3 flex xl:justify-center xl:my-2 mm:my-0">
+                      <div className="xl:hidden mm:w-full mm:justify-center mm:pl-3 flex xl:justify-center xl:my-2 mm:my-0">
                         <p className="font-Poppins my-2 text-[14px] text-[#495057]">Customer {key + 1}</p>
                       </div>
 
@@ -367,7 +367,7 @@ const Table_content: React.FC = () => {
                     Showing {start} to {end} out of {totalCustomerCount}
                   </p>
                 </div>
-                <div className="xl:w-[20%] mm:w-[40%] mt-4 mb-4">
+                <div className="xl:w-[20%] mm:w-[40%] my-4 flex flex-row-reverse">
                   <Pagination
                     current={currentPage}
                     onChange={handleChange}
