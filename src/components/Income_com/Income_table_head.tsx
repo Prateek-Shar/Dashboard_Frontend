@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 interface Data {
     onSelect : (value : string | undefined) => void
@@ -10,8 +10,6 @@ const Income_table_head:React.FC<Data> = ( {onSelect} ) => {
     const [optionsDiv , setOptionsDiv] = useState(false)
 
     const [options] = useState<string[]>(["Monthly" , "Yearly"])
-    const para1 = useRef<HTMLDivElement>(null);
-    const para2 = useRef<HTMLDivElement>(null);
 
 
     const enableOptionsTab = () => {

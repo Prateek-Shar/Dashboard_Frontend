@@ -14,18 +14,18 @@ const Project_Task = () => {
     const year = new Date().getFullYear()
 
 
-    const handleClick = () => {
-        const res = fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/dummydata` , {
-            method : "post"
-        })
+    // const handleClick = () => {
+    //     const res = fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/dummydata` , {
+    //         method : "post"
+    //     })
 
-        if(!res) {
-            console.error("Something went wrong")
-            return;
-        }
+    //     if(!res) {
+    //         console.error("Something went wrong")
+    //         return;
+    //     }
 
-        console.info("Success")
-    }
+    //     console.info("Success")
+    // }
 
 
     // bg-[#f8f9fa]

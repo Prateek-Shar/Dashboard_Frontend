@@ -1,4 +1,3 @@
-import rupee from "/images/rupee.png"
 import total from "/images/total_sales.png"
 import growth from "/images/growth.png"
 import catagories from "/images/categories.png"

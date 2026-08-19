@@ -11,36 +11,8 @@ import { Skeleton } from "antd"
 
 const Project_stats = () => {
 
-    const [total_income , setTotalIncome] = useState(0)
-    const [monthly_growth , setMonthlyGrowth] = useState(0)
-    const [total_transaction , setTotalTransaction] = useState(0)
-    const [top_category , setTopCategory] = useState<string>("NA")
-
     const [showStats , setShowStats] = useState(false)
     const [showSkeleton , setShowSkeleton] = useState(true)
-
-    // const handleAPI = async() => {
-    //     const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getIncomeStats` , {
-    //         method: "GET",
-    //         credentials : "include"
-    //     })
-
-    //     if (!res.ok) {
-    //         console.log("Something Broke Up")
-    //     }
-
-    //     const data = await res.json()
-
-    //     setTotalIncome(data.Total_Income)
-    //     setMonthlyGrowth(data.Monthly_Growth)
-    //     setTotalTransaction(data.Total_Transaction)
-    //     setTopCategory(data.Top_Category)
-    // }
-
-    // useEffect(() => {
-    //     handleAPI()
-    // } , [])
-
 
     setTimeout(() => {
         setShowSkeleton(false)
@@ -79,7 +51,7 @@ const Project_stats = () => {
                                 </div>
 
                                 <div className="w-full">
-                                    <p className="font-Poppins text-[13px] xl:p-2  text-[#495057]">{total_income}</p>
+                                    <p className="font-Poppins text-[13px] xl:p-2  text-[#495057]">NA</p>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +76,7 @@ const Project_stats = () => {
                                 </div>
 
                                 <div className="w-full">
-                                    <p className="font-Poppins text-[13px] xl:p-2  text-[#495057]">{monthly_growth}</p>
+                                    <p className="font-Poppins text-[13px] xl:p-2  text-[#495057]">NA</p>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +100,7 @@ const Project_stats = () => {
                                 </div>
 
                                 <div className="w-full ">
-                                    <p className="font-Poppins text-[13px] p-2  text-[#495057] ">{total_transaction}</p>
+                                    <p className="font-Poppins text-[13px] p-2  text-[#495057] ">NA</p>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +130,7 @@ const Project_stats = () => {
                             </div>
 
                             <div className="w-full">
-                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{total_income}</p>
+                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">NA</p>
                             </div>
                         </div>
 
@@ -177,7 +149,7 @@ const Project_stats = () => {
                             </div>
 
                             <div className="w-full">
-                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{monthly_growth}</p>
+                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">NA</p>
                             </div>
                         </div>
 
@@ -199,7 +171,7 @@ const Project_stats = () => {
                             </div>
 
                             <div className="w-full ">
-                                <p className="font-Poppins xltext-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{total_transaction}</p>
+                                <p className="font-Poppins xltext-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">NA</p>
                             </div>
                         </div>
 
@@ -218,7 +190,7 @@ const Project_stats = () => {
                             </div>
 
                             <div className="w-full ">
-                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{top_category}</p>
+                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">NA</p>
                             </div>
                         </div>
 
