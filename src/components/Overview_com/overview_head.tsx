@@ -14,42 +14,39 @@ const Overview_Head = () => {
 
     const [Loader, setLoader] = useState(false);
     const [userDetails, setUserDetails] = useState<UserData | null>(null);
+    const [moreLinks , setMoreLinks] = useState(false)
+    const [quickLinksBt , setQuickLinksBt] = useState(true)
 
     const Navigate = useNavigate()
 
-    const [moreLinks , setMoreLinks] = useState(false)
-    const [quickLinksBt , setQuickLinksBt] = useState(true)
-    // const MoreLinks = useRef<HTMLDivElement>(null);
-    // const QuickLinksBt = useRef<HTMLDivElement>(null);
     const resetBt = useRef<HTMLDivElement>(null);
 
 
-    useEffect(() => {
-        const fetchUser = async () => {
+    const fetchUser = async () => {  
         try {
             const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
-            credentials: "include",
-            method : "GET"
+                credentials: "include",
+                method : "GET"
             });
+
             const data = await res.json();
     
-            if (res.ok) {
-            setUserDetails(data.login_det); // set { Username, Profession, UID }
-            } else {
-            console.warn("Not authenticated:", data.error);
-            }
+            if (!res.ok) {
+                console.error("Not authenticated:", data.error);
+                return;
+            } 
+
+            setUserDetails(data.login_det); 
         
         setLoader(true);
     
         } catch (error) {
             console.error("Failed to load user", error);
         }
-        };
-    
-        setTimeout(() => {
-        fetchUser();
-        } , 1000)
-        
+    };
+
+    useEffect(() => {
+        fetchUser()        
     }, []);
     
 
