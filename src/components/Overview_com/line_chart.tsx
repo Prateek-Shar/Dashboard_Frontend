@@ -19,7 +19,6 @@ const Line_Chart = () => {
 
       const det = res.data;
       setLineData(det.Details);
-      console.log("frontend : " , det)
     } 
     
     catch (error) {

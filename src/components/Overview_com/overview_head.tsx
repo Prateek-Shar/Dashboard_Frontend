@@ -47,7 +47,11 @@ const Overview_Head = () => {
 
     useEffect(() => {
         fetchUser()        
-    }, []);
+    }, []); 
+
+    useEffect(() => {
+        console.log("User details : " , userDetails)
+    })
     
 
     const handleQuickLinks = () => {
