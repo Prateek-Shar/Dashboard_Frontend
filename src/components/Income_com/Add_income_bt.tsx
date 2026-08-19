@@ -12,16 +12,10 @@ const Add_Income_bt = () => {
     
     return (
         
-        <div className="xl:w-[70%] bg-white rounded-3xl mm:w-full">
-            <div className="w-full flex">
-                <div className="w-[80%] xl:flex items-center p-4 mm:hidden">
-                    <p className="font-Poppins text-[16px]">Add New Income</p>
-                </div>
+        <div className="xl:w-[65%] px-2 py-1 flex justify-evenly items-center bg-white rounded-3xl mm:w-full">
+            <p className="font-Poppins text-[16px] ">New Income</p>
 
-                <div className="xl:w-[15%] flex justify-center items-center mm:w-full xl:p-0 mm:p-1">
-                    <img src={add} onClick={handleClicktoNewIncome} className="w-[60%] hover:cursor-pointer"/>
-                </div>
-            </div>
+            <img src={add} onClick={handleClicktoNewIncome} className="w-10 h-10 p-2" />
         </div>
     )
 }

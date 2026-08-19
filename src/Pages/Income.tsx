@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import { AlertProvider } from "../context/result";
 import Income_table_head from "../components/Income_com/Income_table_head"
 import { Skeleton } from "antd"
+import Profile from "../components/Profile"
 
 
 interface MonthlyDetails {
@@ -124,64 +125,70 @@ const Income = () => {
 
     return (
 
-        <div className="w-full min-h-screen flex flex-col mm:w-[90%] bg-[#f8f9fa]">
+        <div className="w-full min-h-screen flex  bg-[#f8f9fa]">
 
-            <div className="w-full">
-                <Income_head />
-            </div>
+            <div className="xl:w-[80%] mm:w-full border-r-2 border-[#f0f0f2]">
 
-            <div className="w-full">
-                <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
-            </div>
-
-            <div className="w-full flex xl:justify-center mm:justify-evenly mm:items-center mt-10">
-                <div className="xl:w-[70%] mm:w-[80%]">
-                    <Income_stats />
+                <div className="w-full">
+                    <Income_head />
                 </div>
 
-                <AlertProvider>
-                    <div className="xl:w-[20%] flex justify-center items-center mm:w-[10%]">
-                        <Add_Income_bt />
+                {/* <div className="w-full">
+                    <hr className="w-full border-t-0 border-b-2 border-[#ebedf0]" />
+                </div> */}
+
+                <div className="w-full flex xl:justify-center mm:justify-evenly mm:items-center mt-10">
+                    <div className="xl:w-[70%] mm:w-[80%]">
+                        <Income_stats />
                     </div>
-                </AlertProvider>
-            </div>
 
-            <div className="w-full flex justify-center">
-                <Income_table />
-            </div>
-
-            <div className="w-full xl:flex mm:hidden justify-center"> 
-                {showSkeleton && (
-                    <div className="w-full flex justify-center items-center mt-20 mb-10">
-                        <div className="w-[80%] flex justify-center items-center">
-                            <Skeleton paragraph={{rows:7}} active/>
+                    <AlertProvider>
+                        <div className="xl:w-[20%] xl:flex mm:hidden justify-center items-center mm:w-[10%]">
+                            <Add_Income_bt />
                         </div>
-                    </div>
-                )}
+                    </AlertProvider>
+                </div>
 
-                {showChart && ( 
-                    incomeStats > 0 && (
+                <div className="w-full flex justify-center">
+                    <Income_table />
+                </div>
 
-                        <div className="w-[80%] bg-white flex justify-center items-center flex-col rounded-4xl my-20">
-
-                            <div className="w-full">
-                                <Income_table_head  onSelect={setSelectedValue} />
+                <div className="w-full xl:flex mm:hidden justify-center"> 
+                    {showSkeleton && (
+                        <div className="w-full flex justify-center items-center mt-20 mb-10">
+                            <div className="w-[80%] flex justify-center items-center">
+                                <Skeleton paragraph={{rows:7}} active/>
                             </div>
-                        
-                            <DetailContext.Provider value={{
-                                detailByMonth : dataByMonth , setDetailByMonth : setDataByMonth ,  
-                                detailDaily : dataDaily , setDetailDaily :  setDataByDay ,
-                                detailByYear : dataByYear , setDetailByYear : setDataByYear,
-                                DataBy : selectedValue
-                            }}>
-                                <Income_visualize />
-                            </DetailContext.Provider>
-
                         </div>
-                    )
-                )}
-            </div>
+                    )}
 
+                    {showChart && ( 
+                        incomeStats > 0 && (
+
+                            <div className="w-[85%] flex justify-center items-center flex-col rounded-4xl my-20 shadow-lg">
+
+                                <div className="w-full">
+                                    <Income_table_head  onSelect={setSelectedValue} />
+                                </div>
+                            
+                                <DetailContext.Provider value={{
+                                    detailByMonth : dataByMonth , setDetailByMonth : setDataByMonth ,  
+                                    detailDaily : dataDaily , setDetailDaily :  setDataByDay ,
+                                    detailByYear : dataByYear , setDetailByYear : setDataByYear,
+                                    DataBy : selectedValue
+                                }}>
+                                    <Income_visualize />
+                                </DetailContext.Provider>
+
+                            </div>
+                        )
+                    )}
+                </div>
+            </div>
+            
+            <div className="w-[20%] xl:flex mm:hidden justify-center items-start">
+                <Profile />
+            </div>
         </div>
     )
 }

@@ -15,12 +15,18 @@
   src: url("/fonts/PoetsenOne-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Caprasimo;
+  src: url("/fonts/Caprasimo-Regular.ttf") format("truetype");
+}
+
 
 @theme {
 
   --font-Poppins : Poppins Medium;
   --font-Poet : PoetsenOne;
   --font-Alan : Alan Sans Medium;
+  --font-Capra : Caprasimo
 
   --color-custom : #030712;
   --color-background : #f8f9fe;

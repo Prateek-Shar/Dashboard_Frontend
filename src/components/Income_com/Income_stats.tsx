@@ -1,5 +1,6 @@
 import rupee from "/images/rupee.png"
-import customer_growth from "/images/customer_growth.png"
+import total from "/images/total_sales.png"
+import growth from "/images/growth.png"
 import catagories from "/images/categories.png"
 import transaction from "/images/transaction.png"
 import { useEffect, useState } from "react"
@@ -57,164 +58,133 @@ const Income_stats = () => {
         {showStats && (
             <>
             {/* Large Screen */}
-            <div className="w-full bg-white rounded-3xl xl:flex mm:hidden justify-evenly items-center mt-4 mb-4 xl:p-4">
-                <div className="xl:w-[20%] flex">
+            <div className="w-full rounded-3xl xl:flex flex-col mm:hidden justify-evenly items-center my-4 xl:p-2">
 
-                    <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={rupee} className="object-contain w-[60%]"/>       
-                    </div>
+                <div className="w-full bg-[#f3f3f3] h-[1px]" />
 
-                    <div className="w-[70%] flex flex-col">
+                <div className="flex my-4 justify-evenly">
 
-                        <div className="w-full">
-                            <p className="font-Poppins xl:p-2 xl:text-[16px] ">Total Income</p>
+                    <div className="w-[25%] flex items-center justify-evenly">
+                        <div className="flex items-center">
+                            <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                                <img src={total} className="p-4"/>       
+                            </div>
+
+                            <div className="flex flex-col shrink-0">
+                                <p className="font-Poppins xl:p-2 xl:text-[15px] ">Total Income</p>
+                                <p className="font-Poppins text-[13px] xl:p-2  text-[#495057]">{total_income}</p>
+                            </div>
                         </div>
 
-                        <div className="w-full">
-                            <p className="font-Poppins text-[13px] xl:p-2  text-[#495057]">{total_income}</p>
-                        </div>
+                        <div className="w-[2px] h-[50px] bg-[#f0f0f2] shrink-0 mr-3" />
                     </div>
 
-                </div>
+                    <div className="w-[25%] flex items-center justify-evenly">
+                        <div className="flex items-center">
+                            <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                                <img src={growth} className="p-4" />
+                            </div>  
 
-                <div className="xl:w-[20%] flex ">
-
-                    <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={customer_growth} className="object-contain w-[50%]" />
-                    </div>
-
-                    <div className="w-[70%] flex flex-col">
-
-                        <div className="w-full">
-                            <p className="font-Poppins p-2 text-[16px]">Monthly Growth</p>
+                            <div className="flex flex-col grow">
+                                <p className="font-Poppins py-2 text-[15px] pl-2">Monthly Growth</p>
+                                <p className="font-Poppins text-[13px] xl:p-2 text-[#495057]">{monthly_growth}</p>
+                            </div>
                         </div>
 
-                        <div className="w-full">
-                            <p className="font-Poppins text-[13px] xl:p-2  text-[#495057]">{monthly_growth}</p>
-                        </div>
+                        <div className="w-[2px] h-[50px] bg-[#f0f0f2] shrink-0 mr-3" />
                     </div>
 
-                </div>
 
+                    <div className="w-[25%] flex items-center">
 
-                <div className="xl:w-[20%] flex ">
+                        <div className="flex items-center">
+                            <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                                <img src={transaction} className="p-4"/>
+                            </div>
 
-                    <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={transaction} className="object-contain w-[50%]"/>
-                    </div>
-
-                    <div className="w-[70%] flex flex-col">
-
-                        <div className="w-full ">
-                            <p className="font-Poppins p-2 text-[16px]">No of Trasaction</p>
+                            <div className="flex flex-col">
+                                <p className="font-Poppins p-2 text-[15px]">No of Trasaction</p>
+                                <p className="font-Poppins text-[13px] p-2 text-[#495057] ">{total_transaction}</p>
+                            </div>  
                         </div>
 
-                        <div className="w-full ">
-                            <p className="font-Poppins text-[13px] p-2  text-[#495057] ">{total_transaction}</p>
-                        </div>
+                        <div className="w-[2px] h-[50px] bg-[#f0f0f2] shrink-0 mr-3" />
+
                     </div>
 
-                </div>
+                    <div className="w-[25%] flex items-center">
 
-                <div className="w-[20%] flex ">
-
-                    <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={catagories} className="object-contain w-[50%]"/>
-                    </div>
-
-                    <div className="w-[70%] flex flex-col">
-
-                        <div className="w-full ">
-                            <p className="font-Poppins p-2 text-[16px]">Top Catagory</p>
+                        <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                            <img src={catagories} className="p-4"/>
                         </div>
 
-                        <div className="w-full ">
+                        <div className="flex flex-col">
+                            <p className="font-Poppins p-2 text-[15 px]">Top Catagory</p>
                             <p className="font-Poppins text-[13px] p-2 text-[#495057]">{top_category}</p>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+
+                <div className="w-full bg-[#f3f3f3] h-[1px]" />
+                
             </div>
 
 
             {/* Small Screen */}
             <div className="w-full bg-white rounded-3xl xl:hidden mm:flex-col justify-evenly items-center mt-4 mb-4 xl:p-4 mm:p-2">
-                <div className="w-full xl:hidden mm:flex justify-evenly items-center">
-                    <div className="xl:w-[20%] mm:w-[50%] flex">
+                <div className="w-full flex justify-center items-center">
+                    <div className="w-[50%] flex  items-center justify-center">
 
                         <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                            <img src={rupee} className="object-contain w-[60%]"/>       
+                            <img src={total} className="p-[7px]"/>       
                         </div>
 
-                        <div className="w-[70%] flex flex-col">
-
-                            <div className="w-full">
-                                <p className="font-Poppins xl:p-2 mm:py-2 mm:text-[9px] xl:text-[16px] mm:pl-2">Total Income</p>
-                            </div>
-
-                            <div className="w-full">
-                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{total_income}</p>
-                            </div>
+                        <div className="flex flex-col grow">
+                            <p className="font-Poppins mm:py-2 mm:text-[9px] mm:pl-2">Total Income</p>
+                            <p className="font-Poppins mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{total_income}</p>
                         </div>
 
                     </div>
 
-                    <div className="xl:w-[20%] flex mm:w-[50%]">
+                    <div className="w-[50%] flex items-center justify-center">
 
                         <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                            <img src={customer_growth} className="object-contain w-[50%]" />
+                            <img src={growth} className="p-[8px]" />
                         </div>
 
-                        <div className="w-[70%] flex flex-col">
-
-                            <div className="w-full">
-                                <p className="font-Poppins p-2 xl:text-[16px] mm:text-[8px]">Monthly Growth</p>
-                            </div>
-
-                            <div className="w-full">
-                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{monthly_growth}</p>
-                            </div>
+                        <div className="flex flex-col grow">
+                            <p className="font-Poppins p-2 xl:text-[16px] mm:text-[8px]">Monthly Growth</p>
+                            <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{monthly_growth}</p>
                         </div>
 
                     </div>
                 </div>
 
-                <div className="w-full xl:hidden mm:flex justify-center items-center mt-5">
+                <div className="w-full flex justify-center items-center mt-5">
 
-                    <div className="xl:w-[20%] flex mm:w-[50%]">
+                    <div className="w-[50%] flex items-center">
 
                         <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                            <img src={transaction} className="object-contain w-[50%]"/>
+                            <img src={transaction} className="p-[7px]"/>
                         </div>
 
-                        <div className="w-[70%] flex flex-col">
-
-                            <div className="w-full ">
-                                <p className="font-Poppins p-2 xl:text-[16px] mm:text-[8px]">No of Trasaction</p>
-                            </div>
-
-                            <div className="w-full ">
-                                <p className="font-Poppins xltext-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{total_transaction}</p>
-                            </div>
+                        <div className="flex flex-col grow">
+                            <p className="font-Poppins p-2 text-[8px]">No of Trasaction</p>
+                            <p className="font-Poppins mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{total_transaction}</p>
                         </div>
 
                     </div>
 
-                    <div className="w-[20%] flex mm:w-[50%]">
+                    <div className="w-[50%] flex items-center">
 
                         <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                            <img src={catagories} className="object-contain w-[50%]"/>
+                            <img src={catagories} className="p-[7px]"/>
                         </div>
 
-                        <div className="w-[70%] flex flex-col">
-
-                            <div className="w-full ">
-                                <p className="font-Poppins p-2 xl:text-[16px] mm:text-[10px]">Top Catagory</p>
-                            </div>
-
-                            <div className="w-full ">
-                                <p className="font-Poppins xl:text-[13px] xl:p-2 mm:p-0 mm:pl-2 text-[#495057] mm:text-[10px]">{top_category}</p>
-                            </div>
+                        <div className="flex flex-col grow">
+                            <p className="font-Poppins p-2 mm:text-[8px]">Top Catagory</p>
+                            <p className="font-Poppins xl:text-[13px] p-0 pl-2 text-[#495057] mm:text-[10px]">{top_category}</p>
                         </div>
 
                     </div>

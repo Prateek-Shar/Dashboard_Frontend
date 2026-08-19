@@ -4,9 +4,7 @@ import { Skeleton } from 'antd';
 
 
 interface UserData {
-  Username : string;
-  Profession: string;
-  UID: number;
+  First_name : string;
 }
 
 
@@ -46,21 +44,17 @@ const Income_head = () => {
 
     <div className="w-full flex justify-between ">
 
-        {/* Left Section */}
-        <div className="xl:w-[30%] ml-2 my-[6px] mm:w-[40%]">
-            <p className="font-Poppins xl:text-[20px] mm:text-[13px] py-2">Income Overview</p>
-        </div>
-
         {/* Right Section */}
-        <div className="xl:w-[40%] flex-row-reverse flex items-center mm:w-[40%]">
+        <div className="flex items-start">
         {Loader ? (
-            <div className="xl:w-[35%] flex ml-2 mm:w-full">
-                <div className="w-[80%] flex justify-center items-center">
-                    <p className="font-Poppins xl:text-[14px] mm:text-[8px] pl-1">Welcome Back , {userDetails?.Username}</p>
+            <div className="flex flex-col justify-center items-start">
+                <div className="flex mt-5 xl:ml-10 mm:ml-5">
+                    <p className="font-Alan xl:text-3xl mm:text-[16px] flex shrink-0">Hello , {userDetails?.First_name}</p>
+                    <img src={Hello} className="ml-2 object-contain xl:w-[5%] mm:w-[8%]"/>
                 </div>
 
-                <div className="w-[10%] flex justify-center items-center ">
-                    <img src={Hello} className="pl-1"/>
+                <div className="flex xl:ml-10 xl:mt-2 mm:ml-5">
+                    <p className="font-Poppins text-[#9197b3] xl:text-[16px] mm:text-[12px]">Your income at a glance, your growth over time.</p>
                 </div>
             </div>
         ) : (

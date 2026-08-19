@@ -4,12 +4,10 @@ const Income_visualize = () => {
 
     return (
 
-        <div className="w-full bg-white rounded-b-4xl">
+        <div className="w-full rounded-b-4xl">
 
-            <div className="w-full">
-                <div className="w-full  flex items-center justify-center pt-6 pb-6">
-                    <LineChart />
-                </div>
+            <div className="w-full flex items-center justify-center py-6">
+                <LineChart />
             </div>
 
         </div>

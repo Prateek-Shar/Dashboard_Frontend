@@ -46,38 +46,38 @@ const Min_sidebar = () => {
 
     return (
 
-        <div className="w-[10%] flex flex-col justify-between items-center border-r-2 border-r-[#f2f2f2]">
+        <div className="w-15 shrink-0 min-h-screen flex flex-col justify-between items-center border-r-2 border-r-[#f2f2f2]">
 
             <div className="w-full flex flex-col">
 
                 <div className="w-full flex justify-center mt-2">
-                    <div className="w-[70%] flex justify-center items-center">
+                    <div className="w-[70%]">
                         <img src={activity} />
                     </div>
                 </div>
 
-                <div className="w-full h-[50%] flex flex-col items-center mt-2">
-                    <div className="w-[70%] flex justify-center items-center mt-8 p-1" onClick={handleClickToOverview}>
+                <div className="w-full flex flex-col items-center mt-2">
+                    <div className="w-[50%] flex justify-center items-center mt-8 p-1" onClick={handleClickToOverview}>
                         <img src={over} />
                     </div>
 
-                    <div className="w-[70%] flex justify-center items-center mt-5 p-1" onClick={handleClickToCustomer} >
+                    <div className="w-[50%] flex justify-center items-center mt-5 p-1" onClick={handleClickToCustomer} >
                         <img src={customer} />
                     </div>
 
-                    <div className="w-[70%]  flex justify-center items-center mt-4 p-1" onClick={handleClickToIncome} >
+                    <div className="w-[50%] flex justify-center items-center mt-4 p-1" onClick={handleClickToIncome} >
                         <img src={income} />
                     </div>
 
-                    <div className="w-[70%] flex justify-center items-center mt-4 p-1" onClick={handleClickToProducts}>
+                    <div className="w-[50%] flex justify-center items-center mt-4 p-1" onClick={handleClickToProducts}>
                         <img src={box} />
                     </div>
                 </div>
 
             </div>
 
-            <div className="w-full flex flex-col justify-center">
-                <div className="w-full mt-25">
+            <div className="w-full flex flex-col items-center justify-center">
+                <div className="w-[80%]">
                     <img src={logout} className="p-[10px]" alt="Sign Out" onClick={handleClickToSignOut} />
                 </div>
         

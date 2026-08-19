@@ -1,4 +1,3 @@
-import Hello from "/images/Hello.png"
 import links from "/images/link.png"
 import add from "/images/add.png"
 import right from "/images/right_arr.png";
@@ -7,9 +6,7 @@ import { useRef , useEffect , useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface UserData {
-  Username : string;
-  Profession: string;
-  UID: number;
+  First_name : string
 }
 
 
@@ -83,41 +80,42 @@ const Overview_Head = () => {
     return (
         <>
 
-        <div className="xl:w-[50%] flex flex-col ml:w-full mm:w-full">
+        <div className="xl:w-[80%] flex flex-col mm:w-full">
 
-            <div className="w-full ml-2">
+            {/* <div className="w-full ml-2">
                 <p className="font-Poppins text-2xl p-1 ml:text-[20px] mm:text-[20px]">Overview</p>
-            </div>
+            </div> */}
 
             {Loader? (
-                <div className="xl:w-[32%] flex ml-2 ml:w-[80%] mm:w-[80%]">
-                    <div className="w-[80%] flex items-center">
-                        <p className="font-Poppins xl:text-[16px] pl-1 ml:text-[12px] mm:text-[11px]">Welcome Back , {userDetails?.Username}</p>
+                <div className="flex flex-col mt-4 xl:ml-10 mm:ml-0">
+                    <div className="flex items-center px-4">
+                        <p className="font-Alan xl:text-3xl ml:text-[12px] mm:text-[18px]">Hello , {userDetails?.First_name}</p>
                     </div>
 
-                    <div className="w-[10%] flex justify-center items-center">
-                        <img src={Hello} className="pl-1"/>
+
+                    <div className="flex px-4">
+                        <p className="font-Poppins text-[#9197b3] pl-0.5 mt-2 xl:text-[16px] mm:text-[12px]">Everything you need to understand your business at a glance.</p>
                     </div>
                 </div>
             ) : (
 
-                <div className="w-full ml-3">
+                <div className="w-full ml-3 mt-5">
                     <Skeleton paragraph={{rows : 0}} active />
                 </div>
             )}
             
         </div>
 
-        <div className="w-[50%] flex items-center flex-row-reverse">
+        <div className="w-[50%] xl:flex mm:hidden items-center flex-row-reverse">
 
             {quickLinksBt && (
-                <div className="xl:w-[20%] flex bg-white justify-center shadow-2xs rounded-[50px] hover:cursor-pointer mr-2 ml:w-[30%] mm:w-[35%]" onClick={handleQuickLinks}>
-                    <div className="xl:w-[70%] xl:flex justify-center items-center my-2.5 ml:hidden mm:hidden ">
+                <div className="flex bg-white justify-center shadow-2xs rounded-[50px] hover:cursor-pointer mr-2 ml:w-[30%] mm:w-[35%] p-2" onClick={handleQuickLinks}>
+                    <div className="xl:flex justify-center items-center ml:hidden mm:hidden ">
                         <p className="font-Poppins ml:text-[12px] mm:text-[9px] xl:text-[16px]">Quick Links</p>
                     </div>
 
-                    <div className="xl:w-[20%] xl:p-1 flex justify-center items-center mm:p-2 mm:w-full ml:w-full ml:p-2">
-                        <img src={links} className="object-contain w-[60%]"/>
+                    <div className="xl:w-[18%] flex justify-center items-center xl:p-0 mm:p-2 mm:w-full ml:w-full ml:p-2 xl:ml-2 mm:ml-0">
+                        <img src={links} className="p-1"/>
                     </div>
                 </div>
             )}

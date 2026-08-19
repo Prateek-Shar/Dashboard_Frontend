@@ -11,6 +11,7 @@ import Overview from "./Pages/Overview";
 import No_Page from "./Pages/Page_404";
 import With_Sidebar from "./components/WithSidebar";
 import No_sidebar from "./components/NoSidebar";
+import Project_Task from "./Pages/Project_Task"
 
 
 const App = () => {
@@ -62,6 +63,11 @@ const App = () => {
                         <Route 
                             path="/overview"
                             element={ <Overview /> }
+                        />
+
+                        <Route 
+                            path="/task&projects"
+                            element={ <Project_Task /> }
                         />
                     </Route>
                 </Route>

@@ -6,28 +6,20 @@ import up_arr from "/images/up_arr.png";
 import income from "/images/income.png"
 import settings from "/images/settings.png";
 import box from "/images/product.png";
+import task from "/images/task_project.png"
 import overview from "/images/overview.png";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from 'antd';
 import { useRef , useState , useEffect} from "react";
 
-interface UserData {
-  Username : string;
-  Profession: string;
-  UID: number;
-}
 
 
 const Sidebar = () => {
-
-    const [Loader, setLoader] = useState(false);
-    const [userDetails, setUserDetails] = useState<UserData | null>(null);
 
     const [openDrawerBt , setOpenDrawerBt] = useState(true)
     const [closeDrawerBt , setCloseDrawerBt] = useState(false)
     const [settingsOptions , setSettingsOptions] = useState(false)
 
-    const BasicInfo = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate()
 
@@ -47,6 +39,10 @@ const Sidebar = () => {
         navigate("/overview")
     }
 
+    const handleClicktoTask = () => {
+        navigate("/task&projects")
+    }
+
     const handleClickToSignOut = async () => {
         try {
             const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/logout`, {
@@ -64,34 +60,6 @@ const Sidebar = () => {
         }
     };
 
-    
-    useEffect(() => {
-      const fetchUser = async () => {
-        try {
-            const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
-            credentials: "include",
-            method : "GET"
-        });
-
-        if(!res.ok) {
-            console.error("Not Authenticated")
-            return;
-        }
-
-        const data = await res.json();
-        setUserDetails(data.login_det); 
-
-        setLoader(true);
-        return;
-    
-        } catch (error) {
-          console.error("Failed to load user", error);
-        }
-      };
-    
-      setTimeout(fetchUser , 1000)
-      
-    }, []);
 
 
     const handleClickToSettingsOptions = () => {
@@ -100,9 +68,9 @@ const Sidebar = () => {
         setCloseDrawerBt(true)
         setOpenDrawerBt(false)
 
-        if(BasicInfo.current) {
-            BasicInfo.current.style.marginTop = "331px";
-        }
+        // if(BasicInfo.current) {
+        //     BasicInfo.current.style.marginTop = "331px";
+        // }
     }
 
     const closeDefaultOptions = () => {
@@ -112,31 +80,31 @@ const Sidebar = () => {
         setOpenDrawerBt(true)
 
 
-        if(BasicInfo.current) {
-            BasicInfo.current.style.marginTop = "420px"
-        }
+        // if(BasicInfo.current) {
+        //     BasicInfo.current.style.marginTop = "420px"
+        // }
     }
 
-
+    // bg-[#EEF4FF]
 
     return (
-        <div className="w-[16%] bg-[#EEF4FF] border-2 border-l-0 border-t-0 border-[#ebedf0] flex flex-col justify-between">
+        <div className="w-64 shrink-0 min-h-screen bg-white border-2 border-l-0 border-t-0 border-[#ebedf0] flex flex-col justify-between">
 
             <div className="w-full flex flex-col justify-center items-center">
                 
-                <div className='w-full flex justify-center mt-[19px]'>
-                    <div className='w-[12%] flex items-center'>
+                <div className='w-full flex items-center ml-8 mt-5'>
+                    <div className='w-[15%] flex items-center'>
                         <img src={activity} />
                     </div>
 
-                    <div className='w-[75%] flex pl-2 items-center'>
-                        <p className='font-Poppins text-2xl pl-2'>Dashboard</p>
+                    <div className='flex pl-2 items-center'>
+                        <p className='font-Poet text-[20px] pl-2'>Insight Board</p>
                     </div>
                 </div>
 
-                <div className="w-full mt-2">
+                {/* <div className="w-full mt-2">
                     <hr className="border-2 border-t-0 border-[#ebedf0]" ></hr>
-                </div>
+                </div> */}
 
 
                 <div className="w-full flex flex-col">
@@ -145,7 +113,7 @@ const Sidebar = () => {
                             <img src={overview} className="object-contain w-[60%] m-2" />
                         </div>
 
-                        <div className="w-[60%] flex items-center ml-2">
+                        <div className="w-[60%] flex items-center ml-2">    
                             <p className="font-Poppins text-[16px] text-[#9197b3]">Overview</p>
                         </div>
                     </div>
@@ -180,6 +148,15 @@ const Sidebar = () => {
                         </div>
                     </div> 
 
+                    <div className="w-[90%] mt-2 ml-3 flex hover:bg-white rounded-[5px] hover:cursor-pointer" onClick={handleClicktoTask}>
+                        <div className="w-[17%]">
+                            <img src={task} className="object-contain w-[60%] m-2" />
+                        </div>
+
+                        <div className="w-[60%] flex items-center ml-4">
+                            <p className="font-Poppins text-[16px] text-[#9197b3]">Task</p>
+                        </div>
+                    </div> 
 
                     <div className="w-full mt-2 flex ml-3">
                         <div className="w-[16%] flex items-center">
@@ -214,37 +191,6 @@ const Sidebar = () => {
                 </div>
         
 
-            </div>
-
-            <div className="w-[95%] ml-5 flex justify-center items-center7" ref={BasicInfo}>
-                {Loader ? (
-                        <div className="w-full flex">
-
-                            <div className="w-[20%] flex justify-center items-center">
-                                <div className="w-full flex justify-center items-center">
-                                    <img src={man} className="w-[80%]"/>
-                                </div>
-                            </div>
-
-                            <div className="w-[65%] flex flex-col">
-                                <div className="w-full pt-1 pb-1 pl-5">
-                                    <h1 className="font-Poppins">{userDetails?.Username}</h1>
-                                </div>
-
-                                <div className="w-full pt-1 pb-1 pl-5">
-                                    <p className="font-Poppins text-[#989898] text-[13px]">{userDetails?.Profession}</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    ) : (
-                        
-                        <div className="w-full mt-[60px] mb-13">
-                            <Skeleton paragraph={{rows : 1}} active />
-                        </div>
-                        
-                    )
-                }
             </div>
 
         </div>

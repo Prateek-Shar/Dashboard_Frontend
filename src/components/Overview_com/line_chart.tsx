@@ -19,6 +19,7 @@ const Line_Chart = () => {
 
       const det = res.data;
       setLineData(det.Details);
+      console.log("frontend : " , det)
     } 
     
     catch (error) {
@@ -72,7 +73,7 @@ const Line_Chart = () => {
     {showChart && (
     <div className='w-full justify-center items-center flex flex-col'>
       {LineData.length > 0 ? (
-        <div className="w-full flex justify-center items-center mt-3 xl:p-10 ml:p-1">
+        <div className="w-full flex justify-center items-center mt-3 ml:p-1">
           <Line data={chartData} />
         </div>
       ) : (

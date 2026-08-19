@@ -1,4 +1,4 @@
-import total_customers from "/images/total_products.png"
+import total_products from "/images/total_products.png"
 import in_stock from "/images/in_stock.png"
 import out_of_stock from "/images/out_of_stock.png";
 import { useAPI } from "../../context/product_stats_context";
@@ -34,7 +34,7 @@ const Product_stats = () => {
                 <div className="xl:w-[25%] flex mm:w-[30%]">
 
                     <div className="w-[40%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={total_customers} className="object-contain w-[50%]"/>
+                        <img src={total_products} className="object-contain w-[50%]"/>
                     </div>
 
                     <div className="w-[60%] flex flex-col">

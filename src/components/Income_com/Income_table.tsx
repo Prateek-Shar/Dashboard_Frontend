@@ -80,7 +80,7 @@ const Income_table = () => {
                 <div className="w-full flex justify-center items-center mt-10">
                     <div className="w-[80%]">
                         <Skeleton paragraph={{rows:8}} active/>
-                    </div>
+                    </div>  
                 </div>
             )}  
             
@@ -88,7 +88,7 @@ const Income_table = () => {
             {showTable && (
                 incomeStats.length > 0  ? (
                     <div className="w-full flex flex-col justify-center items-center">
-                        <div className="w-[80%] flex flex-col mt-10 rounded-4xl bg-white"> 
+                        <div className="w-[85%] flex flex-col mt-10 rounded-4xl shadow-lg"> 
                             <div className="w-full pt-6 pl-5 pb-2 rounded-t-4xl mt-2" >
                                 <p className="font-Poppins xl:text-2xl mm:text-[16px]">Income Records</p>
                             </div>  

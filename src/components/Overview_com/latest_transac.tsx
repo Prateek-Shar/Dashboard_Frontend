@@ -86,13 +86,13 @@ const Latest_Transaction = () => {
                                 <div className="w-[20%] p-2 flex justify-center items-center">
                                     <p className="font-Poppins text-[#bcc3cc]">Date</p>
                                 </div>
-                                <div className="w-[20%] p-2 flex justify-center items-center">
+                                <div className="w-[25%] p-2 flex justify-center items-center">
                                     <p className="font-Poppins text-[#bcc3cc] text-[16px]">Source</p>
                                 </div>
                                 <div className="w-[20%] p-2 flex justify-center items-center">
                                     <p className="font-Poppins text-[#bcc3cc]">Amount</p>
                                 </div>
-                                <div className="w-[20%] p-2 flex justify-center items-center">
+                                <div className="w-[25%] p-2 flex justify-center items-center">
                                     <p className="font-Poppins text-[#bcc3cc]">Catagory</p>
                                 </div>
                             </div>
@@ -103,21 +103,20 @@ const Latest_Transaction = () => {
                             const SlicedDate = isoDate.slice(0, 10);
 
                             return (
-                                <div key={index} className="xl:flex 2xl:flex-row mm:flex-col w-full justify-evenly mb-2">
+                                <div key={index} className="xl:flex xl:flex-row mm:flex-col w-full justify-evenly my-2">
                                     <div className="xl:hidden ml:w-full flex justify-center items-center my-2">
                                         <p className="font-Poppins xl:text-[16px] mm:text-[13px] py-1 text-[#495057]">Transaction {index+1}</p>
                                     </div>
-
                                     <div className="xl:w-[20%] mm:w-full mm:justify-normal flex justify-center items-center mb-2 xl:ml-0 mm:ml-3 xl:mt-0 mm:mt-2 2xl:justify-center">
                                         <p className="font-Poppins xl:text-[16px] mm:text-[13px] py-1 text-[#495057]">{SlicedDate}</p>
                                     </div>
-                                    <div className="xl:w-[20%] mm:w-full mm:justify-normal flex justify-center items-center mb-2 xl:ml-0 mm:ml-3 2xl:justify-center">
+                                    <div className="xl:w-[25%] mm:w-full mm:justify-normal flex justify-center items-center mb-2 xl:ml-0 mm:ml-3 2xl:justify-center">
                                         <p className="font-Poppins xl:text-[16px] mm:text-[13px] py-1 text-[#495057]">{st.Source}</p>
                                     </div>
                                     <div className="xl:w-[20%] mm:w-full mm:justify-normal flex justify-center items-center mb-2 xl:ml-0 mm:ml-3 2xl:justify-center">
                                         <p className="font-Poppins xl:text-[16px] mm:text-[13px] py-1 text-[#495057]">{st.Amount}</p>
                                     </div>
-                                    <div className="xl:w-[20%] mm:w-full mm:justify-normal flex justify-center items-center mb-2 xl:ml-0 mm:ml-3 2xl:justify-center">
+                                    <div className="xl:w-[25%] mm:w-full mm:justify-normal flex justify-center items-center mb-2 xl:ml-0 mm:ml-3 2xl:justify-center">
                                         <p className="font-Poppins xl:text-[16px] mm:text-[13px] py-1 text-[#495057]">{st.Catagory}</p>
                                     </div>
                                 </div>
