@@ -229,9 +229,9 @@ const Table_content: React.FC = () => {
         customers.length > 0 ? (
           <div className="w-[80%] flex flex-col justify-center items-center mb-10 shadow-lg rounded-4xl mt-15">
 
-            <div className="xl:w-[97%] flex justify-between mm:w-full mt-5">
+            <div className="xl:w-[97%] flex justify-between items-center mm:w-full mt-5">
               {head && (
-                <p className="flex font-Poppins xl:text-2xl mm:text-[16px] shrink-0 grow px-2 py-2">All Customers</p>
+                <p className="flex font-Poppins xl:text-2xl mm:text-[14px] shrink-0 grow px-2 py-2">Customers Details</p>
               )}
 
               <div className="xl:hidden mm:flex mm:justify-between items-center">

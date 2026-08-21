@@ -1,4 +1,4 @@
-import customers from "/images/customer.png";
+import customers from "/images/total_customers.png";
 import member from "/images/members.png";
 import active from "/images/active.png";
 import { useAPI } from "../../context/customers_stats_context";
@@ -40,7 +40,7 @@ const Stats = () => {
                     <div className="xl:w-[30%] mm:w-[35%] flex items-center justify-evenly">
                         <div className="flex items-center">
                             <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center ">
-                                <img src={customers} className="xl:p-2 mm:p-0" />
+                                <img src={customers} className="xl:p-2 mm:p-[5px]" />
                             </div>
 
                             <div className="flex flex-col grow mm:ml-2">
@@ -52,14 +52,14 @@ const Stats = () => {
                         <div className="w-[2px] xl:h-[50px] mm:h-[30px] bg-[#f0f0f2] shrink-0 mr-3" />
                     </div>
 
-                    <div className="xl:w-[27%] mm:w-[30%] flex justify-evenly items-center">
+                    <div className="xl:w-[27%] mm:w-[35%] flex justify-evenly items-center">
                         <div className="flex justify-around items-center">
                             <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
                                 <img src={member} className="xl:p-3 mm:p-1" />
                             </div>
 
                             <div className="flex flex-col mm:ml-2 grow">
-                                <p className="font-Poppins xl:text-[16px] mm:text-[7px]">Members</p>
+                                <p className="font-Poppins xl:text-[16px] mm:text-[6px]">Members</p>
                                 <p className="font-Poppins text-[#495057] xl:text-[16px] mm:text-[8px] xl:mt-0 mm:mt-1">0</p>
                             </div>
                         </div>
@@ -70,11 +70,11 @@ const Stats = () => {
                     <div className="xl:w-[27%] mm:w-[35%] flex items-center">
 
                         <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                            <img src={active} className="xl:p-3 mm:p-1"/>
+                            <img src={active} className="xl:p-3 mm:p-2"/>
                         </div>
 
                         <div className="flex flex-col mm:ml-2 grow">
-                            <p className="font-Poppins xl:text-[16px] mm:text-[8px]">Active Now</p>
+                            <p className="font-Poppins xl:text-[16px] mm:text-[6px]">Active Now</p>
                             <p className="font-Poppins text-[#495057]  mm:mt-1 xl:mt-0 xl:text-[16px] mm:text-[8px]">{totalActiveCount}</p>
                         </div>
 
