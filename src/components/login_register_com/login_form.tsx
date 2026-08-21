@@ -91,7 +91,7 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
             //     Profession : data.login_det.Profession
             // }) ) 
 
-            console.log("Msg : " , data.message);
+            // console.log("Msg : " , data.message);
 
             setLoader(false)
             setSubmitBt(true)

@@ -35,7 +35,7 @@ const LineChart = () => {
   const [yearDiv , setYearDiv] = useState(false);
   const [dailyDiv , setDailyDiv] = useState(false)
 
-  console.log("Monthly or Yearly : " , DataBy);
+  // console.log("Monthly or Yearly : " , DataBy);
 
   const labels = detailDaily.map(item => item._id);
   const dataPoints = detailDaily.map(item => item.amt);
