@@ -1,7 +1,9 @@
 import { Tag, Select, Input, Space, Pagination, Skeleton } from "antd";
 import { useEffect, useState } from "react";
 import React from "react";
+import search from "/images/search.png"
 import bin from "/images/Bin.png";
+import cross from "/images/crossed.png";
 import { useAPI } from "../../context/customers_stats_context";
 
 interface Customer {
@@ -35,6 +37,12 @@ const Table_content: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [showTable , setShowTable] = useState<boolean>(false);
   const [showSkeleton , setShowSkeleton] = useState(true)
+
+  const [searchBox , setSearchBox] = useState<boolean>(false)
+  const [searchImg , setSearchImg] = useState<boolean>(true)
+  const [crossImg , setCrossImg] = useState<boolean>(false)
+
+  const [head , setHead] = useState<boolean>(true)
 
   const { Search } = Input;
 
@@ -183,6 +191,26 @@ const Table_content: React.FC = () => {
     // setCustomers(customers.filter(cus => (cus.Email != email)))
   };
 
+  const handleSearchBox = () => {
+    setSearchBox(true)
+    setHead(false)
+    setSearchImg(false)
+    setCrossImg(true)
+  }
+
+  const handleCross = () => {
+    setHead(true)
+    setCrossImg(false)
+    setSearchImg(true)
+    setSearchBox(false)
+  }
+
+  // useEffect(() => {
+  //   if (screen.width > 1280) {
+  //     setSearchImg(false)
+  //     setSearchBox(true)
+  //   }
+  // })
 
 
   return (
@@ -199,32 +227,45 @@ const Table_content: React.FC = () => {
 
       {showTable && (
         customers.length > 0 ? (
-          <div className="w-[80%] flex flex-col justify-center items-center mb-10 bg-white rounded-4xl mt-15">
+          <div className="w-[80%] flex flex-col justify-center items-center mb-10 shadow-lg rounded-4xl mt-15">
 
-            <div className="xl:w-[97%] mt-2 flex xl:justify-between mm:justify-evenly mm:w-full">
-              <div className="xl:w-[20%] mm:w-[50%] xl:p-4 mm:py-3">
-                <p className="font-Poppins xl:text-2xl mm:text-[16px]">All Customers</p>
-              </div>
+            <div className="xl:w-[97%] flex justify-between mm:w-full mt-5">
+              {head && (
+                <p className="flex font-Poppins xl:text-2xl mm:text-[16px] shrink-0 grow px-2 py-2">All Customers</p>
+              )}
 
+              <div className="xl:hidden mm:flex mm:justify-between items-center">
+                {searchBox && (
+                  <div className="flex items-center mm:w-[60%] xl:ml-0 mm:ml-2">
+                    <Space direction="vertical">
+                      <Search
+                        placeholder="Search"
+                        onSearch={onSearch}
+                        className=""
+                        onChange={handleInputChange}
+                        value={searchValue}
+                        enterButton
+                      />
+                    </Space>
+                  </div>
+                )}
 
-              <div className="xl:w-[35%] mm:w-[40%] flex justify-between">
-                <div className="xl:w-[60%] mm:w-full flex items-center">
-                  <Space direction="vertical" className="w-full">
-                    <Search
-                      placeholder="Search"
-                      onSearch={onSearch}
-                      onChange={handleInputChange}
-                      value={searchValue}
-                      enterButton
-                    />
-                  </Space>
+                {searchImg && (
+                <div className="flex justify-center items-center bg-[#f2f2f2] rounded-full xl:mr-0 mm:mr-2 shadow-2xl" onClick={handleSearchBox}>
+                    <img src={search} alt="Search" className="w-10 h-10 p-3" />
                 </div>
+                )}
 
-                <div className="w-[30%] xl:flex items-center justify-center ml-10 mm:hidden">
+                {crossImg && (
+                <div className="flex justify-center items-center bg-[#f2f2f2] rounded-full xl:mr-0 mm:mr-2 shadow-2xl" onClick={handleCross}>
+                    <img src={cross} alt="Search" className="w-10 h-10 p-3" />
+                </div>
+                )}
+
+                <div className="xl:flex grow items-center justify-center ml-10 mm:hidden">
                   <Select
                     showSearch
                     placeholder="Sort By"
-                    className="w-[80%]"
                     onChange={handleSelectChange}
                     options={[
                       { value: "Newest" , label: "Newest" },
@@ -236,6 +277,38 @@ const Table_content: React.FC = () => {
                   />
                 </div>
               </div>
+
+              <div className="xl:flex mm:hidden justify-between items-center">
+                <div className="flex items-center mm:w-[60%] xl:ml-0 mm:ml-2">
+                  <Space direction="vertical">
+                    <Search
+                      placeholder="Search"
+                      onSearch={onSearch}
+                      className=""
+                      onChange={handleInputChange}
+                      value={searchValue}
+                      enterButton
+                    />
+                  </Space>
+                </div>
+
+
+                <div className="xl:flex grow items-center justify-center ml-10 mm:hidden">
+                  <Select
+                    showSearch
+                    placeholder="Sort By"
+                    onChange={handleSelectChange}
+                    options={[
+                      { value: "Newest" , label: "Newest" },
+                      { value: "Oldest" , label: "Oldest" },
+                      { value: "Active" , label: "Active"},
+                      { value: "Inactive" , label: "Inactive"}
+                    ]}
+                    onSelect={handleFilter}
+                  />
+                </div>
+              </div>
+
             </div>
 
             <div className="w-full flex flex-col mt-10">
@@ -361,13 +434,12 @@ const Table_content: React.FC = () => {
                 <hr className="w-full border-[#f2f2f2]" />
               </div>
 
-              <div className="w-full flex justify-between rounded-b-4xl">
-                <div className="xl:w-[40%] mm:w-[40%] mt-2 mb-2 flex items-center">
-                  <p className="font-Poppins pl-4 text-[#d9d2d7] xl:text-[13px] mm:text-[8px]">
-                    Showing {start} to {end} out of {totalCustomerCount}
-                  </p>
-                </div>
-                <div className="xl:w-[20%] mm:w-[40%] my-4 flex flex-row-reverse">
+              <div className="flex justify-between items-center rounded-b-4xl ">
+                <p className="font-Poppins pl-4 text-[#d9d2d7] xl:text-[13px] mm:text-[8px]">
+                  Showing {start} to {end} out of {totalCustomerCount}
+                </p>
+
+                <div className="flex my-4 ">
                   <Pagination
                     current={currentPage}
                     onChange={handleChange}

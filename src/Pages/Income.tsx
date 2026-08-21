@@ -125,7 +125,7 @@ const Income = () => {
 
     return (
 
-        <div className="w-full min-h-screen flex  bg-[#f8f9fa]">
+        <div className="w-full min-h-screen flex  bg-[#f8f9fa] relative">
 
             <div className="xl:w-[80%] mm:w-full border-r-2 border-[#f0f0f2]">
 
@@ -143,10 +143,14 @@ const Income = () => {
                     </div>
 
                     <AlertProvider>
-                        <div className="xl:w-[20%] xl:flex mm:hidden justify-center items-center mm:w-[10%]">
+                        <div className="xl:w-[20%] xl:flex mm:hidden justify-center items-center">
                             <Add_Income_bt />
                         </div>
                     </AlertProvider>
+                </div>
+
+                <div className="mm:flex xl:hidden justify-center items-center fixed bottom-3 right-3">
+                    <Add_Income_bt />
                 </div>
 
                 <div className="w-full flex justify-center">

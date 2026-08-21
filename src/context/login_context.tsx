@@ -2,9 +2,7 @@
 import React, { createContext, useContext, useState } from "react";
 
 interface UserData {
-  Username : string;
-  Profession: string;
-  UID: number;
+  First_name : string
 }
 
 interface UserContextType {

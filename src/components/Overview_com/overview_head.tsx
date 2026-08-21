@@ -49,10 +49,6 @@ const Overview_Head = () => {
         fetchUser()        
     }, []); 
 
-    useEffect(() => {
-        console.log("User details : " , userDetails)
-    })
-    
 
     const handleQuickLinks = () => {
         setMoreLinks(true)

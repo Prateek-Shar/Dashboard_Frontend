@@ -7,6 +7,8 @@ import { useEffect } from "react";
 
 const Customer_head = () => {
 
+    // const [userDetails , setUserDetails] = useState<string>()
+
     const { userDetails , Loader , LoadUserApi} = useUser();
 
     useEffect(() => {
@@ -16,33 +18,28 @@ const Customer_head = () => {
     return (
 
     
-    <div className="w-full flex justify-between">
+    <div className="w-full flex items-center">
+        <div className="flex items-center">
+            {Loader ? (
+                <div className="flex flex-col ml-2 mt-4 xl:ml-10 mm:ml-3">
+                    <div className="flex items-center">
+                        <p className="font-Alan xl:text-3xl mm:text-[16px]">
+                            Hello, {userDetails?.First_name}
+                        </p>
 
-        <div className="w-[40%] ml-2 my-[6px]">
-            <p className="font-Poppins xl:text-[20px] mm:text-[12px] py-2">Customer Overview</p>
+                        <img src={Hello} className="pl-1 xl:w-[6%] mm:w-[10%]" />
+                    </div>
+
+                    <div className="flex">
+                        <p className="font-Poppins text-[#9197b3] xl:pl-[6px] mm:pl-[1px] mt-2 xl:text-[16px] mm:text-[12px]">Understand Your Customers, Grow Your Business</p>
+                    </div>
+                </div>
+            ) : (
+                <div className="flex items-center">
+                    <Skeleton paragraph={{ rows: 0 }} active />
+                </div>
+            )}
         </div>
-
-        <div className="w-[40%] flex flex-row-reverse items-center">
-        {Loader ? (
-            <div className="xl:w-[35%] mm:w-full flex ml-2">
-                <div className="w-[80%] flex justify-center items-center">
-                    <p className="font-Poppins xl:text-[14px] mm:text-[8px] xl:pl-1">Welcome Back , {userDetails?.Username}</p>
-                </div>
-
-                <div className="w-[10%] flex justify-center items-center">
-                    <img src={Hello} className="pl-1"/>
-                </div>
-            </div>
-        ) : (
-
-            <div className="w-[90%] flex flex-row-reverse items-center">
-                <div className="w-[40%]">
-                    <Skeleton paragraph={{rows : 0}}  active  />
-                </div>
-            </div>
-        )}
-        </div>
-        
     </div>
     
     )

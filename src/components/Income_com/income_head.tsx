@@ -17,7 +17,7 @@ const Income_head = () => {
         try {
             const res = await fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getUserInfo`, {
             credentials: "include",
-            method : "GET"
+            method : "GET" 
             });
             const data = await res.json();
     

@@ -31,62 +31,58 @@ const Stats = () => {
         )}
 
         {showStats && (
-            <div className="w-full bg-white rounded-3xl flex justify-evenly items-center mt-4 mb-4 xl:p-4 mm:p-0 mm:py-2">
-                <div className="xl:w-[25%] mm:w-[40%] flex">
+            <div className="w-full rounded-3xl flex flex-col justify-evenly items-center  xl:p-4 mm:p-0 mm:py-2">
 
-                    <div className="w-[35%] bg-[#e9ecef] rounded-4xl flex justify-center items-center ">
-                        <img src={customers} className="object-contain w-[60%]"/>
-                    </div>
+                <div className="w-full bg-[#f3f3f3] h-[1px]" />
 
-                    <div className="w-[65%] flex flex-col">
+                <div className="flex justify-evenly items-center xl:my-3 mm:my-2">
 
-                        <div className="w-full">
-                            <p className="font-Poppins xl:p-2 xl:text-[16px] mm:text-[5px] mm:p-0 mm:pl-2">Total Customers</p>
+                    <div className="xl:w-[30%] mm:w-[35%] flex items-center justify-evenly">
+                        <div className="flex items-center">
+                            <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center ">
+                                <img src={customers} className="xl:p-2 mm:p-0" />
+                            </div>
+
+                            <div className="flex flex-col grow mm:ml-2">
+                                <p className="font-Poppins xl:text-[16px] mm:text-[5px]">Total Customers</p>
+                                <p className="font-Poppins text-[#495057] xl:text-[16px] mm:text-[8px] mm:mt-1 xl:mt-0">{totalCustomerCount}</p>
+                            </div>
                         </div>
 
-                        <div className="w-full xl:mt-0 mm:mt-2">
-                            <p className="font-Poppins xl:p-2 text-[#495057] mm:p-0 mm:pl-2 xl:text-[16px] mm:text-[10px]">{totalCustomerCount}</p>
-                        </div>
+                        <div className="w-[2px] xl:h-[50px] mm:h-[30px] bg-[#f0f0f2] shrink-0 mr-3" />
                     </div>
 
+                    <div className="xl:w-[27%] mm:w-[30%] flex justify-evenly items-center">
+                        <div className="flex justify-around items-center">
+                            <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                                <img src={member} className="xl:p-3 mm:p-1" />
+                            </div>
+
+                            <div className="flex flex-col mm:ml-2 grow">
+                                <p className="font-Poppins xl:text-[16px] mm:text-[7px]">Members</p>
+                                <p className="font-Poppins text-[#495057] xl:text-[16px] mm:text-[8px] xl:mt-0 mm:mt-1">0</p>
+                            </div>
+                        </div>
+
+                        <div className="w-[2px] xl:h-[50px] mm:h-[30px] bg-[#f0f0f2] shrink-0 mr-3" />                    
+                    </div>
+
+                    <div className="xl:w-[27%] mm:w-[35%] flex items-center">
+
+                        <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                            <img src={active} className="xl:p-3 mm:p-1"/>
+                        </div>
+
+                        <div className="flex flex-col mm:ml-2 grow">
+                            <p className="font-Poppins xl:text-[16px] mm:text-[8px]">Active Now</p>
+                            <p className="font-Poppins text-[#495057]  mm:mt-1 xl:mt-0 xl:text-[16px] mm:text-[8px]">{totalActiveCount}</p>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div className="w-[25%] xl:flex mm:hidden">
+                <div className="w-full bg-[#f3f3f3] h-[1px]" />
 
-                    <div className="w-[35%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={member} className="object-contain w-[50%]" />
-                    </div>
-
-                    <div className="w-[65%] flex flex-col">
-
-                        <div className="w-full">
-                            <p className="font-Poppins p-2">Members</p>
-                        </div>
-
-                        <div className="w-full">
-                            <p className="font-Poppins p-2 text-[#495057]">0</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className="xl:w-[25%] mm:w-[40%] flex">
-
-                    <div className="w-[35%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                        <img src={active} className="object-contain w-[50%]"/>
-                    </div>
-
-                    <div className="w-[70%] flex flex-col">
-                        <div className="w-full ">
-                            <p className="font-Poppins xl:p-2 xl:text-[16px] mm:text-[8px] mm:p-0 mm:pl-2">Active Now</p>
-                        </div>
-
-                        <div className="w-full xl:mt-0 mm:mt-2">
-                            <p className="font-Poppins xl:p-2 text-[#495057] mm:p-0 mm:pl-2 xl:text-[16px] mm:text-[10px]">{totalActiveCount}</p>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         )}
 
