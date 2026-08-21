@@ -75,7 +75,7 @@ const Overview_Stats = () => {
         )}
 
         {showStats && (
-            <div className="ml:w-[90%] mm:w-[90%] xl:w-[85%] rounded-3xl flex flex-col xl:py-4 ml:py-2 mm:py-2">
+            <div className="w-[85%] rounded-3xl xl:flex mm:hidden flex-col xl:py-4 ml:py-2 mm:py-2">
                 
                 <div className="w-full bg-[#f3f3f3] h-[1px]" />
 
@@ -201,6 +201,87 @@ const Overview_Stats = () => {
                 </div>
 
                 <div className="w-full bg-[#f3f3f3] h-[1px]" />
+
+            </div>
+        )}
+
+        {showStats && (
+            <div className="w-[90%] bg-white rounded-3xl xl:hidden mm:flex flex-col justify-center items-center mt-4 mb-4 xl:p-4 mm:p-2">
+                <div className="w-[95%] flex justify-center items-center">
+                    <div className="w-[50%] flex  items-center justify-center">
+
+                        <div className="w-[25%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                            <img src={total_sales} className="p-[7px]"/>       
+                        </div>
+
+                        <div className="flex flex-col grow ml-2">
+                            <p className="font-Poppins text-[9px]">Total Income</p>
+                            <p className="font-Poppins  text-[#495057] mm:text-[10px] mt-1">{totalSales}</p>
+                        </div>
+
+                    </div>
+
+                    <div className="w-[50%] flex items-center justify-center">
+
+                        <div className="w-[25%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                            <img src={total_customer} className="p-[8px]" />
+                        </div>
+
+                        <div className="flex flex-col grow ml-2">
+                            <p className="font-Poppins xl:text-[16px] mm:text-[8px]">Total Customer</p>
+
+                            {showSkeletonNewCustomer && (
+                                <div className="w-full ml-2 flex justify-center">
+                                    <Skeleton paragraph={{rows : 0}} active />
+                                </div>
+                            )}
+
+                            {newCustomerCount == 0 && (
+                                <div className="w-full flex">
+                                    <p className="font-Poppins text-[#495057] text-[10px] mt-1">{TotalCustomerCount}</p>
+                                    <p className="text-[12px] text-red-500 font-Poppins mt-2 xl:flex mm:hidden">+{newCustomerCount} in Last 24 hr</p>
+                                </div>
+                            )}
+
+                            {newCustomerCount > 0 && (
+                                <div className="w-full flex">
+                                    <p className="font-Poppins text-[#495057] text-[10px] mt-1">{TotalCustomerCount}</p>
+                                    <p className="text-[12px] text-green-500 font-Poppins mt-2 xl:flex mm:hidden">+{newCustomerCount} in Last 24 hr</p>
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
+                </div>
+
+                <div className="w-[95%] flex justify-center items-center mt-5">
+
+                    <div className="w-[50%] flex items-center">
+
+                        <div className="w-[25%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                            <img src={in_stock} className="p-[7px]"/>
+                        </div>
+
+                        <div className="flex flex-col grow ml-2">
+                            <p className="font-Poppins text-[8px]">Total Products</p>
+                            <p className="font-Poppins text-[#495057] mm:text-[10px] mt-1">{StockCount}</p>
+                        </div>
+
+                    </div>
+
+                    <div className="w-[50%] flex items-center">
+
+                        <div className="w-[25%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
+                            <img src={revenue} className="p-[7px]"/>
+                        </div>
+
+                        <div className="flex flex-col grow ml-2">
+                            <p className="font-Poppins text-[10px]">Revenue</p>
+                            <p className="font-Poppins text-[#495057] mm:text-[10px] mt-1">NA</p>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
         )}
