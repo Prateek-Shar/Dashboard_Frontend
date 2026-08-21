@@ -231,7 +231,7 @@ const Table_content: React.FC = () => {
 
             <div className="xl:w-[97%] flex justify-between items-center mm:w-full mt-5">
               {head && (
-                <p className="flex font-Poppins xl:text-2xl mm:text-[14px] shrink-0 grow px-2 py-2">Customers Details</p>
+                <p className="flex font-Poet xl:text-2xl mm:text-[14px] shrink-0 grow px-2 py-2">Customers Details</p>
               )}
 
               <div className="xl:hidden mm:flex mm:justify-between items-center">
