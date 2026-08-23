@@ -42,7 +42,7 @@ const Income_head = () => {
     return (   
             
 
-    <div className="w-full flex justify-between ">
+    <div className="w-full flex justify-between">
 
         {/* Right Section */}
         <div className="flex items-start">
@@ -53,8 +53,8 @@ const Income_head = () => {
                     <img src={Hello} className="ml-2 object-contain xl:w-[5%] mm:w-[8%]"/>
                 </div>
 
-                <div className="flex xl:ml-10 xl:mt-2 mm:ml-5">
-                    <p className="font-Poppins text-[#9197b3] xl:text-[16px] mm:text-[12px]">Your income at a glance, your growth over time.</p>
+                <div className="flex xl:ml-10 xl:mt-2 mm:mt-2 mm:ml-5">
+                    <p className="font-Poppins text-[#9197b3] xl:text-[16px] mm:text-[12px]">Your income at a glance, your growth over time</p>
                 </div>
             </div>
         ) : (

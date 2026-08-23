@@ -133,15 +133,13 @@ const NewIncomeForm = () => {
         <div className="w-full xl:h-full flex flex-col">
             <form onSubmit={sendIncome} method='post' >
                     
-                <div className='w-full flex xl:flex-row mm:flex-col xl:justify-evenly xl:items-normal mm:justify-center mm:items-center mt-10'>
-                    <div className="xl:w-[25%] mm:w-[80%] mt-2">
+                <div className='w-full flex xl:flex-row mm:flex-col xl:justify-evenly xl:items-normal mm:justify-center mm:items-center xl:mt-10 mm:mt-0'>
+                    <div className="xl:w-[25%] mm:w-[80%] mt-2 flex flex-col items-start">
                         {showModeOfPaymentHeading && ( 
-                            <div className="w-[50%] bg-[#e9ecef] rounded-2xl  animate-wiggle">
-                                <p className='font-Poppins p-2'>Mode of Payment</p>
-                            </div> 
+                            <p className='font-Poppins p-2 bg-[#e9ecef] rounded-2xl animate-wiggle xl:text-[16px] mm:text-[13px]'>Mode of Payment</p>
                         )}
 
-                        <div className='w-full mt-2 mb-3 flex items-center' ref={select1}>
+                        <div className='w-full xl:mt-2 mm:mt-4 mb-3 flex items-center' ref={select1}>
                             <Select
                                 showSearch
                                 optionFilterProp="label"
@@ -166,11 +164,9 @@ const NewIncomeForm = () => {
                     </div>
 
 
-                    <div className='xl:w-[25%] mm:w-[80%] xl:mt-0 mm:mt-5'>
+                    <div className='xl:w-[25%] mm:w-[80%] xl:mt-0 mm:mt-5 flex flex-col items-start'>
                         {showCatagoryHeading && (
-                            <div className='w-[40%] bg-[#e9ecef] animate-wiggle p-2 rounded-2xl'>
-                                <p className='font-Poppins'>Catagory</p>
-                            </div>
+                            <p className='font-Poppins bg-[#e9ecef] animate-wiggle p-2 rounded-2xl xl:text-[16px] mm:text-[13px]'>Catagory</p>
                         )}
 
                         <div className="w-full mt-3 mb-3 flex items-center" ref={select2}>
@@ -200,14 +196,12 @@ const NewIncomeForm = () => {
                         
                 
                 <div className='xl:w-[59%] flex justify-evenly xl:mt-15 mm:mt-5 mm:w-full'>
-                    <div className='xl:w-[45%] mm:w-[80%]'>
+                    <div className='xl:w-[43%] mm:w-[80%] flex flex-col items-start'>
                         {showIncomeHeading && (
-                            <div className='w-[30%] bg-[#e9ecef] animate-wiggle rounded-2xl p-2'>
-                                <p className='font-Poppins'>Amount</p>
-                            </div>
-                        )}
+                            <p className='font-Poppins bg-[#e9ecef] animate-wiggle rounded-2xl p-2 flex xl:text-[16px] mm:text-[13px]'>Amount</p>
+                        )} 
 
-                        <div className="w-full flex border-2 rounded-3xl border-[#adb5bd] bg-white mt-3" ref={AmountInput}>
+                        <div className="w-full flex border-2 rounded-2xl border-[#adb5bd] bg-white mt-3 xl:py-4 mm:py-2" ref={AmountInput}>
                             <input
                                 type="number"
                                 name="Amount"
@@ -215,7 +209,7 @@ const NewIncomeForm = () => {
                                 onClick={showHeading3}
                                 onChange={handleInputChange}
                                 placeholder={placeholderAmount}
-                                className="w-full xl:p-4 mm:py-3 mm:pl-2 font-Poppins focus:outline-0 mm:text-[13px]"
+                                className="w-full font-Poppins focus:outline-0 mm:text-[13px] mm:placeholder:text-[11px] xl:placeholder:text-[14px] pl-2"
                             />
                         </div>
                     </div>
@@ -223,10 +217,8 @@ const NewIncomeForm = () => {
 
 
 
-                <div className='w-full flex justify-center'>
-                    <div className='xl:w-[20%] mm:w-[40%] flex justify-center  mb-8 mt-20 bg-linear-to-r from-[#00b4d8] to-[#90e0ef] rounded-3xl'>
-                        <button type="submit" className='p-3 hover:cursor-pointer font-Poppins xl:text-[16px] mm:text-[14px]'>Submit</button>
-                    </div>
+                <div className='w-full flex justify-center mb-8 mt-20'>
+                    <button type="submit" className='px-4 py-3 hover:cursor-pointer font-Poppins xl:text-[16px] mm:text-[14px] bg-linear-to-r from-[#00b4d8] to-[#90e0ef] rounded-3xl'>Add Income</button>
                 </div>
 
             </form>

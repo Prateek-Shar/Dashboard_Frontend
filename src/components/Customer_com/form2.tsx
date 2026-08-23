@@ -32,10 +32,8 @@ const Form2: React.FC<Form2Props> = ({ form, setForm, onSubmit }) => {
     return (
         <>
 
-            <div className='w-full mt-5 flex justify-center'>    
-                <div className='xl:w-[30%] xl:flex justify-center mm:w-full p-2 bg-[#edf6f9] rounded-2xl'>
-                    <p className='font-Alan text-2xl'>Company Details</p>
-                </div>
+            <div className='w-full mt-5 flex justify-center'>   
+                <p className='font-Alan xl:text-2xl mm:text-[16px] bg-[#edf6f9] rounded-2xl p-2 '>Company Details</p>
             </div>
 
             

@@ -67,7 +67,6 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
     
     
     const v = country.current?.value;
-    console.log(`value is : ${v}`)
 
     const disable = () => {
 
@@ -123,8 +122,8 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
             <form onSubmit={sendCustomer} method='post'>
 
                 <div className='w-full mt-5 flex justify-center'>    
-                    <div className='xl:w-[30%] bg-[#edf6f9] mm:w-full p-2 flex justify-center rounded-2xl'>
-                        <p className='font-Alan text-2xl'>Personal Information</p>
+                    <div className='xl:w-[30%] bg-[#edf6f9] mm:w-[72%] p-2 mm:mb-8 flex justify-center rounded-2xl'>
+                        <p className='font-Alan xl:text-2xl mm:text-[16px]'>Personal Information</p>
                     </div>
                 </div>
 
@@ -149,7 +148,7 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
                             <p className='font-Poppins'>Full Name : </p>
                         </div>
 
-                        <div className='xl:w-[60%] mm:w-[90%] border-2 border-[#d8dee9] rounded-[5px]'>
+                        <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]'>
                             <input type = "text" autoComplete="off"  name="Customer_name" placeholder="Customer name" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={handleInputChange} value={form.Customer_name}/>
                         </div>
                     </div>
@@ -160,7 +159,7 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
                                 <p className='font-Poppins'>Country : </p>
                             </div>
 
-                            <div className='xl:w-[60%] mm:w-[90%] border-2 border-[#d8dee9] rounded-[5px]' ref={CountryInputBox}>
+                            <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]' ref={CountryInputBox}>
                                 <input type='text' autoComplete='off' name="Country" placeholder="Country" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={(e)=>{ handleInputChange(e); ShowCountrySuggestion(); disable(); }} value={form.Country}  ref={country}/>
                             </div>
                         </div>
@@ -189,7 +188,7 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
                             <p className='font-Poppins'>Email : </p>
                         </div>
 
-                        <div className='xl:w-[60%] mm:w-[90%] border-2 border-[#d8dee9] rounded-[5px]'>
+                        <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]'>
                             <input type = "email" autoComplete="off" name='Email' placeholder="Email" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={handleInputChange} value={form.Email}/>
                         </div>
                     </div>
@@ -199,7 +198,7 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
                             <p className='font-Poppins'>Contact No. : </p>
                         </div>
 
-                        <div className='xl:w-[60%] mm:w-[90%] border-2 border-[#d8dee9] rounded-[5px]'>
+                        <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]'>
                             <input type='number' autoComplete='off' name='Contact_no' placeholder="Contact" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={handleInputChange} value={form.Contact_no} />
                         </div>
                     </div>
@@ -207,9 +206,7 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
 
                                 
                 <div className='w-full flex justify-center items-center xl:mt-20 mm:my-10 xl:mb-5' ref={SubmitDiv}>
-                    <div className='xl:w-[15%] mm:w-[50%] bg-linear-to-r from-[#00b4d8] to-[#90e0ef] flex justify-center items-center rounded-3xl'>
-                        <button type="submit" className='p-3 w-full hover:cursor-pointer font-Poppins'>Next</button>
-                    </div>
+                    <button type="submit" className='bg-linear-to-r from-[#00b4d8] to-[#90e0ef] xl:p-3 mm:py-2 mm:px-6n hover:cursor-pointer font-Poppins flex rounded-3xl'>Next</button>
                 </div>  
 
             </form>
