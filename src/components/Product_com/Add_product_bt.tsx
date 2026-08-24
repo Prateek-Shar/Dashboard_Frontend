@@ -14,9 +14,7 @@ const Add_product = () => {
         
         <div className="flex items-center bg-white rounded-3xl px-2 py-2">
 
-            <div className="xl:flex items-center mm:hidden">
-                <p className="font-Poppins text-[18px]">New Product</p>
-            </div>
+            <p className="font-Poppins xl:flex text-center mm:hidden text-[18px] px-2">New Product</p>
 
             <img src={add} onClick={handleClickToNewProduct} className="hover:cursor-pointer xl:h-10 xl:w-10 mm:w-8 mm:h-8 xl:p-2 mm:p-1 xl:ml-2 mm:ml-0"/>
 

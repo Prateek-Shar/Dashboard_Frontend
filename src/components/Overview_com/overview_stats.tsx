@@ -40,7 +40,7 @@ const Overview_Stats = () => {
         }
 
         catch(error) {
-            console.log("Error fetching data : " , error)
+            console.log("Error fetching data : " , error)       
         }
     }
 

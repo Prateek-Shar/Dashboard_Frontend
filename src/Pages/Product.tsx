@@ -14,7 +14,7 @@ const Products = () => {
         
         <div className="min-h-screen w-full bg-[#f8f9fa] flex relative">  
             
-            <div className="xl:w-[80] mm:w-full flex flex-col xl:border-r-2 border-[#ebedf0]">
+            <div className="xl:w-[80%] mm:w-full flex flex-col xl:border-r-2 border-[#ebedf0]">
                 <UserProvider>
                     <div className="w-full">
                         <Product_head />

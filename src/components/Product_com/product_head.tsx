@@ -25,7 +25,7 @@ const Product_head = () => {
 
 
                     <div className="flex px-4">
-                        <p className="font-Poppins text-[#9197b3] pl-0.5 mt-2 xl:text-[16px] mm:text-[12px]">Track, manage, and grow your product catalog.</p>
+                        <p className="font-Poppins text-[#9197b3] mt-2 xl:text-[16px] mm:text-[12px]">Track, manage, and grow your product catalog.</p>
                     </div>
                 </div>
             ) : (

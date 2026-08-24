@@ -202,7 +202,7 @@ const NewProductForm = () => {
                             </div>    
                         )}
                         
-                        <div className="w-full bg-white border-2 border-[#adb5bd] rounded-3xl mt-3">
+                        <div className="w-full bg-white border-2 border-[#adb5bd] rounded-2xl mt-3">
                             <input
                                 type="text"
                                 name="Product_name"
@@ -223,7 +223,7 @@ const NewProductForm = () => {
                             </div>
                         )}
 
-                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3">
+                        <div className="w-full border-2 rounded-2xl border-[#adb5bd] bg-white mt-3">
                             <input
                                 type="number"
                                 name="Product_quantity"
@@ -246,7 +246,7 @@ const NewProductForm = () => {
                             </div> 
                         )}
 
-                        <div className="w-full bg-white border-2 rounded-3xl border-[#adb5bd] xl:mt-2">
+                        <div className="w-full bg-white border-2 rounded-2xl border-[#adb5bd] xl:mt-2">
                             <input
                                 type="number"
                                 name="Product_price"
@@ -301,7 +301,7 @@ const NewProductForm = () => {
                             </div> 
                         )}
 
-                        <div className="w-full border-2 rounded-3xl border-[#adb5bd] bg-white mt-3">
+                        <div className="w-full border-2 rounded-2xl border-[#adb5bd] bg-white mt-3">
                             <input
                                 type="number"
                                 name="Discount"
@@ -317,10 +317,8 @@ const NewProductForm = () => {
 
 
 
-                <div className='w-full xl:mt-20 flex justify-center items-center mm:mt-15'>
-                    <div className='xl:w-[20%] mm:w-[40%] bg-gradient-to-r from-[#00b4d8] to-[#90e0ef] rounded-3xl mb-6'>
-                        <button type="submit" className='xl:p-3 mm:p-2 w-full hover:cursor-pointer font-Poppins mm:text-[14px] xl:text-[16px]'>Submit</button>
-                    </div>  
+                <div className='w-full xl:mt-20 flex justify-center items-center mm:mt-15 mb-5'>
+                    <button type="submit" className='xl:p-3 mm:px-4 mm:py-2 hover:cursor-pointer font-Poppins mm:text-[14px] xl:text-[16px] bg-gradient-to-r from-[#00b4d8] to-[#90e0ef] rounded-3xl'>Add Product</button>
                 </div>
 
                 

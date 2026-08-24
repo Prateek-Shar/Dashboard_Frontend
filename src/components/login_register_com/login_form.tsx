@@ -49,6 +49,19 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
 
     const api = import.meta.env.VITE_PRODUCTION_ADDRESS;
 
+    // const route_check = async() => {
+    //     const res = await fetch(`${api}/UserCheck` , {
+    //         method : "get"
+    //     })
+
+    //     if(!res.ok) {
+    //         console.error("api hit")
+    //         return;
+    //     }
+
+    //     console.info("api ran")
+    // }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -65,12 +78,14 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
                 },  
             });
 
+            // console.log(`Body data : ${form.Username}`)
+
             const data = await res.json();
 
             if (!res.ok) {
-                console.log("Failed to login user:", data.msg || data.error);
+                // console.log("Failed to login user:", data.msg || data.error);
 
-                setErrMsg(data.msg || data.error)
+                setErrMsg(data.msg)
                 err(err_msg)
                 
                 setErrorDiv(true)
