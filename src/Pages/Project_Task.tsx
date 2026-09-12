@@ -1,7 +1,6 @@
 import Project_Task_Stats from "../components/project_tasks_com/project&task_stats";
 import LineChart from "../components/project_tasks_com/production_chart";
 import Task_Details from "../components/project_tasks_com/task_details";
-import down from "/images/down_arr.png"
 import Profile from "../components/Profile";
 import Add_Task_Bt from "../components/project_tasks_com/addTaskBt";
 import Task_Head from "../components/project_tasks_com/TaskHead";

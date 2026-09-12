@@ -1,7 +1,7 @@
 import type { FormEvent } from "react";
-import { useState , useRef, useEffect } from "react";
+import { useState , useRef } from "react";
 import { Spin } from 'antd';
-import plus from "/images/plus.png";
+// import plus from "/images/plus.png";
 
 interface det {
     Project_name : string,
@@ -28,7 +28,7 @@ const NewTaskFrom = () => {
     
     const [Loader , setLoader] = useState<boolean>(false);
     const [submitBt , setSubmitBt] = useState<boolean>(true);
-    const [members , setMembers] = useState<string[]>([])
+    // const [members , setMembers] = useState<string[]>([])
 
     const [statusOptions] = useState<string[]>(["In Progress" , "Completed"])
 
