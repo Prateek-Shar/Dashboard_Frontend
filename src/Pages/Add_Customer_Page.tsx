@@ -19,9 +19,9 @@ const Add_Customer_Page = () => {
                 </div>
             </UserProvider>
 
-            <div className="w-full flex justify-center mb-4">
+            {/* <div className="w-full flex justify-center mb-4">
                 <hr className="w-full border-t-2 border-b-0 border-l-0 border-r-0 border-[#ebedf0]" />
-            </div>
+            </div> */}
 
 
             <div className="w-full flex justify-center items-center xl:mt-20 mm:mt-15">

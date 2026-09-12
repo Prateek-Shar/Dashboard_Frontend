@@ -43,13 +43,21 @@ const Customer_page = () => {
                 </StatsProvider>
 
                 <div className="mm:flex xl:hidden justify-center items-center fixed bottom-3 right-3">
-                    <Add_customer />
+                <Add_customer />
                 </div>
 
             </div>
 
-            <div className="w-[20%] xl:flex mm:hidden justify-center items-start c">
+            <div className="w-[20%] xl:flex mm:hidden justify-start items-center flex-col">
                 <Profile />
+
+                <div className="w-full flex justify-around items-center my-5">
+                    <hr className="border-0 bg-[#f6f6f6] w-[30%] h-[3px] rounded-full" />
+
+                    <p className="font-Poet">Activity</p>
+
+                    <hr className="border-0 bg-[#f6f6f6] w-[30%] h-[3px] rouded-full" />
+                </div>
             </div>
         </div>
     )

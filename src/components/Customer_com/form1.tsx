@@ -91,6 +91,11 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
             CountryInputBox.current.style.border = "2px solid #d8dee9"
         }
 
+        if(country.current) {
+            country.current.style.borderBottom = "2px solid #adb5bd"
+            country.current.style.borderRadius = "20px"
+        }
+
         setShowSuggestionCountryBox(false);
     };
     
@@ -106,9 +111,11 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
 
     const ShowCountrySuggestion = () => {
 
-        if(CountryInputBox.current) {
-            CountryInputBox.current.style.borderBottom = "none"
+        if(country.current) {
+            country.current.style.borderBottom = "none"
+            country.current.style.borderRadius = "10px"
         }
+
 
         setShowSuggestionCountryBox(true)
     }
@@ -121,10 +128,8 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
         <div className="w-full">
             <form onSubmit={sendCustomer} method='post'>
 
-                <div className='w-full mt-5 flex justify-center'>    
-                    <div className='xl:w-[30%] bg-[#edf6f9] mm:w-[72%] p-2 mm:mb-8 flex justify-center rounded-2xl'>
-                        <p className='font-Alan xl:text-2xl mm:text-[16px]'>Personal Information</p>
-                    </div>
+                <div className='w-full my-5 flex justify-center'>    
+                    <p className='font-Alan xl:text-2xl mm:text-[16px]'>Personal Information</p>
                 </div>
 
                 {error && (
@@ -142,71 +147,55 @@ const Form1: React.FC<Form1Props> = ({ form, setForm, onNext }) => {
                 )}
 
                 
-                <div className='w-[98%] flex xl:flex-row mm:flex-col justify-between items-center xl:mt-15 xl:ml-2 xl:mr-2 mm:ml-0 mm:mr-0'>
-                    <div className='xl:w-[40%] mm:w-full flex xl:justify-normal mm:justify-center'>
-                        <div className='w-[40%] xl:flex mm:hidden items-center'>
-                            <p className='font-Poppins'>Full Name : </p>
-                        </div>
+                <div className='w-[98%] flex xl:flex-row mm:flex-col justify-between items-center xl:mt-15 xl:ml-2 xl:mr-2 mm:ml-0 mm:mr-0 mm:mt-2 xl:py-0 mm:py-4'>
+                    <div className='xl:w-[40%] mm:w-[80%] flex xl:flex-row mm:flex-col xl:justify-normal mm:justify-center mm:items-center'>
+                        <p className='font-Poppins xl:flex mm:hidden mr-2'>Full Name : </p>
 
-                        <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "text" autoComplete="off"  name="Customer_name" placeholder="Customer name" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={handleInputChange} value={form.Customer_name}/>
-                        </div>
+                        <input type = "text" autoComplete="off"  name="Customer_name" placeholder="Customer name" className='border-2 py-2 pl-2 border-[#adb5bd] xl:text-[16px] mm:text-[13px] rounded-2xl outline-0 xl:placeholder:text-transparent mm:placeholder:flex font-Poppins' onChange={handleInputChange} value={form.Customer_name}/>
                     </div>
 
-                    <div className='xl:w-[40%] mm:w-full flex flex-col xl:my-0 mm:my-4'>
-                        <div className='w-full flex xl:justify-normal mm:justify-center'>
-                            <div className='w-[40%] xl:flex mm:hidden items-center'>
-                                <p className='font-Poppins'>Country : </p>
-                            </div>
+                    <div className='xl:w-[40%] mm:w-[80%] flex xl:flex-row mm:flex-col justify-center items-center relative xl:mt-0 mm:mt-4'>
+                        <p className='font-Poppins xl:flex mm:hidden mr-2'>Country : </p>
 
-                            <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]' ref={CountryInputBox}>
-                                <input type='text' autoComplete='off' name="Country" placeholder="Country" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={(e)=>{ handleInputChange(e); ShowCountrySuggestion(); disable(); }} value={form.Country}  ref={country}/>
-                            </div>
-                        </div>
+                        <input type='text' autoComplete='off' name="Country" placeholder="Country" className='py-2 pl-2 xl:text-[16px] mm:text-[13px] outline-0 xl:placeholder:text-transparent mm:placeholder:flex font-Poppins border-2 border-[#adb5bd] rounded-2xl' onChange={(e)=>{ handleInputChange(e); ShowCountrySuggestion(); disable(); }} value={form.Country}  ref={country}/>
 
                         {showSuggestionCountryBox && ( 
-                        <div className='w-full flex flex-col'>
+                        <div className='mm:w-[80%] xl:w-[78%] rounded-b-2xl flex justify-center items-end flex-col absolute top-7 xl:left-0'>
                             {suggestions
                                 .filter(sug => sug.startsWith(v ?? ""))
                                 .map(sug => (
                                     <div
-                                        className='w-[60%] ml-[206px] border-2 border-t-0 border-[#d8dee9] hover:bg-[#edf6f9] hover:cursor-pointer'
+                                        className='w-[52%] border-2 border-t-0 border-[#adb5bd] hover:bg-[#edf6f9] bg-[#edf6f9] hover:cursor-pointer'
                                         onClick={() => handleSelectSuggestion(sug)}
                                         key={sug}
                                     >
-                                        <p className='p-2'>{sug}</p>
+                                        <p className='py-2 pl-2 font-Poppins xl:text-[16px] mm:text-[13px]'>{sug}</p>
                                     </div>
                             ))}
                         </div>
                         )}
                     </div>
+                
                 </div>
 
-                <div className='w-[98%] flex xl:flex-row mm:flex-col justify-between xl:mt-10 mm:mt-0 xl:ml-2 xl:mr-2'>
-                    <div className='xl:w-[40%] mm:w-full flex xl:my-0 mm:my-3 xl:justify-normal mm:justify-center'>
-                        <div className='w-[40%] xl:flex mm:hidden items-center'>
-                            <p className='font-Poppins'>Email : </p>
-                        </div>
+                <div className='w-[98%] flex xl:flex-row mm:flex-col justify-between xl:mt-10 mm:mt-0 xl:ml-2 xl:mr-2 xl:py-0 mm:py-1'>
 
-                        <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type = "email" autoComplete="off" name='Email' placeholder="Email" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={handleInputChange} value={form.Email}/>
-                        </div>
+                    <div className='xl:w-[40%] mm:w-full flex xl:justify-start mm:justify-center items-center'>
+                        <p className='font-Poppins xl:flex mm:hidden mr-2'>Email : </p>
+                        
+                        <input type = "email" autoComplete="off" name='Email' placeholder="Email" className='border-2 border-[#adb5bd] rounded-2xl py-2 pl-2 outline-0 xl:placeholder:text-transparent mm:placeholder:flex font-Poppins xl:text-[16px] mm:text-[13px]' onChange={handleInputChange} value={form.Email}/>
                     </div>
 
-                    <div className='xl:w-[40%] mm:w-full flex xl:my-0 mm:my-3 xl:justify-normal mm:justify-center'>
-                        <div className='w-[40%] xl:flex mm:hidden items-center'>
-                            <p className='font-Poppins'>Contact No. : </p>
-                        </div>
+                    <div className='xl:w-[40%] mm:w-full flex xl:mt-0 mm:mt-4 justify-center items-center'>
+                        <p className='font-Poppins xl:flex mm:hidden mr-2'>Contact No. : </p>
 
-                        <div className='xl:w-[60%] mm:w-[80%] border-2 border-[#d8dee9] rounded-[5px]'>
-                            <input type='number' autoComplete='off' name='Contact_no' placeholder="Contact" className='w-full p-3 outline-0 xl:placeholder:hidden mm:placeholder:flex' onChange={handleInputChange} value={form.Contact_no} />
-                        </div>
+                        <input type='number' autoComplete='off' name='Contact_no' placeholder="Contact" className='border-2 border-[#adb5bd] rounded-2xl py-2 pl-2 outline-0 xl:placeholder:text-transparent mm:placeholder:block font-Poppins xl:text-[16px] mm:text-[13px]' onChange={handleInputChange} value={form.Contact_no} />
                     </div>
                 </div>
 
                                 
                 <div className='w-full flex justify-center items-center xl:mt-20 mm:my-10 xl:mb-5' ref={SubmitDiv}>
-                    <button type="submit" className='bg-linear-to-r from-[#00b4d8] to-[#90e0ef] xl:p-3 mm:py-2 mm:px-6n hover:cursor-pointer font-Poppins flex rounded-3xl'>Next</button>
+                    <button type="submit" className='bg-linear-to-r from-[#00b4d8] to-[#90e0ef] xl:px-8 py-2 mm:px-6 hover:cursor-pointer font-Poppins flex rounded-3xl'>Next</button>
                 </div>  
 
             </form>

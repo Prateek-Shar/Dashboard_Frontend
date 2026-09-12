@@ -48,7 +48,7 @@ const Income_head = () => {
         <div className="flex items-start">
         {Loader ? (
             <div className="flex flex-col justify-center items-start">
-                <div className="flex mt-5 xl:ml-10 mm:ml-5">
+                <div className="flex mt-5 xl:ml-10 mm:ml-5 items-center">
                     <p className="font-Alan xl:text-3xl mm:text-[16px] flex shrink-0">Hello , {userDetails?.First_name}</p>
                     <img src={Hello} className="ml-2 object-contain xl:w-[5%] mm:w-[8%]"/>
                 </div>

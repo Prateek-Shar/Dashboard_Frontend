@@ -4,6 +4,7 @@ import income from "/images/income.png";
 import box from "/images/product.png";
 import over from "/images/overview.png"
 import logout from "/images/logout.png";
+import task from "/images/task_project.png";
 import { useNavigate } from "react-router-dom";
 
 
@@ -44,6 +45,10 @@ const Min_sidebar = () => {
         navigate("/products")
     }
 
+    const handleClickToTask = () => {
+        navigate("/task&projects")
+    }
+
     return (
 
         <div className="w-15 shrink-0 min-h-screen flex flex-col justify-between items-center border-r-2 border-r-[#f2f2f2]">
@@ -71,6 +76,10 @@ const Min_sidebar = () => {
 
                     <div className="w-[50%] flex justify-center items-center mt-4 p-1" onClick={handleClickToProducts}>
                         <img src={box} />
+                    </div>
+
+                    <div className="w-[50%] flex justify-center items-center mt-4 p-1" onClick={handleClickToTask}>
+                        <img src={task} />
                     </div>
                 </div>
 

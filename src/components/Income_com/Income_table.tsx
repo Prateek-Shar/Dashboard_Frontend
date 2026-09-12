@@ -182,7 +182,7 @@ const Income_table = () => {
                 
                 ) : (
 
-                    <div className="w-full flex justify-center items-center xl:my-40 mm:py-40">
+                    <div className="w-full flex justify-center items-center xl:my-10 mm:py-40">
                         <div className="mm:w-[80%] bg-white py-10 flex justify-center xl:rounded-2xl mm:rounded-3xl">
                             <p className="font-Poppins xl:text-2xl mm:text-[20px]">No Income Found.</p>
                         </div>

@@ -43,8 +43,16 @@ const Products = () => {
                 </StatsProvider>
             </div>
 
-            <div className="w-[20%] xl:flex mm:hidden items-start justify-center">
+            <div className="w-[20%] xl:flex mm:hidden items-center justify-start flex-col">
                 <Profile />
+
+                <div className="w-full flex justify-around items-center my-5">
+                    <hr className="border-0 bg-[#f6f6f6] w-[30%] h-[3px] rounded-full" />
+
+                    <p className="font-Poet">Activity</p>
+
+                    <hr className="border-0 bg-[#f6f6f6] w-[30%] h-[3px] rouded-full" />
+                </div>
             </div>
 
         </div>

@@ -31,7 +31,7 @@ const Customer_head = () => {
                     </div>
 
                     <div className="flex">
-                        <p className="font-Poppins text-[#9197b3] xl:pl-[6px] mm:pl-[1px] mt-2 xl:text-[16px] mm:text-[12px]">Understand Your Customers, Grow Your Business</p>
+                        <p className="font-Poppins text-[#9197b3] xl:pl-[2px] mm:pl-[1px] mt-2 xl:text-[16px] mm:text-[12px]">Understand Your Customers, Grow Your Business</p>
                     </div>
                 </div>
             ) : (

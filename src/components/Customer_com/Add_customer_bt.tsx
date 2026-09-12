@@ -11,10 +11,10 @@ const   Add_product = () => {
 
     
     return (
-        <div className="flex bg-white rounded-3xl px-2 py-2 z-50">
-            <p className="font-Poppins xl:flex mm:hidden text-[18px]">New Customer</p>
+        <div className="flex items-center justify-center bg-white rounded-3xl py-3 z-50">
+            <p className="font-Poppins xl:flex mm:hidden text-[18px] px-4">New Customer</p>
 
-            <img src={add} onClick={handleClickToNewCustomer} className="w-10 h-10 p-2"/>
+            <img src={add} onClick={handleClickToNewCustomer} className="xl:w-6 xl:h-6 mm:w-8 mm:h-8 xl:mr-4 mm:mr-0 xl:p-0 mm:p-1"/>
         </div>
     )
 }

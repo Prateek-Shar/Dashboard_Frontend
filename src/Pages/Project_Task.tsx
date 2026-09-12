@@ -1,77 +1,66 @@
-import Project_stats from "../components/project_tasks_com/stats";
+import Project_Task_Stats from "../components/project_tasks_com/project&task_stats";
 import LineChart from "../components/project_tasks_com/production_chart";
 import Task_Details from "../components/project_tasks_com/task_details";
 import down from "/images/down_arr.png"
-import calender from "/images/calender.png"
 import Profile from "../components/Profile";
+import Add_Task_Bt from "../components/project_tasks_com/addTaskBt";
+import Task_Head from "../components/project_tasks_com/TaskHead";
+import { UserProvider } from "../context/login_context";
 
 
 
 const Project_Task = () => {
 
     const date = new Date().getDate()
-    const month =  new Date().toLocaleString('default', { month: 'long' });
-    const year = new Date().getFullYear()
+    const month =  new Date().toLocaleString('default', { month: 'short' });
 
+    const endForChart = new Date()
 
-    // const handleClick = () => {
-    //     const res = fetch(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/dummydata` , {
-    //         method : "post"
-    //     })
+    const startForChart = new Date(endForChart)
+    startForChart.setDate(endForChart.getDate() - 7)
 
-    //     if(!res) {
-    //         console.error("Something went wrong")
-    //         return;
-    //     }
+    console.log("Start : " , startForChart.toString())
+    console.log("End : " , endForChart.toString())
 
-    //     console.info("Success")
-    // }
+    const end = date - 7;
 
-
-    // bg-[#f8f9fa]
     return (
 
         <div className="w-full min-h-screen flex bg-[#f8f9fa]">
 
-            <div className="w-[80%] border-r-2 border-[#f0f0f2]  min-h-screen">
-                <div className="flex justify-between items-center">
-                    <div className="flex flex-col">
-                        <div className="flex mt-5 ml-10">
-                            <p className="font-Alan text-3xl">Hello , Prateek</p>
-                        </div>
-
-                        <div className="flex">
-                            <p className="font-Poppins text-[#9197b3] ml-10 mt-2">Track team progress here . You almost reach a goal</p>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-end items-center mr-7">
-                        <p className="font-Alan">{date} {month} , {year}</p>
-
-                        <div className="flex w-[6%] bg-[#f0f0f2] rounded-4xl ml-2">
-                            <img src={calender} className="p-3" />
-                        </div>
-                    </div>
-                </div>
+            <div className="xl:w-[80%] mm:w-full border-r-2 border-[#f0f0f2] relative">
                 
+                <UserProvider>
+                    <Task_Head />
+                </UserProvider>
 
-                <div className="flex">
-                    <Project_stats />
+                <div className="flex justify-around items-center">
+                    <div className="xl:w-[70%] mm:w-[80%] justify-center items-center xl:mt-0 mm:mt-5">
+                        <Project_Task_Stats />
+                    </div>
+
+                    <div className="w-[20%] xl:flex mm:hidden items-center justify-center">
+                        <Add_Task_Bt />
+                    </div>
                 </div>
 
-                <div className="w-full flex justify-center items-center my-10">
-                    <div className="w-[93%] flex flex-col">
-                        <div className="flex justify-between items-center">
+                <div className="xl:hidden mm:flex fixed bottom-5 right-5">
+                    <Add_Task_Bt />
+                </div>
+
+                <div className="w-full xl:flex mm:hidden justify-center items-center my-10">
+                    <div className="w-[93%] flex flex-col items-center justify-center">
+                        <div className="w-full flex justify-between items-center">
                             <p className="font-Alan text-2xl">Performence</p>
 
-                            <div className="w-[13%] flex bg-[#f1f1f1] p-2 rounded-3xl justify-center items-center   ">
-                                <p className="font-Poppins text-[13px]">01 - 07 {month}</p>
-                                <img src={down} className="object-contain w-[18%] p-1 ml-2" />
+                            <div className="flex bg-[#f1f1f1] rounded-3xl justify-center items-center px-4 py-2">
+                                <p className="font-Poppins text-[13px]">{end}-{date} {month}</p>
+                                {/* <img src={down} className="object-contain w-6 h-6 py-1 ml-1" />  */}
                             </div>
                         </div>
 
-                        <div className="flex mt-5">
-                            <LineChart />
+                        <div className="w-[80%] flex mt-5">
+                            <LineChart from={startForChart} to={endForChart}/>
                         </div>
                     </div>
                 </div>
@@ -80,9 +69,21 @@ const Project_Task = () => {
                     <Task_Details  />
                 </div>
 
+                <div className="w-full xl:hidden mm:flex justify-center items-center my-10">
+                    <div className="w-[75%] flex justify-center">
+                        <div className="mm:w-[2.5%] ml:w-[2.1%] flex justify-center items-center animate-pulse">
+                            <div className="w-full h-[6px] bg-red-600 rounded-full" />
+                        </div>
+
+                        <div className="flex items-center pl-2">
+                            <p className="text-[10px] font-Poet">Open on a desktop for more insights.</p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
-            <div className="w-[20%] flex items-center flex-col">
+            <div className="w-[20%] xl:flex mm:hidden items-center flex-col">
                 {/* <button className="p-2 bg-amber-400 rounded-2xl" onClick={handleClick}>Add Data</button> */}
 
                 <Profile />

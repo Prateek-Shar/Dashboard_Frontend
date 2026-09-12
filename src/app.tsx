@@ -12,6 +12,8 @@ import No_Page from "./Pages/Page_404";
 import With_Sidebar from "./components/WithSidebar";
 import No_sidebar from "./components/NoSidebar";
 import Project_Task from "./Pages/Project_Task"
+import Edit_Task from "./Pages/Edit_Task_Page";
+import New_Task from "./Pages/New_Task_Page";
 
 
 const App = () => {
@@ -68,6 +70,16 @@ const App = () => {
                         <Route 
                             path="/task&projects"
                             element={ <Project_Task /> }
+                        />
+
+                        <Route 
+                            path="/editPage/:id"
+                            element={ <Edit_Task /> }
+                        />
+
+                        <Route 
+                            path="/newTask"
+                            element={ <New_Task /> }
                         />
                     </Route>
                 </Route>

@@ -39,13 +39,13 @@ const Stats = () => {
 
                     <div className="xl:w-[30%] mm:w-[35%] flex items-center justify-evenly">
                         <div className="flex items-center">
-                            <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center ">
-                                <img src={customers} className="xl:p-2 mm:p-[5px]" />
+                            <div className="w-[28%] bg-[#e9ecef] rounded-4xl flex justify-center items-center ">
+                                <img src={customers} className="xl:p-4 mm:p-[5px]" />
                             </div>
 
                             <div className="flex flex-col grow mm:ml-2">
                                 <p className="font-Poppins xl:text-[16px] mm:text-[5px]">Total Customers</p>
-                                <p className="font-Poppins text-[#495057] xl:text-[16px] mm:text-[8px] mm:mt-1 xl:mt-0">{totalCustomerCount}</p>
+                                <p className="font-Poppins text-[#495057] xl:text-[16px] mm:text-[8px] mm:mt-1 xl:mt-2">{totalCustomerCount}</p>
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@ const Stats = () => {
 
                             <div className="flex flex-col mm:ml-2 grow">
                                 <p className="font-Poppins xl:text-[16px] mm:text-[6px]">Members</p>
-                                <p className="font-Poppins text-[#495057] xl:text-[16px] mm:text-[8px] xl:mt-0 mm:mt-1">0</p>
+                                <p className="font-Poppins text-[#495057] xl:text-[16px] mm:text-[8px] xl:mt-2 mm:mt-1">0</p>
                             </div>
                         </div>
 
@@ -70,12 +70,12 @@ const Stats = () => {
                     <div className="xl:w-[27%] mm:w-[35%] flex items-center">
 
                         <div className="w-[30%] bg-[#e9ecef] rounded-4xl flex justify-center items-center">
-                            <img src={active} className="xl:p-3 mm:p-2"/>
+                            <img src={active} className="xl:p-4 mm:p-2"/>
                         </div>
 
                         <div className="flex flex-col mm:ml-2 grow">
                             <p className="font-Poppins xl:text-[16px] mm:text-[6px]">Active Now</p>
-                            <p className="font-Poppins text-[#495057]  mm:mt-1 xl:mt-0 xl:text-[16px] mm:text-[8px]">{totalActiveCount}</p>
+                            <p className="font-Poppins text-[#495057] mm:mt-1 xl:mt-2 xl:text-[16px] mm:text-[8px]">{totalActiveCount}</p>
                         </div>
 
                     </div>

@@ -43,7 +43,7 @@ const Profile = () => {
 
     return (
         <>
-            <div className="w-[95%] flex justify-center items-center bg-[#f2f2f2] rounded-2xl mt-3" ref={BasicInfo}>
+            <div className="w-[95%] flex flex-col justify-center items-center bg-[#f2f2f2] rounded-2xl mt-3" ref={BasicInfo}>
                 {Loader ? (
                     <div className="w-full flex flex-col items-center py-8">
 
@@ -70,10 +70,12 @@ const Profile = () => {
                         
                     )
                 }
+
             </div>
+            
         </>
     )
 }
 
 
-export default Profile
+export default Profile  

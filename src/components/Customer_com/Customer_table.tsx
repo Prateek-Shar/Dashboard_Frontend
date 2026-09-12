@@ -227,7 +227,7 @@ const Table_content: React.FC = () => {
 
       {showTable && (
         customers.length > 0 ? (
-          <div className="w-[80%] flex flex-col justify-center items-center mb-10 shadow-lg rounded-4xl mt-15">
+          <div className="mm:w-[80%] xl:w-[85%] flex flex-col justify-center items-center mb-10 shadow-lg rounded-4xl mt-15">
 
             <div className="xl:w-[97%] flex justify-between items-center mm:w-full mt-5">
               {head && (

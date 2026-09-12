@@ -125,7 +125,7 @@ const Income = () => {
 
     return (
 
-        <div className="w-full min-h-screen flex  bg-[#f8f9fa] relative">
+        <div className="w-full min-h-screen flex bg-[#f8f9fa] relative ">
 
             <div className="xl:w-[80%] mm:w-full border-r-2 border-[#f0f0f2]">
 
@@ -190,9 +190,18 @@ const Income = () => {
                 </div>
             </div>
             
-            <div className="w-[20%] xl:flex mm:hidden justify-center items-start">
+            <div className="w-[20%] xl:flex mm:hidden justify-start items-center flex-col">
                 <Profile />
+
+                <div className="w-full flex justify-around items-center my-5">
+                    <hr className="border-0 bg-[#f6f6f6] w-[30%] h-[3px] rounded-full" />
+
+                    <p className="font-Poet">Activity</p>
+
+                    <hr className="border-0 bg-[#f6f6f6] w-[30%] h-[3px] rouded-full" />
+                </div>
             </div>
+
         </div>
     )
 }
