@@ -14,10 +14,10 @@ const formDefault = {
 };
 
 interface OnErrMsg {
-    err : (value : String) => void
+    err? : (value : String) => void
 }
 
-const Login_form:React.FC<OnErrMsg> = ({err}) => {
+const Login_form:React.FC<OnErrMsg> = () => {
 
 
     const [form, setForm] = useState(formDefault);
@@ -72,7 +72,7 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
                 // console.log("Failed to login user:", data.msg || data.error);
 
                 setErrMsg(data.msg)
-                err(err_msg)
+                // err(err_msg)
                 
                 setErrorDiv(true)
 

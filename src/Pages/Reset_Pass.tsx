@@ -37,8 +37,8 @@ const Reset = () => {
 
     const [formTwoDefault] = useState<formTwo>(formTwo)
 
-    const [loader , setLoader] = useState(false)
-    const [submitBt , setSubmitBt] = useState(true);
+    const [loader] = useState(false)
+    const [submitBt] = useState(true);
     const [typeText , setTypeText] = useState(false)
     const [errorDiv , setErrorDiv] = useState(false)
     const [err_msg , setErrMsg] = useState<string>("")

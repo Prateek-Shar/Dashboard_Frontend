@@ -15,23 +15,24 @@ const Login_Register = () => {
 
     const [isRegister, setIsRegister] = useState(false);
     const [isLogin , setIsLogin] = useState(true)
-    const [loginBg , setIsLoginBg] = useState(true)
-    const [registerBg , setIsRegisterBg] = useState(false)
-    const [msg , setMsg] = useState<String>("")
+    // const [loginBg , setIsLoginBg] = useState(true)
+    // const [registerBg , setIsRegisterBg] = useState(false)
+    // const [msg , setMsg] = useState<String>("")
+    // const [errorDiv , setErrorDiv] = useState(false)
 
 
     const handleToggleToSignupPage = () => {
         setIsRegister(true)
-        setIsRegisterBg(true)
-        setIsLoginBg(false)
+        // setIsRegisterBg(true)
+        // setIsLoginBg(false)
         setIsLogin(false)
     }
 
     const handleToggleToLoginPage = () => {
         setIsLogin(true)
-        setIsLoginBg(true)
+        // setIsLoginBg(true)
         setIsRegister(false)
-        setIsRegisterBg(false)
+        // setIsRegisterBg(false)
     }
 
     // console.log(`${import.meta.env.VITE_PRODUCTION_ADDRESS}`)
@@ -97,6 +98,13 @@ const Login_Register = () => {
                         </div>
                     </div>
 
+                    {/* <div className="w-full flex justify-center items-center mt-5">
+                        <div className="w-[50%] flex justify-center items-center">
+                            <img src={cross} className="object-contain w-[4%]"/>
+                            <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
+                        </div>
+                    </div> */}
+
                     <div className="flex flex-col xl:rounded-r-2xl mm:rounded-2xl bg-[#f8f9ff] ">
                         <UserProvider>
                             {isRegister && (
@@ -110,7 +118,7 @@ const Login_Register = () => {
                             {isLogin && (
                                 <div className="flex flex-col items-center">
                                     <Login_Head onSwitch={handleToggleToSignupPage} />
-                                    <Login_form err={setMsg} />    
+                                    <Login_form  />    
                                 </div>
                             )}
                         </UserProvider>
