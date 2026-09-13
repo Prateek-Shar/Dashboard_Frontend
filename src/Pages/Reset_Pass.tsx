@@ -129,8 +129,16 @@ const Reset = () => {
             credentials: "include",
         });
 
-        if(!res) {
-            console.info("API Hit")
+        const data = await res.json()
+
+        if(!res.ok) {
+            setErrorDiv(true)
+            setErrMsg(data.msg)
+
+            setTimeout(() => {
+                setErrorDiv(false)
+            } , 2000)
+
             return false
         }
 
