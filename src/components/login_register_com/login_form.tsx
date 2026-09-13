@@ -38,7 +38,6 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
     const navigate = useNavigate();
 
 
-
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setForm((prev) => {
@@ -48,19 +47,6 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
     }
 
     const api = import.meta.env.VITE_PRODUCTION_ADDRESS;
-
-    // const route_check = async() => {
-    //     const res = await fetch(`${api}/UserCheck` , {
-    //         method : "get"
-    //     })
-
-    //     if(!res.ok) {
-    //         console.error("api hit")
-    //         return;
-    //     }
-
-    //     console.info("api ran")
-    // }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -137,6 +123,7 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
         setEyeopen(prev => !prev);
     }
 
+
     return (
         
        <div className="xl:w-[80%] mt-20 flex flex-col ml:w-full mm:mt-10">
@@ -172,6 +159,10 @@ const Login_form:React.FC<OnErrMsg> = ({err}) => {
                             <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
                         </div>
                     )}
+                </div>
+
+                <div className="w-[70%] mt-5 flex justify-end items-center">
+                    <p className="flex font-Poppins text-[#3b60e7] hover:cursor-pointer" onClick={()=> {navigate('/resetPass')}}>Forgot Password ?</p>
                 </div>
 
                 <div className="w-full flex mt-15 justify-center mb-10">

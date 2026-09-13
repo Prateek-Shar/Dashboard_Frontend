@@ -6,10 +6,10 @@ import Latest_Transaction from "../components/Overview_com/latest_transac";
 import Alerts_Box from "../components/Overview_com/alerts_box";
 import Profile from "../components/Profile";
 
-
 const Overview = () => {
 
     return (
+
         
         <div className="xl:w-full min-h-screen flex bg-[#f8f9fa]">
             
@@ -114,7 +114,8 @@ const Overview = () => {
                     <hr className="border-0 bg-[#f6f6f6] w-[30%] h-[3px] rouded-full" />
                 </div>
             </div>
-
+            
+            
         </div>
 
     )

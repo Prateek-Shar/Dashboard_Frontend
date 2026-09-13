@@ -14,6 +14,8 @@ import No_sidebar from "./components/NoSidebar";
 import Project_Task from "./Pages/Project_Task"
 import Edit_Task from "./Pages/Edit_Task_Page";
 import New_Task from "./Pages/New_Task_Page";
+import Landing_Page from "./Pages/Land";
+import Reset from "./Pages/Reset_Pass";
 
 
 const App = () => {
@@ -24,8 +26,10 @@ const App = () => {
             <Routes>
                 
                 <Route element = {<No_sidebar />}>
-                    <Route path="/" element={<Login_Register />} />
+                    <Route path="/" element={<Landing_Page />} />
                     <Route path="*" element={<No_Page />} />
+                    <Route path="/login" element={<Login_Register />} />
+                    <Route path="/resetPass" element={<Reset />} />
                 </Route>
 
 

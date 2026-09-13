@@ -6,7 +6,7 @@ import { UserProvider } from '../context/login_context';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import DashboardBackground from "../components/login_section/Dashboard_bg";
 
 
 const Login_Register = () => {
@@ -58,11 +58,16 @@ const Login_Register = () => {
 
 
     return (
+        
+        <div className="relative min-h-screen overflow-hidden">
 
-        <div className="xl:w-screen xl:h-screen bg-[url(/images/bg_login.jpg)] bg-cover bg-no-repeat flex xl:justify-normal items-center ml:w-full ml:h-screen ml:justify-center mm:w-full mm:h-screen mm:justify-center mm:py-13 overflow-x-hidden overflow-y-hidden">
+        <DashboardBackground />
+
+        {/* Your actual website content */}
+        <div className="relative z-10 xl:w-screen xl:h-screen flex xl:justify-normal items-center ml:w-full ml:h-screen ml:justify-center mm:w-full mm:h-screen mm:justify-center mm:py-13 overflow-x-hidden overflow-y-hidden">
 
             <div className="w-[90%] flex justify-center items-center">
-                {loginBg && (
+                {/* {loginBg && (
                 <>
                     <div className="absolute mm:hidden xl:top-60 xl:left-80 xl:w-[64%] xl:h-[47%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-44 ml:left-13 ml:w-[80%] ml:h-[57%] mm:top-33 mm:left-8 mm:w-[88%] mm:h-[61%]" />
                     <div className="xl:flex absolute xl:top-56 xl:left-87 xl:w-[61%] xl:h-[51%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 mm:hidden" />
@@ -74,7 +79,7 @@ const Login_Register = () => {
                     <div className="mm:hidden xl:flex absolute xl:top-17 xl:left-79 xl:w-[64.5%] xl:h-[84%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-23 ml:left-3 ml:w-[88%] ml:h-[80%] mm:top-23 mm:left-3 mm:w-[88%] mm:h-[80%]" />
                     <div className="mm:hidden xl:flex absolute xl:top-13 xl:left-87 xl:w-[61%] xl:h-[89%] bg-[#e4e7f4] rounded-xl shadow-xl z-10 ml:top-22 ml:left-5 ml:w-[87%] ml:h-[81%] mm:top-22 mm:left-5 mm:w-[87%] mm:h-[81%]" />
                 </> 
-                )}
+                )} */}
 
             
                 <div className="relative z-20 xl:ml-35 xl:w-[70%] xl:h-[90%] rounded-2xl shadow-2xl flex bg-[#F1F5F9] ml:w-[95%] ml:ml-5 mm:ml-5 mm:w-[95%]">
@@ -92,28 +97,33 @@ const Login_Register = () => {
                         </div>
                     </div>
 
-                    <UserProvider>
-                        {isRegister && (
-                            <div className="xl:w-[60%] ml:w-full mm:w-full bg-[#f8f9ff] xl:rounded-r-2xl ml:rounded-2xl mm:rounded-2xl flex flex-col items-center">
-                                <Register_Head onSwitch={handleToggleToLoginPage} />
-                                <Register_Form onSwitch={handleToggleToLoginPage}/>
-                            </div>
-                        )}
+                    <div className="flex flex-col xl:rounded-r-2xl mm:rounded-2xl bg-[#f8f9ff] ">
+                        <UserProvider>
+                            {isRegister && (
+                                <div className="flex flex-col items-center">
+                                    <Register_Head onSwitch={handleToggleToLoginPage} />
+                                    <Register_Form onSwitch={handleToggleToLoginPage}/>
+                                </div>
+                            )}
 
 
-                        {isLogin && (
-                            <div className="xl:w-[60%] bg-[#f8f9ff] xl:rounded-r-2xl ml:rounded-2xl mm:rounded-2xl flex flex-col items-center ml:w-full mm:w-full">
-                                <Login_Head onSwitch={handleToggleToSignupPage} />
-                                <Login_form err={setMsg} />    
-                            </div>
-                        )}
-                    </UserProvider>
+                            {isLogin && (
+                                <div className="flex flex-col items-center">
+                                    <Login_Head onSwitch={handleToggleToSignupPage} />
+                                    <Login_form err={setMsg} />    
+                                </div>
+                            )}
+                        </UserProvider>
+                    </div>
 
                 </div>  
 
             </div>
 
-            {msg}
+        </div>
+
+
+
         </div>
         
     );
