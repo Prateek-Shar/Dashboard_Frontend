@@ -153,43 +153,61 @@ const Reset = () => {
 
             <div className="w-screen min-h-screen flex justify-center items-center">
 
-                <div className="flex">
-                <div className="p-10 xl:flex flex-col justify-evenly ml:hidden mm:hidden bg-[#EEF4FF] rounded-l-2xl border-r-2 border-[#E5E7EB]"> 
-                    <div className="flex flex-col my-10">
-                        <h1 className="font-Poppins text-[#4a79ff] p-2 text-3xl">Reset Your Password 🔐</h1>
-                        <div className="mt-5 px-2">
-                            <span className="font-Poppins text-gray-600 py-1">Forgot your password? No worries — we'll help you get back into your account securely.</span>
+                <div className="flex xl:flex-row mm:flex-col justify-center">
+                    <div className="xl:py-10 xl:px-10 mm:py-5 mm:px-5 xl:flex flex-col justify-evenly bg-[#EEF4FF] xl:rounded-l-2xl xl:rounded-tr-none mm:rounded-t-2xl border-r-2 border-[#E5E7EB]"> 
+                        <div className="flex flex-col my-10">
+                            <h1 className="font-Poppins text-[#4a79ff] p-2 xl:text-3xl mm:text-2xl">Reset Your Password 🔐</h1>
+                            <div className="mt-5 px-2">
+                                <span className="font-Poppins text-gray-600 py-1">Forgot your password? No worries — we'll help you get back into your account securely.</span>
+                            </div>
+                        </div>
+
+                        <div className="my-5">
+                            <p className="text-gray-600 p-2 font-Poppins">Create a new password and get back to managing your work with ease.</p>
                         </div>
                     </div>
 
-                    <div className="my-5">
-                        <p className="text-gray-600 p-2 font-Poppins">Create a new password and get back to managing your work with ease.</p>
-                    </div>
-                </div>
+                    <div className="w-full flex flex-col bg-[#EEF4FF] xl:rounded-r-2xl xl:rounded-bl-none mm:rounded-b-2xl justify-center">
+                        <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center">
 
-                <div className="flex flex-col ml:w-full bg-[#EEF4FF] rounded-r-2xl justify-center">
-                    <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center">
-
-                        {errorDiv && (
-                            <div className="w-full flex justify-center items-center mt-5">
-                                <div className="w-[50%] flex justify-center items-center">
-                                    <img src={cross} className="object-contain w-[4%]"/>
-                                    <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
+                            {errorDiv && (
+                                <div className="w-full flex justify-center items-center mt-5">
+                                    <div className="w-[50%] flex justify-center items-center">
+                                        <img src={cross} className="object-contain w-[4%]"/>
+                                        <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
 
-                        {stepCount == 1 && (
-                            <div className="xl:w-[70%] xl:mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
-                                <input type="text" placeholder="Enter Username" name="Username" autoComplete="off" onChange={handleChangeFormOne} value={formOne.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0 disabled:cursor-not-allowed" disabled={disabled} />
-                            </div>
-                        )}
-                        
-                        {stepCount == 2 && (
-                            <>
-                            <div className="xl:w-[70%] bg-[#e0e6f9] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%] rounded-2xl">
+                            {stepCount == 1 && (
+                                <div className="xl:w-[70%] xl:mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
+                                    <input type="text" placeholder="Enter Username" name="Username" autoComplete="off" onChange={handleChangeFormOne} value={formOne.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0 disabled:cursor-not-allowed" disabled={disabled} />
+                                </div>
+                            )}
+                            
+                            {stepCount == 2 && (
+                                <>
+                                <div className="xl:w-[70%] bg-[#e0e6f9] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%] rounded-2xl">
+                                    {/* <div className="w-[90%]  rounded-l-2xl"> */}
+                                        <input type={typeText ? "text" : "password"} placeholder="New Password"  name="Password" value={formTwo.Password} onChange={handleChangeFormTwo} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                                    {/* </div> */}
+
+                                    {eyeclose && (
+                                        <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
+                                            <img src={eye_close} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                                        </div>
+                                    )}
+
+                                    {eyeopen && (
+                                        <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
+                                            <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="xl:w-[70%] bg-[#e0e6f9] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%] rounded-2xl">
                                 {/* <div className="w-[90%]  rounded-l-2xl"> */}
-                                    <input type={typeText ? "text" : "password"} placeholder="New Password"  name="Password" value={formTwo.Password} onChange={handleChangeFormTwo} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                                    <input type={typeText ? "text" : "password"} placeholder="Confirm New Password"  name="Confirm_password" value={formTwo.Confirm_password} onChange={handleChangeFormTwo} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                                 {/* </div> */}
 
                                 {eyeclose && (
@@ -203,51 +221,33 @@ const Reset = () => {
                                         <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
                                     </div>
                                 )}
-                            </div>
-
-                            <div className="xl:w-[70%] bg-[#e0e6f9] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%] rounded-2xl">
-                            {/* <div className="w-[90%]  rounded-l-2xl"> */}
-                                <input type={typeText ? "text" : "password"} placeholder="Confirm New Password"  name="Confirm_password" value={formTwo.Confirm_password} onChange={handleChangeFormTwo} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
-                            {/* </div> */}
-
-                            {eyeclose && (
-                                <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
-                                    <img src={eye_close} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
                                 </div>
+                                </>
                             )}
 
-                            {eyeopen && (
-                                <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
-                                    <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
-                                </div>
-                            )}
-                            </div>
-                            </>
-                        )}
 
+                            <div className="flex mt-15 justify-center mb-10">
+                                <div className="bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%] outline-0">
 
-                        <div className="flex mt-15 justify-center mb-10">
-                            <div className="bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%] outline-0">
-
-                            {loader && (
-                                <div className="w-[40%] flex justify-center items-center">
-                                    <div className="w-full p-2 ml:w-[75%] mm:w-full">
-                                        <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
+                                {loader && (
+                                    <div className="w-[40%] flex justify-center items-center">
+                                        <div className="w-full p-2 ml:w-[75%] mm:w-full">
+                                            <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
+                                        </div>
                                     </div>
-                                </div>
-                            )}
+                                )}
 
-                            {submitBt && (
-                                <div className="flex shrink-0 bg-[#3062f0] rounded-3xl">
-                                    <button type="submit" className="px-5 py-3 text-white font-Poppins hover:cursor-pointer">{stepCount === 1 ? "Continue" : "Reset Password"}</button>
-                                </div>
-                            )}
-                            </div>                    
-                        </div>
+                                {submitBt && (
+                                    <div className="flex shrink-0 bg-[#3062f0] rounded-3xl">
+                                        <button type="submit" className="px-5 py-3 text-white font-Poppins hover:cursor-pointer">{stepCount === 1 ? "Continue" : "Reset Password"}</button>
+                                    </div>
+                                )}
+                                </div>                    
+                            </div>
 
-                    </form>
+                        </form>
 
-                </div>
+                    </div>
                 </div>
 
             </div>
