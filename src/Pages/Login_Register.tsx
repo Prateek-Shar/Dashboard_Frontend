@@ -3,15 +3,12 @@ import Register_Head from "../components/login_register_com/register_head";
 import Login_Head from "../components/login_register_com/login_head";
 import Register_Form from "../components/login_register_com/register_form";
 import { UserProvider } from '../context/login_context';
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import DashboardBackground from "../components/login_section/Dashboard_bg";
 
 
 const Login_Register = () => {
 
-    const navigate = useNavigate();
 
     const [isRegister, setIsRegister] = useState(false);
     const [isLogin , setIsLogin] = useState(true)
@@ -35,27 +32,6 @@ const Login_Register = () => {
         // setIsRegisterBg(false)
     }
 
-    // console.log(`${import.meta.env.VITE_PRODUCTION_ADDRESS}`)
-
-    const handleAutoLogin = async() => {
-        
-        const res = await axios.get(`${import.meta.env.VITE_PRODUCTION_ADDRESS}/getInfo` , {
-            withCredentials : true,
-        });
-
-        if(!res) {
-            navigate("/")
-            return;
-        }
-
-        navigate("/overview");
-        return;
-    }
-
-
-    useEffect(() => {
-        handleAutoLogin()
-    } , [])
 
 
     return (
