@@ -65,9 +65,9 @@ const Login_Register = () => {
         <DashboardBackground />
 
         {/* Your actual website content */}
-        <div className="relative z-10 xl:w-screen xl:h-screen flex xl:justify-normal items-center ml:w-full ml:h-screen ml:justify-center mm:w-full mm:h-screen mm:justify-center mm:py-13 overflow-x-hidden overflow-y-hidden">
+        <div className="relative z-10 xl:w-screen xl:h-screen flex xl:justify-normal items-center ml:w-full ml:justify-center mm:w-full mm:h-screen mm:justify-center mm:py-13 overflow-x-hidden overflow-y-hidden">
 
-            <div className="w-[90%] flex justify-center items-center">
+            <div className="xl:w-screen mm:w-full flex justify-center items-center">
                 {/* {loginBg && (
                 <>
                     <div className="absolute mm:hidden xl:top-60 xl:left-80 xl:w-[64%] xl:h-[47%] bg-[#e4e7f4] rounded-xl shadow-lg z-0 ml:top-44 ml:left-13 ml:w-[80%] ml:h-[57%] mm:top-33 mm:left-8 mm:w-[88%] mm:h-[61%]" />
@@ -83,9 +83,9 @@ const Login_Register = () => {
                 )} */}
 
             
-                <div className="relative z-20 xl:ml-35 xl:w-[70%] xl:h-[90%] rounded-2xl shadow-2xl flex bg-[#F1F5F9] ml:w-[95%] ml:ml-5 mm:ml-5 mm:w-[95%]">
+                <div className="relative z-20 xl:w-[70%] rounded-2xl shadow-2xl flex bg-[#F1F5F9] mm:w-full">
                     
-                    <div className="xl:w-[40%] p-10 xl:flex flex-col justify-evenly ml:hidden mm:hidden bg-[#EEF4FF] rounded-l-2xl border-r-2 border-[#E5E7EB]"> 
+                    <div className="xl:w-[40%] p-10 xl:flex flex-col justify-evenly mm:hidden bg-[#EEF4FF] rounded-l-2xl border-r-2 border-[#E5E7EB]"> 
                         <div className="w-[80%]">
                             <h1 className="font-Poppins text-[#4a79ff] p-2 text-3xl">Welcome Back 👋</h1>
                             <div className="mt-2 px-2">
@@ -105,7 +105,7 @@ const Login_Register = () => {
                         </div>
                     </div> */}
 
-                    <div className="flex flex-col xl:rounded-r-2xl mm:rounded-2xl bg-[#f8f9ff] ">
+                    <div className="xl:w-[60%] mm:w-full flex flex-col xl:rounded-r-2xl mm:rounded-2xl bg-[#f8f9ff] ">
                         <UserProvider>
                             {isRegister && (
                                 <div className="flex flex-col items-center">

@@ -126,7 +126,7 @@ const Login_form:React.FC<OnErrMsg> = () => {
 
     return (
         
-       <div className="xl:w-[80%] mt-20 flex flex-col ml:w-full mm:mt-10">
+       <div className="xl:w-[80%] xl:mt-20 flex flex-col mm:w-full mm:mt-10">
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
 
                 {errorDiv && (
@@ -161,7 +161,7 @@ const Login_form:React.FC<OnErrMsg> = () => {
                     )}
                 </div>
 
-                <div className="w-[70%] mt-5 flex justify-end items-center">
+                <div className="xl:w-[70%] mm:w-[88%] mt-5 flex justify-end items-center">
                     <p className="flex font-Poppins text-[#3b60e7] hover:cursor-pointer" onClick={()=> {navigate('/resetPass')}}>Forgot Password ?</p>
                 </div>
 
