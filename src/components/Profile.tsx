@@ -64,8 +64,8 @@ const Profile = () => {
                     </div>
                     ) : (
                         
-                    <div className="w-full my-5 ml-5 flex items-center"> 
-                        <Skeleton paragraph={{rows : 1}} className="" active />
+                    <div className="w-full my-5 flex items-center"> 
+                        <Skeleton paragraph={{rows : 1}} className="pl-5" active />
                     </div>
                         
                     )

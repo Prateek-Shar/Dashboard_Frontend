@@ -39,7 +39,7 @@ const Login_form:React.FC<OnErrMsg> = () => {
 
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target;   
         setForm((prev) => {
             const newForm = { ...prev, [name]: value };
             return newForm;
