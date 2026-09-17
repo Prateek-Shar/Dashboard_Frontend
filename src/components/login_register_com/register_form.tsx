@@ -173,7 +173,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                     </div>
 
                     <div className="xl:w-[50%] mm:w-[80%] flex items-center">
-                        <p className="font-Poppins xl:text-[16px] mm:text-[12px]">Agree To Terms and Conditions</p>
+                        <p className="font-Poppins xl:text-[16px] mm:text-[12px]">I Agree To Terms and Conditions</p>
                     </div>
                 </div>
 

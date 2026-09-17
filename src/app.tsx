@@ -28,7 +28,7 @@ const App = () => {
                 <Route element = {<No_sidebar />}>
                     <Route path="/" element={<Landing_Page />} />
                     <Route path="*" element={<No_Page />} />
-                    <Route path="/login" element={<Login_Register />} />
+                    <Route path="/login_register" element={<Login_Register />} />
                     <Route path="/resetPass" element={<Reset />} />
                 </Route>
 

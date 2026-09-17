@@ -89,12 +89,16 @@ const Login_Register = () => {
                         <div className="w-[80%]">
                             <h1 className="font-Poppins text-[#4a79ff] p-2 text-3xl">Welcome Back 👋</h1>
                             <div className="mt-2 px-2">
-                                <span className="font-Poppins text-gray-600 py-1">Manage your work, track progress, and stay focused — all in one place.</span>
+                                <span className="font-Poppins text-gray-600 py-1">Manage your work,</span> 
+                                <p className="font-Poppins text-gray-600 py-1">track progress, </p>
+                                <p className="font-Poppins text-gray-600 py-1">and stay focused — all in one place.</p>
                             </div>
                         </div>
 
                         <div className="w-[70%] mt-2">
-                            <p className="text-gray-600 p-2 font-Poppins">A whole new productive journey starts right here</p>
+                            <p className="text-gray-600 p-2 font-Poppins">A whole new</p>
+                            <span className="text-gray-600 p-2 font-Poppins">productive journey,</span>
+                            <p className="text-gray-600 p-2 font-Poppins">starts right here</p>
                         </div>
                     </div>
 

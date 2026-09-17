@@ -126,13 +126,13 @@ const Login_form:React.FC<OnErrMsg> = () => {
 
     return (
         
-       <div className="xl:w-[80%] xl:mt-20 flex flex-col mm:w-full mm:mt-10">
+       <div className="xl:w-[80%] flex flex-col mm:w-full mt-15">
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
 
                 {errorDiv && (
                     <div className="w-full flex justify-center items-center mb-2">
-                        <div className="w-[50%] flex justify-center items-center">
-                            <img src={cross} className="object-contain w-[6%]"/>
+                        <div className="flex justify-center items-center">
+                            <img src={cross} className="object-contain xl:w-[4%]"/>
                             <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
                         </div>
                     </div>
@@ -169,10 +169,8 @@ const Login_form:React.FC<OnErrMsg> = () => {
                     <div className="xl:w-[30%] bg-[#3062f0] flex justify-center rounded-3xl shadow-2xl shadow-blue-400 ml:w-[50%] mm:w-[50%] outline-0">
 
                     {loader && (
-                        <div className="w-[40%] flex justify-center items-center">
-                            <div className="w-full p-2 ml:w-[75%] mm:w-full">
-                                <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
-                            </div>
+                        <div className="w-[40%] py-2 flex justify-center items-center">
+                            <Spin size="large" indicator={<LoadingOutlined style={{ color : "#ffffff" }}  spin />} />
                         </div>
                     )}
 
