@@ -7,6 +7,7 @@ import settings from "/images/settings.png";
 import box from "/images/product.png";
 import task from "/images/task_project.png"
 import overview from "/images/overview.png";
+import cross from "/images/cross.png"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -17,6 +18,7 @@ const Sidebar = () => {
     const [openDrawerBt , setOpenDrawerBt] = useState(true)
     const [closeDrawerBt , setCloseDrawerBt] = useState(false)
     const [settingsOptions , setSettingsOptions] = useState(false)
+    const [PrefDiv , setPrefDiv] = useState<boolean>(false)
 
 
     const navigate = useNavigate()
@@ -66,9 +68,6 @@ const Sidebar = () => {
         setCloseDrawerBt(true)
         setOpenDrawerBt(false)
 
-        // if(BasicInfo.current) {
-        //     BasicInfo.current.style.marginTop = "331px";
-        // }
     }
 
     const closeDefaultOptions = () => {
@@ -77,13 +76,26 @@ const Sidebar = () => {
         setCloseDrawerBt(false)
         setOpenDrawerBt(true)
 
-
-        // if(BasicInfo.current) {
-        //     BasicInfo.current.style.marginTop = "420px"
-        // }
     }
 
-    // bg-[#EEF4FF]
+    const api_uri = import.meta.env.VITE_PRODUCTION_ADDRESS
+
+    const handleDeleteAcc = async() => {
+
+        const res = await fetch(`${api_uri}/deleteAcc` , {
+            method : "delete",
+            credentials : "include"
+        })
+
+        if(!res.ok) {
+            console.error("Something Broke")
+            return;
+        }
+        
+        navigate("/")
+
+    }
+
 
     return (
         <div className="w-64 shrink-0 min-h-screen bg-white border-2 border-l-0 border-t-0 border-[#ebedf0] flex flex-col justify-between">
@@ -183,7 +195,14 @@ const Sidebar = () => {
                     {settingsOptions && (
                         <div className="w-[68%] flex-col ml-15 mt-3">
                             <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-red-600 hover:bg-white rounded-[5px] hover:cursor-pointer" onClick={handleClickToSignOut}>Logout</p>
-                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-[#9197b3] hover:bg-white rounded-[5px] hover:cursor-pointer">Preferences</p>
+                            <p className="pt-2 pb-2 pl-[7px] font-Poppins text-[15px] text-[#9197b3] hover:bg-white rounded-[5px] hover:cursor-pointer" onClick={()=>{setPrefDiv((prev) => !prev)}}>Preferences</p>
+                        </div>
+                    )}
+
+                    {PrefDiv && (
+                        <div className="flex w-fit hover:bg-red-300 items-center mt-10 py-2 rounded-2xl hover:cursor-pointer ml-4" onClick={handleDeleteAcc}>
+                            <img src={cross} className="ml-2 w-4 h-4"/>
+                            <p className="font-Poppins text-[#9197b3] px-2">Delete Account</p>
                         </div>
                     )}
                 </div>
