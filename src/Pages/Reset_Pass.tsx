@@ -118,7 +118,7 @@ const Reset = () => {
             return;
         }
 
-        navigate("/login")
+        navigate("/login_register")
         console.info("Password changed")
         
     }
