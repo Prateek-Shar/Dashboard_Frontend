@@ -35,6 +35,7 @@ const Reset = () => {
         setFormTwo({ ...formTwoDefault });
     };
 
+    const [formOneDefault] = useState<formOne>(formOne)
     const [formTwoDefault] = useState<formTwo>(formTwo)
 
     const [loader] = useState(false)
@@ -134,6 +135,7 @@ const Reset = () => {
         if(!res.ok) {
             setErrorDiv(true)
             setErrMsg(data.msg)
+            setFormOne(formOneDefault)
 
             setTimeout(() => {
                 setErrorDiv(false)
@@ -153,9 +155,9 @@ const Reset = () => {
 
             <div className="w-screen min-h-screen flex justify-center items-center">
 
-                <div className="flex xl:flex-row mm:flex-col justify-center">
-                    <div className="xl:py-10 xl:px-10 mm:py-5 mm:px-5 xl:flex flex-col justify-evenly bg-[#EEF4FF] xl:rounded-l-2xl xl:rounded-tr-none mm:rounded-t-2xl border-r-2 border-[#E5E7EB]"> 
-                        <div className="flex flex-col my-10">
+                <div className="xl:w-[60%] mm:w-full flex xl:flex-row mm:flex-col justify-center">
+                    <div className="xl:w-[50%] mm:w-full xl:py-10 xl:px-10 mm:py-5 mm:px-5 xl:flex flex-col justify-evenly bg-[#EEF4FF] xl:rounded-l-2xl xl:rounded-tr-none mm:rounded-t-2xl border-r-2 border-[#E5E7EB]"> 
+                        <div className="flex flex-col xl:my-10 mm:my-5">
                             <h1 className="font-Poppins text-[#4a79ff] p-2 xl:text-3xl mm:text-2xl">Reset Your Password 🔐</h1>
                             <div className="mt-5 px-2">
                                 <span className="font-Poppins text-gray-600 py-1">Forgot your password? No worries — we'll help you get back into your account securely.</span>
@@ -167,40 +169,38 @@ const Reset = () => {
                         </div>
                     </div>
 
-                    <div className="w-full flex flex-col bg-[#EEF4FF] xl:rounded-r-2xl xl:rounded-bl-none mm:rounded-b-2xl justify-center">
-                        <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center">
+                    <div className="xl:w-[50%] mm:w-full flex flex-col bg-[#EEF4FF] xl:rounded-r-2xl xl:rounded-bl-none mm:rounded-b-2xl justify-center">
+                        <form onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center">
 
                             {errorDiv && (
-                                <div className="w-full flex justify-center items-center mt-5">
-                                    <div className="w-[50%] flex justify-center items-center">
-                                        <img src={cross} className="object-contain w-[4%]"/>
-                                        <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
-                                    </div>
+                                <div className="flex justify-center items-center mt-5">
+                                    <img src={cross} className="object-contain w-4 h-4"/>
+                                    <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
                                 </div>
                             )}
 
                             {stepCount == 1 && (
-                                <div className="xl:w-[70%] xl:mt-5 ml:w-[85%] mm:w-[90%] mm:mt-0 ml:mt-5">
+                                <div className="xl:w-[70%] mm:w-[90%] flex mm:mt-0 ml:mt-5">
                                     <input type="text" placeholder="Enter Username" name="Username" autoComplete="off" onChange={handleChangeFormOne} value={formOne.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0 disabled:cursor-not-allowed" disabled={disabled} />
                                 </div>
                             )}
                             
                             {stepCount == 2 && (
-                                <>
-                                <div className="xl:w-[70%] bg-[#e0e6f9] flex mt-8 mb-2 justify-center ml:w-[85%] mm:w-[90%] rounded-2xl">
+                                <div className="flex flex-col justify-center items-center xl:mt-5 mm:mt-0">
+                                <div className="xl:w-[70%] bg-[#e0e6f9] flex mt-8 mb-2 justify-center mm:w-[90%] rounded-2xl">
                                     {/* <div className="w-[90%]  rounded-l-2xl"> */}
                                         <input type={typeText ? "text" : "password"} placeholder="New Password"  name="Password" value={formTwo.Password} onChange={handleChangeFormTwo} className=" font-Poppins w-full p-5 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                                     {/* </div> */}
 
                                     {eyeclose && (
-                                        <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
-                                            <img src={eye_close} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                                        <div className="xl:w-[10%] mm:w-[13%] flex justify-center items-center hover:cursor-pointer">
+                                            <img src={eye_close} className="p-2" onClick={togglePassword}/>
                                         </div>
                                     )}
 
                                     {eyeopen && (
-                                        <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
-                                            <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                                        <div className="xl:w-[10%] mm:w-[13%] flex justify-center items-center hover:cursor-pointer">
+                                            <img src={eye_open} className="p-2" onClick={togglePassword}/>
                                         </div>
                                     )}
                                 </div>
@@ -211,18 +211,18 @@ const Reset = () => {
                                 {/* </div> */}
 
                                 {eyeclose && (
-                                    <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
-                                        <img src={eye_close} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                                    <div className="xl:w-[10%] mm:w-[13%] flex justify-center items-center hover:cursor-pointer">
+                                        <img src={eye_close} className="p-2" onClick={togglePassword}/>
                                     </div>
                                 )}
 
                                 {eyeopen && (
-                                    <div className="w-[10%] flex justify-center items-center rounded-r-2xl">
-                                        <img src={eye_open} className="object-contain w-[50%] hover:cursor-pointer" onClick={togglePassword}/>
+                                    <div className="xl:w-[10%] mm:w-[13%] flex justify-center items-center hover:cursor-pointer">
+                                        <img src={eye_open} className="p-2" onClick={togglePassword}/>
                                     </div>
                                 )}
                                 </div>
-                                </>
+                                </div>
                             )}
 
 
