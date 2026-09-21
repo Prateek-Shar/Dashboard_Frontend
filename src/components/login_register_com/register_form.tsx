@@ -141,7 +141,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                  
 
                 <div className="w-full mt-8 flex justify-center">
-                    <input type="text" placeholder="Enter Email" value={form.Email} onChange={handleChange} name="Email" autoComplete="text" className="xl:text-[16px] mm:text-[12px] ont-Poppins xl:p-5 mm:p-3 xl:w-[70%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0" />
+                    <input type="text" placeholder="Enter Email" value={form.Email} onChange={handleChange} name="Email" autoComplete="text" className="xl:text-[16px] mm:text-[12px] ont-Poppins xl:p-5 mm:p-3 xl:w-[70%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0 font-Poppins" />
                 </div>
 
                 <div className="w-full flex mt-8 mb-2 justify-center">
