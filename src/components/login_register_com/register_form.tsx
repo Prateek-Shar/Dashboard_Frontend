@@ -42,7 +42,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        console.log('Input change:', name, value);
+        // console.log('Input change:', name, value);
         setForm((prev) => {
             const newForm = { ...prev, [name]: value };
             console.log('New form state:', newForm);

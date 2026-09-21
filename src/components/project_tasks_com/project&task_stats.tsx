@@ -123,7 +123,7 @@ const Project_Task_Stats = () => {
                                 </div>
 
                                 <div className="w-full ">
-                                    <p className="font-Poppins text-[13px] p-2  text-[#495057] ">NA</p>
+                                    <p className="font-Poppins text-[13px] p-2 text-[#495057]">NA</p>
                                 </div>
                             </div>
                         </div>
