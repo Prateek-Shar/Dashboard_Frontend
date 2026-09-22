@@ -164,7 +164,7 @@ const Reset = () => {
                             </div>
                         </div>
 
-                        <div className="my-5">
+                        <div className="xl:flex mm:hidden">
                             <p className="text-gray-600 p-2 font-Poppins">Create a new password and get back to managing your work with ease.</p>
                         </div>
                     </div>
@@ -185,7 +185,7 @@ const Reset = () => {
                                         <input type="text" placeholder="Enter Username" name="Username" autoComplete="off" onChange={handleChangeFormOne} value={formOne.Username} className="font-Poppins p-5 w-full bg-[#e0e6f9] rounded-2xl placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0 disabled:cursor-not-allowed" disabled={disabled} />
                                     </div>
 
-                                    <div className="flex mt-10 w-[70%] justify-end cursor-pointer" onClick={()=> {navigate("/login_register")}}>
+                                    <div className="flex mt-10 xl:w-[70%] mm:w-[85%] justify-end cursor-pointer" onClick={()=> {navigate("/login_register")}}>
                                         <p className="font-Poppins text-[#3b60e7]">Remember Password ?</p>
                                     </div>
                                 </>
@@ -229,7 +229,7 @@ const Reset = () => {
                                     )}
                                     </div>
 
-                                    <div className="flex mt-10 w-[70%] justify-end cursor-pointer" onClick={()=> {navigate("/login_register")}}>
+                                    <div className="flex mt-10 xl:w-[70%] mm:w-[85%] justify-end cursor-pointer" onClick={()=> {navigate("/login_register")}}>
                                         <p className="font-Poppins text-[#3b60e7]">Remember Password ?</p>
                                     </div>
                                 </div>
