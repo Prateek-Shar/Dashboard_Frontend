@@ -62,19 +62,19 @@ const Login_Register = () => {
                 <div className="relative z-20 xl:w-[70%] rounded-2xl shadow-2xl flex bg-[#F1F5F9] mm:w-full">
                     
                     <div className="xl:w-[40%] p-10 xl:flex flex-col justify-evenly mm:hidden bg-[#EEF4FF] rounded-l-2xl border-r-2 border-[#E5E7EB]"> 
-                        <div className="w-[80%]">
+                        <div className="flex flex-col">
                             <h1 className="font-Poppins text-[#4a79ff] p-2 text-3xl">Welcome Back 👋</h1>
                             <div className="mt-2 px-2">
-                                <span className="font-Poppins text-gray-600 py-1">Manage your work,</span> 
-                                <p className="font-Poppins text-gray-600 py-1">track progress, </p>
-                                <p className="font-Poppins text-gray-600 py-1">and stay focused — all in one place.</p>
+                                <span className="font-Poppins text-gray-600 p-1">Manage your work,</span> 
+                                <p className="font-Poppins text-gray-600 p-1">track progress, </p>
+                                <p className="font-Poppins text-gray-600 p-1">and stay focused — all in one place.</p>
                             </div>
                         </div>
 
-                        <div className="w-[70%] mt-2">
-                            <p className="text-gray-600 p-2 font-Poppins">A whole new</p>
-                            <span className="text-gray-600 p-2 font-Poppins">productive journey,</span>
-                            <p className="text-gray-600 p-2 font-Poppins">starts right here</p>
+                        <div className="flex flex-col mt-2">
+                            <p className="text-gray-600 p-1 font-Poppins">A whole new</p>
+                            <span className="text-gray-600 p-1 font-Poppins">productive journey,</span>
+                            <p className="text-gray-600 p-1 font-Poppins">starts right here</p>
                         </div>
                     </div>
 
