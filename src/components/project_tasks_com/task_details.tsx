@@ -68,26 +68,27 @@ const Task_Details = () => {
                 </div>
             )}
 
+            
+            <div className="xl:w-full mm:w-[90%] flex justify-between items-center my-5">
+                <div className="xl:flex mm:hidden w-[30%] flex justify-between">
+                    <p className="font-Alan text-2xl">Current Tasks</p>
+                    <div className="w-[5%] flex justify-center items-center">
+                        <div className="w-[2px] h-[90%] bg-[#f4f4f6]"/>
+                    </div> 
+                    <p className="font-medium text-[20px]">Done NA</p>
+                </div>
+
+                <p className="xl:hidden mm:flex font-Poet">Task Details</p>
+                
+                <div className="flex bg-[#f1f1f1] px-4 py-2 rounded-3xl justify-center items-center">
+                    <p className="font-Poppins text-[13px]">{month}</p>
+                    <img src={down} className="object-contain w-4 h-4 ml-2" />
+                </div>
+            </div>
+
             {showStats && (
                 details.length > 0 ? (
                     <>
-                    <div className="xl:w-full mm:w-[90%] flex justify-between items-center my-5">
-                        <div className="xl:flex mm:hidden w-[30%] flex justify-between">
-                            <p className="font-Alan text-2xl">Current Tasks</p>
-                            <div className="w-[5%] flex justify-center items-center">
-                                <div className="w-[2px] h-[90%] bg-[#f4f4f6]"/>
-                            </div> 
-                            <p className="font-medium text-[20px]">Done 30%</p>
-                        </div>
-
-                        <p className="xl:hidden mm:flex font-Poet">Task Details</p>
-                        
-                        <div className="flex bg-[#f1f1f1] px-4 py-2 rounded-3xl justify-center items-center">
-                            <p className="font-Poppins text-[13px]">{month}</p>
-                            <img src={down} className="object-contain w-4 h-4 ml-2" />
-                        </div>
-                    </div>
-
                     <div className="w-full xl:flex mm:hidden flex-col mt-5">
                         <div className="flex grow">
                             <div className="w-[55%] flex items-center">

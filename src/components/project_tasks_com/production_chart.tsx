@@ -22,9 +22,9 @@ const Line_chart:React.FC<d> = ( {from , to} ) => {
         }
     }
 
-    useEffect(() => {
-        getData(from , to)
-    } , [])
+    // useEffect(() => {
+    //     getData(from , to)
+    // } , [])
 
     console.log("From : " , from  , ":" , "To : " , to )
 
