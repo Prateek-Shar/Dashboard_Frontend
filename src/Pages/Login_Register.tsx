@@ -71,7 +71,7 @@ const Login_Register = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col mt-2">
+                        <div className="flex flex-col mt-2 px-2">
                             <p className="text-gray-600 p-1 font-Poppins">A whole new</p>
                             <span className="text-gray-600 p-1 font-Poppins">productive journey,</span>
                             <p className="text-gray-600 p-1 font-Poppins">starts right here</p>
