@@ -29,6 +29,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
     const [isChecked , setIsChecked] = useState(false)
     const [typeText , setTypeText] = useState(false)
     const [loader , setLoader] = useState(false)
+    const [signUpBt , setSignUpBt] = useState<boolean>(true)
 
     const [eyeclose , setEyeclose] = useState(true)
     const [eyeopen , setEyeopen] = useState(false)
@@ -52,6 +53,7 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         setLoader(true)
+        setSignUpBt(false)
 
         e.preventDefault();
         
@@ -79,14 +81,9 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
 
         const data = await res.json();
 
-        if (res.ok) {
-            setLoader(false)
-            console.log("User registered successfully:", data);
-            onSwitch()
-        }
-
         if (!res.ok) {
             setLoader(false)
+            setSignUpBt(true)
             setErrMsg(data.err_msg)
             setErrorDiv(true)
 
@@ -99,6 +96,10 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
             setForm({ ...default_form });
             return;
         }   
+
+        setLoader(false)
+        setSignUpBt(true)
+        onSwitch()
     };
 
     
@@ -188,9 +189,11 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                         </div>
                     )}
 
+                    {signUpBt && (
                         <div className="w-[50%] flex">
                             <button type="submit" className="w-full p-3 text-white font-Poppins hover:cursor-pointer">Sign Up</button>
                         </div>
+                    )}
                     </div>
 
                 </div>
