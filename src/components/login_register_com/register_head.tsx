@@ -10,7 +10,7 @@ const Register_Head:React.FC<Register> = ( {onSwitch} ) => {
         <div className="flex justify-evenly w-[90%] mt-2 mm:mr-0">
             <button className="flex flex-col">
                 <div className="rounded-3xl flex justify-center mt-2">
-                    <p className="font-Poppins xl:p-3 m:p-2 xl:text-[16px] mm:text-[14px] text-[#3b60e7]">Sign Up</p>
+                    <p className="font-Poppins xl:p-3 mm:p-[5px] xl:text-[16px] mm:text-[14px] text-[#3b60e7]">Sign Up</p>
                 </div>  
 
                 <div className="w-full flex justify-center items-center">

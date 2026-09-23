@@ -130,9 +130,9 @@ const Register_Form:React.FC<ToggleToSwitch> = ( {onSwitch} ) => {
                 )}  
 
                 <div className="w-full flex justify-center items-center mb-3">
-                    <div className="w-[88%] flex justify-evenly items-center">
-                        <input type="text" placeholder="Enter First Name" onChange={handleChange} value={form.First_name} name="First_name" autoComplete="off" className="xl:text-[16px] mm:text-[12px] font-Poppins xl:w-[35%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl xl:p-5 mm:p-3 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
-                        <input type="text" placeholder="Enter Last Name" onChange={handleChange} value={form.Last_name} name="Last_name" autoComplete="off" className="xl:text-[16px] mm:text-[12px] font-Poppins xl:w-[35%] mm:w-[90%] bg-[#e0e6f9] rounded-2xl xl:p-5 mm:p-3 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                    <div className="w-[88%] flex xl:justify-evenly mm:justify-between items-center">
+                        <input type="text" placeholder="Enter First Name" onChange={handleChange} value={form.First_name} name="First_name" autoComplete="off" className="xl:text-[16px] mm:text-[12px] font-Poppins xl:w-[35%] mm:w-[45%] bg-[#e0e6f9] rounded-2xl xl:p-5 mm:p-3 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
+                        <input type="text" placeholder="Enter Last Name" onChange={handleChange} value={form.Last_name} name="Last_name" autoComplete="off" className="xl:text-[16px] mm:text-[12px] font-Poppins xl:w-[35%] mm:w-[45%] bg-[#e0e6f9] rounded-2xl xl:p-5 mm:p-3 placeholder:text-[#9299a9] placeholder:font-Poppins focus:outline-0"/>
                     </div>
                 </div>
                 
