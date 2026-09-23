@@ -130,9 +130,9 @@ const Login_form:React.FC<OnErrMsg> = () => {
             <form onSubmit={handleSubmit} className="flex flex-col items-center">
 
                 {errorDiv && (
-                    <div className="w-full flex justify-center items-center mb-2">
+                    <div className="w-full flex justify-center items-center mb-5">
                         <div className="flex justify-center items-center">
-                            <img src={cross} className="object-contain xl:w-[4%]"/>
+                            <img src={cross} className="object-contain xl:w-[4%] mm:w-[5%]"/>
                             <p className="font-Poppins text-red-500 ml-2">{err_msg}</p>
                         </div>
                     </div>
