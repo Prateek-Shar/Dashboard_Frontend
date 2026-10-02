@@ -456,7 +456,7 @@ const Table_content: React.FC = () => {
 
           <div className="w-full flex justify-center items-center my-40">
             <div className="w-[80%] bg-white py-10 flex justify-center rounded-2xl">
-              <p className="font-Poppins text-2xl">No Customers Found.</p>
+              <p className="font-Poppins xl:text-2xl mm:text-[14px]">No Customers Found.</p>
             </div>
           </div>
 

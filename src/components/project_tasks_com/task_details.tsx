@@ -117,35 +117,35 @@ const Task_Details = () => {
 
                                 {/* Task */}
                                 <div className="xl:w-[55%] mm:w-full flex items-center">
-                                    <div className="xl:w-[8%] mm:w-[18%] flex bg-[#f0f0f2] rounded-full">
-                                        <img src={check} className="p-4" />
+                                    <div className="xl:w-[8%] mm:w-[20%] flex bg-[#f0f0f2] rounded-full">
+                                        <img src={check} className="xl:p-4 mm:p-[6px]" />
                                     </div>
 
-                                    <p className="font-medium ml-3 text-[18px]">
+                                    <p className="font-medium xl:ml-3 mm:ml-5 xl:text-[18px] mm:text-[14px]">
                                         {dt.Task_desc}
                                     </p>
                                 </div>
 
                                 {/* Status */}
-                                <div className="xl:w-[20%] mm:w-[56%] flex xl:justify-center mm:justify-normal items-center">
+                                <div className="xl:w-[20%] mm:w-[80%] flex xl:justify-center mm:justify-normal items-center xl:mt-0 mm:mt-2">
                                     <div className="rounded-full bg-green-400 p-1" />
 
-                                    <p className="font-Poppins text-[14px] ml-2">
+                                    <p className="font-Poppins xl:text-[16px] mm:text-[13px] xl:ml-2 mm:ml-3">
                                         {dt.Task_status}
                                     </p>
                                 </div>
 
                                 {/* Duration */}
-                                <div className="xl:w-[15%] mm:w-[61%] xl:mt-0 mm:mt-2 flex items-center xl:justify-center mm:justify-normal">
-                                    <img src={clock} className="w-8 h-8 p-2" />
+                                <div className="xl:w-[15%] mm:w-[80%] xl:mt-0 mm:mt-2 flex items-center xl:justify-center mm:justify-normal">
+                                    <img src={clock} className="xl:w-8 xl:h-8 xl:p-2 mm:p-0 mm:w-3 mm:h-3" />
 
-                                    <p className="font-Poet ml-2">
+                                    <p className="font-Poet xl:text-[16px] mm:text-[14px] ml-2">
                                         {new Date(dt.End_date).toString().slice(4,10)}
                                     </p>
                                 </div>
 
                                 {/* Menu */}
-                                <div className="xl:w-[10%] mm:w-[60%] relative flex xl:justify-center mm:justify-normal items-center">
+                                <div className="xl:w-[10%] mm:w-[68%] relative xl:flex xl:justify-center mm:justify-normal items-center mm:hidden">
                                     <div className="flex justify-center relative" onClick={() => {handleClickToOptions(dt._id)}}>
                                         <img src={dots} className="w-10 h-10 p-2" />
                                     </div>

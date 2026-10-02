@@ -289,7 +289,7 @@ const Product_table = () => {
             ) : (
 
             <div className="w-full xl:p-30 mm:p-10 flex justify-center items-center">
-                <div className="w-[80%] flex justify-center items-center bg-white rounded-3xl">
+                <div className="w-[90%] flex justify-center items-center bg-white rounded-3xl">
                     <p className="font-Poppins xl:p-10 xl:text-2xl mm:text-[15px] mm:p-8">No Products Found</p>
                 </div>
             </div>

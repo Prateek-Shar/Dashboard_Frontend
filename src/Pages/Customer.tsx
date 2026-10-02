@@ -43,7 +43,7 @@ const Customer_page = () => {
                 </StatsProvider>
 
                 <div className="mm:flex xl:hidden justify-center items-center fixed bottom-3 right-3">
-                <Add_customer />
+                    <Add_customer />
                 </div>
 
             </div>
