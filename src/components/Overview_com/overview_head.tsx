@@ -4,6 +4,7 @@ import right from "/images/right_arr.png";
 import { Skeleton } from 'antd';
 import { useRef , useEffect , useState } from "react";
 import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
 
 interface UserData {
   First_name : string
@@ -21,6 +22,7 @@ const Overview_Head = () => {
 
     const resetBt = useRef<HTMLDivElement>(null);
 
+    const expandDivRef = useRef<HTMLDivElement>(null);
 
     const fetchUser = async () => {  
         try {
@@ -52,6 +54,7 @@ const Overview_Head = () => {
 
     const handleQuickLinks = () => {
         setMoreLinks(true)
+
         setQuickLinksBt(false)
     }
 
@@ -72,6 +75,16 @@ const Overview_Head = () => {
     const handleClickToProducts = () => {
         Navigate("/addProduct")
     }
+
+    useEffect(() => {
+        if(expandDivRef.current && moreLinks) {
+            gsap.fromTo(expandDivRef.current, {
+                width : "0px",
+            } , {width : "540px",
+                duration : 1
+            })
+        }
+    })
 
 
     return (
@@ -118,7 +131,7 @@ const Overview_Head = () => {
             )}
 
             {moreLinks && (
-                <div className="expand-div flex justify-evenly items-center">
+                <div className="flex justify-evenly items-center" ref={expandDivRef}>
 
                     <div className="w-[4%] flex justify-center items-center bg-white rounded-[100px] mt-3 mb-2 border-2 border-[#ced4da] shadow-2xl hover:cursor-pointer"  ref={resetBt} onClick={ResetToQuickLinksDiv}>
                         <div className="w-full">
@@ -146,7 +159,7 @@ const Overview_Head = () => {
                         </div>
                     </div>
 
-                    <div className="w-[28%] flex white bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer" onClick={handleClickToCustomer}>
+                    <div className="w-[28%] flex white bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToCustomer}>
                         <div className="w-[75%] flex justify-center items-center">
                             <p className="font-Poppins text-[14px]">Add Customer</p>
                         </div>

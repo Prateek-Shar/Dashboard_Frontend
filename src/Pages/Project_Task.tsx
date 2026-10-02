@@ -18,8 +18,8 @@ const Project_Task = () => {
     const startForChart = new Date(endForChart)
     startForChart.setDate(endForChart.getDate() - 7)
 
-    console.log("Start : " , startForChart.toString())
-    console.log("End : " , endForChart.toString())
+    // console.log("Start : " , startForChart.toString())
+    // console.log("End : " , endForChart.toString())
 
     const end = date - 7;
 
