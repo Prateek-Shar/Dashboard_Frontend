@@ -80,7 +80,7 @@ const Overview_Head = () => {
         if(expandDivRef.current && moreLinks) {
             gsap.fromTo(expandDivRef.current, {
                 width : "0px",
-            } , {width : "540px",
+            } , {width : "600px",
                 duration : 1
             })
         }
