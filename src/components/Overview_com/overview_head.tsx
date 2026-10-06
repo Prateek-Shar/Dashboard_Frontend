@@ -81,7 +81,7 @@ const Overview_Head = () => {
             gsap.fromTo(expandDivRef.current, {
                 width : "0px",
             } , {width : "600px",
-                duration : 1
+                duration : .5
             })
         }
     })
@@ -133,38 +133,30 @@ const Overview_Head = () => {
             {moreLinks && (
                 <div className="flex justify-evenly items-center" ref={expandDivRef}>
 
-                    <div className="w-[4%] flex justify-center items-center bg-white rounded-[100px] mt-3 mb-2 border-2 border-[#ced4da] shadow-2xl hover:cursor-pointer"  ref={resetBt} onClick={ResetToQuickLinksDiv}>
-                        <div className="w-full">
-                            <img src={right} />
-                        </div>  
+                    <div className="w-fit flex justify-center items-center bg-white rounded-[100px]  border-2 border-[#ced4da] shadow-2xl hover:cursor-pointer"  ref={resetBt} onClick={ResetToQuickLinksDiv}>
+                        <img src={right} className="w-4"/>
                     </div>
 
-                    <div className="w-[25%] flex bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToProducts}>
-                        <div className="w-[70%] flex justify-center items-center">
-                            <p className="font-Poppins text-[14px]">Add Product</p>
-                        </div>
+                    <div className="w-fit flex bg-[#ced4da] justify-around items-center rounded-2xl hover:cursor-pointer px-1" onClick={handleClickToProducts}>
+                        <p className="font-Poppins text-[14px] px-2">Add Product</p>
 
-                        <div className="w-[20%] p-1.5 flex justify-center items-center">   
+                        <div className="w-8 p-2 flex justify-center items-center">   
                             <img src={add} />
                         </div>
                     </div>
 
-                    <div className="w-[25%] flex bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToIncome}>
-                        <div className="w-[70%] flex justify-center items-center">
-                            <p className="font-Poppins text-[14px]">Add Income</p>
-                        </div>
+                    <div className="w-fit flex bg-[#ced4da] justify-around items-center rounded-2xl hover:cursor-pointer px-1" onClick={handleClickToIncome}>
+                        <p className="font-Poppins text-[14px] px-2">Add Income</p>
 
-                        <div className="w-[20%] p-1.5 flex justify-center items-center">
+                        <div className="w-8 p-2 flex justify-center items-center">
                             <img src={add} />
                         </div>
                     </div>
 
-                    <div className="w-[28%] flex white bg-[#ced4da] m-1 justify-around rounded-2xl hover:cursor-pointer p-1" onClick={handleClickToCustomer}>
-                        <div className="w-[75%] flex justify-center items-center">
-                            <p className="font-Poppins text-[14px]">Add Customer</p>
-                        </div>
+                    <div className="w-fit flex white bg-[#ced4da] justify-around items-center rounded-2xl hover:cursor-pointer px-1" onClick={handleClickToCustomer}>
+                        <p className="font-Poppins text-[14px] px-2">Add Customer</p>
 
-                        <div className="w-[20%] p-2 flex justify-center items-center">
+                        <div className="w-8 p-2 flex justify-center items-center">
                             <img src={add} />
                         </div>
                     </div>
