@@ -100,7 +100,7 @@ const Latest_Transaction = () => {
                             {stats.map((st, index) => {
 
                             const isoDate = new Date(st.Created_at).toDateString();
-                            const SlicedDate = isoDate.slice(0, 10);
+                            const SlicedDate = isoDate.slice(4, 10);
 
                             return (
                                 <div key={index} className="xl:flex xl:flex-row mm:flex-col w-full justify-evenly my-2">
